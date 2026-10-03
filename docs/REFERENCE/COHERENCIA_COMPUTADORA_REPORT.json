@@ -1,0 +1,194 @@
+{
+  "timestamp": "C:\\Users\\woire\\Documents\\proyecto-golem",
+  "overall_status": "PASSED",
+  "components_passed": 13,
+  "components_warning": 0,
+  "components_failed": 0,
+  "total_checks": 40,
+  "total_passed": 40,
+  "results": [
+    {
+      "component": "arquitectura",
+      "sefira": "Chokm\u00e1 (\u05d7\u05db\u05de\u05d4 \u2014 Sabidur\u00eda)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe __init__.py",
+        "\u2705 Check 2: Contiene mapeo Sefirot\u2194m\u00f3dulos",
+        "\u2705 Check 3: SDD.md referenciado"
+      ]
+    },
+    {
+      "component": "canales",
+      "sefira": "Hod (\u05d4\u05d5\u05d3 \u2014 Esplendor)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe __init__.py",
+        "\u2705 Check 2: Define protocolos comunicaci\u00f3n",
+        "\u2705 Check 3: Soporta inter-process channels"
+      ]
+    },
+    {
+      "component": "cerebro",
+      "sefira": "K\u00e9ter (\u05db\u05ea\u05e8 \u2014 Corona)",
+      "status": "PASSED",
+      "checks_passed": 4,
+      "checks_total": 4,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe nlu.py (CerebroGolem)",
+        "\u2705 Check 2: Existe las_cinco_leyes.py",
+        "\u2705 Check 3: Existe gemini_api.py o copilot_api.py",
+        "\u2705 Check 4: Nivel 1/2/3 diferenciados"
+      ]
+    },
+    {
+      "component": "expresion",
+      "sefira": "Tiferet (\u05ea\u05e4\u05d0\u05e8\u05ea \u2014 Belleza)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe __init__.py",
+        "\u2705 Check 2: Define expresiones visuales",
+        "\u2705 Check 3: Integra con interfaz/"
+      ]
+    },
+    {
+      "component": "fundacion",
+      "sefira": "J\u00e9sed (\u05d7\u05e1\u05d3 \u2014 Misericordia)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe axiomas.py",
+        "\u2705 Check 2: Contiene 5 Fases Alqu\u00edmicas",
+        "\u2705 Check 3: Define Manifestaci\u00f3n"
+      ]
+    },
+    {
+      "component": "habilidades",
+      "sefira": "Gevur\u00e1 (\u05d2\u05d1\u05d5\u05e8\u05d4 \u2014 Fuerza)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe __init__.py",
+        "\u2705 Check 2: Contiene herramientas ejecutables",
+        "\u2705 Check 3: Cada herramienta tiene error handling"
+      ]
+    },
+    {
+      "component": "interfaz",
+      "sefira": "Maljut (\u05de\u05dc\u05db\u05d5\u05ea \u2014 Reino)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe ventana_principal.py",
+        "\u2705 Check 2: Contiene OrbeGolem o visualizaci\u00f3n",
+        "\u2705 Check 3: Integra con voz/"
+      ]
+    },
+    {
+      "component": "memoria",
+      "sefira": "Netzaj (\u05e0\u05e6\u05d7 \u2014 Victoria)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe memoria.py",
+        "\u2705 Check 2: Soporta persistencia JSONL",
+        "\u2705 Check 3: Tiene compression/rolling"
+      ]
+    },
+    {
+      "component": "nucleo",
+      "sefira": "Tif\u00e9ret (\u05ea\u05e4\u05d0\u05e8\u05ea \u2014 Centro)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe orquestador.py",
+        "\u2705 Check 2: Existe ouroboros_stabilizer.py",
+        "\u2705 Check 3: Integra cerebro + memoria + voz"
+      ]
+    },
+    {
+      "component": "percepcion",
+      "sefira": "Yesod (\u05d9\u05e1\u05d5\u05d3 \u2014 Fundaci\u00f3n)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe rostro.py (face_recognition)",
+        "\u2705 Check 2: Existe audio_log.py",
+        "\u2705 Check 3: Contiene ReconocedorRostro"
+      ]
+    },
+    {
+      "component": "seguridad",
+      "sefira": "Gevur\u00e1 (\u05d2\u05d1\u05d5\u05e8\u05d4 \u2014 Defensa)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Contiene eyot_ids.py",
+        "\u2705 Check 2: Contiene ratzon_behavior.py",
+        "\u2705 Check 3: Contiene gevurah_tikun.py"
+      ]
+    },
+    {
+      "component": "utilidades",
+      "sefira": "Hod (\u05d4\u05d5\u05d3 \u2014 Raz\u00f3n)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Contiene helpers b\u00e1sicos",
+        "\u2705 Check 2: Funciones puras sin side effects",
+        "\u2705 Check 3: Bien documentadas"
+      ]
+    },
+    {
+      "component": "voz",
+      "sefira": "Hod (\u05d4\u05d5\u05d3 \u2014 Esplendor)",
+      "status": "PASSED",
+      "checks_passed": 3,
+      "checks_total": 3,
+      "errors": [],
+      "warnings": [],
+      "info": [
+        "\u2705 Check 1: Existe escucha.py (Whisper/STT)",
+        "\u2705 Check 2: Existe habla.py (TTS)",
+        "\u2705 Check 3: Integra wake word detection"
+      ]
+    }
+  ]
+}

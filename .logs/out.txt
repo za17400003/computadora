@@ -1,0 +1,13 @@
+
+════════════════════════════════════════════════════════════
+ ERROR: Permisos de administrador requeridos
+════════════════════════════════════════════════════════════
+
+Por favor, ejecuta este archivo COMO ADMINISTRADOR:
+  1. Haz clic derecho en computadora_boot.bat
+  2. Selecciona "Ejecutar como administrador"
+  3. Haz clic en "Sí" en el diálogo de UAC
+
+════════════════════════════════════════════════════════════
+
+Presione una tecla para continuar . . . 

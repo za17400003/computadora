@@ -1,0 +1,697 @@
+{
+  "auditoria": {
+    "timestamp": "2026-05-03T00:00:00Z",
+    "proyecto": "Proyecto-Golem",
+    "ingeniero": "Auditoría Automática Arquitectónica",
+    "version": "1.0"
+  },
+  "resumen_ejecutivo": {
+    "threads_totales": 11,
+    "sincronizacion_riesgo": "MEDIO-ALTO",
+    "thread_pool_status": "INCOMPLETO - ThreadPoolExecutor solo en bina_pnimit.py",
+    "gpu_cpu_decision": "AUTOMÁTICA - Fallback CPU habilitado",
+    "bottlenecks_detectados": 5,
+    "codigo_muerto_estimado": "BAJO (< 2%)",
+    "interferencias_sincronizacion": "ALTO RIESGO - BusEventos no thread-safe",
+    "deuda_tecnica": "ALTA"
+  },
+  "threads": {
+    "total": 11,
+    "arbol_jerarquico": {
+      "main_thread": {
+        "nombre": "Main Qt Thread",
+        "tipo": "QThread (Qt Event Loop)",
+        "responsabilidad": "Bootstrap, UI rendering, event dispatch",
+        "archivo": "computadora/interfaz/ventana_principal.py",
+        "critico": true,
+        "hilos_hijos": [
+          {
+            "id": 1,
+            "nombre": "HiloPensamiento",
+            "tipo": "QThread",
+            "responsabilidad": "NLU processing - Orquestador.procesar()",
+            "archivo": "computadora/interfaz/ventana_principal.py:74",
+            "señales": [
+              "respuesta_lista",
+              "error_ocurrido",
+              "nivel_cambio",
+              "herramienta_usada",
+              "permiso_copilot",
+              "confianza_respuesta",
+              "complejidad_procesamiento"
+            ],
+            "sincronizacion": {
+              "locks": ["_copilot_gate_event (threading.Event)", "_modo_tarea_event (threading.Event)"],
+              "timeouts": ["30s (modo_tarea)", "60s (copilot_gate)"],
+              "riesgo": "ALTO - Event.wait() puede bloquear indefinidamente si callback no se ejecuta"
+            },
+            "comunicacion": "PyQt signals → OrbeGolem (ventana_principal)",
+            "carga_estimada": "95% CPU (Ollama blocking call)"
+          },
+          {
+            "id": 2,
+            "nombre": "MotorProactividad",
+            "tipo": "QThread",
+            "responsabilidad": "Sugerencias proactivas - Monitoreo contextual",
+            "archivo": "computadora/nucleo/proactividad.py",
+            "señales": ["sugerencia_lista", "fase_cambio"],
+            "sincronizacion": {
+              "locks": [],
+              "timeouts": ["Cooldown global 300s", "Inactividad 30min"],
+              "riesgo": "BAJO - Sin locks, solo flags booleanos"
+            },
+            "comunicacion": "Emite sugerencias a UI",
+            "carga_estimada": "2-5% CPU (Sleep most of time)"
+          },
+          {
+            "id": 3,
+            "nombre": "HiloHabla",
+            "tipo": "QThread",
+            "responsabilidad": "TTS - Síntesis y reproducción de voz",
+            "archivo": "computadora/voz/habla.py:16",
+            "sincronizacion": {
+              "queue": "queue.Queue() para fragmentos de texto",
+              "flags": ["_activo", "_interrumpido", "_hablando"],
+              "riesgo": "MEDIO - Queue puede quedarse bloqueada si no se consume"
+            },
+            "comunicacion": "Queue input, signals output (habla_iniciada, habla_terminada)",
+            "carga_estimada": "30-50% CPU/GPU (edge-tts async) + Audio I/O"
+          },
+          {
+            "id": 4,
+            "nombre": "HiloEscucha",
+            "tipo": "QThread",
+            "responsabilidad": "STT - Captura de audio y transcripción",
+            "archivo": "computadora/voz/escucha.py:395",
+            "hardware": "Micrófono multi-dispositivo",
+            "sincronizacion": {
+              "queue": "queue.Queue() para frames de audio",
+              "device_manager": "MultiMicrophoneSystem (threading.Thread)",
+              "riesgo": "ALTO - sounddevice no compatible con QThread según comentarios"
+            },
+            "gpu_decision": {
+              "modelo": "Whisper",
+              "decision_punto": "escucha.py:891-912",
+              "logica": "if torch.cuda.is_available() → cuda:0 else → cpu",
+              "fallback": true,
+              "fp16_enabled": "Detectado en cuda (línea 1297)"
+            },
+            "comunicacion": "Output signals (transcripcion_lista, wake_word_detectado)",
+            "carga_estimada": "40-70% GPU (Whisper) / CPU (fallback)"
+          },
+          {
+            "id": 5,
+            "nombre": "DialogoOrVChoshech",
+            "tipo": "QThread",
+            "responsabilidad": "Ciclos de diálogo iterativo",
+            "archivo": "computadora/cerebro/dialogo_or_choshech.py:52",
+            "sincronizacion": {
+              "locks": ["threading.Lock (_lock)", "100+ with statements"],
+              "timeout": "2.0s para espera TTS",
+              "riesgo": "CRÍTICO - Múltiples with self._lock pueden causar deadlock if no se libera"
+            },
+            "comunicacion": "Signals (iniciado, ciclo_completado, finalizado)",
+            "carga_estimada": "60-80% CPU (Ollama + TTS)"
+          },
+          {
+            "id": 6,
+            "nombre": "HiloObservador",
+            "tipo": "threading.Thread (daemon=True)",
+            "responsabilidad": "Monitoreo continuo - Cámara, CPU/RAM/GPU, contexto",
+            "archivo": "computadora/nucleo/observador.py",
+            "sincronizacion": {
+              "flags": ["_ejecutando", "en_tzimtzum"],
+              "locks": [],
+              "riesgo": "ALTO - Daemon thread sin cleanup explícito, puede dejar recursos abiertos"
+            },
+            "comunicacion": "Estado compartido (_estado_actual, snapshot cada ciclo)",
+            "carga_estimada": "10-20% CPU (polleo 500ms)"
+          }
+        ]
+      },
+      "external_channels": [
+        {
+          "id": 7,
+          "nombre": "TelegramBrain",
+          "tipo": "threading.Thread",
+          "responsabilidad": "Canal Telegram - Bot de tarea delegada",
+          "archivo": "computadora/canales/telegram_brain.py",
+          "sincronizacion": {
+            "asyncio_loop": "asyncio.new_event_loop() en thread separado",
+            "riesgo": "ALTO - asyncio + threading mezcla, posible deadlock si eventos no se limpian"
+          },
+          "comunicacion": "Asyncio handlers → Orquestador.procesar()"
+        },
+        {
+          "id": 8,
+          "nombre": "DiscordBrain",
+          "tipo": "threading.Thread",
+          "responsabilidad": "Canal Discord - Bot delegado",
+          "archivo": "computadora/canales/discord_brain.py",
+          "sincronizacion": {
+            "asyncio_loop": "Similar a TelegramBrain",
+            "riesgo": "ALTO - Same asyncio + threading risks"
+          }
+        }
+      ],
+      "daemon_threads": [
+        {
+          "id": 9,
+          "nombre": "GestorProcesos Cleanup",
+          "tipo": "threading.Thread (daemon=True)",
+          "responsabilidad": "Limpieza de procesos huérfanos cada 60s",
+          "archivo": "computadora/nucleo/gestor_procesos.py",
+          "sincronizacion": {
+            "locks": ["threading.Lock (_lock) en _cleanup_loop"],
+            "riesgo": "BAJO - Limpio, pero daemon sin join en shutdown"
+          }
+        },
+        {
+          "id": 10,
+          "nombre": "AudioAdvanced",
+          "tipo": "threading.Thread (daemon=True)",
+          "responsabilidad": "Captura de audio avanzada (multi-device)",
+          "archivo": "computadora/voz/audio_avanzado.py:373",
+          "sincronizacion": {
+            "riesgo": "MEDIO - Daemon, pero maneja recursos de audio"
+          }
+        },
+        {
+          "id": 11,
+          "nombre": "VisionTotal",
+          "tipo": "threading.Thread (daemon=True)",
+          "responsabilidad": "Procesamiento de visión (postura, gestos)",
+          "archivo": "computadora/vision/vision_total.py:120",
+          "gpu_decision": {
+            "decision_punto": "vision_total.py (MediaPipe)",
+            "fallback": true,
+            "riesgo": "GPU puede saturarse si runs concurrentes"
+          }
+        }
+      ]
+    }
+  },
+  "sincronizacion_detallada": {
+    "mecanismos": {
+      "threading_event": {
+        "ubicaciones": [
+          {
+            "archivo": "ventana_principal.py:101",
+            "nombre": "_copilot_gate_event",
+            "timeout": "60s",
+            "riesgo": "CRÍTICO - Si callback no ejecuta, timeout puede causar hang"
+          },
+          {
+            "archivo": "ventana_principal.py:146",
+            "nombre": "_modo_tarea_event",
+            "timeout": "30s",
+            "riesgo": "MEDIO - Default a background si timeout"
+          },
+          {
+            "archivo": "permisos.py:78",
+            "nombre": "GestorPermisos evento",
+            "timeout": "30s",
+            "riesgo": "MEDIO"
+          }
+        ]
+      },
+      "threading_lock": {
+        "ubicaciones": [
+          {
+            "archivo": "ventana_principal.py:597",
+            "nombre": "_estado_lock",
+            "riesgo": "BAJO - Solo protege mutación de estado UI"
+          },
+          {
+            "archivo": "dialogo_or_choshech.py:111",
+            "nombre": "_lock (DialogoOrVChoshech)",
+            "uso_intensivo": "> 100 with statements",
+            "riesgo": "ALTO - Potencial deadlock si callback adquiere otro lock"
+          },
+          {
+            "archivo": "gemini_api.py:62,184",
+            "nombre": "Instancia + global lock",
+            "riesgo": "BAJO - Patrón double-checked locking correcto"
+          },
+          {
+            "archivo": "copilot_api.py:45,341",
+            "nombre": "Instancia + global lock",
+            "riesgo": "BAJO - Similar a gemini_api"
+          },
+          {
+            "archivo": "eventos.py:52",
+            "nombre": "_bus_global_lock",
+            "riesgo": "CRÍTICO - BusEventos.emitir() NO usa lock, callbacks ejecutados sin protección"
+          }
+        ]
+      },
+      "queue": {
+        "ubicaciones": [
+          {
+            "archivo": "habla.py:19",
+            "nombre": "_cola (queue.Queue)",
+            "riesgo": "MEDIO - Si HiloHabla muere, cola se queda bloqueada"
+          },
+          {
+            "archivo": "escucha.py (implicit)",
+            "nombre": "Audio frame queue (MultiMicrophoneSystem)",
+            "riesgo": "ALTO - sounddevice threading incompatible"
+          }
+        ]
+      }
+    },
+    "patrones_problematicos": [
+      {
+        "patron": "Event.wait(timeout=X) → callback ejecuta .set()",
+        "ubicacion": "ventana_principal.py (3 instancias)",
+        "problema": "Si callback no se ejecuta (excepción silenciosa), timeout causará default incorrecto",
+        "severidad": "CRÍTICO",
+        "recomendacion": "Usar Queue + timeout en lugar de Event.wait()"
+      },
+      {
+        "patron": "threading.Thread (daemon=True) sin join en cleanup",
+        "ubicacion": "HiloObservador, GestorProcesos, AudioAdvanced, VisionTotal",
+        "problema": "Recursos pueden no liberarse en shutdown, especialmente archivos/dispositivos",
+        "severidad": "ALTO",
+        "recomendacion": "Implementar atexit handlers o shutdown protocol explícito"
+      },
+      {
+        "patron": "asyncio + threading en TelegramBrain/DiscordBrain",
+        "ubicacion": "canales/telegram_brain.py, canales/discord_brain.py",
+        "problema": "asyncio.new_event_loop() en thread separado puede causar deadlock si se mixan event loops",
+        "severidad": "ALTO",
+        "recomendacion": "Usar queue.Queue en lugar de asyncio.Queue o thread-local event loop"
+      },
+      {
+        "patron": "BusEventos.emitir() sin lock",
+        "ubicacion": "eventos.py:15",
+        "problema": "Callbacks ejecutados fuera de lock, múltiples threads pueden modificar _suscriptores durante emisión",
+        "severidad": "CRÍTICO",
+        "recomendacion": "Proteger self._suscriptores con lock en emitir()"
+      },
+      {
+        "patron": "sounddevice + QThread (comentario explícito)",
+        "ubicacion": "multi_microphone.py:82",
+        "problema": "sounddevice no es thread-safe para QThread, solo para threading.Thread",
+        "severidad": "ALTO",
+        "recomendacion": "Migrar HiloEscucha a threading.Thread o usar audio backend thread-safe"
+      }
+    ]
+  },
+  "gpu_cpu_arquitectura": {
+    "decisiones_automaticas": [
+      {
+        "componente": "Whisper (STT)",
+        "archivo": "escucha.py:891-912",
+        "decision": "torch.cuda.is_available() → cuda:0 else cpu",
+        "fallback": true,
+        "problemas": [
+          "torch.cuda.is_available() puede ser False pero device_count() > 0 (Intel GPU + CUDA mismatch)",
+          "Línea 908: Intento de cuda:0 even cuando is_available()=False (workaround imperfecto)"
+        ],
+        "recomendacion": "Usar try/except en lugar de is_available()"
+      },
+      {
+        "componente": "Face Recognition (rostro.py)",
+        "archivo": "rostro.py:28-38",
+        "decision": "dlib.DLIB_USE_CUDA check, fallback a HOG si CPU",
+        "fallback": true,
+        "problemas": [
+          "DLIB_USE_CUDA puede ser False incluso si compilado con CUDA (cuestión de compilación dlib)"
+        ],
+        "recomendacion": "Agregar benchmark test al startup para verificar CUDA realmente disponible"
+      },
+      {
+        "componente": "nvidia-smi Monitoring",
+        "archivo": "monitor_sistema.py:462, ventana_principal.py:2681",
+        "decision": "Ejecutar nvidia-smi, fallback a N/A si no existe",
+        "fallback": true,
+        "problemas": [
+          "nvidia-smi puede existir pero no conectar a GPU (driver issue)",
+          "No maneja multi-GPU (solo device 0)"
+        ]
+      }
+    ],
+    "thread_pool": {
+      "ubicacion": "bina_pnimit.py:100-113",
+      "uso": "ThreadPoolExecutor(max_workers=3) para checks paralelos (Ollama, Copilot, Gemini)",
+      "timeout": "2.0s total, 0.1s per check",
+      "problemas": [
+        "Solo usado en 1 lugar (bina_pnimit.py)",
+        "No hay thread pool para async operations en general",
+        "max_workers=3 es hardcoded, no configurable"
+      ],
+      "recomendacion": "Crear GlobalThreadPool(max_workers=cpu_count()) reutilizable"
+    },
+    "resource_monitoring": {
+      "archivo": "utilidad/monitor_recursos.py",
+      "metricas": ["CPU %", "RAM %", "RAM MB", "procesos activos"],
+      "adaptive_fps": {
+        "CPU < 60% + RAM < 75%": "FPS 30 (óptimo)",
+        "CPU 60-80% + RAM 75-85%": "FPS 20 (ahorro)",
+        "CPU > 80% + RAM > 85%": "FPS 10 (emergencia)"
+      },
+      "problemas": [
+        "No hay thread lock en snapshots[] (race condition posible)",
+        "No hay purga automática de snapshots viejos (memoria crece)"
+      ]
+    }
+  },
+  "flujo_datos": {
+    "pipeline_principal": {
+      "entrada": "HiloEscucha (Audio input) → MultiMicrophoneSystem",
+      "procesamiento": [
+        {
+          "etapa": 1,
+          "nombre": "VAD (Voice Activity Detection)",
+          "modulo": "escucha.py (Silero VAD)",
+          "thread": "HiloEscucha (QThread)",
+          "gpu": false
+        },
+        {
+          "etapa": 2,
+          "nombre": "Transcripción",
+          "modulo": "Whisper",
+          "thread": "HiloEscucha (QThread)",
+          "gpu": true,
+          "bottleneck": "CRÍTICO - Whisper carga modelo en cada call si no cacheado"
+        },
+        {
+          "etapa": 3,
+          "nombre": "Detección de wake word",
+          "modulo": "escucha.py (regex + fuzzy matching)",
+          "thread": "HiloEscucha (QThread)",
+          "gpu": false
+        },
+        {
+          "etapa": 4,
+          "nombre": "Entrada a NLU",
+          "modulo": "HiloPensamiento (queue)",
+          "thread": "HiloPensamiento (QThread)",
+          "gpu": false
+        },
+        {
+          "etapa": 5,
+          "nombre": "Procesamiento LLM",
+          "modulo": "nlu.py (Ollama via HTTP)",
+          "thread": "HiloPensamiento (QThread)",
+          "gpu": true,
+          "bottleneck": "CRÍTICO - Ollama single instance, no load balancing"
+        },
+        {
+          "etapa": 6,
+          "nombre": "Tool execution",
+          "modulo": "herramientas.py",
+          "thread": "HiloPensamiento (QThread)",
+          "gpu": false
+        },
+        {
+          "etapa": 7,
+          "nombre": "Síntesis TTS",
+          "modulo": "HiloHabla (edge-tts)",
+          "thread": "HiloHabla (QThread)",
+          "gpu": true,
+          "bottleneck": "MEDIO - edge-tts async pero single instance"
+        }
+      ],
+      "salida": "Audio reproducido + UI updates"
+    },
+    "pipeline_monitoring": {
+      "entrada": "HiloObservador (Camera + system metrics)",
+      "procesamiento": [
+        {
+          "etapa": 1,
+          "nombre": "Captura de cámara",
+          "modulo": "cv2.VideoCapture",
+          "thread": "HiloObservador (threading.Thread)",
+          "gpu": false
+        },
+        {
+          "etapa": 2,
+          "nombre": "Detección facial",
+          "modulo": "face_recognition (dlib)",
+          "thread": "HiloObservador (threading.Thread)",
+          "gpu": true,
+          "bottleneck": "ALTO - Sequential processing, no parallel faces"
+        },
+        {
+          "etapa": 3,
+          "nombre": "Monitoreo de recursos",
+          "modulo": "psutil",
+          "thread": "HiloObservador (threading.Thread)",
+          "gpu": false
+        }
+      ],
+      "salida": "Estado compartido (_estado_actual)"
+    }
+  },
+  "bottlenecks": [
+    {
+      "id": 1,
+      "nombre": "Ollama Single Instance",
+      "ubicacion": "nlu.py (OLLAMA_URL hardcoded)",
+      "impacto": "Si una solicitud bloquea, todas las siguientes esperan",
+      "duracion_tipica": "5-30 segundos",
+      "severidad": "CRÍTICO",
+      "recomendacion": "Implementar queue de requests + worker thread pool"
+    },
+    {
+      "id": 2,
+      "nombre": "Whisper Model Carga",
+      "ubicacion": "escucha.py:1200+",
+      "impacto": "Modelo cargado cada sesión, ~2-3GB VRAM",
+      "duracion_tipica": "5-10 segundos en startup",
+      "severidad": "ALTO",
+      "recomendacion": "Cachear modelo en singleton, lazy load"
+    },
+    {
+      "id": 3,
+      "nombre": "Face Recognition Sequential",
+      "ubicacion": "rostro.py (for face in faces)",
+      "impacto": "Si 5 caras, 5x delay de procesamiento",
+      "duracion_tipica": "0.5-2 segundos por cara",
+      "severidad": "ALTO",
+      "recomendacion": "Usar ThreadPoolExecutor(max_workers=4) para parallel faces"
+    },
+    {
+      "id": 4,
+      "nombre": "BusEventos Callback Execution",
+      "ubicacion": "eventos.py:15",
+      "impacto": "Si callback lento, bloquea emisión siguiente",
+      "duracion_tipica": "Variable (depende del callback)",
+      "severidad": "ALTO",
+      "recomendacion": "Hacer callbacks async o usar queue"
+    },
+    {
+      "id": 5,
+      "nombre": "QThread Sleep Precision",
+      "ubicacion": "Todos los sleep en QThreads",
+      "impacto": "Qt event loop puede añadir latencia de 16-33ms",
+      "duracion_tipica": "16-50ms overhead",
+      "severidad": "MEDIO",
+      "recomendacion": "Usar QTimer.singleShot() en lugar de time.sleep()"
+    }
+  ],
+  "codigo_muerto": {
+    "estimado_porcentaje": 1.5,
+    "sospechosos": [
+      {
+        "archivo": "ventana_principal.py",
+        "funcion": "_demo_herramienta",
+        "linea": 587,
+        "razon": "Solo para debugging, no llamada en flujo principal",
+        "severidad": "BAJO"
+      },
+      {
+        "archivo": "interfaz/demo_*.py",
+        "descripcion": "Demo modules (demo_sincronizada, demo_undo_manager)",
+        "razon": "Posiblemente no usados en producción",
+        "severidad": "BAJO"
+      },
+      {
+        "archivo": "voz/diagnostico_microfono.py",
+        "descripcion": "Diagnostics only, no integrated en startup",
+        "razon": "Used manually for debugging",
+        "severidad": "BAJO"
+      }
+    ]
+  },
+  "duplicacion": {
+    "estimado_porcentaje": 3,
+    "duplicaciones": [
+      {
+        "tipo": "GPU Decision Logic",
+        "ubicaciones": [
+          "escucha.py:891-912 (Whisper)",
+          "rostro.py:173-175 (dlib)",
+          "monitor_sistema.py:462-476 (nvidia-smi)"
+        ],
+        "recomendacion": "Extraer a utilidad/gpu_detector.py"
+      },
+      {
+        "tipo": "Lock Pattern",
+        "ubicaciones": [
+          "gemini_api.py:62,184",
+          "copilot_api.py:45,341",
+          "bina_pnimit.py"
+        ],
+        "recomendacion": "Crear Singleton base class con lock automático"
+      },
+      {
+        "tipo": "Timeout Pattern",
+        "ubicaciones": [
+          "ventana_principal.py:150,166 (Event.wait)",
+          "permisos.py:78",
+          "config.py:89-91"
+        ],
+        "recomendacion": "Centralizar timeout management"
+      }
+    ]
+  },
+  "interferencias_recurso_compartido": {
+    "criticas": [
+      {
+        "recurso": "Estado Observador (_estado_actual)",
+        "lectores": ["HiloObservador (write)", "MotorProactividad (read)", "Orquestador (read)"],
+        "sincronizacion": "NINGUNA",
+        "riesgo": "CRÍTICO - Race condition entre HiloObservador.write y lectores",
+        "recomendacion": "Proteger con threading.Lock"
+      },
+      {
+        "recurso": "BusEventos (_suscriptores)",
+        "lectores": ["emitir() (iterate)", "suscribir() (append)", "desuscribir() (delete)"],
+        "sincronizacion": "NINGUNA",
+        "riesgo": "CRÍTICO - ConcurrentModificationException posible",
+        "recomendacion": "Usar threading.Lock en emitir() y modificadores"
+      },
+      {
+        "recurso": "GestorProcesos._procesos list",
+        "lectores": ["lanzar() (append)", "detener_todos() (iterate)", "_cleanup_loop (modify)"],
+        "sincronizacion": "threading.Lock (_lock)",
+        "riesgo": "BAJO - Protegido, pero with statement scope es correcto"
+      },
+      {
+        "recurso": "MonitorRecursos.snapshots",
+        "lectores": ["muestrear_ahora() (append)", "Observers (read)"],
+        "sincronizacion": "NINGUNA",
+        "riesgo": "MEDIO - Posible IndexError si purga y lectura concurren",
+        "recomendacion": "Usar collections.deque(maxlen=100) thread-safe"
+      }
+    ]
+  },
+  "deadlock_potencial": [
+    {
+      "id": 1,
+      "circuito": "HiloPensamiento → _copilot_gate_event.wait(60s) → UI callback → _estado_lock.acquire() → ?",
+      "probabilidad": "MEDIA",
+      "recomendacion": "No adquirir locks en callbacks de signals"
+    },
+    {
+      "id": 2,
+      "circuito": "DialogoOrVChoshech._lock held → emitir(signal) → callback adquiere otro lock",
+      "probabilidad": "BAJA",
+      "recomendacion": "Release lock antes de emitir signals"
+    },
+    {
+      "id": 3,
+      "circuito": "asyncio event loop (TelegramBrain) + threading + GIL contention",
+      "probabilidad": "ALTA si concurrencia alta",
+      "recomendacion": "Separar asyncio a process separado"
+    }
+  ],
+  "interaccion_windows": {
+    "api_calls": [
+      {
+        "funcion": "GetForegroundWindow",
+        "ubicacion": "vida_autonoma.py:36",
+        "riesgo": "BAJO - Read-only",
+        "overflow_risk": "ALTO en 64-bit si restype no declarado"
+      },
+      {
+        "funcion": "GetWindowRect",
+        "ubicacion": "vida_autonoma.py:46",
+        "riesgo": "BAJO - Read-only"
+      },
+      {
+        "funcion": "ShowWindow + SetWindowPos",
+        "ubicacion": "vida_autonoma.py:45-53",
+        "riesgo": "ALTO - Modifican estado global de ventana, race condition con Windows"
+      }
+    ],
+    "problemas": [
+      "GetForegroundWindow puede retornar NULL (no ventana activa) - no manejado en línea 39",
+      "SetWindowPos puede fallar silenciosamente si permisos insuficientes",
+      "ShowWindow puede causar flickering si llamado frecuentemente"
+    ]
+  },
+  "recomendaciones_prioritarias": [
+    {
+      "prioridad": 1,
+      "titulo": "FIX CRÍTICO: BusEventos Thread Safety",
+      "ubicacion": "eventos.py:15",
+      "cambio": "Proteger _suscriptores con threading.Lock en emitir()",
+      "impacto": "CRÍTICO - Evita ConcurrentModificationException",
+      "tiempo_estimado": "30 minutos",
+      "testing": "Unit tests con 10 threads emitiendo concurrentemente"
+    },
+    {
+      "prioridad": 2,
+      "titulo": "REFACTOR: Event.wait() → Queue",
+      "ubicacion": "ventana_principal.py (3 instancias)",
+      "cambio": "Reemplazar Event.wait(timeout=X) con Queue.get(timeout=X)",
+      "impacto": "ALTO - Elimina race condition de callback silencioso",
+      "tiempo_estimado": "1 hora",
+      "testing": "Timeout tests con UI unresponsive"
+    },
+    {
+      "prioridad": 3,
+      "titulo": "FIX: Observador State Race Condition",
+      "ubicacion": "observador.py:_estado_actual",
+      "cambio": "Proteger _estado_actual con threading.Lock",
+      "impacto": "ALTO - Evita lectura de estado corrupto",
+      "tiempo_estimado": "45 minutos",
+      "testing": "Stress test: 10 readers + 1 writer por 10 segundos"
+    },
+    {
+      "prioridad": 4,
+      "titulo": "OPTIMIZACIÓN: GPU Detector Singleton",
+      "ubicacion": "Crear utilidad/gpu_detector.py",
+      "cambio": "Consolidar lógica de detección GPU/CPU",
+      "impacto": "MEDIO - Mejora mantenibilidad + fallback consistente",
+      "tiempo_estimado": "1.5 horas",
+      "testing": "Test con/sin CUDA, con/sin nvidia-smi"
+    },
+    {
+      "prioridad": 5,
+      "titulo": "OPTIMIZACIÓN: Whistler Model Caching",
+      "ubicacion": "escucha.py",
+      "cambio": "Usar singleton para modelo Whisper",
+      "impacto": "ALTO - Reduce startup de 5-10s a <1s",
+      "tiempo_estimado": "1 hora",
+      "testing": "Memory profile: verificar VRAM no crece en 100 calls"
+    }
+  ],
+  "metricas": {
+    "complejidad_threads": {
+      "total_threads": 11,
+      "qthread_count": 5,
+      "threading_thread_count": 6,
+      "daemon_threads": 4,
+      "asyncio_usage": 2,
+      "synchronization_density": "3.2 locks/thread (alto)"
+    },
+    "cuello_botella": {
+      "cpu_bound_threads": ["HiloPensamiento", "DialogoOrVChoshech"],
+      "io_bound_threads": ["HiloHabla", "HiloEscucha", "HiloObservador"],
+      "gpu_dependent": ["HiloEscucha (Whisper)", "HiloObservador (Face)", "VisionTotal"],
+      "critical_path": "HiloEscucha → HiloPensamiento → HiloHabla (2-5 seconds typical)"
+    },
+    "resource_utilization": {
+      "cpu_average": "35-60%",
+      "ram_process": "150-400MB",
+      "gpu_vram": "2-4GB (model cache)",
+      "threads_active_average": 8,
+      "threads_peak": 11
+    }
+  }
+}

@@ -1,0 +1,100 @@
+00:17:42 | INFO | computadora_app - Sistema de logs inicializado
+00:17:42 | INFO | computadora_app - !! Asegurando dependencias criticas de inicio...
+00:17:42 | INFO | computadora_app -   fuzzywuzzy: !!
+00:17:42 | INFO | computadora_app -   Levenshtein: !!
+00:17:48 | INFO | computadora_app -   silero_vad: !!
+00:17:49 | INFO | computadora_app -   whisper: !!
+C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\site-packages\face_recognition_models\__init__.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+00:17:52 | INFO | computadora_app -   face_recognition: !!
+00:17:52 | INFO | computadora_app -   cv2: !!
+00:17:53 | INFO | computadora_app -   sounddevice: !!
+00:17:53 | INFO | computadora_app -   OpenGL: !!
+00:17:53 | INFO | computadora_app -   OpenGL_accelerate: !!
+00:17:53 | INFO | computadora_app - Librerias criticas: 9/9 disponibles
+00:17:53 | INFO | computadora_app - !! torch ya disponible
+00:17:53 | INFO | computadora_app - !! torch/torchaudio listos para el arranque
+00:17:53 | INFO | computadora_app - ================================================================================
+00:17:53 | INFO | computadora_app - \U0001f40d OUROBOROS BOOTSTRAP ù Ciclo infinito de COMPUTADORA
+00:17:53 | INFO | computadora_app - ================================================================================
+00:17:53 | INFO | computadora_app - \u2713 EMET verified: Verdad inscrita correctamente (\u05d0\u05de\u05ea)
+00:17:53 | INFO | computadora_app - Ouroboros: No hay ciclos incompletos. Continuando.
+00:17:53 | INFO | computadora_app - \u2713 EMET verified: Verdad inscrita correctamente (\u05d0\u05de\u05ea)
+00:17:53 | INFO | computadora_app - Ouroboros: Integridad \u2192 EMET=PASS | Credenciales=PASS | Ciclos=PASS
+00:17:53 | INFO | computadora_app - \U0001f7e2 OUROBOROS: Sistema estable. Listo para ciclo infinito.
+00:17:53 | INFO | computadora_app - ================================================================================
+00:17:53 | INFO | computadora_app - \u2713 Ouroboros estable: Ciclo infinito del COMPUTADORA verificado
+00:17:53 | INFO | computadora_app - === COMPUTADORA INICIANDO ===
+00:17:53 | INFO | computadora_app - Configuraci≤n cargada: whisper=small
+00:17:53 | INFO | computadora_app - Conciencia temporal: sesi≤n #145 iniciada
+00:18:02 | INFO | computadora_app - Kli registrado: <KliCamara id='camara_local' estado=DESCONECTADO>
+00:18:02 | INFO | computadora_app - KliCamara conectada (φndice=0)
+00:18:02 | INFO | computadora_app - RF-260: camara_local descubierto y conectado al boot
+00:18:02 | INFO | computadora_app - RF-258 Ayin HaComputadora: 1 observador(es) encontrado(s): ['camara_local']
+00:18:02 | INFO | computadora_app - RF-260: 1 ojo(s) activo(s) al boot
+00:18:02 | INFO | computadora_app - SessionLockListener iniciado ù COMPUTADORA vigila bloqueos de sesi≤n
+00:18:02 | INFO | computadora_app - SessionLockListener hook instalado
+00:18:02 | INFO | computadora_app - Lemed: 3 patrones cargados, 0 activos
+00:18:02 | INFO | computadora_app - \U0001f504 ORDEN EJECUTADA: A E golem: Gilgush.
+00:18:02 | INFO | computadora_app - \U0001f504 INICIANDO GILGUSH (reencarnaci≤n de COMPUTADORA)...
+00:18:02 | INFO | computadora_app - \u2713 Gilgush Maljut: stats_uso.json limpiado
+00:18:02 | INFO | computadora_app - \u2713 Gilgush Yesod: Estado de sesi≤n limpiado
+00:18:02 | INFO | computadora_app - Lemed: 3 patrones cargados, 0 activos
+00:18:02 | INFO | computadora_app - \u2713 Gilgush Hod: Patrones de Nivel 1 limpiados
+00:18:02 | INFO | computadora_app - \u2713 Gilgush Netzaj: Memoria emocional limpiada
+00:18:02 | INFO | computadora_app - \U0001f531 INICIANDO RENOVACI╙N OPERATIVA DEL GOLEM
+00:18:02 | INFO | computadora_app - 
+\U0001f531 LAS CINCO LEYES ù PENT┴GRAMA OPERATIVO
+\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+
+NIVEL 0 (CAUSA ETERNA):
+  P = {R | R sea recursividad}
+  \u2192 El sistema se valida a sφ mismo
+
+NIVEL 1 (FORMA FUNDAMENTAL):
+  P = {P | P sea la estructura}
+  \u2192 5 fases + 4 gates + 5 pipelines
+
+NIVEL 2 (VARIACI╙N PERMITIDA):
+  P = {M | M sea la combinaci≤n}
+  \u2192 24 Reglas Anti-Colateral respetadas
+
+NIVEL 3 (FILTRO DE REALIDAD):
+  P = {A | A sea verdad}
+  \u2192 4 dimensiones de verificaci≤n
+
+NIVEL 4 (MANIFESTACI╙N):
+  P = {M | para toda P exista M que comunique}
+  \u2192 Mensaje decodificado + EMET viva
+
+\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+La vßlida \u27fa pasa TODOS los 5 niveles.
+No hay atajos. No hay excepciones.
+
+00:18:02 | INFO | computadora_app - \U0001f4cd Nivel 0: Inyectando recursi≤n...
+00:18:02 | INFO | computadora_app - \U0001f4cd Nivel 1: Inyectando estructura...
+00:18:02 | INFO | computadora_app - \U0001f4cd Nivel 2: Inyectando combinatoria...
+00:18:02 | INFO | computadora_app - \U0001f4cd Nivel 3: Inyectando verificaci≤n de verdad...
+00:18:02 | INFO | computadora_app - \U0001f4cd Nivel 4: Inyectando comunicaci≤n...
+00:18:02 | INFO | computadora_app - \u2728 RENOVACI╙N COMPLETADA \u2728
+00:18:02 | INFO | computadora_app - Reporte: {'renovado': True, 'timestamp': '2026-05-21T00:18:02.976200', 'niveles_integrados': {'nivel_0_integrado': False, 'nivel_1_integrado': True, 'nivel_2_integrado': True, 'nivel_3_integrado': True, 'nivel_4_integrado': True}, 'status': '\u2705 Golem renovado conforme a las 5 leyes'}
+00:18:02 | INFO | computadora_app - \u2705 Renovaci≤n Operativa: 5 Leyes inyectadas en CerebroGolem
+00:18:02 | INFO | computadora_app - \u2728 Boot sequence completado ù Post-Gilgush ù Sistema listo
+00:18:02 | INFO | computadora_app - \u2705 GILGUSH COMPLETADO: COMPUTADORA reencarnada ù Estado limpio, Leyes preservadas
+00:18:02 | INFO | computadora_app - \U0001f504 Gilgush completado: success
+00:18:02 | INFO | computadora_app - \u2705 Renovaci≤n Operativa: 5 Leyes inyectadas en CerebroGolem
+00:18:02 | INFO | computadora_app - \u2728 Boot sequence completado ù Post-Gilgush ù Sistema listo
+00:18:02 | INFO | computadora_app - Orquestador inicializado con cerebro compartido (modelo 'llama2:7b')
+00:18:07 | INFO | computadora_app - EntornoSistema inicializado: Windows 10 | Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz | 15.8GB RAM | 58.5GB disco libre | GPU: NVIDIA GeForce GTX 1650 Ti | Online
+00:18:07 | INFO | computadora_app - Entorno: Windows 10 | Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz | 15.8GB RAM | 58.5GB disco libre | GPU: NVIDIA GeForce GTX 1650 Ti | Online
+00:18:07 | INFO | computadora_app - Perfil facial del propietario cargado
+00:18:07 | INFO | computadora_app - PerceptorDaat inicializado
+00:18:07 | INFO | computadora_app - \u2713 Orquestador singleton creado (instancia UNICA)
+00:18:07 | INFO | computadora_app - \u2713 Orquestador singleton inicializado para todos los canales
+00:18:07 | WARNING | computadora_app - Guardißn del Grimorio no disponible: No module named 'computadora.canales.grimorio_guardian'
+00:18:07 | WARNING | computadora_app - SessionLockListener ya estß activo
+00:18:07 | INFO | computadora_app - \u2705 FP-135 TRINITY: Guardian automßtico activado (Windows+L detection \u2192 Gevurah)
+00:18:07 | INFO | computadora_app - \U0001f4ab Oracle Interior activado ù Keter despierto
+00:18:07 | INFO | computadora_app - \u2705 FP-138 TRINITY: Inner Oracle activado (pregunta real illumination \u2192 Keter)
+00:18:07 | INFO | computadora_app - \U0001f319 Mother Feedback Loop activado ù Binah despierta
+00:18:07 | INFO | computadora_app - \u2705 FP-137 TRINITY: Mother Feedback Loop activado (pattern multiplication \u2192 Binah)

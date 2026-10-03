@@ -1,0 +1,3 @@
+"""Módulo núcleo de Computadora."""
+
+

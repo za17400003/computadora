@@ -1,0 +1,28 @@
+06:48:57 | INFO | computadora_app - Sistema de logs inicializado
+06:48:57 | INFO | computadora_app - !! Asegurando dependencias criticas de inicio...
+06:48:57 | INFO | computadora_app -   fuzzywuzzy: !!
+06:48:57 | INFO | computadora_app -   Levenshtein: !!
+06:49:02 | INFO | computadora_app -   silero_vad: !!
+06:49:03 | INFO | computadora_app -   whisper: !!
+C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\site-packages\face_recognition_models\__init__.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+06:49:06 | INFO | computadora_app -   face_recognition: !!
+06:49:06 | INFO | computadora_app -   cv2: !!
+06:49:06 | INFO | computadora_app -   sounddevice: !!
+06:49:06 | INFO | computadora_app -   OpenGL: !!
+06:49:06 | INFO | computadora_app -   OpenGL_accelerate: !!
+06:49:06 | INFO | computadora_app - Librerias criticas: 9/9 disponibles
+06:49:06 | INFO | computadora_app - !! torch ya disponible
+06:49:06 | INFO | computadora_app - !! torch/torchaudio listos para el arranque
+Traceback (most recent call last):
+  File "C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\woire\Documents\proyecto-golem\computadora\__main__.py", line 287, in <module>
+    main()
+  File "C:\Users\woire\Documents\proyecto-golem\computadora\__main__.py", line 93, in main
+    demo_modo = DemoModo.desde_cli(sys.argv)
+  File "C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\enum.py", line 437, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: desde_cli

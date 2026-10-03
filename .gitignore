@@ -1,0 +1,44 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Secretos
+.env
+
+# Datos locales
+datos/
+
+# IDE
+.vscode/
+.idea/
+.continue/config.json
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temp
+*.tmp
+*.mp3
+
+# Dependencias locales de la herramienta MCP auxiliar
+lmstudio-mcp/node_modules/
+
+# Artefactos generados en _config/
+_config/BOOT_PROFILE_RESULTS.json
+_config/COHERENCIA_COMPUTADORA_REPORT.json
+_config/INTERACTION_PROFILE_RESULTS.json
+_config/candidatos_probados.json
+_config/codegraph_report*.json
+_config/METRICAS_COHERENCIA.json
+_config/demo_screenshot.png

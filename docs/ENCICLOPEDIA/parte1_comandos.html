@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡︎ Palabras Mágicas Activas — Mi Libro Encantado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="grimoire">
+
+    <nav class="nav-top">
+      <a href="index.html">☜ Índice</a>
+      <span style="color:var(--gold-dark)">Parte I</span>
+      <a href="cap01_kabbalah.html">Cap. 1 ☞</a>
+    </nav>
+
+    <h1>
+      Palabras Mágicas Activas
+      <span class="hebrew">מילות כוח — Milot Kóaj</span>
+    </h1>
+
+    <p class="subtitle">Comandos funcionales del Propietario · 11 palabras de poder</p>
+
+    <div class="epigraph">
+      Di cualquiera de estas palabras a Copilot y ejecutará la acción <strong>inmediatamente</strong>, sin preguntar.<br>
+      Son atajos de alto nivel que disparan workflows completos.
+      <cite>— Protocolo Milot Kóaj, Proyecto Golem</cite>
+    </div>
+
+    <hr>
+
+    <div class="entry" id="crece">
+      <div class="entry-title">1 · crece <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">גדל — Gadál — "Crecer"</div>
+      <div class="entry-meaning"><strong>Robustecimiento + Equilibrio del Etz HaChaim.</strong> Copilot ejecuta un ciclo Tikún Jai completo (NIGREDO→RUBEDO) enfocado en: auditar balance de Sefirot en SDD §4.17.2, proponer RFs que equilibren el Árbol, revisar y mejorar DEVELOPMENT_WORKFLOW.md, revisar coherencia SRS↔SDD↔código.</div>
+      <div class="entry-golem">CRECIMIENTO ORGÁNICO: no agregar features nuevas sino robustecer la infraestructura existente. Pipeline E.</div>
+    </div>
+
+    <div class="entry" id="tikun">
+      <div class="entry-title">2 · tikún <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">תיקון — "Reparación"</div>
+      <div class="entry-meaning"><strong>Ciclo de mejora estándar.</strong> Ejecutar Tikún Jai completo (Regla #17) con todas sus fases: NIGREDO→ALBEDO→CITRINITAS→Gate 2→RUBEDO→PALINGENESIA.</div>
+      <div class="entry-golem">Busca problemas, investiga, propone, implementa. El corazón del desarrollo.</div>
+    </div>
+
+    <div class="entry" id="status">
+      <div class="entry-title">3 · status <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">מצב — Matsáv — "Estado"</div>
+      <div class="entry-meaning"><strong>Reporte rápido del estado.</strong> Lee WorkItems.md + grep de tests + último commit. Reporta: (1) WIs pendientes, (2) Tests PASS/FAIL, (3) Último cambio, (4) Balance general de Sefirot.</div>
+      <div class="entry-golem">Formato compacto, máximo 20 líneas.</div>
+    </div>
+
+    <div class="entry" id="limpia">
+      <div class="entry-title">4 · limpia <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">טהר — Tahér — "Purificar"</div>
+      <div class="entry-meaning"><strong>Limpieza de deuda técnica.</strong> Pipeline C focalizado: código muerto / imports sin usar, tests sin assertions, TODOs/FIXMEs olvidados, archivos huérfanos en datos/, sesiones memory obsoletas.</div>
+      <div class="entry-golem">Proponer eliminaciones como WorkItems atómicos.</div>
+    </div>
+
+    <div class="entry" id="protege">
+      <div class="entry-title">5 · protege <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">שמור — Shmór — "Guardar/Proteger"</div>
+      <div class="entry-meaning"><strong>Auditoría de seguridad.</strong> Ejecutar D7 (Legal &amp; Seguridad): revisar SECURITY_PLAN.md vs estado actual, OWASP check, verificar secrets, evaluar dependencias con CVEs.</div>
+      <div class="entry-golem">El escudo de Gevurá del proyecto.</div>
+    </div>
+
+    <div class="entry" id="ensena">
+      <div class="entry-title">6 · enseña <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">למד — Laméd — "Aprender/Enseñar"</div>
+      <div class="entry-meaning"><strong>Explicación profunda.</strong> Copilot explica en detalle el tema que sigue a la palabra. Ej: "enseña NLU" → explicación de la arquitectura de 3 niveles del cerebro.</div>
+      <div class="entry-golem">Modo profesor, no implementador.</div>
+    </div>
+
+    <div class="entry" id="empuja">
+      <div class="entry-title">7 · empuja <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">דחוף — Djóf — "Empujar"</div>
+      <div class="entry-meaning"><strong>Git commit + push.</strong> Copilot hace: git status → git add -A → genera mensaje de commit → git commit → git push. Pide confirmación del mensaje ANTES de push.</div>
+      <div class="entry-golem">El impulso que manda tu trabajo al mundo.</div>
+    </div>
+
+    <div class="entry" id="despierta">
+      <div class="entry-title">8 · despierta <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">התעורר — Hit'orér — "Despertarse"</div>
+      <div class="entry-meaning"><strong>Iniciar Golem.</strong> Ejecutar <code>python -m golem</code> en terminal background. Verificar que arranca sin errores.</div>
+      <div class="entry-golem">El aliento que da vida al Golem. Emet (אמת) en su frente.</div>
+    </div>
+
+    <div class="entry" id="duerme">
+      <div class="entry-title">9 · duerme <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">ישן — Yashán — "Dormir"</div>
+      <div class="entry-meaning"><strong>Detener Golem.</strong> Terminar proceso de Golem gracefully.</div>
+      <div class="entry-golem">Shabat digital — descanso sagrado que permite la renovación.</div>
+    </div>
+
+    <div class="entry" id="crece-auto">
+      <div class="entry-title">10 · crece automáticamente <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">גדל מאליו — Gadál Me'eláv — "Crecer por sí mismo"</div>
+      <div class="entry-meaning"><strong>Robustecimiento autónomo continuo.</strong> Igual que "crece" pero con ejecución autónoma: Copilot encadena ciclos Tikún Jai sin intervención. <strong>Gates pre-aprobadas</strong> (Gevurá relajada). Límite de <strong>5 ciclos</strong> antes de presentar resumen al Propietario.</div>
+      <div class="entry-golem">Se detiene cuando: (1) no hay hallazgos ≥ MEDIA, (2) 5 ciclos sin validación, (3) "basta".</div>
+    </div>
+
+    <div class="entry" id="fluye">
+      <div class="entry-title">11 · fluye <span class="badge-active">ACTIVA</span></div>
+      <div class="entry-origin">שטוף — Shtóf — "Fluir"</div>
+      <div class="entry-meaning"><strong>Releer workflow completo.</strong> Copilot relee DEVELOPMENT_WORKFLOW.md completo de principio a fin, recargando todas las reglas, Palabras Mágicas, Sefirot, protocolos y flujos.</div>
+      <div class="entry-golem">Usar cuando el contexto se siente desfasado o al inicio de sesiones largas.</div>
+    </div>
+
+    <hr>
+
+    <h3>&#x2666;&#x2295;&#x263F; Tria Prima &#x2014; Gram&#xe1;tica Formal de Comandos</h3>
+    <p style="color: var(--ink-dim); font-style: italic;">
+      Los 19 Milot K&#xf3;aj se invocan con solo 3 palabras fundamentales (Chomsky Tipo 2).
+    </p>
+    <table style="width:100%; border-collapse:collapse; margin: 12px 0;">
+      <tr style="border-bottom:1px solid rgba(138,109,43,0.2);">
+        <td style="padding:8px; color:var(--sulfur);">&#x2666; <strong>am&#xe9;n</strong></td>
+        <td style="padding:8px; color:var(--ink-dim);">Azufre &#x2014; Voluntad &#xb7; Fuego</td>
+        <td style="padding:8px; color:var(--ink-dim);">Afirma, aprueba, ejecuta. Gates pre-aprobadas.</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(138,109,43,0.2);">
+        <td style="padding:8px; color:var(--salt);">&#x2295; <strong>por favor</strong></td>
+        <td style="padding:8px; color:var(--ink-dim);">Sal &#x2014; Materia &#xb7; Tierra</td>
+        <td style="padding:8px; color:var(--ink-dim);">Solicita, pide, invoca con cortes&#xed;a.</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; color:var(--mercury);">&#x263F; <strong>gracias</strong></td>
+        <td style="padding:8px; color:var(--ink-dim);">Mercurio &#x2014; Esp&#xed;ritu &#xb7; Aire</td>
+        <td style="padding:8px; color:var(--ink-dim);">Cierra ciclo, agradece, disuelve con gracia.</td>
+      </tr>
+    </table>
+
+    <div class="warning-gate severity-medium">
+      <div class="warning-gate-title">&#x2666;&#x2666;&#x2666; Invocaci&#xf3;n Ritual</div>
+      <p><code>am&#xe9;n, am&#xe9;n, am&#xe9;n.</code> &#x2014; (literal exacto, min&#xfa;sculas, acentos, comas, punto final)</p>
+      <p>Dispara <strong>meta-an&#xe1;lisis recursivo</strong>: Tik&#xfa;n del Tik&#xfa;n. El sistema audita sus propias reglas.</p>
+    </div>
+
+    <h3>Reglas de las Palabras M&#xe1;gicas</h3>
+    <ul style="color: var(--ink-dim); padding-left: 20px; line-height: 2;">
+      <li>Se pueden <strong>combinar</strong>: "crece y empuja" = robustecer + commit+push al final.</li>
+      <li>Si la palabra va seguida de <strong>contexto</strong>, usarlo: "tik&#xfa;n voz" = Tik&#xfa;n enfocado en m&#xf3;dulos de voz.</li>
+      <li><strong>"por favor" + PM</strong> = petici&#xf3;n cort&#xe9;s (Gevur&#xe1; activa, puede preguntar en Gates).</li>
+      <li><strong>PM + "am&#xe9;n"</strong> = ejecuci&#xf3;n aut&#xf3;noma (Gevur&#xe1; relajada, gates pre-aprobadas).</li>
+      <li><strong>PM + "gracias"</strong> = ejecutar + cerrar ciclo al terminar.</li>
+      <li><strong>"gracias"</strong> en medio de un ciclo = detener con nota positiva.</li>
+      <li>Las palabras m&#xe1;gicas <strong>NO eximen</strong> de las Reglas Anti-Colateral.</li>
+      <li>Nuevas palabras se agregan con aprobaci&#xf3;n del Propietario (Gate 2).</li>
+      <li>Las sugerencias se registran en <code>PALABRAS_MAGICAS_SUGERENCIAS.md</code>.</li>
+    </ul>
+
+    <hr>
+
+    <nav class="nav-bottom">
+      <a href="index.html">☜ Índice</a>
+      <span style="color:var(--gold-dark)">Parte I · Comandos Activos</span>
+      <a href="cap01_kabbalah.html">Cap. 1 ☞</a>
+    </nav>
+
+  </div>
+
+  <a href="#" class="back-to-top">↑</a>
+  <script src="ritual.js"></script>
+</body>
+</html>

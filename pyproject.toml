@@ -1,0 +1,16 @@
+[project]
+name = "golem"
+version = "0.1.0"
+description = "Golem — Asistente personal de escritorio con IA para Windows 11"
+requires-python = ">=3.10"
+authors = [
+    {name = "José Esaú Díaz Hernández"}
+]
+
+[tool.setuptools.packages.find]
+include = ["golem*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_functions = ["test_*"]
+python_files = ["test_*.py", "smoke_*.py"]

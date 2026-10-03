@@ -1,0 +1,27 @@
+# ============================================================
+# Git Attributes — ENCRIPTACIÓN COMPLETAMENTE DESACTIVADA
+# ============================================================
+# 17 Abril 2026: Proyecto COMPUTADORA sin encriptación
+# Todos los archivos son legibles, desencriptados, públicos
+# No hay filtros git-crypt activos
+#
+# HISTORIAL:
+# - Abril 14: git-crypt removido pero atributos quedaron
+# - Abril 17: Limpieza final — ZERO encriptación
+# ============================================================
+
+# --- SIN ENCRIPTACIÓN EN TODO EL PROYECTO ---
+# Los siguientes archivos FUERON desencriptados permanentemente:
+# • Todos los .py en computadora/ y tests/
+# • config.json, .env, requirements.txt
+# • *.bat, *.ps1 (scripts de arranque)
+# • ENCICLOPEDIA/* (grimorio, ahora público y desencriptado)
+
+# --- NO SE USA GIT-CRYPT ---
+# (remover cualquier referencia si Git aún detecta)
+
+# --- SOLO CONFIGURACIÓN DE LÍNEA FINAL ---
+# (por defecto, sin filter=git-crypt = sin encriptar)
+
+# --- NO ENCRIPTAR: .gitignore, .gitattributes, LICENSE ---
+# (necesarios para que git funcione correctamente)

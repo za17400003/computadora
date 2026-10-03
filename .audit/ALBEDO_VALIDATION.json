@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-04-17T19:18:08.225298",
+  "validaciones": [
+    "Estado: ENCRIPTADO",
+    "Encriptaci\u00f3n: AESV3 - MUY FUERTE",
+    "Protecci\u00f3n: Usuario (DocOpen)",
+    "Bypass: EMPTY PASSWORD FAILED - Requiere contrase\u00f1a real",
+    "OPCI\u00d3N 1: Fuerza bruta - RECOMENDADA",
+    "OPCI\u00d3N 2: Diccionario - VIABLE",
+    "OPCI\u00d3N 3: Vulnerabilidad - POCO VIABLE",
+    "Palabra cr\u00edtica: vuelve a empezar",
+    "Palabra cr\u00edtica: la vida puede ser libre y hermosa",
+    "Palabra cr\u00edtica: ya no hay vuelta atr\u00e1s",
+    "Palabra cr\u00edtica: verdadera humanidad",
+    "Palabra cr\u00edtica: potencial",
+    "Palabra cr\u00edtica: chaplin",
+    "Palabra cr\u00edtica: resiste",
+    "Palabra cr\u00edtica: libertad",
+    "Palabra cr\u00edtica: verdad",
+    "Palabra cr\u00edtica: esperanza"
+  ],
+  "proteccion_usuario": true
+}

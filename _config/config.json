@@ -1,0 +1,71 @@
+{
+    "idioma": "es-MX",
+    "voz": {
+        "tts_motor": "edge-tts",
+        "tts_voz": "es-MX-JorgeNeural",
+        "tts_fallback": "pyttsx3",
+        "velocidad": 1.0
+    },
+    "wake_word": "computadora",
+    "interfaz": {
+        "tema": "oscuro",
+        "iniciar_con_windows": false,
+        "minimizar_a_bandeja": true
+    },
+    "cerebro": {
+        "proveedor_primario": "local",
+        "proveedor_fallback": "local",
+        "max_tokens": 2048,
+        "cache_activo": true
+    },
+    "whisper": {
+        "modelo": "small",
+        "dispositivo": "auto",
+        "idioma": "es"
+    },
+    "escucha": {
+        "umbral_volumen": 0.03,
+        "silencio_max_segundos": 1.5,
+        "frecuencia_muestreo": 16000,
+        "pause_while_tts": true,
+        "post_tts_cooldown_ms": 900,
+        "umbral_habla_mult": 10,
+        "eco_margen_gracia_s": 2.5,
+        "eco_ratio_echo": 0.65,
+        "eco_ratio_interrupcion": 0.35
+    },
+    "guardian": {
+        "hora_activacion_automatica": "21:00",
+        "activacion_por_inactividad": true,
+        "timeout_inactividad_minutos": 5,
+        "mantener_sensores_activos": true,
+        "registrar_eventos": true,
+        "visión_nocturna": true,
+        "descripción": "Configuración del guardián (шомер). Se activa a la hora especificada o por inactividad del usuario."
+    },
+    "ollama": {
+        "modelo": "qwen2.5:3b-instruct"
+    },
+    "discord": {
+        "token": "",
+        "canal_id": "1490869161365213428",
+        "owner_id": "335638183888945162"
+    },
+    "telegram": {
+        "token": "",
+        "owner_id": "5325892311"
+    },
+    "feature_flags": {
+        "escucha_voz": true,
+        "nlu_herramientas": true,
+        "tts": true,
+        "nivel2_ollama": true,
+        "proactividad": false,
+        "monitor_sistema": true,
+        "emociones_ruaj": false,
+        "contexto_visual": false,
+        "reconocimiento_facial": false,
+        "life_autonomy": false,
+        "circadian_cycles": false
+    }
+}

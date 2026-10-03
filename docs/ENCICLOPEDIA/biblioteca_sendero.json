@@ -1,0 +1,228 @@
+{
+  "version": "1.0",
+  "descripcion": "Biblioteca del Sendero — Libros recomendados por etapa alquímica. Se desbloquean conforme el lector avanza en el Grimorio. El sistema siempre muestra 3 etapas adelante.",
+  "stages": {
+    "plomo": {
+      "nombre": "♄ Plomo — Prima Materia",
+      "chapters": [0, 1, 2]
+    },
+    "estano": {
+      "nombre": "♃ Estaño — Expansión del Conocimiento",
+      "chapters": [3, 4, 5]
+    },
+    "hierro": {
+      "nombre": "♂ Hierro — Disciplina y Voluntad",
+      "chapters": [6, 7, 8]
+    },
+    "cobre": {
+      "nombre": "♀ Cobre — Equilibrio y Devoción",
+      "chapters": [9, 10, 11]
+    },
+    "mercurio": {
+      "nombre": "☿ Mercurio — El Puente",
+      "chapters": [12, 13, 14]
+    },
+    "plata": {
+      "nombre": "☽ Plata — Albedo, Purificación",
+      "chapters": [15, 16, 17]
+    },
+    "oro": {
+      "nombre": "☉ Oro — Opus Magnum",
+      "chapters": [18, 19, 20]
+    }
+  },
+  "libros": [
+    {
+      "title": "El Kybalión",
+      "author": "Tres Iniciados",
+      "description": "Los 7 principios herméticos: mentalismo, correspondencia, vibración, polaridad, ritmo, causa-efecto, género.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "plomo",
+      "icon": "⚗️"
+    },
+    {
+      "title": "Dogma y Ritual de la Alta Magia",
+      "author": "Éliphas Lévi",
+      "description": "Manual clásico de magia ceremonial. La voluntad como motor de transformación.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "plomo",
+      "icon": "🪄"
+    },
+    {
+      "title": "La República",
+      "author": "Platón",
+      "description": "La alegoría de la caverna, la justicia y el mundo de las Ideas. Fundamento del pensamiento occidental.",
+      "category": "📜 Filosofía",
+      "stage": "plomo",
+      "icon": "🏛️"
+    },
+    {
+      "title": "Meditaciones",
+      "author": "Marco Aurelio",
+      "description": "Estoicismo práctico: control interno, aceptación del destino, virtud como único bien.",
+      "category": "📜 Filosofía",
+      "stage": "estano",
+      "icon": "🏛️"
+    },
+    {
+      "title": "Cosmos",
+      "author": "Carl Sagan",
+      "description": "El universo explicado con poesía científica. De las estrellas al ADN, todo está conectado.",
+      "category": "🔬 Ciencia",
+      "stage": "estano",
+      "icon": "🌌"
+    },
+    {
+      "title": "El Tao Te Ching",
+      "author": "Lao Tzu",
+      "description": "81 versos sobre el Camino: la acción sin esfuerzo, la suavidad que vence a la dureza.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "hierro",
+      "icon": "☯️"
+    },
+    {
+      "title": "El Dhammapada",
+      "author": "Buda Gautama",
+      "description": "Versos fundamentales del budismo: la mente crea la realidad, el sufrimiento tiene causa y cese.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "hierro",
+      "icon": "🪷"
+    },
+    {
+      "title": "Bhagavad Gita",
+      "author": "Vyasa",
+      "description": "Diálogo entre Krishna y Arjuna: dharma, karma, bhakti y jñana como senderos de liberación.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "hierro",
+      "icon": "🙏"
+    },
+    {
+      "title": "Así habló Zaratustra",
+      "author": "Friedrich Nietzsche",
+      "description": "El Übermensch, la voluntad de poder, el eterno retorno. Filosofía como acto creativo.",
+      "category": "📜 Filosofía",
+      "stage": "hierro",
+      "icon": "⚡"
+    },
+    {
+      "title": "Imitación de Cristo",
+      "author": "Tomás de Kempis",
+      "description": "Mística cristiana: humildad, renuncia, unión con lo divino a través del silencio interior.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "cobre",
+      "icon": "✝️"
+    },
+    {
+      "title": "Los sufíes",
+      "author": "Idries Shah",
+      "description": "Sabiduría sufi: cuentos de enseñanza, paradojas y el camino del corazón en el Islam esotérico.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "cobre",
+      "icon": "🌙"
+    },
+    {
+      "title": "El Zohar",
+      "author": "Shimon bar Yojai (trad.)",
+      "description": "Texto central de la Kabbalah. Comentario místico sobre la Torá, las Sefirot y los mundos ocultos.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "mercurio",
+      "icon": "✡️"
+    },
+    {
+      "title": "Popol Vuh",
+      "author": "Tradición maya-quiché",
+      "description": "Cosmogonía mesoamericana: los dioses creadores, los héroes gemelos, los ciclos del mundo.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "mercurio",
+      "icon": "🐍"
+    },
+    {
+      "title": "La Tabla Esmeralda",
+      "author": "Hermes Trismegisto",
+      "description": "'Como es arriba, es abajo.' El texto fundacional de la alquimia y el hermetismo.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "mercurio",
+      "icon": "💎"
+    },
+    {
+      "title": "Breve historia del tiempo",
+      "author": "Stephen Hawking",
+      "description": "Del Big Bang a los agujeros negros: el universo explicado para mentes curiosas.",
+      "category": "🔬 Ciencia",
+      "stage": "estano",
+      "icon": "🕳️"
+    },
+    {
+      "title": "La psicología del inconsciente",
+      "author": "Carl Gustav Jung",
+      "description": "Arquetipos, sombra, inconsciente colectivo. La alquimia como metáfora de la individuación.",
+      "category": "🧠 Psicología",
+      "stage": "estano",
+      "icon": "🪞"
+    },
+    {
+      "title": "Liber AL vel Legis",
+      "author": "Aleister Crowley",
+      "description": "El Libro de la Ley: 'Haz lo que quieras será el todo de la Ley.' Fundamento de Thelema.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "plata",
+      "icon": "⭐"
+    },
+    {
+      "title": "Edda Mayor",
+      "author": "Tradición nórdica",
+      "description": "Mitos nórdicos: Odín en Yggdrasil, las runas, el Ragnarök y el eterno retorno.",
+      "category": "🕉️ Tradiciones Sagradas",
+      "stage": "plata",
+      "icon": "⚔️"
+    },
+    {
+      "title": "El Corpus Hermeticum",
+      "author": "Hermes Trismegisto",
+      "description": "17 tratados sobre Dios, cosmos, mente y alma. La gnosis como vía de iluminación.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "plata",
+      "icon": "🐍"
+    },
+    {
+      "title": "El arte de la guerra",
+      "author": "Sun Tzu",
+      "description": "Estrategia como filosofía: conocerse a sí mismo, vencer sin luchar, fluir como el agua.",
+      "category": "📜 Filosofía",
+      "stage": "oro",
+      "icon": "⚔️"
+    },
+    {
+      "title": "Gödel, Escher, Bach",
+      "author": "Douglas Hofstadter",
+      "description": "Loops extraños, autorreferencia, mentes y máquinas. El puente entre lógica, arte y conciencia.",
+      "category": "🔬 Ciencia",
+      "stage": "oro",
+      "icon": "∞"
+    },
+    {
+      "title": "La estructura de las revoluciones científicas",
+      "author": "Thomas Kuhn",
+      "description": "Paradigmas, ciencia normal y revoluciones. Cómo cambia lo que creemos saber.",
+      "category": "🔬 Ciencia",
+      "stage": "cobre",
+      "icon": "🔄"
+    },
+    {
+      "title": "Fenomenología del espíritu",
+      "author": "Hegel",
+      "description": "Dialéctica del espíritu: tesis, antítesis, síntesis. La conciencia se conoce a sí misma.",
+      "category": "📜 Filosofía",
+      "stage": "oro",
+      "icon": "🌀"
+    },
+    {
+      "title": "777 and Other Qabalistic Writings",
+      "author": "Aleister Crowley",
+      "description": "Tablas de correspondencias: Sefirot, planetas, elementos, perfumes, armas mágicas, tarot.",
+      "category": "🔮 Ocultismo y Hermetismo",
+      "stage": "oro",
+      "icon": "📊"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+# GUI
+PyQt6>=6.6
+
+# Voz - STT + VAD
+openai-whisper>=20231117
+silero-vad>=4.0
+sounddevice>=0.4
+numpy>=1.24
+
+# Voz - TTS
+edge-tts>=6.1
+pyttsx3>=2.90
+pygame>=2.5
+
+# IA / LLM
+httpx>=0.27
+
+# Automatización Windows
+pyautogui>=0.9
+pywin32>=306
+psutil>=5.9
+
+# Configuración
+python-dotenv>=1.0
+
+# Logs
+loguru>=0.7
+
+# Discord (Cetro Mágico)
+discord.py>=2.3
+
+# Telegram (Sharvít Merajók)
+python-telegram-bot>=21.0
+
+# Hot-reload
+watchdog>=4.0
+
+# NoSQL embebido (perfiles de personas)
+tinydb>=4.8
+
+# RF-208: Kli HaHarjavá — importación lazy (opcionales)
+scapy>=2.5
+opencv-python-headless>=4.9
+face_recognition>=1.3.0
+wakeonlan>=3.0
+
+# FP-071: Percepción Da'at — opcionales
+scipy>=1.10
+
+# 🔥 RUBEDO: Fuzzy Wake Word
+fuzzywuzzy>=0.18
+python-Levenshtein>=0.25
+
+# FP-099: Firebase — DESACTIVADO (Minimi proyecto colateral no iniciado)
+
+# 🔥 RUBEDO: Fuzzy Wake Word + Echo Filtering
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.21.1
+# firebase-admin>=7.0
+
+# RF-301: Reconocimiento facial — ACTIVO (requiere cmake + dlib)
+# ✅ INSTALADO ABRIL 9 2026 — Golem puede ver rostros
+dlib>=19.24
+cmake>=3.27
+face-recognition>=1.3  # Habilitado: dlib compilado ✅
+# fer>=22.5              # Facial Expression Recognition — opcional
+# deepface>=0.0.80       # alternativa a fer — opcional

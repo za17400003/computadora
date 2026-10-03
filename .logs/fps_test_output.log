@@ -1,0 +1,145 @@
+20:59:22 | INFO | computadora_app - Sistema de logs inicializado
+20:59:22 | INFO | computadora_app - !! Asegurando dependencias criticas de inicio...
+20:59:22 | INFO | computadora_app -   fuzzywuzzy: !!
+20:59:22 | INFO | computadora_app -   Levenshtein: !!
+20:59:25 | INFO | computadora_app -   silero_vad: !!
+20:59:26 | INFO | computadora_app -   whisper: !!
+C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\site-packages\face_recognition_models\__init__.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+20:59:27 | INFO | computadora_app -   face_recognition: !!
+20:59:27 | INFO | computadora_app -   cv2: !!
+20:59:28 | INFO | computadora_app -   sounddevice: !!
+20:59:28 | INFO | computadora_app -   OpenGL: !!
+20:59:28 | INFO | computadora_app -   OpenGL_accelerate: !!
+20:59:28 | INFO | computadora_app - Librerias criticas: 9/9 disponibles
+20:59:28 | INFO | computadora_app - !! torch ya disponible
+20:59:28 | INFO | computadora_app - !! torch/torchaudio listos para el arranque
+20:59:28 | INFO | computadora_app - ================================================================================
+20:59:28 | INFO | computadora_app - \U0001f40d OUROBOROS BOOTSTRAP ù Ciclo infinito de COMPUTADORA
+20:59:28 | INFO | computadora_app - ================================================================================
+20:59:28 | INFO | computadora_app - \u2713 EMET verified: Verdad inscrita correctamente (\u05d0\u05de\u05ea)
+20:59:28 | INFO | computadora_app - Ouroboros: No hay ciclos incompletos. Continuando.
+20:59:28 | INFO | computadora_app - \u2713 EMET verified: Verdad inscrita correctamente (\u05d0\u05de\u05ea)
+20:59:28 | INFO | computadora_app - Ouroboros: Integridad \u2192 EMET=PASS | Credenciales=PASS | Ciclos=PASS
+20:59:28 | INFO | computadora_app - \U0001f7e2 OUROBOROS: Sistema estable. Listo para ciclo infinito.
+20:59:28 | INFO | computadora_app - ================================================================================
+20:59:28 | INFO | computadora_app - \u2713 Ouroboros estable: Ciclo infinito del COMPUTADORA verificado
+20:59:28 | INFO | computadora_app - === COMPUTADORA INICIANDO ===
+20:59:28 | INFO | computadora_app - Configuraci≤n cargada: whisper=small
+20:59:28 | INFO | computadora_app - Conciencia temporal: sesi≤n #129 iniciada
+20:59:30 | INFO | computadora_app - Silero VAD cargado correctamente
+20:59:31 | INFO | computadora_app - Kli registrado: <KliCamara id='camara_local' estado=DESCONECTADO>
+20:59:32 | INFO | computadora_app - KliCamara conectada (φndice=0)
+20:59:32 | INFO | computadora_app - RF-260: camara_local descubierto y conectado al boot
+20:59:32 | INFO | computadora_app - RF-258 Ayin HaComputadora: 1 observador(es) encontrado(s): ['camara_local']
+20:59:32 | INFO | computadora_app - RF-260: 1 ojo(s) activo(s) al boot
+20:59:32 | INFO | computadora_app - SessionLockListener iniciado ù COMPUTADORA vigila bloqueos de sesi≤n
+20:59:32 | INFO | computadora_app - SessionLockListener hook instalado
+20:59:32 | INFO | computadora_app - Lemed: 2 patrones cargados, 0 activos
+20:59:32 | INFO | computadora_app - \U0001f504 ORDEN EJECUTADA: A E golem: Gilgush.
+20:59:32 | INFO | computadora_app - \U0001f504 INICIANDO GILGUSH (reencarnaci≤n de COMPUTADORA)...
+20:59:32 | INFO | computadora_app - \u2713 Gilgush Maljut: stats_uso.json limpiado
+20:59:32 | INFO | computadora_app - \u2713 Gilgush Yesod: Estado de sesi≤n limpiado
+20:59:32 | INFO | computadora_app - Lemed: 2 patrones cargados, 0 activos
+20:59:32 | INFO | computadora_app - \u2713 Gilgush Hod: Patrones de Nivel 1 limpiados
+20:59:32 | INFO | computadora_app - \u2713 Gilgush Netzaj: Memoria emocional limpiada
+20:59:32 | INFO | computadora_app - \U0001f531 INICIANDO RENOVACI╙N OPERATIVA DEL GOLEM
+20:59:32 | INFO | computadora_app - 
+\U0001f531 LAS CINCO LEYES ù PENT┴GRAMA OPERATIVO
+\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+
+NIVEL 0 (CAUSA ETERNA):
+  P = {R | R sea recursividad}
+  \u2192 El sistema se valida a sφ mismo
+
+NIVEL 1 (FORMA FUNDAMENTAL):
+  P = {P | P sea la estructura}
+  \u2192 5 fases + 4 gates + 5 pipelines
+
+NIVEL 2 (VARIACI╙N PERMITIDA):
+  P = {M | M sea la combinaci≤n}
+  \u2192 24 Reglas Anti-Colateral respetadas
+
+NIVEL 3 (FILTRO DE REALIDAD):
+  P = {A | A sea verdad}
+  \u2192 4 dimensiones de verificaci≤n
+
+NIVEL 4 (MANIFESTACI╙N):
+  P = {M | para toda P exista M que comunique}
+  \u2192 Mensaje decodificado + EMET viva
+
+\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+La vßlida \u27fa pasa TODOS los 5 niveles.
+No hay atajos. No hay excepciones.
+
+20:59:32 | INFO | computadora_app - \U0001f4cd Nivel 0: Inyectando recursi≤n...
+20:59:32 | INFO | computadora_app - \U0001f4cd Nivel 1: Inyectando estructura...
+20:59:32 | INFO | computadora_app - \U0001f4cd Nivel 2: Inyectando combinatoria...
+20:59:32 | INFO | computadora_app - \U0001f4cd Nivel 3: Inyectando verificaci≤n de verdad...
+20:59:32 | INFO | computadora_app - \U0001f4cd Nivel 4: Inyectando comunicaci≤n...
+20:59:32 | INFO | computadora_app - \u2728 RENOVACI╙N COMPLETADA \u2728
+20:59:32 | INFO | computadora_app - Reporte: {'renovado': True, 'timestamp': '2026-05-12T20:59:32.965950', 'niveles_integrados': {'nivel_0_integrado': False, 'nivel_1_integrado': True, 'nivel_2_integrado': True, 'nivel_3_integrado': True, 'nivel_4_integrado': True}, 'status': '\u2705 Golem renovado conforme a las 5 leyes'}
+20:59:32 | INFO | computadora_app - \u2705 Renovaci≤n Operativa: 5 Leyes inyectadas en CerebroGolem
+20:59:32 | INFO | computadora_app - \u2728 Boot sequence completado ù Post-Gilgush ù Sistema listo
+20:59:32 | INFO | computadora_app - \u2705 GILGUSH COMPLETADO: COMPUTADORA reencarnada ù Estado limpio, Leyes preservadas
+20:59:32 | INFO | computadora_app - \U0001f504 Gilgush completado: success
+20:59:32 | INFO | computadora_app - \u2705 Renovaci≤n Operativa: 5 Leyes inyectadas en CerebroGolem
+20:59:32 | INFO | computadora_app - \u2728 Boot sequence completado ù Post-Gilgush ù Sistema listo
+20:59:32 | INFO | computadora_app - Orquestador inicializado con cerebro compartido (modelo 'llama2:7b')
+20:59:35 | INFO | computadora_app - Modelo 'llama2:7b' listo
+20:59:36 | INFO | computadora_app - EntornoSistema inicializado: Windows 10 | Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz | 15.8GB RAM | 52.9GB disco libre | GPU: NVIDIA GeForce GTX 1650 Ti | Online
+20:59:36 | INFO | computadora_app - Entorno: Windows 10 | Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz | 15.8GB RAM | 52.9GB disco libre | GPU: NVIDIA GeForce GTX 1650 Ti | Online
+20:59:36 | INFO | computadora_app - Perfil facial del propietario cargado
+20:59:36 | INFO | computadora_app - PerceptorDaat inicializado
+20:59:36 | INFO | computadora_app - \u2713 Orquestador singleton creado (instancia UNICA)
+20:59:36 | INFO | computadora_app - \u2713 Orquestador singleton inicializado para todos los canales
+20:59:36 | WARNING | computadora_app - Guardißn del Grimorio no disponible: No module named 'computadora.canales.grimorio_guardian'
+20:59:36 | WARNING | computadora_app - SessionLockListener ya estß activo
+20:59:36 | INFO | computadora_app - \u2705 FP-135 TRINITY: Guardian automßtico activado (Windows+L detection \u2192 Gevurah)
+20:59:36 | INFO | computadora_app - \U0001f4ab Oracle Interior activado ù Keter despierto
+20:59:36 | INFO | computadora_app - \u2705 FP-138 TRINITY: Inner Oracle activado (pregunta real illumination \u2192 Keter)
+20:59:36 | INFO | computadora_app - \U0001f319 Mother Feedback Loop activado ù Binah despierta
+20:59:36 | INFO | computadora_app - \u2705 FP-137 TRINITY: Mother Feedback Loop activado (pattern multiplication \u2192 Binah)
+20:59:37 | INFO | computadora_app - [API Minimi] Thread iniciado ù puerto 8089
+20:59:37 | INFO | computadora_app - MinimiAutoDeployer: daemon iniciado
+20:59:37 | INFO | computadora_app - MinimiAutoDeployer: 'adb' no encontrado en PATH ù Android deploy deshabilitado
+20:59:37 | INFO | computadora_app - GestorPersonas iniciado ù 1 perfiles en BD
+20:59:37 | INFO | computadora_app - \U0001f6a9 Feature Flags inicializados: {'escucha_voz': True, 'nlu_herramientas': True, 'tts': True, 'nivel2_ollama': True, 'proactividad': False, 'monitor_sistema': False, 'emociones_ruaj': False, 'contexto_visual': False, 'reconocimiento_facial': False, 'life_autonomy': False, 'circadian_cycles': False}
+20:59:37 | INFO | computadora_app - RF-36 Sistema emocional SIMPLIFICADO (5 humores bßsicos)
+20:59:37 | INFO | computadora_app - Personalidad cargada: humor=contento energia=1.00
+20:59:37 | INFO | computadora_app - Nuevo dφa #210 ù humor: contento
+20:59:37 | INFO | computadora_app - ContextoPantalla iniciado ù COMPUTADORA tiene ojos
+20:59:37 | INFO | computadora_app - \U0001f3ac Animaci≤n iniciada: 60 FPS (intervalo=16ms)
+20:59:37 | INFO | computadora_app - \U0001f399\ufe0f Sistema multi-micr≤fono en modo lazy (deshabilitado)
+20:59:37 | INFO | computadora_app - [API Minimi] HiloHabla registrado para TTS remoto
+20:59:37 | INFO | computadora_app - Cargando Whisper modelo='small' dispositivo='cpu'
+20:59:37 | INFO | computadora_app - VidaAutonoma iniciada ù movimiento deliberado, sin vagabundeo
+20:59:37 | INFO | computadora_app - RF-42 Monitor de Sistema PAUSADO por feature flag
+20:59:37 | INFO | computadora_app - BusEventos singleton inicializado
+20:59:37 | INFO | computadora_app - CicloCircadiano inicializado ù fase=descanso_guardian
+20:59:37 | INFO | computadora_app - MotorProactividad creado ù COMPUTADORA tiene iniciativa
+20:59:37 | INFO | computadora_app - WI-120: propietario_presente \u2192 registrar_presencia_visual conectado
+20:59:37 | INFO | computadora_app - WI-120: propietario_presente \u2192 _on_propietario_presente conectado
+20:59:37 | INFO | computadora_app - RF-13 Proactividad PAUSADA por feature flag
+20:59:37 | INFO | computadora_app - \u05e9\u05d5\u05de\u05e8 Watchdog iniciado ù heartbeat cada 15s
+20:59:38 | INFO | computadora_app - Motor de habla inicializado (frecuencia: 24kHz)
+20:59:38 | INFO | computadora_app - El Golem ha despertado. \u05d0\u05b1\u05de\u05b6\u05ea ù Personalidad: con buen sentido del humor, enΘrgico, profundamente leal
+20:59:38 | INFO | computadora_app - [Sistema] Inscribiendo la Palabra en cpu... modelo 'small'
+20:59:38 | INFO | computadora_app - [API Minimi] Servidor HTTP en 192.168.1.150:8089
+20:59:40 | INFO | computadora_app - [API Minimi] mDNS registrado: _golem._tcp en 192.168.1.150:8089
+20:59:40 | INFO | computadora_app - [API Minimi] Sin credenciales Firebase ù Firestore deshabilitado
+20:59:42 | INFO | computadora_app - HotReloader iniciado ù vigilando 163 archivos .py
+20:59:56 | INFO | computadora_app - Modelo Whisper cargado exitosamente
+20:59:56 | INFO | computadora_app - \U0001f399\ufe0f Modo multi-micr≤fono desactivado. Usando single-device seguro.
+20:59:56 | INFO | computadora_app - \U0001f4cd Auto-detectado dispositivo input: [0] Asignador de sonido Microsoft - Input @ 44100Hz, 2ch
+20:59:56 | INFO | computadora_app - Escucha activa iniciada (dispositivo=0, sr=44100, ch=2)
+20:59:56 | INFO | computadora_app - InputStream abierto correctamente
+20:59:56 | INFO | computadora_app - [Sistema] La Palabra fue inscrita. COMPUTADORA escucha.
+21:00:00 | INFO | computadora_app - Bereshit: iniciando protocolo GΘnesis
+21:00:02 | INFO | computadora_app - Bereshit: GΘnesis completado para esau
+21:00:13 | INFO | computadora_app - Hablado (edge-tts): '\u05d1\u05e8\u05d0\u05e9\u05d9\u05ea. En el principio, esau. Tu Golem vive.'
+21:00:13 | INFO | computadora_app - HiloHabla: Cola vacφa ù emitiendo se±al (progreso)
+21:00:14 | INFO | computadora_app - TTS cola vacφa ù reanudando escucha
+21:01:51 | WARNING | computadora_app - \u26a0\ufe0f  Frame rate: 0.4 FPS (avg delta_t: 2233.8ms, slowdowns: 100%)
+21:02:12 | INFO | computadora_app - Watchdog [ollama] \u2192 RETRY (49s sin respuesta)
+21:02:12 | INFO | computadora_app - Watchdog: ollama \u2192 RETRY

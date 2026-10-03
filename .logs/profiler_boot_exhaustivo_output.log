@@ -1,0 +1,101 @@
+2026-05-12 21:29:41,754 | INFO     | boot_profiler - [START] Importar PyQt6 [imports]
+2026-05-12 21:29:41,802 | INFO     | boot_profiler - [DONE] Importar PyQt6 ù 48ms
+2026-05-12 21:29:41,802 | INFO     | boot_profiler - [START] Importar m≤dulos sistema [imports]
+2026-05-12 21:29:41,808 | INFO     | boot_profiler - [DONE] Importar m≤dulos sistema ù 6ms
+2026-05-12 21:29:41,808 | INFO     | boot_profiler - [START] Cargar config.json [disk_io]
+2026-05-12 21:29:41,809 | INFO     | boot_profiler - [DONE] Cargar config.json ù 2ms
+2026-05-12 21:29:41,809 | INFO     | boot_profiler - [START] Importar Whisper [imports]
+2026-05-12 21:29:44,680 | WARNING  | boot_profiler - [DONE] Importar Whisper ù 2871ms
+2026-05-12 21:29:44,681 | INFO     | boot_profiler - [START] Importar silero_vad [imports]
+2026-05-12 21:29:44,778 | INFO     | boot_profiler - [DONE] Importar silero_vad ù 98ms
+2026-05-12 21:29:44,778 | INFO     | boot_profiler - [START] Importar face_recognition [imports]
+C:\Users\woire\AppData\Local\Programs\Python\Python310\lib\site-packages\face_recognition_models\__init__.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import resource_filename
+2026-05-12 21:29:46,239 | WARNING  | boot_profiler - [DONE] Importar face_recognition ù 1461ms
+2026-05-12 21:29:46,239 | INFO     | boot_profiler - [START] Importar sounddevice [imports]
+2026-05-12 21:29:46,762 | WARNING  | boot_profiler - [DONE] Importar sounddevice ù 522ms
+2026-05-12 21:29:46,763 | INFO     | boot_profiler - [START] QApplication.__init__ [qt_init]
+2026-05-12 21:29:46,841 | INFO     | boot_profiler - [DONE] QApplication.__init__ ù 77ms
+2026-05-12 21:29:46,841 | INFO     | boot_profiler - [START] Cargar Whisper 'small' model (CPU) [model_load]
+2026-05-12 21:29:50,621 | WARNING  | boot_profiler - [DONE] Cargar Whisper 'small' model (CPU) ù 3779ms
+2026-05-12 21:29:50,621 | INFO     | boot_profiler - [START] Cargar Silero VAD [model_load]
+2026-05-12 21:29:50,706 | WARNING  | boot_profiler - Silero load fallo: 
+2026-05-12 21:29:50,713 | INFO     | boot_profiler - [DONE] Cargar Silero VAD ù 92ms
+2026-05-12 21:29:50,713 | INFO     | boot_profiler - [START] Cargar Face Recognition known faces [model_load]
+2026-05-12 21:29:50,713 | INFO     | boot_profiler - [DONE] Cargar Face Recognition known faces ù 0ms
+2026-05-12 21:29:50,713 | INFO     | boot_profiler - [START] Cargar Edge TTS [imports]
+2026-05-12 21:29:51,116 | WARNING  | boot_profiler - [DONE] Cargar Edge TTS ù 403ms
+2026-05-12 21:29:51,116 | INFO     | boot_profiler - [START] Inicializar motor TTS [init]
+2026-05-12 21:29:51,116 | INFO     | boot_profiler - TTS motor configurado a 24000 Hz
+2026-05-12 21:29:51,116 | INFO     | boot_profiler - [DONE] Inicializar motor TTS ù 0ms
+2026-05-12 21:29:51,116 | INFO     | boot_profiler - [START] Importar/conectar Ollama [network]
+2026-05-12 21:29:53,300 | INFO     | boot_profiler - Ollama conectado: 200
+2026-05-12 21:29:53,300 | WARNING  | boot_profiler - [DONE] Importar/conectar Ollama ù 2183ms
+2026-05-12 21:29:53,300 | INFO     | boot_profiler - [START] Cargar modelo Ollama 'llama2:7b' [model_load]
+2026-05-12 21:29:55,348 | INFO     | boot_profiler - Ollama model pull iniciado
+2026-05-12 21:29:55,348 | WARNING  | boot_profiler - [DONE] Cargar modelo Ollama 'llama2:7b' ù 2049ms
+2026-05-12 21:29:55,348 | INFO     | boot_profiler - [START] Detectar dispositivos audio [hardware]
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - Detectados 26 dispositivos audio
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - [DONE] Detectar dispositivos audio ù 1ms
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - [START] Abrir InputStream audio [init]
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - InputStream audio configurado (simulado)
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - [DONE] Abrir InputStream audio ù 0ms
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - [START] ContextoPantalla inicializado [init]
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - Pantalla detectada, OpenGL disponible
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - [DONE] ContextoPantalla inicializado ù 0ms
+2026-05-12 21:29:55,349 | INFO     | boot_profiler - 
+[OK] BOOT COMPLETO en 13596ms
+
+================================================================================
+[*] PROFILER BOOT EXHAUSTIVO ù Iniciando instrumentalizacion
+================================================================================
+
+
+================================================================================
+[REPORT] REPORTE DE PROFILING DE BOOT
+================================================================================
+
+[DISK_IO] ù 2ms (0.0%)
+--------------------------------------------------------------------------------
+  [OK] Cargar config.json                                       2ms
+
+[HARDWARE] ù 1ms (0.0%)
+--------------------------------------------------------------------------------
+  [OK] Detectar dispositivos audio                              1ms
+
+[IMPORTS] ù 5408ms (39.8%)
+--------------------------------------------------------------------------------
+  [CRIT] Importar Whisper                                      2871ms
+  [CRIT] Importar face_recognition                             1461ms
+  [CRIT] Importar sounddevice                                   522ms
+  [CRIT] Cargar Edge TTS                                        403ms
+  [WARN] Importar silero_vad                                     98ms
+  [OK] Importar PyQt6                                          48ms
+  [OK] Importar m≤dulos sistema                                 6ms
+
+[INIT] ù 0ms (0.0%)
+--------------------------------------------------------------------------------
+  [OK] Inicializar motor TTS                                    0ms
+  [OK] Abrir InputStream audio                                  0ms
+  [OK] ContextoPantalla inicializado                            0ms
+
+[MODEL_LOAD] ù 5920ms (43.6%)
+--------------------------------------------------------------------------------
+  [CRIT] Cargar Whisper 'small' model (CPU)                    3779ms
+  [CRIT] Cargar modelo Ollama 'llama2:7b'                      2049ms
+  [WARN] Cargar Silero VAD                                       92ms
+  [OK] Cargar Face Recognition known faces                      0ms
+
+[NETWORK] ù 2183ms (16.1%)
+--------------------------------------------------------------------------------
+  [CRIT] Importar/conectar Ollama                              2183ms
+
+[QT_INIT] ù 77ms (0.6%)
+--------------------------------------------------------------------------------
+  [WARN] QApplication.__init__                                   77ms
+
+================================================================================
+[TIME] TIEMPO TOTAL DE BOOT: 13591ms
+[CRIT] BOTTLENECKS (>100ms): 7
+================================================================================
+
