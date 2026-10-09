@@ -27,8 +27,8 @@ print("\n══ FASE 0: Esqueleto ══")
 
 def t0_01():
     import computadora
-    return True, f"versión={getattr(golem, '__version__', 'sin versión')}"
-check("T0-01", "Módulo golem importable", t0_01)
+    return True, f"versión={getattr(computadora, '__version__', 'sin versión')}"
+check("T0-01", "Módulo computadora importable", t0_01)
 
 def t0_02():
     from computadora.config import cargar_config

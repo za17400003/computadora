@@ -6,7 +6,7 @@
 > **Autor**: Copilot (CEO/CTO)
 > Consolidado desde docs/SPECIFICATIONS/ el 2026-10-02 — fuente única en la raíz del repositorio.
 >
-> **Nota de vigencia (2026-10-02)**: La Sección 3 (Estructura de Directorios) fue reescrita por completo a partir del código real actual — la versión anterior describía un estado de abril 2026 ya superado. El resto del documento (Secciones 4+) conserva el diseño histórico módulo por módulo tal como se fue documentando en cada Feature Pack (FP-xxx); se corrigieron las referencias al paquete `golem/` (ahora `computadora/`) y al nombre de marca "Golem" (ahora "Computadora"), pero el detalle de clases y archivos de secciones profundas no fue re-verificado línea por línea contra el código — ver la Sección 3 y el Glosario de SRS.md para la lista de subpaquetes reales. `golem/` sigue existiendo en el repo únicamente como shim de compatibilidad de una línea (`__path__` redirect a `computadora/`).
+> **Nota de vigencia (2026-10-02)**: La Sección 3 (Estructura de Directorios) fue reescrita por completo a partir del código real actual — la versión anterior describía un estado de abril 2026 ya superado. El resto del documento (Secciones 4+) conserva el diseño histórico módulo por módulo tal como se fue documentando en cada Feature Pack (FP-xxx); se corrigieron las referencias al paquete `computadora/` (ahora `computadora/`) y al nombre de marca "Computadora" (ahora "Computadora"), pero el detalle de clases y archivos de secciones profundas no fue re-verificado línea por línea contra el código — ver la Sección 3 y el Glosario de SRS.md para la lista de subpaquetes reales. `computadora/` sigue existiendo en el repo únicamente como shim de compatibilidad de una línea (`__path__` redirect a `computadora/`).
 
 ---
 
@@ -95,10 +95,10 @@ Micrófono → Escucha (Whisper STT + wake word + verificación de voz)
 
 ## 3. ESTRUCTURA DE DIRECTORIOS (estado real verificado 2026-10-02)
 
-> Esta sección reemplaza por completo la versión "abril 2026" que describía `golem/` como paquete principal con solo 7 subpaquetes. Esa descripción quedó obsoleta: el paquete real creció a **23 subpaquetes** bajo `computadora/`. Lista verificada con `Glob`/`ls` directo sobre el repo, no reconstruida de memoria.
+> Esta sección reemplaza por completo la versión "abril 2026" que describía `computadora/` como paquete principal con solo 7 subpaquetes. Esa descripción quedó obsoleta: el paquete real creció a **23 subpaquetes** bajo `computadora/`. Lista verificada con `Glob`/`ls` directo sobre el repo, no reconstruida de memoria.
 
 ```
-proyecto-golem/                     # Nombre de la carpeta del repositorio (histórico; no confundir con el paquete)
+proyecto-computadora/                     # Nombre de la carpeta del repositorio (histórico; no confundir con el paquete)
 │
 ├── computadora/                    # ← PAQUETE PRINCIPAL (todo el código vivo del asistente)
 │   ├── __init__.py
@@ -116,7 +116,7 @@ proyecto-golem/                     # Nombre de la carpeta del repositorio (hist
 │   │   # fuera de su propio test; detector_yikavu.py se archivó, ver .archive/deprecated_code/)
 │   │
 │   ├── cerebro/                    # NLU + los 3 (ahora 4, con Gemini) niveles de IA (Tiféret)
-│   │   # nlu.py (CerebroComputadora, antes CerebroGolem), copilot_api.py, gemini_api.py,
+│   │   # nlu.py (CerebroComputadora, antes CerebroComputadora), copilot_api.py, gemini_api.py,
 │   │   # modelo_discovery.py, nivel1_aprendido.py, jojma_local.py, diagnostico_interno.py,
 │   │   # las_cinco_leyes.py, parseo_herramientas.py, matematicas.py, dialogo_or_choshech.py,
 │   │   # renovacion.py, transmutacion.py, gilgush.py, hechizos_hp.py, flujos_guardian.py,
@@ -129,7 +129,7 @@ proyecto-golem/                     # Nombre de la carpeta del repositorio (hist
 │   │
 │   ├── interfaz/                   # GUI del orbe — PyQt6 (Maljut)
 │   │   # ventana_principal.py (clase OrbeComputadora), vida_autonoma.py, ventana_keter.py,
-│   │   # dibujante_orbe.py, orbe_opengl.py, fsm_golem.py, estilos.py,
+│   │   # dibujante_orbe.py, orbe_opengl.py, fsm_computadora.py, estilos.py,
 │   │   # tema_visual.py (ThemeFactory + ClasicoTheme — único tema real tras 2026-10-02),
 │   │   # configuracion_visual_dev.py, demo_controller.py, demo_sincronizada.py,
 │   │   # camera_dev_tool.py, watchdog.py
@@ -196,8 +196,8 @@ proyecto-golem/                     # Nombre de la carpeta del repositorio (hist
 │       # io_seguro.py (escritura atómica), logs.py, windows.py, session_lock_singleton.py,
 │       # session_lock_listener.py
 │
-├── golem/                          # Shim de compatibilidad — NO es el paquete activo
-│   └── __init__.py                 # `__path__ = [.../computadora]` — redirige imports legacy `golem.*` → `computadora.*`
+├── computadora/                          # Shim de compatibilidad — NO es el paquete activo
+│   └── __init__.py                 # `__path__ = [.../computadora]` — redirige imports legacy `computadora.*` → `computadora.*`
 │
 ├── .archive/deprecated_code/       # Subsistemas completos y testeados pero nunca conectados
 │   ├── auditoria/                  # Auditor periódico de coherencia (nombres/imports/boot/permisos)
@@ -209,8 +209,8 @@ proyecto-golem/                     # Nombre de la carpeta del repositorio (hist
 │                                    # el arranque real. Se conservan por si se retoman.
 │
 ├── datos/                          # Datos persistentes (en .gitignore) — decenas de archivos JSON/JSONL,
-│                                    # incluye residuos históricos con nombre "golem" (p.ej. golem_personas.json,
-│                                    # evolucion_golem.json) que NO se renombraron y siguen en uso tal cual.
+│                                    # incluye residuos históricos con nombre "computadora" (p.ej. computadora_personas.json,
+│                                    # evolucion_computadora.json) que NO se renombraron y siguen en uso tal cual.
 │   ├── memoria/                    # JSONL diario + índices invertidos de keywords (WI-317, búsqueda O(1))
 │   ├── crypto/, gilgul/, shomer/, wg/, solicitudes/, guardian_snapshots/, camara_logs/, capturas/
 │   └── config.json                 # Config de usuario — wake_word real: "computadora"
@@ -235,7 +235,7 @@ proyecto-golem/                     # Nombre de la carpeta del repositorio (hist
 > - `nucleo/estado.py` — No se usa SQLite. Persistencia es JSON/JSONL directo.
 > - `habilidades/base.py` — No hay clase base `Habilidad`; las herramientas siguen siendo funciones puras registradas en `herramientas.py`.
 > - `interfaz/bandeja.py` — System tray sigue integrado en `ventana_principal.py`.
-> - `interfaz/recursos/golem.ico` — No hay icono custom todavía.
+> - `interfaz/recursos/computadora.ico` — No hay icono custom todavía.
 > - `utilidades/seguridad.py` — Ya **sí existe** un subpaquete `seguridad/` dedicado (cifrado, VPN, gestor de claves) — esta afirmación de la versión abril 2026 quedó obsoleta por la evolución del código, no por diseño.
 
 ---
@@ -342,7 +342,7 @@ class BusEventos:
 | Copilot auth | `datos/copilot_auth.json` | JSON (tokens) | `cerebro/copilot_api.py` |
 | Proyectos | `datos/proyectos_registrados.json` | JSON array | `nucleo/meta_workflow.py` |
 | Speaker profiles | `datos/speaker_profiles.json` | JSON (MFCC) | `voz/escucha.py` |
-| **Perfiles personas** | **`datos/golem_personas.json`** | **TinyDB (NoSQL)** | **`memoria/personas.py`** |
+| **Perfiles personas** | **`datos/computadora_personas.json`** | **TinyDB (NoSQL)** | **`memoria/personas.py`** |
 | **Perfil lingüístico** | **`datos/perfil_linguistico.json`** | **JSON dict** | **`memoria/perfil_linguistico.py`** |
 | Config usuario | `config.json` (raíz) | JSON dict | `config.py` |
 
@@ -1098,7 +1098,7 @@ if hint_errores:
 **Sefirá**: תפארת Tiféret (autoconocimiento, equilibrio)
 
 #### Problema Resuelto
-`_RE_SELF_INFO` ("dime todo lo que sepas sobre ti") retornaba 4 líneas hardcoded. Variaciones caían a Ollama → `buscar_en_internet` → resultados sobre golem mitológico.
+`_RE_SELF_INFO` ("dime todo lo que sepas sobre ti") retornaba 4 líneas hardcoded. Variaciones caían a Ollama → `buscar_en_internet` → resultados sobre computadora mitológico.
 
 #### Solución: `_autodiagnostico(texto)`
 Método que reúne datos reales del proyecto en 9 categorías:
@@ -1483,13 +1483,13 @@ El árbol REAL de la Computadora tal como está implementado, con cada módulo P
 | **Da'at** | דעת | Conocimiento oculto: Ritmo circadiano (5 fases), routing contextual N1→N2, puente emoción-conversación, **percepción unificada** (RF-253 PerceptorDaat: fusión voz+visión+tacto+contexto, reconocimiento facial RF-249, emoción voz RF-250, emoción rostro RF-251, perfil conducta RF-252, **RF-261 multi-ojo: leer_todos_los_ojos + procesar_todos_los_ojos**), Olamot dimensionales | `ciclo_circadiano.py` (módulo propio, extraído FP-026), `config.py` (Configuracion centralizada), `entorno.py` (Neshamá), historial dinámico en `nlu.py`, `ajustar_por_fase_circadiana()`, **`percepcion/perceptor.py`** (PerceptorDaat — RF-253, RF-261 multi-ojo), **`percepcion/rostro.py`** (ReconocedorRostro — RF-249), **`percepcion/emocion_voz.py`** (analizar_emocion_voz — RF-250), **`percepcion/emocion_rostro.py`** (AnalizadorEmocionRostro — RF-251), **`percepcion/perfil_conducta.py`** (PerfilConducta — RF-252), **`arquitectura/dimensiones.py`** (17 Olamot — FP-087, cambiar_dimension, DIMENSIONES tuple) | `perfil_amo.json` (patrón sueño), `owner_face_profile.json`, `rostros_conocidos.json`, `perfil_conducta.json`, `dimensiones.json` | ✅ Multi-ojo (FP-072) |
 | **Jesed** | חסד | Gracia: Dar sin que pidan, anticipar necesidades, umbrales adaptativos | `MotorProactividad` (QThread, 8+ checks), `baseline_sistema.py` (rolling avg por franja/perfil), `DetectorContexto` | `baseline_sistema.json` | ✅ Fortalecido (FP-008) |
 | **Gevurá** | גבורה | Juicio: Restricción, seguridad, contención de errores, enforcement en herramientas, `_DEMO_MODO_GEVURA` bypass RF-242, vigilancia Grimorio, **suite Shalshelet Gevurá (FP-104)** | `permisos.py` (שמירה Shmirah, one-shot, 3 niveles, timeout 30s), `aprendizaje.py` (MemoriaErrores, max 100), `herramientas.py` (sandbox + check Gevurá pre-ejecución con `_NIVELES_PERMISO` por herramienta + `_DEMO_MODO_GEVURA` flag RF-242), `comando_seguro.py` (מגן דוד Maguén David — FP-034), **`canales/grimorio_guardian.py`** (GrimorioGuardian — vigilante de intrusiones y acceso al Grimorio), **`seguridad/vpn_motor.py`** (מגן הרשת Magen HaReshet — WireGuard wrapper, Kill Switch WFP, split tunneling — RF-344), **`seguridad/cifrado_comms.py`** (שלשלת גבורה Shalshelet Gevurá — AES-256-GCM, key rotation 24h — RF-345), **`seguridad/gestor_claves.py`** (אוצר הסודות Otzar HaSodot — vault AES-256-GCM + Scrypt KDF, clipboard auto-clear 30s — RF-346), **`seguridad/filtro_amenazas_dns.py`** (שומר השער Shomer HaShaár — DNS filter, blocklists, alertas — RF-347), **`seguridad/shomer_bayit.py`** (שומר הבית Shomer HaBayit — fingerprint red hogar, stealth mode fuera de casa, 2-of-3 matching gateway/SSID/subnet — RF-368) | `permisos_log.jsonl`, `errores_aprendidos.json`, `datos/otzar.enc`, `datos/vpn_config.enc` | ✅ Shalshelet Gevurá (FP-104) |
-| **Tiféret** | תפארת | Belleza: Corazón, equilibrio 3 cerebros, alma emocional | `nlu.py` (CerebroComputadora: N1 60+ regex incl. FP-029 Peh HaGolem — voz para evolución/personalidad/RAM/procesos/autodiag/ética/FSM/watchdog/errores/minimizar/tacto/umbral/perfil, N2 Ollama, N3 Copilot, tool-use ≤10, historial 4000 tok, demo_visual herramienta RF-133 balance Keter-Tiféret N2 puede triggear demo, `_RE_DEMO_GEVURA` RF-243 regex Demo 2, FP-062 automejora: `_RE_AUTOMEJORA` + `_flujo_automejora` + `_detectar_gate_proposal` + `_recitar_proposal_voz` + `_procesar_aprobacion_automejora` RF-169), `parseo_herramientas.py` (tool call extraction, JSON repair, regex safe — FP-027, RF-232 mapeo tool→herramienta), `entorno.py` (Neshamá autoconciencia HW), `patrones_guardian.py` (RF-226: regex Shomer HaBáyit extraídas), `flujos_guardian.py` (RF-227: flujos guardián extraídos) | Historial en memoria, `stats_uso.json` | ✅ Tikún HaDemo (FP-070) |
-| **Netzaj** | נצח | Victoria: Persistencia, memoria, identidad, aprendizaje duradero | `memoria.py` (JSONL+compresión diaria), `personalidad.py` (10 rasgos, 13 humores), `personas.py` (TinyDB כשר Késher), `nivel1_aprendido.py` (Lemed, max 200), `perfil_linguistico.py` (לשון הלב Lashón HaLev — perfil idioléctico, RF-233) | `memoria_raw_*.jsonl`, `personalidad.json`, `golem_personas.json`, `nivel1_patrones.json`, `consciencia_temporal.json`, `stats_uso.json`, `perfil_linguistico.json` | ✅ Lashón HaLev (RF-233) |
+| **Tiféret** | תפארת | Belleza: Corazón, equilibrio 3 cerebros, alma emocional | `nlu.py` (CerebroComputadora: N1 60+ regex incl. FP-029 Peh HaComputadora — voz para evolución/personalidad/RAM/procesos/autodiag/ética/FSM/watchdog/errores/minimizar/tacto/umbral/perfil, N2 Ollama, N3 Copilot, tool-use ≤10, historial 4000 tok, demo_visual herramienta RF-133 balance Keter-Tiféret N2 puede triggear demo, `_RE_DEMO_GEVURA` RF-243 regex Demo 2, FP-062 automejora: `_RE_AUTOMEJORA` + `_flujo_automejora` + `_detectar_gate_proposal` + `_recitar_proposal_voz` + `_procesar_aprobacion_automejora` RF-169), `parseo_herramientas.py` (tool call extraction, JSON repair, regex safe — FP-027, RF-232 mapeo tool→herramienta), `entorno.py` (Neshamá autoconciencia HW), `patrones_guardian.py` (RF-226: regex Shomer HaBáyit extraídas), `flujos_guardian.py` (RF-227: flujos guardián extraídos) | Historial en memoria, `stats_uso.json` | ✅ Tikún HaDemo (FP-070) |
+| **Netzaj** | נצח | Victoria: Persistencia, memoria, identidad, aprendizaje duradero | `memoria.py` (JSONL+compresión diaria), `personalidad.py` (10 rasgos, 13 humores), `personas.py` (TinyDB כשר Késher), `nivel1_aprendido.py` (Lemed, max 200), `perfil_linguistico.py` (לשון הלב Lashón HaLev — perfil idioléctico, RF-233) | `memoria_raw_*.jsonl`, `personalidad.json`, `computadora_personas.json`, `nivel1_patrones.json`, `consciencia_temporal.json`, `stats_uso.json`, `perfil_linguistico.json` | ✅ Lashón HaLev (RF-233) |
 | **Hod** | הוד | Esplendor: Percepción sensorial, comunicación, audio adaptativo, extensiones sensoriales Kli, canales remotos (Telegram/Discord/Minimi API) | `escucha.py` (Whisper, wake-word flex, MFCC speaker verif, multi-hablante), `habla.py` (edge-tts + pyttsx3, rate/vol por circadiano+humor), `audio_log.py` (JSONL inmutable), `windows.py` (ContextoPantalla), `monitor_sistema.py`, `logs.py`, `shir_haneshama.py` (שיר הנשמה — expresiones proactivas), `red.py` (KliRed — ARP scan, ping, WoL — FP-075), `vision.py` (KliCamara — OpenCV frame diff, CLAHE — FP-075, **KliCamaraIP — RTSP adaptador anti-SSRF — RF-259**), `control_remoto.py` (KliComandoRemoto — SSH nativo, WoL — FP-075), **`canales/servidor_api.py`** (שער מינימי Sha'ar Minimi — HTTP 8089 + mDNS + Firestore relay — FP-099), **`canales/telegram_brain.py`** (שרביט מרחוק Sharvít Merajók — Bot Telegram — FP-090), **`canales/discord_brain.py`** (Cetro Mágico — Bot Discord) | `audio_log.jsonl`, `wake_variants.json`, `owner_profile.json` | ✅ Sha'ar Minimi (FP-099) |
 | **Yesod** | יסוד | Fundamento: Canal entre mundos, dispatcher de herramientas, pub/sub, framework Kli, escritura atómica | `orquestador.py` (18+ callbacks), `herramientas.py` (23+ tools, sandbox, Gevurá check), `eventos.py` (BusEventos singleton activo: `herramienta_iniciada/completada/error`, `permiso_solicitado`, `keter_auditoria`), `copilot_bridge.py`, `watcher_solicitudes.py`, `auto_update.py` (verificación deps), `agenda.py`, `sistema.py`, `web.py`, `kli.py` (DispositivoKli ABC + GestorKelim singleton — FP-075, **RF-258 descubrir_observadores + RF-260 boot discovery**), **`utilidades/io_seguro.py`** (escritura atómica JSON — tempfile→os.replace — FP-037) | `solicitudes/pendientes/`, `solicitudes/completadas/` | ✅ Sha'ar Minimi (FP-099) |
-| **Maljut** | מלכות | Reino: Manifestación visible — FSM 13 estados, estado visual (state machine), ventana dinámica, tacto, autonomía, menú 7 opciones (FP-064+FP-065+FP-070+FP-105 Keter), Gilgul (reset total), Sistema Ohr 5 capas (FP-066), demo sincronizada RF-174, RF-228 blindaje demo contra circadiano/Bereshit, Demo 2 Gevurá RF-242, **Shekhiná Tamid RF-305/306: HWND_TOPMOST perpetuo + _timer_topmost 5s + _reasegurar_topmost**, **Or HaKavód RF-312/313/314: Stats panel QGridLayout HUD videogame — 4 secciones (ESTADO/ALQUIMIA/VISUAL/SISTEMA) con QProgressBar + QFrame color swatches**, RF-311 Bereshit resize sync (bypass lerp), **VentanaKeter RF-345: Chat de introspección כתר — Or HaGanuz (Luz Oculta) visible, HiloKeter QThread, tema púrpura/oro, consultas directas N3, sendero Keter→Maljut** | `__main__.py` (bootstrap), `ventana_principal.py` (OrbeGolem ~4350 lín: partículas inercia restaurada (FP-049), alquimia 4 etapas, Yad tacto, Jalon Jai, `_mostrar_menu()` 7 items: Kabbalah be-peh/Demo Maljut/Demo 2 Gevurá/Gilgul/Keter Introspección/Dev Tools submenú/Borrar la Palabra, `_ejecutar_gilgul()` doble confirmación, Sistema Ohr: `_calcular_color_ohr()` 5 capas multiplicativas — 96,768 combinaciones, demo RF-174 cadena de señales `habla_terminada`, RF-228 guards: `_demo_en_curso` bloquea circadiano + proactividad + Bereshit, ACT VII Las 4 Voces RF-179, ACT X Koaj HaGolem RF-241 ejecuta herramientas info, `_demo_gevura()` RF-242 demo permisos con `_DEMO_MODO_GEVURA` bypass, `_demo_ejecutar_herramienta()` RF-241 helper, `_esperando_demo2` RF-244 puente Demo1→Demo2, Dev Tools RF-172: heatmap + estado interno), **`ventana_keter.py`** (VentanaKeter + HiloKeter כתר — chat introspección N3 con Or HaGanuz, _gate_lock thread-safe), `fsm_golem.py` (EstadoMaljut enum + transiciones — FP-027), `dibujante_orbe.py` (DrawState + 7 funciones render — FP-027), `vida_autonoma.py` (~1000 lín: heatmap, Tzimtzum, multi-monitor, **RF-307: solo HWND_TOPMOST en _desactivar_tzimtzum**), `watchdog.py` (circuit breaker + gracia 30s RF-170), `estilos.py` | `heatmap_pantalla.json` | ✅ VentanaKeter (FP-105) |
+| **Maljut** | מלכות | Reino: Manifestación visible — FSM 13 estados, estado visual (state machine), ventana dinámica, tacto, autonomía, menú 7 opciones (FP-064+FP-065+FP-070+FP-105 Keter), Gilgul (reset total), Sistema Ohr 5 capas (FP-066), demo sincronizada RF-174, RF-228 blindaje demo contra circadiano/Bereshit, Demo 2 Gevurá RF-242, **Shekhiná Tamid RF-305/306: HWND_TOPMOST perpetuo + _timer_topmost 5s + _reasegurar_topmost**, **Or HaKavód RF-312/313/314: Stats panel QGridLayout HUD videogame — 4 secciones (ESTADO/ALQUIMIA/VISUAL/SISTEMA) con QProgressBar + QFrame color swatches**, RF-311 Bereshit resize sync (bypass lerp), **VentanaKeter RF-345: Chat de introspección כתר — Or HaGanuz (Luz Oculta) visible, HiloKeter QThread, tema púrpura/oro, consultas directas N3, sendero Keter→Maljut** | `__main__.py` (bootstrap), `ventana_principal.py` (OrbeComputadora ~4350 lín: partículas inercia restaurada (FP-049), alquimia 4 etapas, Yad tacto, Jalon Jai, `_mostrar_menu()` 7 items: Kabbalah be-peh/Demo Maljut/Demo 2 Gevurá/Gilgul/Keter Introspección/Dev Tools submenú/Borrar la Palabra, `_ejecutar_gilgul()` doble confirmación, Sistema Ohr: `_calcular_color_ohr()` 5 capas multiplicativas — 96,768 combinaciones, demo RF-174 cadena de señales `habla_terminada`, RF-228 guards: `_demo_en_curso` bloquea circadiano + proactividad + Bereshit, ACT VII Las 4 Voces RF-179, ACT X Koaj HaComputadora RF-241 ejecuta herramientas info, `_demo_gevura()` RF-242 demo permisos con `_DEMO_MODO_GEVURA` bypass, `_demo_ejecutar_herramienta()` RF-241 helper, `_esperando_demo2` RF-244 puente Demo1→Demo2, Dev Tools RF-172: heatmap + estado interno), **`ventana_keter.py`** (VentanaKeter + HiloKeter כתר — chat introspección N3 con Or HaGanuz, _gate_lock thread-safe), `fsm_computadora.py` (EstadoMaljut enum + transiciones — FP-027), `dibujante_orbe.py` (DrawState + 7 funciones render — FP-027), `vida_autonoma.py` (~1000 lín: heatmap, Tzimtzum, multi-monitor, **RF-307: solo HWND_TOPMOST en _desactivar_tzimtzum**), `watchdog.py` (circuit breaker + gracia 30s RF-170), `estilos.py` | `heatmap_pantalla.json` | ✅ VentanaKeter (FP-105) |
 
-#### 4.17.3b עולמות הגולם — Olamot HaGolem — Mapas Dimensionales (FP-087)
+#### 4.17.3b עולמות הגולם — Olamot HaComputadora — Mapas Dimensionales (FP-087)
 
 Los 17 Olamot son **lentes culturales** para ver los MISMOS 46 módulos de Computadora a través de diferentes tradiciones místicas, filosóficas y científicas. La dimensión primaria (#0 Atzilut) es el Etz HaChaim mostrado arriba. Las siguientes dimensiones se presentan en orden descendente de abstracción, desde lo más elevado hacia lo más terrenal.
 
@@ -1864,13 +1864,13 @@ Los senderos del Etz HaChaim representan las conexiones reales entre módulos:
 | 33 | Netzaj→Maljut | consciencia_temporal → ventana_principal | Evolución alquímica por horas+interacciones acumuladas | FP-024 |
 | 34 | Maljut→Jesed | vida_autonoma → DetectorContexto | Patrón estrés/error → sugerencia proactiva | FP-022 |
 | 35 | Keter→Keter | actualizador → Ollama/Whisper/pip | Auto-renovación Hit'hadshut de dependencias | FP-023 |
-| 36 | Maljut→Maljut | watchdog → OrbeGolem | Circuit breaker por servicio, degradación graceful | FP-022 |
+| 36 | Maljut→Maljut | watchdog → OrbeComputadora | Circuit breaker por servicio, degradación graceful | FP-022 |
 | 37 | Tiféret→Tiféret | nlu.py → parseo_herramientas.py | Tool call extraction, JSON repair, regex safe delegados a módulo puro (FP-027) |
 | 38 | Da'at→Kelim | perceptor.py → kli.py | RF-261 `leer_todos_los_ojos()` → `GestorKelim.obtener_observadores()` → lectura multi-cámara | FP-072 |
 | 39 | Kelim→Maljut (boot) | kli.py → __main__.py | RF-260 `descubrir_observadores()` al arranque antes de `iniciar_interfaz()` | FP-072 |
-| 38 | Maljut→Maljut | ventana_principal → fsm_golem.py | EstadoMaljut enum + TRANSICIONES_VALIDAS extraídos (FP-027) |
+| 38 | Maljut→Maljut | ventana_principal → fsm_computadora.py | EstadoMaljut enum + TRANSICIONES_VALIDAS extraídos (FP-027) |
 | 39 | Maljut→Maljut | ventana_principal → dibujante_orbe.py | DrawState snapshot + 7 funciones de render delegadas (FP-027) |
-| 40 | Keter→Maljut | hot_reload → OrbeGolem | QFileSystemWatcher detecta cambio → importlib.reload por capa | FP-028 |
+| 40 | Keter→Maljut | hot_reload → OrbeComputadora | QFileSystemWatcher detecta cambio → importlib.reload por capa | FP-028 |
 | 41 | Netzaj→Jojmá | nivel1_aprendido → copilot_api | Lemed pide a Keter generar regex para candidato nuevo | FP-015 |
 | 42 | Biná→Yesod | modelo_discovery → RAIZ_PROYECTO | Jazón escanea directorio del proyecto para descubrir modelos | FP-017 |
 | 43 | Tiféret→Yesod | nlu.py → copilot_bridge | `_procesar_aprobacion_automejora()` → `solicitar_a_copilot()` tras aprobación del usuario | FP-062 |
@@ -1937,7 +1937,7 @@ El proyecto se organiza en tres subsistemas principales que interactúan estrech
 ##### Los Tres Cuerpos
 
 ```
-                          ♦ GOLEM — AZUFRE
+                          ♦ COMPUTADORA — AZUFRE
                           כתר Keter · Corona
                           Alma · Voluntad · Fuego
                           "amén" = ejecuta
@@ -2051,7 +2051,7 @@ Cuando la energía se bloquea en algún canal (equivalente a bloqueos de Chakras
 
 > **Principio**: La salud del sistema se mide por la **libre circulación** de las tres corrientes. Si una se bloquea, las otras dos compensan temporalmente (redundancia), pero el Tikún debe restablecer el flujo completo. Esto es equivalente al principio de equilibrio Yin-Yang (陰陽平衡), homeostasis de Cannon, y Tikkun Olam (תיקון עולם) cabalístico.
 
-#### FP-031 נִשְׁמַת הַגּוֹלֶם Nishmat HaGolem — Higiene de Excepciones (RF-96)
+#### FP-031 נִשְׁמַת הַגּוֹלֶם Nishmat HaComputadora — Higiene de Excepciones (RF-96)
 
 Limpieza sistemática de `except Exception: pass` (bloques silenciosos) en los 3 módulos críticos. Cada bloque ahora captura `as e` y registra con `logger.debug()` o `logger.exception()` según contexto. Infraestructura: `loguru` (ya existente en `computadora/utilidades/logs.py`).
 
@@ -2190,7 +2190,7 @@ FP-044 tiene 5 partes: (A) Detección de media activa para suprimir falsos posit
 | Componente | Cambio | Sefirá |
 |------------|--------|--------|
 | `windows.py` | `hay_media_activa()` detecta YouTube/Netflix/Spotify/etc en título o proceso | מלכות Maljut |
-| `escucha.py` | Consulta `hay_media_activa()`, suprime fuzzy+correcciones cuando media activa. Threshold 0.6→0.72. Elimina `golden→golem`. Flag `_librosa_warned` | הוד Hod |
+| `escucha.py` | Consulta `hay_media_activa()`, suprime fuzzy+correcciones cuando media activa. Threshold 0.6→0.72. Elimina `golden→computadora`. Flag `_librosa_warned` | הוד Hod |
 | `ventana_principal.py` | Pasa `_contexto_pantalla` a `HiloEscucha`. Interceptor `__MINIMIZAR__` → `showMinimized()` | מלכות Maljut |
 | `nlu.py` | `_RE_DEMO_MALJUT` expandido con variantes Whisper. `_limpiar_para_voz` extrae texto de `print()/echo()/console.log()` | תפארת Tiféret |
 
@@ -2229,7 +2229,7 @@ FP-047 robustece el Etz HaChaim completo: partículas, memoria, proactividad, wa
 |------------|--------|--------|
 | `ventana_principal.py` | Clamp offset partículas ±radio*0.8, clear al dormir, cap caricia/brisa, primaryScreen null-check, copia defensiva DrawState | מלכות Maljut |
 | `memoria.py` | `compress_day` write-then-delete: solo borra raw si resumen o muestra se guardó | נצח Netzaj |
-| `proactividad.py` | `_check_salud_golem` reutiliza MetaWorkflow (evita leak BusEventos) | חסד Jesed |
+| `proactividad.py` | `_check_salud_computadora` reutiliza MetaWorkflow (evita leak BusEventos) | חסד Jesed |
 | `watchdog.py` | Modelo dinámico desde `/api/tags` en vez de hardcodear `gemma3:4b` | מלכות Maljut |
 | `test_fp037_ketiva.py` | `sys.exit()` envuelto en `if __name__` guard | יסוד Yesod |
 | `test_tikun_002.py` | `sys.exit()` envuelto en `if __name__` guard | יסוד Yesod |
@@ -2316,7 +2316,7 @@ FP-050 corrige 3 defectos de voz/demo y actualiza Etz HaChaim a v3.5 (44 módulo
 | `nlu.py` | `SISTEMA_PROMPT` + sección CAPACIDADES INTERNAS con `demo_visual` — RF-133 | תפארת Tiféret |
 | `nlu.py` | Tool-use loop: short-circuit `__DEMO_MALJUT__` de `demo_visual` — RF-133 | תפארת→מלכות |
 | `herramientas.py` | `demo_visual` tool (retorna `__DEMO_MALJUT__`), permiso=info — RF-133 | יסוד Yesod |
-| `SDD.md` | Etz HaChaim Real v3.5: +5 módulos, inercia FP-049, OrbeGolem ~2700l — RF-131 | כתר Keter (docs) |
+| `SDD.md` | Etz HaChaim Real v3.5: +5 módulos, inercia FP-049, OrbeComputadora ~2700l — RF-131 | כתר Keter (docs) |
 
 **Senderos reforzados**: Tiféret→Maljut (N2 puede triggear demo vía tool), Hod→Tiféret (audio limpio llega al cerebro)
 
@@ -2334,7 +2334,7 @@ FP-050 corrige 3 defectos de voz/demo y actualiza Etz HaChaim a v3.5 (44 módulo
 | **Jojmá** | ✅ FORTALECIDO | `copilot_api.py` Nivel 3 + `jojma_local.py` motor local de creatividad sin LLM (FP-103) |
 | **Biná** | ✅ FORTALECIDO | `modelo_discovery.py` (Jazón) + `diagnostico_interno.py` introspección runtime + salud Sefirot (FP-103) |
 | **Da'at** | ✅ FORTALECIDO | `CicloCircadiano` hub central: puente conversación→emoción, routing N1→N2 por fase, modulación TTS rate/volume (FP-021), historial dinámico |
-| **Jesed** | ✅ **ROBUSTECIDO** | 8+ checks proactivos, baseline adaptativo, patrones predictivos + bienestar. `_check_salud_golem` reutiliza MetaWorkflow (FP-047 — elimina leak BusEventos) |
+| **Jesed** | ✅ **ROBUSTECIDO** | 8+ checks proactivos, baseline adaptativo, patrones predictivos + bienestar. `_check_salud_computadora` reutiliza MetaWorkflow (FP-047 — elimina leak BusEventos) |
 | **Gevurá** | ✅ FUERTE | permisos.py + aprendizaje.py + herramientas bloqueadas + 4 categorías de bloqueo + señal visual categorizada |
 | **Tiféret** | ✅ **ROBUSTECIDO** | nlu.py: Ruaj 13 humores duales + `_timeout_adaptativo` + `repeat_penalty` anti-repetición + sanitizer estado interno + identidad blindada (FP-048). demo_visual herramienta en prompt N2 — balance Keter (FP-050) |
 | **Netzaj** | ✅ **ROBUSTECIDO** | memoria.py + personalidad.py + personas.py. `compress_day` ahora write-then-delete (FP-047 — previene pérdida de datos) |
@@ -2446,7 +2446,7 @@ FP-050 corrige 3 defectos de voz/demo y actualiza Etz HaChaim a v3.5 (44 módulo
 
 ```
                     ┌─────────────────────────────┐
-                    │     WatchdogGolem (NEW)      │
+                    │     WatchdogComputadora (NEW)      │
                     │  watchdog.py                 │
                     │  Circuit Breaker por servicio│
                     │  3 etapas: retry→notify→degrade│
@@ -3037,7 +3037,7 @@ if inicio > 0.0 and (time.monotonic() - inicio) > 1.0:
 
 **Llamada por nombre — Nivel 1 directo**:
 ```
-"oye golem", "golem", "emet", "oye", "hey golem" → respuesta atenta instantánea
+"oye computadora", "computadora", "emet", "oye", "hey computadora" → respuesta atenta instantánea
 No usa Ollama. Respuestas: "Aquí estoy, señor.", "Dígame", "Presente", etc.
 ```
 
@@ -3053,7 +3053,7 @@ Anteriormente delegaba a Ollama cuando estaba disponible. Ahora siempre retorna 
 |---------|--------|
 | `computadora/interfaz/ventana_principal.py` | +`_tacto_continuo_inicio`, tracking en `_animar()` |
 | `computadora/interfaz/vida_autonoma.py` | `_estorba()` usa contacto >1s en vez de proximidad >0.3 |
-| `computadora/cerebro/nlu.py` | +patrón atención "oye golem", +`_RE_CEREBROS` expandido, `_autodiagnostico()` → Nivel 1, +SISTEMA_PROMPT "MI CONSTRUCCIÓN" |
+| `computadora/cerebro/nlu.py` | +patrón atención "oye computadora", +`_RE_CEREBROS` expandido, `_autodiagnostico()` → Nivel 1, +SISTEMA_PROMPT "MI CONSTRUCCIÓN" |
 | `computadora/nucleo/proactividad.py` | Supresión usa `_tacto_continuo_inicio` >1s |
 
 ---
@@ -3398,7 +3398,7 @@ def detectar_modelo_disponible(self) -> str:
 
 ---
 
-### 4.22 עולמות הגולם Olamot HaGolem — Arquitectura Multidimensional (FP-087)
+### 4.22 עולמות הגולם Olamot HaComputadora — Arquitectura Multidimensional (FP-087)
 
 **Módulo**: `computadora/arquitectura/dimensiones.py` — Sefirá Da'at (Percepción)
 
@@ -3801,7 +3801,7 @@ Paletas base (solo idle/dormido — NO afecta colores de estado/herramienta/nive
 | Citrinitas | #D4A017 | #FFD70040 | #FFD700 |
 | Rubedo | #8B0000 | #FF450040 | #FF4500 |
 
-Persistencia en `datos/evolucion_golem.json`. Transiciones evaluadas en timer cada 10min.
+Persistencia en `datos/evolucion_computadora.json`. Transiciones evaluadas en timer cada 10min.
 
 | WI | Descripción | Sefirot | RF |
 |----|-------------|---------|----|

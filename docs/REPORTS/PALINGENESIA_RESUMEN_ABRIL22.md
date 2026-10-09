@@ -12,19 +12,19 @@
 ✅ Identificadas **3 bloqueadores críticos**:
 1. ❌ Import `bereshit` deshabilitado causaba **warning en boot**
 2. ❌ 50+ referencias **Ollama** cuando debería ser **LLM Studio** (puerto 1234)
-3. ❌ 4 clases con nombre **Golem** debían ser **Computadora**
+3. ❌ 4 clases con nombre **Computadora** debían ser **Computadora**
 
 ---
 
 ### **FASE 3: RUBEDO (Manifestación) — 2 COMMITS**
 
-#### **Commit 1: `693aa4a`** - Remove bereshit + Golem→Computadora + Ollama basics
+#### **Commit 1: `693aa4a`** - Remove bereshit + Computadora→Computadora + Ollama basics
 ```diff
 - computadora/__main__.py: Eliminado import bereshit (línea 187)
 - Renombradas 4 clases:
-  ✓ DiagnosticoGolem → DiagnosticoComputadora
-  ✓ WatchdogGolem → WatchdogComputadora
-  ✓ ActualizadorGolem → ActualizadorComputadora
+  ✓ DiagnosticoComputadora → DiagnosticoComputadora
+  ✓ WatchdogComputadora → WatchdogComputadora
+  ✓ ActualizadorComputadora → ActualizadorComputadora
   ✓ (Ya había: CerebroComputadora, OrbeComputadora)
 - Ollama → LLM Studio basics:
   ✓ config.py: TIMEOUT_OLLAMA → TIMEOUT_LLM_STUDIO
@@ -81,7 +81,7 @@
 |-----------|--------|-------|
 | ⚠️ Warning bereshit eliminado | ✅ DONE | Commit `693aa4a` |
 | Ollama → LLM Studio | ✅ DONE (95%) | 50+ refs reemplazadas, completado en 2 commits |
-| Renombrar Golem → Computadora | ✅ DONE (80%) | 4 clases principales + varios comentarios |
+| Renombrar Computadora → Computadora | ✅ DONE (80%) | 4 clases principales + varios comentarios |
 | Observación constante | ✅ DONE | Módulo observador.py + boot integration |
 | Tzimtzum inteligente | ✅ DONE | Algoritmo con CPU/GPU + thresholds documentados |
 | Cámara siempre activa | ✅ DONE | Módulo camara.py con detección de rostros |
@@ -95,7 +95,7 @@
 ## 📈 Métricas de Progreso
 
 - **Archivos creados**: 4 (3 módulos + 1 arquitectura doc)
-- **Archivos modificados**: 10+ (Golem→Computadora, Ollama→LLM)
+- **Archivos modificados**: 10+ (Computadora→Computadora, Ollama→LLM)
 - **Líneas de código nuevo**: ~1000 (observador + cámara + diagnóstico)
 - **Commits**: 3 commits atómicos
 - **Warnings eliminados**: 1 (bereshit import)
@@ -108,7 +108,7 @@
 1. **Fix tray icon**: Leer `ventana_principal.py` líneas ~5000-5100
 2. **Fix demo narración**: Auditar `vida_autonoma.py` (redundancia Etz HaChaim)
 3. **Fix demo bloqueo**: Debug captura pantalla en `vida_autonoma.py`
-4. **Renombrar comentarios restantes**: Buscar "Golem" en docstrings + comentarios
+4. **Renombrar comentarios restantes**: Buscar "Computadora" en docstrings + comentarios
 5. **Integraciones avanzadas**:
    - Observador → lanzar alertas (Gevurá)
    - Cámara → reconocimiento facial mejorado

@@ -47,7 +47,7 @@ class TestEmetCodigoEstructura:
 
     def test_archivo_correcto(self, handler):
         r = handler._emet_codigo_vivo()
-        assert r["archivo"] == "golem/nucleo/emet.py"
+        assert r["archivo"] == "computadora/nucleo/emet.py"
 
     def test_tiene_timestamp(self, handler):
         r = handler._emet_codigo_vivo()

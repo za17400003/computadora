@@ -19,9 +19,9 @@ class TestFP042A_OrdenDirecta(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.herr_src = (RAIZ / "golem" / "habilidades" / "herramientas.py").read_text(encoding="utf-8")
-        cls.perm_src = (RAIZ / "golem" / "nucleo" / "permisos.py").read_text(encoding="utf-8")
-        cls.nlu_src = (RAIZ / "golem" / "cerebro" / "nlu.py").read_text(encoding="utf-8")
+        cls.herr_src = (RAIZ / "computadora" / "habilidades" / "herramientas.py").read_text(encoding="utf-8")
+        cls.perm_src = (RAIZ / "computadora" / "nucleo" / "permisos.py").read_text(encoding="utf-8")
+        cls.nlu_src = (RAIZ / "computadora" / "cerebro" / "nlu.py").read_text(encoding="utf-8")
 
     def test_ejecutar_herramienta_tiene_orden_directa(self):
         """ejecutar_herramienta tiene parámetro orden_directa."""
@@ -76,7 +76,7 @@ class TestFP042B1_InerciaAmortiguada(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        cls.src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
     def test_no_zero_delta_durante_drag(self):
         """No debe existir 'dx, dy = 0.0, 0.0' en sección de inercia."""
@@ -98,7 +98,7 @@ class TestFP042B2_SnapFinalSync(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = (RAIZ / "golem" / "interfaz" / "vida_autonoma.py").read_text(encoding="utf-8")
+        cls.src = (RAIZ / "computadora" / "interfaz" / "vida_autonoma.py").read_text(encoding="utf-8")
 
     def test_snap_final_sync_pos_anterior(self):
         """RF-340: El snap final (dist < 2.0) actualiza render_offset y limpia objetivo."""
@@ -120,7 +120,7 @@ class TestFP042_Regression(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.vp_src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        cls.vp_src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
     def test_gevura_esperando_sigue(self):
         """FP-041: _gevura_esperando sigue presente."""

@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/canales/discord_brain.py (WI-291)
+⊕ Sal — Tests para computadora/canales/discord_brain.py (WI-291)
 Verifica la estructura del bot Discord (sin conexión real).
 """
 
@@ -13,9 +13,9 @@ class TestDiscordBrainImport:
         from computadora.canales.discord_brain import DiscordBrain
         assert DiscordBrain is not None
 
-    def test_prefijo_es_golem(self):
+    def test_prefijo_es_computadora(self):
         from computadora.canales.discord_brain import DiscordBrain
-        assert DiscordBrain.PREFIJO.startswith("golem")
+        assert DiscordBrain.PREFIJO.startswith("computadora")
 
 
 class TestDiscordBrainInit:

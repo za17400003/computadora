@@ -1,7 +1,7 @@
 @echo off
 REM ════════════════════════════════════════════════════════════════════════════
-REM  COMPUTADORA (antes Golem) — Launcher Simple y Rápido
-REM  Ejecuta: python -m computadora (que es la interfaz visual de Golem)
+REM  COMPUTADORA (antes Computadora) — Launcher Simple y Rápido
+REM  Ejecuta: python -m computadora (que es la interfaz visual de Computadora)
 REM ════════════════════════════════════════════════════════════════════════════
 
 setlocal enabledelayedexpansion
@@ -29,7 +29,7 @@ if not exist "_config\.env" (
 REM ── Crear directorio de logs ──
 if not exist ".logs" mkdir .logs
 
-REM ── Ejecutar COMPUTADORA (interfaz visual Golem) ──
+REM ── Ejecutar COMPUTADORA (interfaz visual Computadora) ──
 echo Iniciando COMPUTADORA...
 .venv\Scripts\python.exe -m computadora
 

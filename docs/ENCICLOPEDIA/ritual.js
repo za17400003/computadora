@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════════════
    � RITUAL.JS — Grimorio de los 7 Metales
-   Proyecto Golem · Alta Magia + Alquimia
+   Proyecto Computadora · Alta Magia + Alquimia
    Motor de paso de página — Opus Magnum: Plomo → Oro
    ══════════════════════════════════════════════════════════════ */
 
@@ -638,7 +638,7 @@
     'citrinitas': 'Tercera fase alquímica — iluminación solar, el oro del entendimiento',
     'rubedo': 'Cuarta fase alquímica — la Piedra Filosofal, perfección, unión de opuestos',
     'tikún': 'Reparación/corrección (תיקון) — restaurar lo roto al estado divino original',
-    'golem': 'Criatura de arcilla animada por la palabra EMET — autómata cabalístico',
+    'computadora': 'Criatura de arcilla animada por la palabra EMET — autómata cabalístico',
     'kavvaná': 'Intención consciente (כוונה) — sin ella, el ritual es vacío',
     'tzimtzúm': 'Contracción divina (צמצום) — Dios se retira para dar espacio a la creación',
     'shekhiná': 'Presencia divina femenina (שכינה) — la inmanencia de Dios en el mundo',

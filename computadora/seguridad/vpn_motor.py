@@ -260,7 +260,7 @@ class VpnMotor:
             # Usar netsh para crear regla de firewall que bloquea todo excepto WireGuard
             subprocess.run(
                 ["netsh", "advfirewall", "firewall", "add", "rule",
-                 "name=GolemVPN_KillSwitch", "dir=out", "action=block",
+                 "name=ComputadoraVPN_KillSwitch", "dir=out", "action=block",
                  "enable=yes", "profile=any", "localport=any",
                  "remoteport=any", "protocol=any"],
                 capture_output=True, timeout=10,
@@ -268,7 +268,7 @@ class VpnMotor:
             # Permitir tráfico por la interfaz WireGuard
             subprocess.run(
                 ["netsh", "advfirewall", "firewall", "add", "rule",
-                 "name=GolemVPN_Allow", "dir=out", "action=allow",
+                 "name=ComputadoraVPN_Allow", "dir=out", "action=allow",
                  "enable=yes", "profile=any",
                  f"localip=any", "protocol=any",
                  "interfacetype=any"],  # WireGuard interface
@@ -283,12 +283,12 @@ class VpnMotor:
         try:
             subprocess.run(
                 ["netsh", "advfirewall", "firewall", "delete", "rule",
-                 "name=GolemVPN_KillSwitch"],
+                 "name=ComputadoraVPN_KillSwitch"],
                 capture_output=True, timeout=10,
             )
             subprocess.run(
                 ["netsh", "advfirewall", "firewall", "delete", "rule",
-                 "name=GolemVPN_Allow"],
+                 "name=ComputadoraVPN_Allow"],
                 capture_output=True, timeout=10,
             )
             logger.info("[VPN] Kill Switch WFP removido")

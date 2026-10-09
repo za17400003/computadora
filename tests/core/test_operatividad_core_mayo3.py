@@ -291,7 +291,7 @@ class TestIntegracionCompleta:
             cerebro = CerebroComputadora()
             
             # 2. Simular entrada de usuario
-            entrada_usuario = "Hola Golem, ¿cómo estás?"
+            entrada_usuario = "Hola Computadora, ¿cómo estás?"
             
             # 3. Procesar
             respuesta = cerebro.generar_respuesta(entrada_usuario, context={})

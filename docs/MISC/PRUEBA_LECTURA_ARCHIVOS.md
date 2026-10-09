@@ -31,11 +31,11 @@ Esta es una línea de prueba número 10.
 ## Contenido real del archivo DEVELOPMENT_WORKFLOW_REFERENCIA.md:
 
 ```
-# DEVELOPMENT_WORKFLOW_COPILOT.md — Proyecto Golem
+# DEVELOPMENT_WORKFLOW_COPILOT.md — Proyecto Computadora
 
 > **Versión**: 2.1 — GitHub Copilot / Claude Haiku Edition
 > **Fecha**: Abril 7, 2026 (Copilot Optimized: Abril 29, 2026)
-> **Proyecto**: Golem — Asistente personal de escritorio con IA
+> **Proyecto**: Computadora — Asistente personal de escritorio con IA
 > **Propietario**: José Esaú Díaz Hernández
 > **⚠️ NOTA**: Esta es la versión para GitHub Copilot/Claude Haiku. Para Ollama local, usa `DEVELOPMENT_WORKFLOW_LOCAL.md`
 ```

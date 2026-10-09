@@ -546,7 +546,7 @@ class VidaAutonoma:
         # Contadores
         self._ticks_inactivo = 0
         self._tick_count = 0
-        self._ultimo_estado_golem = "dormido"
+        self._ultimo_estado_computadora = "dormido"
 
         # Sugerencia pendiente
         self._sugerencia_pendiente: str | None = None
@@ -869,7 +869,7 @@ class VidaAutonoma:
 
     def notificar_estado(self, estado: str):
         """Cambia el estado de la Computadora (dormido, escuchando, procesando, hablando)."""
-        self._ultimo_estado_golem = estado
+        self._ultimo_estado_computadora = estado
         if estado in ("escuchando", "procesando", "hablando"):
             self._ticks_inactivo = 0
             self._esperando_compactar = False
@@ -973,7 +973,7 @@ class VidaAutonoma:
             self._reubicar_cooldown -= 1
 
         # No tomar decisiones autónomas si Computadora está ocupado
-        if self._ultimo_estado_golem in ("procesando", "hablando"):
+        if self._ultimo_estado_computadora in ("procesando", "hablando"):
             return
 
         info = _obtener_info_escritorio()

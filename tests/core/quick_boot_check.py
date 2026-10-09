@@ -23,11 +23,11 @@ def test_boot_performance():
     t1 = time.monotonic()
     print(f" OK ({(t1-t0)*1000:.0f}ms)")
     
-    # Paso 2: CerebroGolem
+    # Paso 2: CerebroComputadora
     t0 = time.monotonic()
-    print("[2/6] Cargando CerebroGolem...", end="", flush=True)
-    from computadora.cerebro.nlu import CerebroGolem
-    cerebro = CerebroGolem(modelo="gemma3:4b")
+    print("[2/6] Cargando CerebroComputadora...", end="", flush=True)
+    from computadora.cerebro.nlu import CerebroComputadora
+    cerebro = CerebroComputadora(modelo="gemma3:4b")
     t1 = time.monotonic()
     print(f" OK ({(t1-t0)*1000:.0f}ms)")
     
@@ -44,14 +44,14 @@ def test_boot_performance():
     # Paso 4: Importar ventana_principal (este era el cuello de botella)
     t0 = time.monotonic()
     print("[4/6] Importando ventana_principal (CRITICAL)...", end="", flush=True)
-    from computadora.interfaz.ventana_principal import OrbeGolem
+    from computadora.interfaz.ventana_principal import OrbeComputadora
     t1 = time.monotonic()
     print(f" OK ({(t1-t0)*1000:.0f}ms) [CRITICAL - should be < 3s after lazy-init fix]")
     
-    # Paso 5: Crear OrbeGolem
+    # Paso 5: Crear OrbeComputadora
     t0 = time.monotonic()
-    print("[5/6] Creando instancia OrbeGolem...", end="", flush=True)
-    orbe = OrbeGolem(config, cerebro=cerebro)
+    print("[5/6] Creando instancia OrbeComputadora...", end="", flush=True)
+    orbe = OrbeComputadora(config, cerebro=cerebro)
     t1 = time.monotonic()
     print(f" OK ({(t1-t0)*1000:.0f}ms)")
     

@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/memoria/perfil_linguistico.py (WI-291)
+⊕ Sal — Tests para computadora/memoria/perfil_linguistico.py (WI-291)
 Verifica el perfil idioléctico del amo.
 """
 
@@ -24,7 +24,7 @@ from computadora.memoria.perfil_linguistico import (
 
 class TestRegexPatterns:
     def test_muletillas_detecta_oye(self):
-        assert _RE_MULETILLAS.search("oye golem")
+        assert _RE_MULETILLAS.search("oye computadora")
 
     def test_muletillas_detecta_la_neta(self):
         assert _RE_MULETILLAS.search("la neta está bien")
@@ -53,7 +53,7 @@ class TestConstantes:
     def test_temas_keywords_tiene_categorias(self):
         assert "tecnología" in _TEMAS_KEYWORDS
         assert "sistema" in _TEMAS_KEYWORDS
-        assert "golem" in _TEMAS_KEYWORDS
+        assert "computadora" in _TEMAS_KEYWORDS
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -63,8 +63,8 @@ class TestConstantes:
 class TestPerfilLinguistico:
     @pytest.fixture
     def perfil(self, tmp_path):
-        with patch("golem.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
-             patch("golem.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
+        with patch("computadora.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
+             patch("computadora.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
             p = PerfilLinguistico()
         return p
 
@@ -73,20 +73,20 @@ class TestPerfilLinguistico:
         assert perfil._perfil["estilo_predominante"] == "directo"
 
     def test_registrar_interaccion_incrementa_contador(self, perfil, tmp_path):
-        with patch("golem.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
-             patch("golem.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
-            perfil.registrar_interaccion("oye golem busca en internet por favor")
+        with patch("computadora.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
+             patch("computadora.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
+            perfil.registrar_interaccion("oye computadora busca en internet por favor")
             assert perfil._perfil["interacciones_analizadas"] == 1
 
     def test_registrar_detecta_muletillas(self, perfil, tmp_path):
-        with patch("golem.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
-             patch("golem.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
+        with patch("computadora.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
+             patch("computadora.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
             perfil.registrar_interaccion("oye mira la neta está bueno")
             assert perfil._perfil["muletillas"].get("oye", 0) >= 1
 
     def test_texto_corto_se_ignora(self, perfil, tmp_path):
-        with patch("golem.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
-             patch("golem.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
+        with patch("computadora.memoria.perfil_linguistico._DATOS_DIR", tmp_path), \
+             patch("computadora.memoria.perfil_linguistico._PERFIL_PATH", tmp_path / "p.json"):
             perfil.registrar_interaccion("ab")
             assert perfil._perfil["interacciones_analizadas"] == 0
 

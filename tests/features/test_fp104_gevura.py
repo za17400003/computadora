@@ -21,24 +21,24 @@ def check(id, desc, fn):
 # ═══════════════════════════════════════════════
 
 check("WI124-01", "Import vpn_motor", lambda: (
-    __import__('golem.seguridad.vpn_motor', fromlist=['VpnMotor']) is not None,
+    __import__('computadora.seguridad.vpn_motor', fromlist=['VpnMotor']) is not None,
     "módulo importable"
 ))
 
 check("WI124-02", "VpnMotor class exists", lambda: (
-    callable(getattr(__import__('golem.seguridad.vpn_motor',
+    callable(getattr(__import__('computadora.seguridad.vpn_motor',
         fromlist=['VpnMotor']), 'VpnMotor')),
     "clase VpnMotor accesible"
 ))
 
 check("WI124-03", "VpnEstado dataclass", lambda: (
-    hasattr(__import__('golem.seguridad.vpn_motor', fromlist=['VpnEstado']), 'VpnEstado'),
+    hasattr(__import__('computadora.seguridad.vpn_motor', fromlist=['VpnEstado']), 'VpnEstado'),
     "dataclass VpnEstado existe"
 ))
 
 check("WI124-04", "VpnMotor.resumen() funciona", lambda: (
     isinstance(
-        __import__('golem.seguridad.vpn_motor', fromlist=['VpnMotor']).VpnMotor().resumen(),
+        __import__('computadora.seguridad.vpn_motor', fromlist=['VpnMotor']).VpnMotor().resumen(),
         str
     ),
     "resumen retorna string"
@@ -50,18 +50,18 @@ check("WI124-04", "VpnMotor.resumen() funciona", lambda: (
 # ═══════════════════════════════════════════════
 
 check("WI125-01", "Import cifrado_comms", lambda: (
-    __import__('golem.seguridad.cifrado_comms', fromlist=['CifradoComms']) is not None,
+    __import__('computadora.seguridad.cifrado_comms', fromlist=['CifradoComms']) is not None,
     "módulo importable"
 ))
 
-_crypto_mod = __import__('golem.seguridad.cifrado_comms', fromlist=['CifradoComms', '_CRYPTO_DISPONIBLE'])
+_crypto_mod = __import__('computadora.seguridad.cifrado_comms', fromlist=['CifradoComms', '_CRYPTO_DISPONIBLE'])
 _CRYPTO_OK = getattr(_crypto_mod, '_CRYPTO_DISPONIBLE', False)
 
 if _CRYPTO_OK:
     check("WI125-02", "Cifrar y descifrar bytes", lambda: (
         (lambda: (
             cc := _crypto_mod.CifradoComms(),
-            datos := b"Emet - Verdad del Golem",
+            datos := b"Emet - Verdad del Computadora",
             cifrado := cc.cifrar(datos),
             descifrado := cc.descifrar(cifrado),
             descifrado == datos
@@ -72,7 +72,7 @@ if _CRYPTO_OK:
     check("WI125-03", "Cifrar y descifrar texto", lambda: (
         (lambda: (
             cc := _crypto_mod.CifradoComms(),
-            texto := "El Golem protege la verdad",
+            texto := "El Computadora protege la verdad",
             cifrado := cc.cifrar_texto(texto),
             descifrado := cc.descifrar_texto(cifrado),
             descifrado == texto
@@ -93,19 +93,19 @@ else:
 # ═══════════════════════════════════════════════
 
 check("WI126-01", "Import gestor_claves", lambda: (
-    __import__('golem.seguridad.gestor_claves', fromlist=['GestorClaves']) is not None,
+    __import__('computadora.seguridad.gestor_claves', fromlist=['GestorClaves']) is not None,
     "módulo importable"
 ))
 
 check("WI126-02", "Credencial dataclass", lambda: (
-    hasattr(__import__('golem.seguridad.gestor_claves', fromlist=['Credencial']), 'Credencial'),
+    hasattr(__import__('computadora.seguridad.gestor_claves', fromlist=['Credencial']), 'Credencial'),
     "dataclass Credencial existe"
 ))
 
 if _CRYPTO_OK:
     check("WI126-03", "Generar password seguro", lambda: (
         (lambda: (
-            gc := __import__('golem.seguridad.gestor_claves', fromlist=['GestorClaves']).GestorClaves(),
+            gc := __import__('computadora.seguridad.gestor_claves', fromlist=['GestorClaves']).GestorClaves(),
             pwd := gc.generar_password(16),
             len(pwd) == 16 and isinstance(pwd, str)
         )[-1])(),
@@ -114,7 +114,7 @@ if _CRYPTO_OK:
 
     check("WI126-04", "Resumen vault", lambda: (
         isinstance(
-            __import__('golem.seguridad.gestor_claves', fromlist=['GestorClaves']).GestorClaves().resumen(),
+            __import__('computadora.seguridad.gestor_claves', fromlist=['GestorClaves']).GestorClaves().resumen(),
             str
         ),
         "resumen retorna string"

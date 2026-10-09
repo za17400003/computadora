@@ -62,7 +62,7 @@ _ARCHIVOS_PROTEGIDOS = (
 # Token de sesión activo (solo uno a la vez)
 _session_token: str | None = None
 
-# Archivo de alertas de intrusión (leído por Golem)
+# Archivo de alertas de intrusión (leído por Computadora)
 _INTRUSION_LOG = _ENCICLOPEDIA_DIR.parent / "datos" / "enciclopedia_intrusiones.jsonl"
 
 # Archivo de progreso de lectura (persistencia entre sesiones)
@@ -112,7 +112,7 @@ def _hash_password(password: str) -> str:
 
 
 def _registrar_evento(evento: str, **extra):
-    """Escribe evento al log de actividad de la Enciclopedia (leído por Golem)."""
+    """Escribe evento al log de actividad de la Enciclopedia (leído por Computadora)."""
     registro = {
         "ts": datetime.now().isoformat(),
         "evento": evento,
@@ -400,7 +400,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
         Organizado por tradición (dimensión), con cross-refs entre temas."""
         # Importar dimensiones para enriquecer con datos cósmicos
         try:
-            from golem.arquitectura.dimensiones import DIMENSIONES
+            from computadora.arquitectura.dimensiones import DIMENSIONES
             tradiciones = {}
             for dim in DIMENSIONES:
                 tradiciones[dim.nombre] = {
@@ -453,13 +453,13 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
     def _buscar_en_enciclopedia(self, query: str) -> dict:
         """Búsqueda full-text en capítulos descifrados de la Enciclopedia.
         Devuelve fragmentos con contexto mostrando DÓNDE encontrar la info.
-        WI-277: Incluye dimensión Emet (verdad arquitectónica del Golem)."""
+        WI-277: Incluye dimensión Emet (verdad arquitectónica del Computadora)."""
         import re as _re
         import html as _html
         resultados = []
         query_lower = query.lower()
 
-        # WI-277: Búsqueda en manifiesto Emet (verdad del Golem)
+        # WI-277: Búsqueda en manifiesto Emet (verdad del Computadora)
         # Queries "verdad", "emet", "אמת", "truth" siempre incluyen Emet
         _EMET_TRIGGERS = {"verdad", "emet", "אמת", "truth", "genesis", "bereshit"}
         incluir_emet = query_lower in _EMET_TRIGGERS or any(
@@ -467,7 +467,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
         )
         if incluir_emet:
             try:
-                from golem.nucleo.emet import buscar_en_emet
+                from computadora.nucleo.emet import buscar_en_emet
                 resultados.extend(buscar_en_emet(query))
             except ImportError:
                 pass
@@ -505,7 +505,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
         # WI-277: Para cualquier búsqueda, intentar cross-ref con Emet
         if not incluir_emet and len(resultados) > 0:
             try:
-                from golem.nucleo.emet import buscar_en_emet
+                from computadora.nucleo.emet import buscar_en_emet
                 emet_hits = buscar_en_emet(query)
                 if emet_hits:
                     resultados.extend(emet_hits[:3])  # Max 3 cross-refs
@@ -526,7 +526,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
         "__module__": {
             "sefira": "Keter",
             "verdad": "La inscripción primordial. Sin esta declaración de existencia, "
-                      "el Golem no sabe que vive. La א de אמת comienza aquí.",
+                      "el Computadora no sabe que vive. La א de אמת comienza aquí.",
             "orden": "0 — Antes que todo, se NOMBRA.",
         },
         "generar_manifiesto": {
@@ -601,7 +601,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
     def _emet_codigo_vivo(self) -> dict:
         """Lee emet.py en vivo y retorna secciones con anotaciones de verdad."""
         import re as _re
-        emet_path = Path(__file__).resolve().parent.parent / "golem" / "nucleo" / "emet.py"
+        emet_path = Path(__file__).resolve().parent.parent / "computadora" / "nucleo" / "emet.py"
         if not emet_path.exists():
             return {"error": "emet.py no encontrado", "secciones": []}
 
@@ -656,7 +656,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
 
         return {
             "tipo": "emet_codigo_vivo",
-            "archivo": "golem/nucleo/emet.py",
+            "archivo": "computadora/nucleo/emet.py",
             "ts": datetime.now().isoformat(),
             "total_lineas": len(lineas),
             "total_secciones": len(secciones),
@@ -678,7 +678,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
 
         # ── Salud física: ciclo circadiano ──
         try:
-            from golem.nucleo.ciclo_circadiano import obtener_ciclo_circadiano
+            from computadora.nucleo.ciclo_circadiano import obtener_ciclo_circadiano
             ciclo = obtener_ciclo_circadiano()
             if ciclo:
                 fase = ciclo.fase_actual()
@@ -796,12 +796,12 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
             self._send_json(self._evaluar_gevura_salud())
             return
 
-        # WI-278: API — בראשית Génesis bíblico × Arquitectura del Golem
+        # WI-278: API — בראשית Génesis bíblico × Arquitectura del Computadora
         if path == "api/bereshit":
             if not self._check_token(token):
                 return
             try:
-                from golem.nucleo.emet import generar_manifiesto
+                from computadora.nucleo.emet import generar_manifiesto
                 m = generar_manifiesto()
                 self._send_json({
                     "tipo": "bereshit_genesis",
@@ -813,12 +813,12 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
                 self._send_json({"error": "Módulo emet no disponible"})
             return
 
-        # WI-276: API — אמת Emet: manifiesto de verdad del Golem
+        # WI-276: API — אמת Emet: manifiesto de verdad del Computadora
         if path == "api/emet":
             if not self._check_token(token):
                 return
             try:
-                from golem.nucleo.emet import generar_manifiesto
+                from computadora.nucleo.emet import generar_manifiesto
                 self._send_json(generar_manifiesto())
             except ImportError:
                 self._send_json({"error": "Módulo emet no disponible"})
@@ -1014,7 +1014,7 @@ class GrimorioHandler(http.server.BaseHTTPRequestHandler):
             _sellar_silencioso(self.server)
             return
 
-        # API: sellado explícito (invocado por Minimi o Golem)
+        # API: sellado explícito (invocado por Minimi o Computadora)
         if path == "api/sellar":
             _registrar_evento("enciclopedia_sellada_remota",
                               origen=body.get("origen", "desconocido"))
@@ -1080,7 +1080,7 @@ def verify_password() -> bool:
     if bloqueado:
         minutos = restante // 60
         print(f"  🔒 Enciclopedia sellada por {minutos} minuto(s) más.")
-        print("  ⚠ Demasiados intentos fallidos — el Golem fue notificado.")
+        print("  ⚠ Demasiados intentos fallidos — el Computadora fue notificado.")
         _registrar_evento("acceso_bloqueado", minutos_restantes=minutos,
                           intentos_acumulados=estado["intentos_fallidos"])
         return False
@@ -1136,7 +1136,7 @@ def verify_password() -> bool:
         else:
             print("  ✗ Acceso denegado.")
             _registrar_evento("acceso_denegado", intentos=total)
-            print("  ⚠ Intrusión registrada — Golem será notificado.")
+            print("  ⚠ Intrusión registrada — Computadora será notificado.")
     return False
 
 
@@ -1323,7 +1323,7 @@ def run_server():
     if "--lan" in sys.argv:
         try:
             sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-            from golem.seguridad.shomer_bayit import es_red_hogar
+            from computadora.seguridad.shomer_bayit import es_red_hogar
             if es_red_hogar():
                 HOST = "0.0.0.0"
             else:

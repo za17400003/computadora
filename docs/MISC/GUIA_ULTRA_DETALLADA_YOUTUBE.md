@@ -147,7 +147,7 @@ LADO IZQUIERDO          │ LADO DERECHO
 
 ### 🔵 PASO 8: Guarda con nombre correcto
 
-**Guarda en: `c:\Users\woire\Documents\proyecto-golem\`**
+**Guarda en: `c:\Users\woire\Documents\proyecto-computadora\`**
 
 **Nombres por idioma:**
 ```
@@ -161,7 +161,7 @@ Portugués:     transcripcion_pt.txt
 **En VSCode:**
 1. File → Save As (o Ctrl+Shift+S)
 2. Escribe nombre completo: `transcripcion_es.txt`
-3. Asegúrate que Location sea: `c:\Users\woire\Documents\proyecto-golem\`
+3. Asegúrate que Location sea: `c:\Users\woire\Documents\proyecto-computadora\`
 4. Selecciona formato: "All Files"
 5. SAVE
 
@@ -208,7 +208,7 @@ Portugués:     transcripcion_pt.txt
 Una vez termines, ejecuta esto:
 
 ```powershell
-cd c:\Users\woire\Documents\proyecto-golem
+cd c:\Users\woire\Documents\proyecto-computadora
 python scripts/VERIFICADOR_DISPONIBILIDAD.py
 ```
 

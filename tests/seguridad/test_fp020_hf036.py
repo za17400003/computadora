@@ -24,7 +24,7 @@ print("\n== FP-020: Olam HaZeh — Gevurá + Tzimtzum ==")
 check("FP20-01", "Import ventana_principal (signals)", lambda: (
     True,
     "importable"
-) if __import__('golem.interfaz.ventana_principal', fromlist=['HiloPensamiento']) else (False, ""))
+) if __import__('computadora.interfaz.ventana_principal', fromlist=['HiloPensamiento']) else (False, ""))
 
 check("FP20-02", "Import nlu (callbacks)", lambda: (
     True,
@@ -34,12 +34,12 @@ check("FP20-02", "Import nlu (callbacks)", lambda: (
 check("FP20-03", "Import orquestador (set_callbacks)", lambda: (
     True,
     "importable"
-) if __import__('golem.nucleo.orquestador', fromlist=['Orquestador']) else (False, ""))
+) if __import__('computadora.nucleo.orquestador', fromlist=['Orquestador']) else (False, ""))
 
 check("FP20-04", "Import vida_autonoma", lambda: (
     True,
     "importable"
-) if __import__('golem.interfaz.vida_autonoma', fromlist=['VidaAutonoma']) else (False, ""))
+) if __import__('computadora.interfaz.vida_autonoma', fromlist=['VidaAutonoma']) else (False, ""))
 
 # --- Signals en HiloPensamiento ---
 def _check_signal(nombre):
@@ -60,7 +60,7 @@ check("FP20-08", "HiloPensamiento._on_tzimtzum bridge", lambda: _check_bridge("_
 # --- Callbacks en CerebroComputadora ---
 def _check_callback():
     from computadora.cerebro.nlu import CerebroComputadora
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     has_bloqueo = 'on_bloqueo_seguridad' in src
     has_tzimtzum = 'on_tzimtzum' in src
@@ -82,7 +82,7 @@ check("FP20-10", "Orquestador.set_callbacks tiene on_bloqueo_seguridad + on_tzim
 
 # --- _RE_TZIMTZUM regex existe y matchea ---
 def _check_re_tzimtzum():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     if '_RE_TZIMTZUM' not in src:
         return False, "_RE_TZIMTZUM no encontrado en nlu.py"
@@ -99,7 +99,7 @@ def _check_re_tzimtzum():
         ("déjame solo", True),
         ("déjame tranquilo", True),
         ("déjame en paz", True),
-        ("hola golem", False),
+        ("hola computadora", False),
     ]
     fails = []
     for texto, esperado in tests:
@@ -114,7 +114,7 @@ check("FP20-11", "_RE_TZIMTZUM regex matchea correctamente", _check_re_tzimtzum)
 
 # --- _RE_MOVIMIENTO ya NO contiene patterns de Tzimtzum ---
 def _check_re_mov_separado():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     # Buscar _RE_MOVIMIENTO y verificar que NO tiene "hazte pequeño"
     m = re.search(r'_RE_MOVIMIENTO\s*=\s*re\.compile\(\s*r"([^"]+)"', src)
@@ -130,7 +130,7 @@ check("FP20-12", "_RE_MOVIMIENTO separado de Tzimtzum (sin 'hazte pequeño')", _
 
 # --- Gevurá visual: on_bloqueo_seguridad emitido en Siruv Tzadik ---
 def _check_gevura_emit():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     # Buscar la emisión del callback en la zona de Siruv Tzadik
     # Buscar la ÚLTIMA aparición de סירוב צדיק (la de código, no la de comentario)
@@ -145,7 +145,7 @@ check("FP20-13", "on_bloqueo_seguridad emitido en Siruv Tzadik", _check_gevura_e
 
 # --- Estado visual gevura_activa en _animar() ---
 def _check_gevura_visual():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'ventana_principal.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'ventana_principal.py'),
                encoding='utf-8').read()
     has_state = 'gevura_activa' in src
     has_brillo = 'self._fase * 5.0' in src  # frecuencia rápida
@@ -155,7 +155,7 @@ check("FP20-14", "Estado visual gevura_activa en _animar()", _check_gevura_visua
 
 # --- _al_bloqueo_seguridad slot existe en OrbeComputadora ---
 def _check_slot_bloqueo():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'ventana_principal.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'ventana_principal.py'),
                encoding='utf-8').read()
     has_slot = 'def _al_bloqueo_seguridad' in src
     has_timer = 'QTimer.singleShot(2000' in src
@@ -165,7 +165,7 @@ check("FP20-15", "_al_bloqueo_seguridad slot con QTimer 2s restore", _check_slot
 
 # --- _al_tzimtzum_solicitado slot existe ---
 def _check_slot_tzimtzum():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'ventana_principal.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'ventana_principal.py'),
                encoding='utf-8').read()
     has_slot = 'def _al_tzimtzum_solicitado' in src
     return has_slot, f"slot={has_slot}"
@@ -187,7 +187,7 @@ check("HF36-01", "TICKS_ANTES_COMPACTAR = 120", _check_ticks_compactar)
 
 # --- DECISIÓN 2b en _tick() ---
 def _check_decision_2b():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'vida_autonoma.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'vida_autonoma.py'),
                encoding='utf-8').read()
     has_decision = 'DECISIÓN 2b' in src
     has_compactar = 'TICKS_ANTES_COMPACTAR' in src
@@ -200,7 +200,7 @@ check("HF36-02", "DECISIÓN 2b auto-compactación en _tick()", _check_decision_2
 def _check_idle_tzimtzum():
     from computadora.interfaz.vida_autonoma import VidaAutonoma
     # Acceder via instancia mock no es posible, leer del source
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'vida_autonoma.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'vida_autonoma.py'),
                encoding='utf-8').read()
     m = re.search(r'_TICKS_UMBRAL_IDLE_TZIMTZUM\s*=\s*(\d+)', src)
     if not m:
@@ -212,7 +212,7 @@ check("HF36-03", "_TICKS_UMBRAL_IDLE_TZIMTZUM = 600 (5 min)", _check_idle_tzimtz
 
 # --- DECISIÓN 0.5 idle Tzimtzum en _tick() ---
 def _check_idle_decision():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'vida_autonoma.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'vida_autonoma.py'),
                encoding='utf-8').read()
     has_decision = 'DECISIÓN 0.5' in src
     has_idle_check = '_TICKS_UMBRAL_IDLE_TZIMTZUM' in src
@@ -223,14 +223,14 @@ def _check_idle_decision():
 check("HF36-04", "DECISIÓN 0.5 idle Tzimtzum en _tick()", _check_idle_decision)
 
 # ═══════════════════════════════════════════════
-# FASE BAT: iniciar_golem.bat
+# FASE BAT: iniciar_computadora.bat
 # ═══════════════════════════════════════════════
-print("\n== BAT: iniciar_golem.bat ==")
+print("\n== BAT: iniciar_computadora.bat ==")
 
 def _check_bat():
-    bat_path = os.path.join(os.path.dirname(__file__), '..', 'iniciar_golem.bat')
+    bat_path = os.path.join(os.path.dirname(__file__), '..', 'iniciar_computadora.bat')
     if not os.path.exists(bat_path):
-        return False, "iniciar_golem.bat no existe"
+        return False, "iniciar_computadora.bat no existe"
     content = open(bat_path, encoding='utf-8').read()
     checks = {
         'python_check': 'where python' in content,
@@ -243,7 +243,7 @@ def _check_bat():
     all_ok = all(checks.values())
     return all_ok, f"{checks}"
 
-check("BAT-01", "iniciar_golem.bat tiene todas las verificaciones", _check_bat)
+check("BAT-01", "iniciar_computadora.bat tiene todas las verificaciones", _check_bat)
 
 # ═══════════════════════════════════════════════
 # FASE WORKFLOW: Regla #16
@@ -268,10 +268,10 @@ def _check_imports_cruzados():
     """Verifica que los 4 archivos modificados importan sin error."""
     errores = []
     mods = [
-        'golem.interfaz.ventana_principal',
-        'golem.cerebro.nlu',
-        'golem.nucleo.orquestador',
-        'golem.interfaz.vida_autonoma',
+        'computadora.interfaz.ventana_principal',
+        'computadora.cerebro.nlu',
+        'computadora.nucleo.orquestador',
+        'computadora.interfaz.vida_autonoma',
     ]
     for m in mods:
         try:

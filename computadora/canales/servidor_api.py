@@ -125,14 +125,14 @@ def _obtener_ip_local() -> str:
         return "127.0.0.1"
 
 
-def _estado_golem() -> dict:
+def _estado_computadora() -> dict:
     """Construye el JSON de estado actual de la Computadora (enriquecido)."""
     estado = "dormido"
     humor = "neutro"
     escuchando = False
 
     if _vida_autonoma:
-        estado = getattr(_vida_autonoma, "_ultimo_estado_golem", "dormido")
+        estado = getattr(_vida_autonoma, "_ultimo_estado_computadora", "dormido")
         # Personalidad → humor
         _pers = getattr(_vida_autonoma, "_personalidad", None)
         if _pers:
@@ -245,7 +245,7 @@ class _MinimiHandler(BaseHTTPRequestHandler):
             return
 
         if self.path == "/api/status":
-            self._enviar_json(_estado_golem())
+            self._enviar_json(_estado_computadora())
         elif self.path == "/api/ping":
             self._enviar_json({"pong": True, "ts": int(time.time())})
         elif self.path.startswith("/api/resultado"):
@@ -763,7 +763,7 @@ def _actualizar_firestore_estado():
     if not _firestore_db:
         return
     try:
-        estado = _estado_golem()
+        estado = _estado_computadora()
         estado["timestamp"] = firestore.SERVER_TIMESTAMP
         _firestore_db.collection("computadora").document("estado").set(estado)
     except Exception as e:

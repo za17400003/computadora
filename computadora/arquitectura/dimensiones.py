@@ -77,7 +77,7 @@ _M_APRENDIZAJE = "aprendizaje"
 _M_VENTANA_PRINCIPAL = "ventana_principal"
 _M_VIDA_AUTONOMA = "vida_autonoma"
 _M_WATCHDOG = "watchdog"
-_M_FSM_GOLEM = "fsm_golem"
+_M_FSM_COMPUTADORA = "fsm_computadora"
 _M_DIBUJANTE_ORBE = "dibujante_orbe"
 _M_ESTILOS = "estilos"
 # Voz
@@ -143,7 +143,7 @@ def _construir_dimensiones() -> tuple[Dimension, ...]:
                 Nodo("Netzaj", "נצח", "Netzaj", ("memoria", "personalidad", "personas", "perfil_linguistico")),
                 Nodo("Hod", "הוד", "Hod", ("escucha", "habla", "audio_log", "vision", "red", "servidor_api")),
                 Nodo("Yesod", "יסוד", "Yesod", ("orquestador", "herramientas", "eventos", "kli", "servidor_api")),
-                Nodo("Maljut", "מלכות", "Maljut", ("ventana_principal", "vida_autonoma", "watchdog", "dibujante_orbe", "fsm_golem")),
+                Nodo("Maljut", "מלכות", "Maljut", ("ventana_principal", "vida_autonoma", "watchdog", "dibujante_orbe", "fsm_computadora")),
             ),
             vocabulario={
                 "arbol": "Etz HaChaim (עץ החיים)",

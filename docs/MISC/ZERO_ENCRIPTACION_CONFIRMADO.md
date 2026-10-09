@@ -20,7 +20,7 @@ Removidos de .git/config:
 ### ✓ Atributos de Encriptación
 ```
 Removidos de .gitattributes:
-- golem/**/*.py filter=git-crypt
+- computadora/**/*.py filter=git-crypt
 - *.py filter=git-crypt
 - config.json filter=git-crypt
 - .env filter=git-crypt

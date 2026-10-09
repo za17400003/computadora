@@ -14,7 +14,7 @@ class TestRF125_RegexFaltantes(unittest.TestCase):
     """RF-125: Tikún Néfesh — regex N1 faltantes."""
 
     def _get_re(self, name):
-        mod = __import__('golem.cerebro.nlu', fromlist=[name])
+        mod = __import__('computadora.cerebro.nlu', fromlist=[name])
         return getattr(mod, name)
 
     def test_demo_animaciones_standalone_malhut(self):
@@ -55,13 +55,13 @@ class TestRF126_SanitizacionOllama(unittest.TestCase):
 
     def test_system_prompt_identity_blind(self):
         """D6: System prompt tiene blindaje de identidad"""
-        mod = __import__('golem.cerebro.nlu', fromlist=['SISTEMA_PROMPT'])
+        mod = __import__('computadora.cerebro.nlu', fromlist=['SISTEMA_PROMPT'])
         self.assertIn('IDENTIDAD BLINDADA', mod.SISTEMA_PROMPT)
         self.assertIn('NO eres Gemma', mod.SISTEMA_PROMPT)
 
     def test_repeat_penalty_in_options(self):
         """D5: repeat_penalty configurado en payloads Ollama"""
-        src_file = inspect.getfile(__import__('golem.cerebro.nlu', fromlist=['CerebroComputadora']))
+        src_file = inspect.getfile(__import__('computadora.cerebro.nlu', fromlist=['CerebroComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         self.assertIn('"repeat_penalty": 1.3', code)
@@ -69,7 +69,7 @@ class TestRF126_SanitizacionOllama(unittest.TestCase):
 
     def test_limpiar_para_voz_estado_interno_sin_corchetes(self):
         """D3: sanitizer atrapa 'Estado interno:' sin corchetes"""
-        mod = __import__('golem.cerebro.nlu', fromlist=['CerebroComputadora'])
+        mod = __import__('computadora.cerebro.nlu', fromlist=['CerebroComputadora'])
         cerebro = mod.CerebroComputadora.__new__(mod.CerebroComputadora)
         resultado = cerebro._limpiar_para_voz(
             "Estado interno: Estás de buen humor, puedes ser más expresivo."
@@ -78,14 +78,14 @@ class TestRF126_SanitizacionOllama(unittest.TestCase):
 
     def test_limpiar_para_voz_herramienta_suelta(self):
         """D4: sanitizer suprime nombre de herramienta suelto"""
-        mod = __import__('golem.cerebro.nlu', fromlist=['CerebroComputadora'])
+        mod = __import__('computadora.cerebro.nlu', fromlist=['CerebroComputadora'])
         cerebro = mod.CerebroComputadora.__new__(mod.CerebroComputadora)
         resultado = cerebro._limpiar_para_voz("listar_directorio")
         self.assertEqual(resultado, "")
 
     def test_limpiar_para_voz_antirepeticion(self):
         """D5: sanitizer trunca frases repetidas 3+ veces"""
-        mod = __import__('golem.cerebro.nlu', fromlist=['CerebroComputadora'])
+        mod = __import__('computadora.cerebro.nlu', fromlist=['CerebroComputadora'])
         cerebro = mod.CerebroComputadora.__new__(mod.CerebroComputadora)
         texto_repetido = "Hola señor. Sentí una caricia. Sentí una caricia. Sentí una caricia. Sentí una caricia."
         resultado = cerebro._limpiar_para_voz(texto_repetido)
@@ -94,7 +94,7 @@ class TestRF126_SanitizacionOllama(unittest.TestCase):
 
     def test_respuesta_es_inutil_repeticion(self):
         """D5: _respuesta_es_inutil detecta repetición aunque len>300"""
-        mod = __import__('golem.cerebro.nlu', fromlist=['CerebroComputadora'])
+        mod = __import__('computadora.cerebro.nlu', fromlist=['CerebroComputadora'])
         cerebro = mod.CerebroComputadora.__new__(mod.CerebroComputadora)
         texto = "Sentí una caricia del amo. " * 50  # >300 chars, repetitivo
         self.assertTrue(cerebro._respuesta_es_inutil(texto))

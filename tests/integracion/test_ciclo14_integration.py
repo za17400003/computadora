@@ -282,9 +282,9 @@ class TestIntegration5WatchdogNonBlocking:
 
     def test_watchdog_monitoring_doesnt_block_ui(self):
         """Watchdog checkeando Ollama no bloquea renderizado UI"""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         
-        watchdog = WatchdogGolem()
+        watchdog = WatchdogComputadora()
         ui_rendered = [0]
         errors = []
         
@@ -478,7 +478,7 @@ class TestIntegration8BootSequence:
 
     def test_boot_sequence_order(self):
         """Boot debe inicializar: Watchdog → MetaWorkflow → Orquestador → Renovacion"""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.nucleo.meta_workflow import MetaWorkflow
         from computadora.nucleo.orquestador import Orquestador
         from computadora.cerebro.renovacion import RenovacionOperativa
@@ -487,7 +487,7 @@ class TestIntegration8BootSequence:
         
         try:
             boot_order.append("watchdog")
-            w = WatchdogGolem()
+            w = WatchdogComputadora()
             
             boot_order.append("meta_workflow")
             m = MetaWorkflow()
@@ -506,15 +506,15 @@ class TestIntegration8BootSequence:
 
     def test_boot_idempotent(self):
         """Boot puede ejecutarse múltiples veces sin efectos secundarios (idempotente)"""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.nucleo.meta_workflow import MetaWorkflow
         
         # Primera boot
-        w1 = WatchdogGolem()
+        w1 = WatchdogComputadora()
         m1 = MetaWorkflow()
         
         # Segunda boot
-        w2 = WatchdogGolem()
+        w2 = WatchdogComputadora()
         m2 = MetaWorkflow()
         
         # Ambas deben ser operativas

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Profiler ULTRA-GRANULAR — mide EXACTAMENTE dónde se cuelga OrbeGolem.__init__.
+Profiler ULTRA-GRANULAR — mide EXACTAMENTE dónde se cuelga OrbeComputadora.__init__.
 Enfoque: Medir super().__init__() vs el resto.
 """
 
@@ -28,18 +28,18 @@ class Timer:
 timer = Timer()
 
 # ═══════════════════════════════════════════
-# MONKEYPATCH OrbeGolem.__init__ para medir cada línea
+# MONKEYPATCH OrbeComputadora.__init__ para medir cada línea
 # ═══════════════════════════════════════════
 
-def test_orbegolem_super_init():
+def test_orbecomputadora_super_init():
     """Testa SOLO super().__init__() y líneas antes de obtener_orquestador_singleton."""
     
     from computadora.config import Configuracion
-    from computadora.cerebro.nlu import CerebroGolem
+    from computadora.cerebro.nlu import CerebroComputadora
     from PyQt6.QtWidgets import QApplication, QWidget
     
     config = Configuracion()
-    cerebro = CerebroGolem(modelo="gemma3:4b")
+    cerebro = CerebroComputadora(modelo="gemma3:4b")
     
     timer.mark("=== Iniciando prueba de super().__init__()")
     
@@ -47,11 +47,11 @@ def test_orbegolem_super_init():
     if app is None:
         app = QApplication([])
     
-    timer.mark("Importando OrbeGolem...")
-    from computadora.interfaz.ventana_principal import OrbeGolem
+    timer.mark("Importando OrbeComputadora...")
+    from computadora.interfaz.ventana_principal import OrbeComputadora
     
     # Medir SOLO super().__init__() sin el resto
-    timer.mark("Creando instancia de OrbeGolem...")
+    timer.mark("Creando instancia de OrbeComputadora...")
     timer.mark("  → Ejecutando super().__init__() [QWidget init]...")
     
     # Hack: crear una subclase para medir solo super()
@@ -67,13 +67,13 @@ def test_orbegolem_super_init():
     except Exception as e:
         timer.mark(f"  ✗ Error en super().__init__(): {e}")
     
-    # Ahora mide el RESTO de OrbeGolem.__init__
-    timer.mark("\nAhora mediremos todo OrbeGolem.__init__()...")
-    timer.mark("  → [INICIO COMPLETO] OrbeGolem.__init__()")
+    # Ahora mide el RESTO de OrbeComputadora.__init__
+    timer.mark("\nAhora mediremos todo OrbeComputadora.__init__()...")
+    timer.mark("  → [INICIO COMPLETO] OrbeComputadora.__init__()")
     
     try:
-        orbe = OrbeGolem(config, cerebro=cerebro)
-        timer.mark("  ← [FIN COMPLETO] OrbeGolem.__init__()")
+        orbe = OrbeComputadora(config, cerebro=cerebro)
+        timer.mark("  ← [FIN COMPLETO] OrbeComputadora.__init__()")
     except Exception as e:
         timer.mark(f"  ✗ Error: {e}")
         import traceback
@@ -82,4 +82,4 @@ def test_orbegolem_super_init():
     timer.mark("\n=== Test completado")
 
 if __name__ == "__main__":
-    test_orbegolem_super_init()
+    test_orbecomputadora_super_init()

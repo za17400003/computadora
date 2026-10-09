@@ -7,7 +7,7 @@
 
 ## 📈 Resumen Ejecutivo
 
-**Proyecto Golem** es un **asistente de escritorio IA en tiempo real** con restricciones severas:
+**Proyecto Computadora** es un **asistente de escritorio IA en tiempo real** con restricciones severas:
 
 | Aspecto | Target | Actual | Margen |
 |---------|--------|--------|--------|
@@ -194,7 +194,7 @@ NOTIFY (🟡)
 DEGRADE (🟠)
 └─ Response time > 90s (240s threshold not yet hit)
    └─ Switch to Copilot fallback
-   └─ Alert user ("Golem está pensando mucho, usando Copilot...")
+   └─ Alert user ("Computadora está pensando mucho, usando Copilot...")
    └─ Circuit opening
 
 OFFLINE (🔴)
@@ -278,7 +278,7 @@ else:
 
 **Baseline (idle, no audio processing)**:
 ```
-Python process (Golem idle):
+Python process (Computadora idle):
   - Base interpreter: 30MB
   - PyQt6 framework: 40MB
   - NLU regex patterns: 20MB
@@ -386,8 +386,8 @@ pytest tests/test_watchdog_fp150.py -v -k "timeout" # RF-360
 
 # General Performance
 python -c "
-from computadora.interfaz.ventana_principal import OrbeGolem
-orbe = OrbeGolem()
+from computadora.interfaz.ventana_principal import OrbeComputadora
+orbe = OrbeComputadora()
 orbe.benchmark_ferrofluido(duration_s=10)  # Measure FPS
 "
 

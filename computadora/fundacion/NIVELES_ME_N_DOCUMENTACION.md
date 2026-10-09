@@ -2,7 +2,7 @@
 
 ## Descripción General
 
-La estructura del Golem está organizada en **5 niveles de composición alquímica**, donde cada nivel es una potencia de ME (Manifestación ∪ Ejecución):
+La estructura del Computadora está organizada en **5 niveles de composición alquímica**, donde cada nivel es una potencia de ME (Manifestación ∪ Ejecución):
 
 ```
 ME^0 = { ε }              — Identidad vacía (punto de inicio)
@@ -30,7 +30,7 @@ Cada nivel **hereda los axiomas** (III.7-III.11) recursivamente.
 **Uso**: Inicialización de GestorNiveles
 
 ```python
-from golem.fundacion import IdentidadVacia
+from computadora.fundacion import IdentidadVacia
 
 epsilon = IdentidadVacia()
 assert epsilon.es_completo()  # True
@@ -54,7 +54,7 @@ assert epsilon.es_exitoso()   # True
 **Uso**:
 
 ```python
-from golem.fundacion import Manifestacion, Ejecucion, CicloAlquimico, FaseAlquimica
+from computadora.fundacion import Manifestacion, Ejecucion, CicloAlquimico, FaseAlquimica
 
 # Crear manifestación
 m = Manifestacion(id="WI-001", nombre="Feature", descripcion="...", pipeline="A")
@@ -193,7 +193,7 @@ conteos = gestor.contar_ciclos_exitosos()
 
 # Estado del sistema
 estado_str = gestor.obtener_estado_sistema()
-# "ESTADO GOLEM (ME^N):\n  Nivel 0: 1 ✓\n  Nivel 1: 50 ciclos\n..."
+# "ESTADO COMPUTADORA (ME^N):\n  Nivel 0: 1 ✓\n  Nivel 1: 50 ciclos\n..."
 ```
 
 ---
@@ -212,23 +212,23 @@ Cada nivel hereda **todos los axiomas** (III.7-III.11):
 
 ---
 
-## Acceso desde Golem
+## Acceso desde Computadora
 
 Los 5 niveles están disponibles en el kernel global:
 
 ```python
-import golem
+import computadora
 
 # Acceso a gestor de niveles
-gestor = golem.__niveles__
+gestor = computadora.__niveles__
 
 # Crear ciclos y composiciones
 ciclo = gestor.crear_ciclo_nivel_1(m, e)
 composicion = gestor.crear_composicion_ternaria(c1, c2, c3)
 
 # O importar directamente
-from golem import GestorNiveles, obtener_gestor_niveles
-from golem import CicloAlquimico, ComposicionBinaria, ComposicionTernaria, ComposicionCuaternaria
+from computadora import GestorNiveles, obtener_gestor_niveles
+from computadora import CicloAlquimico, ComposicionBinaria, ComposicionTernaria, ComposicionCuaternaria
 ```
 
 ---
@@ -273,7 +273,7 @@ Total                         16 tests ✅
 ## Ejemplo Completo: Ciclo 3 (WI-291/292/293)
 
 ```python
-from golem import GestorNiveles, Manifestacion, Ejecucion, FaseAlquimica
+from computadora import GestorNiveles, Manifestacion, Ejecucion, FaseAlquimica
 
 gestor = GestorNiveles()
 
@@ -320,4 +320,4 @@ if ciclo_3_ternario.es_exitoso():
 
 **Status**: ESTRUCTURA ME^N COMPLETA Y VERIFICADA ✅
 
-26 tests verdes | Integración en golem/__init__.py | Documentación exhaustiva
+26 tests verdes | Integración en computadora/__init__.py | Documentación exhaustiva

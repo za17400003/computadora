@@ -80,7 +80,7 @@ def modo_watch():
                 print(f"{'='*60}")
                 print(f"Proyecto: {sol.get('proyecto', '?')}")
                 print(f"Descripción: {sol.get('descripcion_usuario', '?')}")
-                print(f"Contexto: {sol.get('contexto_golem', 'ninguno')}")
+                print(f"Contexto: {sol.get('contexto_computadora', 'ninguno')}")
                 print(f"Archivos: {', '.join(sol.get('archivos_afectados', [])) or 'No especificados'}")
                 print(f"Prioridad: {sol.get('prioridad', 'normal')}")
                 print(f"Reinicio: {'Sí' if sol.get('requiere_reinicio') else 'No'}")

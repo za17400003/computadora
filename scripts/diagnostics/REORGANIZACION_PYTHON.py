@@ -16,7 +16,7 @@ from FILE_LOCATION_MANAGER import FileLocationManager
 
 def reorganizar_python():
     """Reorganizar .py de raíz a ubicaciones correctas."""
-    raiz = Path(__file__).resolve().parent.parent.parent  # c:\...\proyecto-golem
+    raiz = Path(__file__).resolve().parent.parent.parent  # c:\...\proyecto-computadora
     
     # Encontrar todos los .py en raíz (EXCEPTO __pycache__, .git, etc.)
     archivos_py = [f for f in raiz.glob("*.py") if not f.name.startswith('.')]

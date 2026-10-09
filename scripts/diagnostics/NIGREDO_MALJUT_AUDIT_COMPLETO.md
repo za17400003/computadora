@@ -250,12 +250,12 @@ Con múltiples decisiones (esquiva, reubicar, compacta) en un tick, si CADA una 
 ---
 
 ### 10. ⚠️ **FSM State inconsistencia: `_estado` vs `OrbeComputadora._estado`**
-**Archivo**: `ventana_principal.py`, `fsm_golem.py`  
+**Archivo**: `ventana_principal.py`, `fsm_computadora.py`
 **Severidad**: MEDIA
 
 **Problema**:
 - `OrbeComputadora._estado` = visual state (dormido, hablando, procesando)
-- `VidaAutonoma` decide movimiento basado en `self._ultimo_estado_golem`
+- `VidaAutonoma` decide movimiento basado en `self._ultimo_estado_computadora`
 - Si FSM cambia estado sin notificar VidaAutonoma → desincronizado
 
 **Ejemplo**:

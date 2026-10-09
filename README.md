@@ -1,53 +1,55 @@
-# COMPUTADORA
+# Computadora
 
-Asistente personal de escritorio con IA para Windows 11.
+Asistente personal de escritorio para Windows 11, con interfaz PyQt6 y capacidades de voz. El proyecto integra reconocimiento de voz local, proveedores de lenguaje configurables y herramientas de escritorio con configuracion local.
 
-Computadora escucha por micrófono, interpreta órdenes en español, ejecuta acciones en el sistema Windows y gestiona información personal de manera local.
+## Funcionalidades
+
+- Interfaz de escritorio desarrollada con PyQt6.
+- Captura y transcripcion de voz con Whisper y deteccion de actividad de voz.
+- Salida de voz mediante proveedores TTS configurables.
+- Integracion con Ollama local y proveedores externos opcionales.
+- Modulos independientes para automatizacion, memoria local y canales de comunicacion.
+
+## Tecnologias
+
+Python 3.10+, PyQt6, Whisper, Silero VAD, Ollama, edge-tts, pyttsx3 y herramientas de automatizacion para Windows.
 
 ## Requisitos
 
 - Windows 11
-- Python 3.10+
-- GPU NVIDIA con CUDA (recomendado para modelos de voz y lenguaje)
+- Python 3.10 o posterior
+- Micrófono para las funciones de voz
+- Ollama si se habilita el proveedor local de lenguaje
+- CMake y herramientas de compilacion pueden ser necesarios para instalar dlib
 
-## Instalación
+## Instalacion
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
-pip install -r requirements.txt
+Desde PowerShell, en la raiz del repositorio:
+
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+Copy-Item _config/.env.example _config/.env
 ```
 
-## Inicio Rápido
+Completa `_config/.env` con la configuracion que vayas a utilizar. No agregues credenciales al repositorio.
 
-- **Desde terminal**: `python -m computadora`
-- **Desde la raíz del repositorio**: `iniciar computadora.bat`
+## Ejecucion
 
-## Estructura del Proyecto
-
-- `computadora/` - Código fuente principal
-- `tests/` - Pruebas unitarias y de integración
-- `scripts/` - Scripts de utilidad y herramientas de soporte
-- `docs/` - Documentación técnica y guías operativas
-- `datos/` - Persistencia local, configuraciones y datos de runtime
-- `.logs/` - Archivos de registro
-- `golem/` - Código legacy y compatibilidad
-- Archivos de documentación raíz: `README.md`, `WORKFLOW_OPERACIONAL.md`, `SRS.md`, `SDD.md`, `WorkItems.md`
-
-## Ejecución
-
-```bash
+```powershell
 python -m computadora
 ```
 
-## Stack
+El launcher `iniciar_computadora.bat` tambien esta disponible en Windows y solicita elevacion de permisos. Para desarrollo, se recomienda iniciar desde la terminal con los permisos minimos necesarios.
 
-- **GUI**: PyQt6
-- **STT**: OpenAI Whisper (local)
-- **TTS**: edge-tts / pyttsx3
-- **Cerebro**: Ollama local; GitHub Copilot API como escalado opcional
+## Pruebas
 
----
+```powershell
+python -m pytest -q
+```
 
-*Documento de proyecto actualizado para reflejar el estado actual y la arquitectura principal de Computadora.*
+## Privacidad y estado
+
+El proyecto es un prototipo para Windows. El almacenamiento local permanece en el dispositivo; si se habilitan integraciones externas, el texto o audio enviado a esos proveedores queda sujeto a sus politicas. Revisa la configuracion antes de usar datos personales.

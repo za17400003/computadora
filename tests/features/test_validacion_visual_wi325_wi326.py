@@ -96,7 +96,7 @@ def test_coherencia_completa():
         # Validar que los módulos importan sin circular dependencies
         from computadora.interfaz import dibujante_orbe
         from computadora.interfaz import ventana_principal
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.cerebro.nlu import CerebroComputadora
         
         print("✅ Todos los módulos importan sin ciclos")
@@ -108,11 +108,11 @@ def test_coherencia_completa():
         assert hasattr(cerebro, '_check_ollama_degradacion'), "CerebroComputadora falta _check_ollama_degradacion"
         print("✅ CerebroComputadora tiene métodos de sincronización WI-324")
         
-        # Validar que WatchdogGolem tiene los métodos nuevos
-        watchdog = WatchdogGolem()
-        assert hasattr(watchdog, 'ollama_esta_degradado'), "WatchdogGolem falta ollama_esta_degradado"
-        assert hasattr(watchdog, 'liberar_recursos_ollama'), "WatchdogGolem falta liberar_recursos_ollama"
-        print("✅ WatchdogGolem tiene métodos de sincronización WI-324")
+        # Validar que WatchdogComputadora tiene los métodos nuevos
+        watchdog = WatchdogComputadora()
+        assert hasattr(watchdog, 'ollama_esta_degradado'), "WatchdogComputadora falta ollama_esta_degradado"
+        assert hasattr(watchdog, 'liberar_recursos_ollama'), "WatchdogComputadora falta liberar_recursos_ollama"
+        print("✅ WatchdogComputadora tiene métodos de sincronización WI-324")
         
         print("✅ Coherencia inter-módulo validada")
         

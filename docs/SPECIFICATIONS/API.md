@@ -7,7 +7,7 @@
 
 ## 📖 Guía de Lectura
 
-Este documento describe el **contrato público (API)** de cada módulo. Si estás desarrollando una nueva habilidad o integrando Golem en otra aplicación:
+Este documento describe el **contrato público (API)** de cada módulo. Si estás desarrollando una nueva habilidad o integrando Computadora en otra aplicación:
 
 1. **Busca el módulo** (ej. `escucha`, `rostro`)
 2. **Lee la clase principal**
@@ -236,7 +236,7 @@ Retorna cantidad de regex patterns cargados (Nivel 1).
 **Sefirá**: מלכות Maljut (manifestación)  
 **Framework**: PyQt6 QMainWindow
 
-### Clase: `OrbeGolem(QMainWindow)`
+### Clase: `OrbeComputadora(QMainWindow)`
 
 #### Constructor
 ```python
@@ -264,7 +264,7 @@ def cambiar_estado(
     estado_nuevo: str,
 ) -> None
 ```
-Cambia estado visual de Golem (escuchando, procesando, etc.).
+Cambia estado visual de Computadora (escuchando, procesando, etc.).
 - Estados: "reposo", "escuchando", "procesando", "respondiendo"
 - **RF-99**: State management
 
@@ -474,10 +474,10 @@ Cada RFxxx especificación en `docs/SRS.md` corresponde a una API pública lista
 | RF-03 | TTS | Locutor.decir() | habla.py |
 | RF-05 | NLU | NLU.procesar() | nlu.py |
 | RF-52 | Camera | ReconocedorRostro.analizar_frame() | rostro.py |
-| RF-98 | Tool Result | OrbeGolem.mostrar_resultado_herramienta() | ventana_principal.py |
+| RF-98 | Tool Result | OrbeComputadora.mostrar_resultado_herramienta() | ventana_principal.py |
 | RF-360 | Ollama Timeout | Watchdog thresholds | watchdog.py |
 | RF-361 | Audio Queue | HiloEscucha.cola_audio (256) | escucha.py |
-| RF-362 | Frame Skip | OrbeGolem._animar() | ventana_principal.py |
+| RF-362 | Frame Skip | OrbeComputadora._animar() | ventana_principal.py |
 
 ---
 

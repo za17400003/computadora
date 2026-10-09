@@ -10,10 +10,10 @@
 ## NIGREDO — Cenizas del Diagnóstico
 
 **Problema reportado** (usuario, invocación Verdad):
-> "Maljut de golem en minimi sigue siendo cuadrado y sin animaciones ni transparencia, necesita actualizacion, tambien luminame sobre 'como instalar la api key para el cerebro gemini...'"
+> "Maljut de computadora en minimi sigue siendo cuadrado y sin animaciones ni transparencia, necesita actualizacion, tambien luminame sobre 'como instalar la api key para el cerebro gemini...'"
 
 **Cenizas encontradas**:
-1. ❌ Maljut Minimi — rectángulo estático vs círculo animado (Golem WI-242)
+1. ❌ Maljut Minimi — rectángulo estático vs círculo animado (Computadora WI-242)
 2. ❌ Sin configuración visible de Gemini API key en proyecto
 3. ❌ `.env.example` no documentaba GEMINI_API_KEY
 4. ❌ `config.json` sin estructura `gemini.*`
@@ -33,7 +33,7 @@
 | SDD desactualizado | BAJA | SDD.md no menciona Gemini explícitamente | Documentación |
 
 **Clasificación por departamento** (Pipeline E + B):
-- **D1 Producto**: Maljut es manifestación core — UI debe ser coherente Golem↔Minimi
+- **D1 Producto**: Maljut es manifestación core — UI debe ser coherente Computadora↔Minimi
 - **D3 Diseño UX**: Config ceremony ausente — usuario no supo dónde poner API key
 - **D4 Ingeniería**: Archivos de config incompletos, mapping faltante
 - **D7 Legal**: Credenciales API deben estar en .env, no en código
@@ -107,7 +107,7 @@ _ENV_OVERRIDES = {
 
 ### Solución B: Maljut Minimi Sincronización (Planeado → WI-297)
 
-**Problema**: Minimi renderiza Maljut como `Rectangle()` mientras Golem tiene orbe hermoso con WI-242 (arcos giratorios CPU/RAM).
+**Problema**: Minimi renderiza Maljut como `Rectangle()` mientras Computadora tiene orbe hermoso con WI-242 (arcos giratorios CPU/RAM).
 
 **Especificación** (WI-297):
 - **Forma**: Circle con BorderStroke gradiente (NOT Rectangle)
@@ -129,7 +129,7 @@ _ENV_OVERRIDES = {
 ### Checkpoint Ritual ✅
 
 ```bash
-grep -n "GEMINI_API_KEY\|gemini.*api" .env.example config.json golem/config.py
+grep -n "GEMINI_API_KEY\|gemini.*api" .env.example config.json computadora/config.py
 ```
 
 **Resultado**: 
@@ -142,11 +142,11 @@ grep -n "GEMINI_API_KEY\|gemini.*api" .env.example config.json golem/config.py
 
 ```bash
 # Verificar que config.py mapea correctamente
-python -c "from golem.config import Configuracion; c=Configuracion(); print(c.obtener('gemini.modelo'))"
+python -c "from computadora.config import Configuracion; c=Configuracion(); print(c.obtener('gemini.modelo'))"
 # Expected: "gemini-2.0-flash" (del config.json)
 
 # Verificar que .env override funciona (después de crear .env con GEMINI_API_KEY)
-python -c "from golem.config import Configuracion; c=Configuracion(); print(c.obtener('gemini.api_key') or 'empty')"
+python -c "from computadora.config import Configuracion; c=Configuracion(); print(c.obtener('gemini.api_key') or 'empty')"
 # Expected: "empty" (si .env no existe yet) o el valor de .env
 ```
 
@@ -158,11 +158,11 @@ pytest tests/ -q --tb=line
 
 **Resultado esperado**: Todos los tests pasan (cambios son config-only, sin lógica)
 
-### Projectio — Verificación en Golem vivo
+### Projectio — Verificación en Computadora vivo
 
 Cuando implementemos `cerebro/gemini_api.py`:
 ```bash
-python -m golem
+python -m computadora
 # User: "Gemini, soluciona el problema P"
 # Si config.obtener("gemini.api_key") tiene valor → Nivel 3 responde con Gemini
 ```
@@ -174,7 +174,7 @@ python -m golem
 ### ¿Qué murió (Nigredo)?
 - Incertidumbre sobre dónde poner API key (ahora está documentado)
 - Falta de mapper entre .env y config → inconsistencia
-- Arquitectura Minimi desincronizada con Golem Maljut
+- Arquitectura Minimi desincronizada con Computadora Maljut
 
 ### ¿Qué se purificó (Albedo)?
 - Config ceremony completa y clara
@@ -203,10 +203,10 @@ python -m golem
 5. Google te generará la API key automáticamente
 6. **Copia toda la key** (cadena larga con caracteres especiales)
 
-### Paso 2: Configurar en Golem
+### Paso 2: Configurar en Computadora
 
 **Opción A — Via `.env` (RECOMENDADO)**:
-1. En la raíz del proyecto Golem, crea archivo llamado `.env` (sin nombre, solo extensión)
+1. En la raíz del proyecto Computadora, crea archivo llamado `.env` (sin nombre, solo extensión)
 2. Copia el contenido de `.env.example` a `.env`
 3. Busca la línea `GEMINI_API_KEY=`
 4. Pega tu key después del `=`:
@@ -214,7 +214,7 @@ python -m golem
    GEMINI_API_KEY=AIzaSyD_0CvXxmV9x7q8...resto_de_tu_key
    ```
 5. Guarda el archivo
-6. **¡Listo!** Golem usará esa key automáticamente
+6. **¡Listo!** Computadora usará esa key automáticamente
 
 **Opción B — Via `config.json`**:
 1. Abre `config.json` (en raíz del proyecto)
@@ -234,21 +234,21 @@ python -m golem
 ### Paso 3: Verificar
 
 ```bash
-cd C:\Users\woire\Proyecto golem
-python -c "from golem.config import Configuracion; c = Configuracion(); print('✓ Gemini configurado' if c.obtener('gemini.api_key') else '✗ API key no encontrada')"
+cd C:\Users\woire\Proyecto computadora
+python -c "from computadora.config import Configuracion; c = Configuracion(); print('✓ Gemini configurado' if c.obtener('gemini.api_key') else '✗ API key no encontrada')"
 ```
 
 Si ves `✓ Gemini configurado` → **¡Éxito!**
 
 ### Paso 4: Usar Gemini
 
-Cuando hables con Golem y hagas una pregunta que **requiera Nivel 3** (razonamiento avanzado):
+Cuando hables con Computadora y hagas una pregunta que **requiera Nivel 3** (razonamiento avanzado):
 ```
-"Golem, analiza el siguiente código y sugiere mejoras"
+"Computadora, analiza el siguiente código y sugiere mejoras"
 "Explícame la teoría de Kabalá desde perspectiva computacional"
 ```
 
-Golem intentará Nivel 1 (regex), luego Nivel 2 (Ollama local). Si ambos fallan o la pregunta es compleja, escala a **Nivel 3: Gemini** (tu API key se usa aquí).
+Computadora intentará Nivel 1 (regex), luego Nivel 2 (Ollama local). Si ambos fallan o la pregunta es compleja, escala a **Nivel 3: Gemini** (tu API key se usa aquí).
 
 ---
 

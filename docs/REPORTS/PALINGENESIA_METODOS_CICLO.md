@@ -190,7 +190,7 @@ PALINGENESIA_METODOS_CICLO.md     — Este archivo
 ### FP-117B: Logs Como "Verdad Observable"
 - **Ilusión**: Log dice "5 Leyes inyectadas" pero no ejecutan
 - **Verdad**: Log dice "3 métodos integrados" y SI ejecutan
-- **Garantía**: User puede verificar que log dice la verdad ejecutando Golem
+- **Garantía**: User puede verificar que log dice la verdad ejecutando Computadora
 
 ### FP-117C: Validación Multicapa Prevents Cascades
 - **Antes**: Error en validación → POST a Ollama → timeout → cascada

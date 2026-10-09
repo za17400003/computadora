@@ -66,7 +66,7 @@ Para verificar que el fix funciona:
 
 ### Test 1: Boot Básico
 ```bash
-cd c:\Users\woire\Documents\proyecto-golem
+cd c:\Users\woire\Documents\proyecto-computadora
 python computadora/__main__.py
 ```
 

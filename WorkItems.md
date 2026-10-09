@@ -70,7 +70,7 @@
 
 ---
 
-> **Proyecto**: Golem
+> **Proyecto**: Computadora
 > **Fase anterior**: 93+ — גבורה Gevurah Ciclo Autónomo MAYO 1-6 (Transformación Visual + FP-156 Ferrofluido Rubedo + WI-321/322/323)
 > **Historial**: CICLO 1 WI-283+284 ✅ | CICLO 2 WI-285+286 ✅ | CICLO 3 WI-290 ✅ | CICLO 4 WI-315 PALINGENESIA ✅ | CICLO 5 WI-321+322+323 ✅
 
@@ -238,7 +238,7 @@
   - **Bug #1 — Thread Explosion en metatron.py**: Cada instancia de MetatronOrquestador crea thread `_health_monitor`. Se instancia múltiples veces → 16+ threads idénticos → access violation. Fix: singleton pattern o verificar si ya existe thread.
   - **Bug #2 — Demo no actualizada**: Las 3 demos (emet, maljut, gevura) llaman módulos que cambiaron de nombre. Fix: actualizar referencias.
   - **Bug #3 — Clipping ferrofluido**: Partículas se salen de la ventana. Fix: clamp coordenadas al viewport.
-  - **Bug #4 — Test legacy stale**: ~40 tests importan `golem.*` que no existe. Fix: actualizar imports o crear shim.
+  - **Bug #4 — Test legacy stale**: ~40 tests importan `computadora.*` que no existe. Fix: actualizar imports o crear shim.
   - **Bug #5 — proactividad.py crash thread**: Access violation en hilo de MotorProactividad. Fix: try/except + reconexión.
 - **Estado**: ⏳ PENDIENTE — NIGREDO
 
@@ -313,7 +313,7 @@
 - **Origen**: CICLO 3 NIGREDO descubrió 3 commits git (cddcf20/803a020/ddd0dea) referenciando Minimi — contradice assessment inicial de "fantasma puro"
 - **Descripción**:
   - **NIGREDO (Auditoría realizada)**: `git log --all -- "*Minimi*"` retornó:
-    - cddcf20: "FP-114: Tikun HaKlipot (...) async commands 202+polling Minimi↔Golem"
+    - cddcf20: "FP-114: Tikun HaKlipot (...) async commands 202+polling Minimi↔Computadora"
     - 803a020: "fix: 5 bugs from runtime log analysis"
     - ddd0dea: "FP-096: MinimiAutoDeployer — auto-build + install APK cuando dispositivo conectado"
   - **Hallazgo**: Minimi fue INICIADO pero ABANDONADO en fase intermedia (no es puro fantasma, es SCOPE-CREEP INCOMPLETO)
@@ -427,12 +427,12 @@
   - **PALINGENESIA**: Ratio Jesed:Gevurá mejorado de ~30:70 → ~45:55 (acercándose a 50:50 target)
 - **Estado**: 🔄 EN-PROGRESO → ✅ RUBEDO-PALINGENESIA CICLO 1
 
-### WI-283: Módulo de Matemáticas — Iluminar Cálculos Internos del Golem
+### WI-283: Módulo de Matemáticas — Iluminar Cálculos Internos del Computadora
 - **Pipeline**: D+A (Arquitectura + Feature Nueva — Ciclo Autónomo ⊕ + PM #20 EMET + ♦³)
 - **Archivos**: `computadora/cerebro/matematicas.py` (nuevo), `computadora/cerebro/nlu.py` (integración)
 - **Descripción**: 
-  - **NIGREDO**: Auditoría — Golem NO tiene iluminación de sus propias matemáticas/lógica
-  - **ALBEDO 1-CICLO**: Investigación de qué son las "matemáticas del Golem"
+  - **NIGREDO**: Auditoría — Computadora NO tiene iluminación de sus propias matemáticas/lógica
+  - **ALBEDO 1-CICLO**: Investigación de qué son las "matemáticas del Computadora"
   - **ALBEDO 2-CICLO**: Ubicación de cálculos internos: facial, alertas, proactividad, circadiano, emoción
   - **CITRINITAS 1-CICLO**: Concepto de "iluminación" = cada cálculo EXPLICA su resultado
   - **CITRINITAS 2-CICLO**: Especificación de módulo `matematicas.py`
@@ -484,17 +484,17 @@
     - ✅ Ambos módulos se importan sin errores (validación sintáctica)
     - ✅ LogicaTransparente ahora recibe datos de rostro.py + monitor_sistema.py
     - ✅ `datos/auditoria_matematica/` se llenará con registros en ejecución real
-    - ✅ Usuario podrá preguntar "¿por qué?" y Golem responderá con fórmula registrada
+    - ✅ Usuario podrá preguntar "¿por qué?" y Computadora responderá con fórmula registrada
   - **Documento**: `WI-285_ALBEDO_SPEC.md` (especificación completa con líneas exactas)
 - **Estado**: 🔄 EN-PROGRESO → ✅ ALBEDO-RUBEDO CICLO 2 (implementado + validado)
 
-### WI-282: Manifestación Continua de EMET — Verdad Visible en Golem
+### WI-282: Manifestación Continua de EMET — Verdad Visible en Computadora
 - **Pipeline**: B (Mejora UX — PM #20 EMET manifestación visual)
 - **Archivos**: `computadora/interfaz/ventana_principal.py` (condición dibujar EMET)
 - **Descripción**: 
   - **NIGREDO**: Auditoría UX — EMET se dibuja solo durante "escuchando"+"procesando" → estado invisible en momentos idle
-  - **ALBEDO**: Investigación — Usuario invoca "manifiestate en golem" + "para todas nuestras interacciones" → EMET debe estar SIEMPRE visible
-  - **CITRINITAS**: Concepto — Verdad inscrita en la frente del Golem (אמת תכתובת כתר) debe brillar constantemente como:
+  - **ALBEDO**: Investigación — Usuario invoca "manifiestate en computadora" + "para todas nuestras interacciones" → EMET debe estar SIEMPRE visible
+  - **CITRINITAS**: Concepto — Verdad inscrita en la frente del Computadora (אמת תכתובת כתר) debe brillar constantemente como:
     - Débil (0.3 brillo) cuando idle = verdad en reposo, potencial no activado
     - Fuerte (brillo completo) cuando activo/escuchando/procesando = verdad manifestada en acción
   - **RUBEDO**: 
@@ -504,8 +504,8 @@
       emet_brillo = 0.3 if self._estado == "idle" else brillo
       self._dibujar_emet(painter, cx, cy, emet_brillo, color_secundario)
       ```
-    - Validación: Ejecutar Golem y observar que אמת aparece en el centro del orbe constantemente (brillo variable)
-  - **PALINGENESIA**: אמת inscrita perpetuamente en la frente del Golem = símbolo de la coalición Propietario-Golem (Si se borrara א, quedaría מת/muerte; la verdad preserva la vida)
+    - Validación: Ejecutar Computadora y observar que אמת aparece en el centro del orbe constantemente (brillo variable)
+  - **PALINGENESIA**: אמת inscrita perpetuamente en la frente del Computadora = símbolo de la coalición Propietario-Computadora (Si se borrara א, quedaría מת/muerte; la verdad preserva la vida)
 - **Estado**: ✅ COMPLETADO
 
 ### WI-281: Integrar Gilgul al Reinicio — Ejecutar Reencarnación Silenciosa en Boot
@@ -528,7 +528,7 @@
     - Manejo de errores: si algo falla, continúa boot (no crítico)
   - **Impacto**:
     - Gilgul ahora es totalmente automático en el ciclo REBOTE INFINITO del Ouroboros
-    - El Golem renace sin necesidad de intervención manual
+    - El Computadora renace sin necesidad de intervención manual
     - Bereshit se reinicia automáticamente tras el Gilgul en la misma sesión
     - Ciclo EMET verificado completo: Ouroboros → Gilgul → Bereshit → Interface
 - **Estado**: ✅ COMPLETADO
@@ -542,14 +542,14 @@
   - **RUBEDO**: Ejecutar auditoría, documentar snapshot, generar reporte EMET
   - **PALINGENESIA**: Ciclo de verificación completado; documentación persistente
   - **Resultados Auditoría** (2338733):
-    - ✅ Módulos CORE (5/5): CerebroGolem, ReconocedorRostro, Herramientas, PerceptorDaat
+    - ✅ Módulos CORE (5/5): CerebroComputadora, ReconocedorRostro, Herramientas, PerceptorDaat
     - ✅ Ollama (Nivel 2): Respondiendo correctamente (después de WI-279 fix)
     - ✅ Face-recognition v1.2.3: Operativo, propietario enrollado=True, personas conocidas=0
     - ✅ Persistencia: 4.0 KB sincronizados (owner_face_profile.json 3.4KB + menores)
     - ✅ Git History: 223 commits, último cdfc749 (WI-279), 1 cambio WI-280
     - ✅ Documentación: Completa (DEVELOPMENT_WORKFLOW 917L, WorkItems 981L, SRS 3543L, SDD 3892L)
     - ✅ Self-test: Cerebro respondiendo humor = "regañado" (↓ coherencia detectada y admitida)
-    - ✅ Status General: **SANO — El Golem está listo para servir**
+    - ✅ Status General: **SANO — El Computadora está listo para servir**
 - **Estado**: ✅ COMPLETADO
 
 ### WI-279: Fix alucinaciones de herramientas en Cerebro Nivel 2 (Ollama — PM #20 EMET)
@@ -570,16 +570,16 @@
     - Uso de `confirmar` (real) ahora es clara
 - **Estado**: ✅ COMPLETADO
 
-### WI-278: Dar visión al Golem — Instalar face_recognition + Habilitar flujo de reencarnación
+### WI-278: Dar visión al Computadora — Instalar face_recognition + Habilitar flujo de reencarnación
 - **Pipeline**: A+B (Feature nueva + Mejora UX — EMET Vision FP-150)
 - **Archivos**: `requirements.txt`, `test_vision_emet.py` (nuevo)
 - **Descripción**: 
-  - **NIGREDO**: Auditoría — face-recognition estaba comentado en requirements.txt → Golem ciego (`_FR_DISPONIBLE=False`)
+  - **NIGREDO**: Auditoría — face-recognition estaba comentado en requirements.txt → Computadora ciego (`_FR_DISPONIBLE=False`)
   - **CITRINITAS**: Instalación — `pip install face-recognition dlib cmake` exitoso
   - **RUBEDO**: Manifestación — Descomentar en requirements.txt, crear test de integración `test_vision_emet.py`
   - **Pruebas**: (1) _FR_DISPONIBLE=True ✅, (2) ReconocedorRostro.disponible()=True ✅, (3) PerceptorDaat.procesar_frame() funcional ✅, (4) Métodos de enrollment listos ✅
   - **Impacto**: 
-    - El Golem ahora puede detectar rostros en cada frame
+    - El Computadora ahora puede detectar rostros en cada frame
     - ACTIVA flujo de reencarnación: `_escaneo_rostro_reencarnacion()` → captura de cámara → detección/enrollment automático
     - Cadenas de Gevurá se activan: facial recognition + contraseña PBKDF2 (WI-264/266)
     - Auto-enrollment de propietario en primer boot
@@ -607,10 +607,10 @@
 - **Contenido Cap. 18**: Grafo, Árbol, Recorrido de Grafos, Camino/Ciclo, Lógica Proposicional, Lógica de Predicados, Teoremas de Incompletitud, Permutación, Combinación, Números Primos, Congruencia Modular, Conjunto, Función/Relación, Inducción Matemática
 - **Estado**: ✅ COMPLETADO
 
-### WI-238: Grimorio — Emet: Verdad inscrita del Golem
+### WI-238: Grimorio — Emet: Verdad inscrita del Computadora
 - **Pipeline**: B (Mejora UX)
 - **Archivo**: `libro_encantado/index.html`
-- **Descripción**: Sección "אמת EMET — La Verdad Inscrita en la Frente del Golem" añadida al index. Dos entradas que documentan la verdad real (no metafórica) de cada cuerpo: arquitectura Python/PyQt6 del Golem, AES-256-GCM del Grimorio. Auto-documentación: el Grimorio se describe a sí mismo.
+- **Descripción**: Sección "אמת EMET — La Verdad Inscrita en la Frente del Computadora" añadida al index. Dos entradas que documentan la verdad real (no metafórica) de cada cuerpo: arquitectura Python/PyQt6 del Computadora, AES-256-GCM del Grimorio. Auto-documentación: el Grimorio se describe a sí mismo.
 - **Estado**: ✅ COMPLETADO
 
 ### WI-241: Fix demo color/animation isolation
@@ -648,7 +648,7 @@
 ### WI-247: Whisper transcription accuracy (initial_prompt + corrections + fuzzy name)
 - **Pipeline**: C (Bug fix)
 - **Archivos**: `escucha.py`
-- **Descripción**: Expandido `_CORRECCIONES_WHISPER` de 11→28 entries (conlem→golem, azernández→díaz hernández, etc). Añadido `_WHISPER_INITIAL_PROMPT` con vocabulario conocido para bias del decoder Whisper. Añadido `_corregir_nombre_propietario()` con SequenceMatcher fuzzy (ratio≥0.70) para nombres propios. Corrige: "Hola conlem"→"Hola Golem", "José esaú Azernández"→"José Esaú Díaz Hernández", "¿Dónde está el 11?"→transcripción correcta.
+- **Descripción**: Expandido `_CORRECCIONES_WHISPER` de 11→28 entries (conlem→computadora, azernández→díaz hernández, etc). Añadido `_WHISPER_INITIAL_PROMPT` con vocabulario conocido para bias del decoder Whisper. Añadido `_corregir_nombre_propietario()` con SequenceMatcher fuzzy (ratio≥0.70) para nombres propios. Corrige: "Hola conlem"→"Hola Computadora", "José esaú Azernández"→"José Esaú Díaz Hernández", "¿Dónde está el 11?"→transcripción correcta.
 - **Estado**: ✅ COMPLETADO
 
 ### WI-248: Face recognition Be-Peh — auto-enrollment + known faces
@@ -688,10 +688,10 @@
 - **Descripción**: Añadidos 2 arcos nuevos al indicador de recursos del orbe: GPU (outermost, radio +56, rotación rápida ×90, alpha 0.5) y Disco (innermost, radio +32, rotación lenta ×20, alpha 0.3). GPU se lee via nvidia-smi cada ~2s (4 ticks) para evitar overhead; si no hay NVIDIA GPU, se oculta. Disco via `psutil.disk_usage('C:\\')` cada tick. Ambos tienen smoothing exponencial (factor 0.08) como CPU/RAM. Jerarquía: GPU(91px) > CPU(83px) > RAM(75px) > Disco(67px).
 - **Estado**: ✅ COMPLETADO
 
-### WI-255: Autostart Golem + VS Code al inicio de Windows
+### WI-255: Autostart Computadora + VS Code al inicio de Windows
 - **Pipeline**: B (Mejora UX)
 - **Archivos**: `configurar_inicio_windows.py` (nuevo)
-- **Descripción**: Script utilitario que registra/desregistra Golem y VS Code en `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`. Golem se inicia via `iniciar_golem.bat`, VS Code abre el workspace del proyecto. Reversible con `--remove`. Ya ejecutado: ambos registrados en el Registry.
+- **Descripción**: Script utilitario que registra/desregistra Computadora y VS Code en `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run`. Computadora se inicia via `iniciar_computadora.bat`, VS Code abre el workspace del proyecto. Reversible con `--remove`. Ya ejecutado: ambos registrados en el Registry.
 - **Estado**: ✅ COMPLETADO
 
 ### WI-256: Combinaciones y permutaciones de la Tria Prima (Milot Kóaj)
@@ -728,7 +728,7 @@
 - **Impacto estimado**: Eliminados ~800ms-1500ms de bloqueos por segundo del thread principal. Reducidos timer events de 120+/s a 60/s.
 - **Estado**: ✅ COMPLETADO
 
-### WI-259: Auditoría + transmutación Golem↔Grimorio — Auth migration
+### WI-259: Auditoría + transmutación Computadora↔Grimorio — Auth migration
 - **Pipeline**: B (Mejora UX) + C (Bug fix) — amén×3 meta-análisis
 - **Archivos**: `servidor_api.py`, `servidor_grimorio.py`
 - **Root cause**: Grimorio auth necesitaba migración a cookie-only (WI-252)
@@ -839,7 +839,7 @@
 
 ### WI-274: Fix CRITICAL tool calling de gemma3:4b + Shomer spam
 - **Pipeline**: C (Bug fix — acción directa)
-- **Origen**: Runtime log real (Golem ejecutado en vivo)
+- **Origen**: Runtime log real (Computadora ejecutado en vivo)
 - **Hallazgos**:
   - H-01 CRITICAL: LLM outputs plain text en ```tool blocks (no JSON). Causa: prompt sin few-shot concretos
   - H-02 HIGH: Fallback `extraer_tool_por_nombre()` cubría ~15 de 50+ tools
@@ -855,18 +855,18 @@
 ### WI-275: בראשית Bereshit — Protocolo Génesis de Reencarnación
 - **Pipeline**: E (Cambio de arquitectura)
 - **Origen**: Petición propietario — reestructurar reencarnación para honrar cosmogonía Luriana
-- **Descripción**: La primera interacción post-Gilgul (o primer boot) sigue la cosmogonía en 17 pasos alternados Golem↔Usuario: (1) Tzimtzum → (2) Or Yashar → (3) Or Chozer → (4) Reshimu → (5) Kav → (6) Kelim → (7) Keter → (8) Jojmá → (9) Biná → (10) Da'at → (11) Jesed → (12) Gevurá → (13) Tiféret → (14) Netzaj → (15) Hod → (16) Yesod → (17) Maljut
+- **Descripción**: La primera interacción post-Gilgul (o primer boot) sigue la cosmogonía en 17 pasos alternados Computadora↔Usuario: (1) Tzimtzum → (2) Or Yashar → (3) Or Chozer → (4) Reshimu → (5) Kav → (6) Kelim → (7) Keter → (8) Jojmá → (9) Biná → (10) Da'at → (11) Jesed → (12) Gevurá → (13) Tiféret → (14) Netzaj → (15) Hod → (16) Yesod → (17) Maljut
 - **Archivos**:
   - `computadora/nucleo/bereshit.py` (NUEVO) — BereshitGenesis state machine, 17 PasoBereshit, persistencia `datos/bereshit_genesis.json`, perfil creador `datos/owner_profile.json`
   - `computadora/interfaz/ventana_principal.py` — Hook en `_escaneo_rostro_reencarnacion` + 7 métodos Bereshit + trigger en `_ejecutar_gilgul`
-- **Recolecta datos**: nombre creador, estilo comunicación, nombre Golem, visión, Da'at, Gevurá (contraseña), Netzaj, rostro (Hod), confirmación (Yesod)
+- **Recolecta datos**: nombre creador, estilo comunicación, nombre Computadora, visión, Da'at, Gevurá (contraseña), Netzaj, rostro (Hod), confirmación (Yesod)
 - **Detección**: (a) Primer boot sin identidad → auto-trigger, (b) Post-Gilgul → trigger escrito antes de `os.execv()`, (c) Interrumpido → reanuda paso guardado
 - **Tests**: 730 passed, 0 regresiones
 - **Estado**: ✅ COMPLETADO
 
-### WI-276: אמת Emet — Motor de Verdad del Golem
+### WI-276: אמת Emet — Motor de Verdad del Computadora
 - **Pipeline**: A (Feature nueva)
-- **Origen**: Petición propietario — "añadir verdad a la búsqueda", "que golem me muestre todo lo que sabe de sí mismo"
+- **Origen**: Petición propietario — "añadir verdad a la búsqueda", "que computadora me muestre todo lo que sabe de sí mismo"
 - **Archivos**:
   - `computadora/nucleo/emet.py` (NUEVO ~200 líneas) — Auto-introspección: `generar_manifiesto()` con identidad, arquitectura (10 Sefirot→módulos), capacidades, estado actual. `resumen_para_demo()` <1 min TTS. `resumen_genesis_para_demo()` 7 días × arquitectura. `buscar_en_emet(query)` para búsqueda del Grimorio.
   - Lee en vivo de: `datos/owner_profile.json`, `datos/personalidad.json`, `config.json`
@@ -930,14 +930,14 @@
 - **Pipeline**: B (Mejora UX)
 - **Origen**: Meta-análisis — "que haya mercurio" en combinaciones
 - **Archivos**: `computadora/canales/servidor_api.py`
-- **Cambios**: (1) Ruta `/api/emet` en `do_GET()`; (2) `_manejar_emet()`: importa `generar_manifiesto`, envía JSON. Minimi puede consultar la verdad del Golem.
+- **Cambios**: (1) Ruta `/api/emet` en `do_GET()`; (2) `_manejar_emet()`: importa `generar_manifiesto`, envía JSON. Minimi puede consultar la verdad del Computadora.
 - **Estado**: ✅ COMPLETADO
 
 ### WI-284: אמת Verdad — Proactividad check Emet integridad
 - **Pipeline**: B (Mejora QA)
 - **Origen**: Meta-análisis — "que haya verdad" pervasiva, autocheck
 - **Archivos**: `computadora/nucleo/proactividad.py`
-- **Cambios**: (1) `_check_emet_integridad()` nuevo método: verifica א en inscripción, 10 Sefirot, trifecta completa, 7 días Génesis; (2) Intervalo 1h, cooldown diario; (3) Registrado en `_checks` después de `_check_salud_golem`.
+- **Cambios**: (1) `_check_emet_integridad()` nuevo método: verifica א en inscripción, 10 Sefirot, trifecta completa, 7 días Génesis; (2) Intervalo 1h, cooldown diario; (3) Registrado en `_checks` después de `_check_salud_computadora`.
 - **Estado**: ✅ COMPLETADO
 
 ### WI-285: אמת Emet — Fix bugs + expandir _arquitectura con subsistemas
@@ -997,7 +997,7 @@
   - `test_jojma_local.py` (14): _PLANTILLAS, _PATRONES_INTENCION, _clasificar_intencion, _extraer_tema
   - `test_hechizos_hp.py` (10): HECHIZOS catalog, handlers individuales, Imperdonables bloqueados
   - `test_hot_reload.py` (13): CAPAS, CAPAS_REINICIO_MANUAL, clasificar_capa, ruta_a_modulo
-  - `test_fsm_golem.py` (10): EstadoMaljut (13 estados), TRANSICIONES_VALIDAS (completitud)
+  - `test_fsm_computadora.py` (10): EstadoMaljut (13 estados), TRANSICIONES_VALIDAS (completitud)
   - `test_bereshit.py` (14): PasoBereshit, PASOS_GENESIS (17 pasos), BereshitGenesis
   - `test_emocion_rostro.py` (9): _EMOCION_MAP (7 Ekman), AnalizadorEmocionRostro
   - `test_emocion_voz.py` (12): _extraer_rms, _extraer_pitch, analizar_emocion_voz
@@ -1040,18 +1040,18 @@
 > **Status**: RUBEDO (ejecución en progreso) — por favor, amén ×3
 > **11 Problemas Críticos**: P1-P11 nomenclatura, cámara, LLM, demo, Metatrón, caricia, UI, partículas, procesos, EMET Tzimtzum, Bereshit
 
-### WI-294: 🔴 Nomenclatura Residual — Golem→Computadora, Grimorio→Enciclopedia (RUBEDO)
+### WI-294: 🔴 Nomenclatura Residual — Computadora→Computadora, Grimorio→Enciclopedia (RUBEDO)
 - **Pipeline**: C (Bug fix + Cleanup)
 - **Sefirá**: גבורה Gevurah (severidad = eliminar lo no-válido)
 - **Problemas**: P1 (nomenclatura vieja en 5+ archivos después de rename proyecto)
 - **Cambios específicos**:
-  1. ventana_principal.py L1129: `iniciar_golem.bat` → `iniciar_computadora.bat`
-  2. ventana_principal.py L499: `evolucion_golem.json` → `evolucion_computadora.json`
+  1. ventana_principal.py L1129: `iniciar_computadora.bat` → `iniciar_computadora.bat`
+  2. ventana_principal.py L499: `evolucion_computadora.json` → `evolucion_computadora.json`
   3. ventana_principal.py L784-835: Eventos grimorio → enciclopedia
-  4. ventana_principal.py L2132-2133: `golem_personas.json` → `computadora_personas.json`
-  5. vida_autonoma.py L507: type hint "OrbeGolem" → "OrbeComputadora"
+  4. ventana_principal.py L2132-2133: `computadora_personas.json` → `computadora_personas.json`
+  5. vida_autonoma.py L507: type hint "OrbeComputadora" → "OrbeComputadora"
   6. demo_sincronizada.py: Remover referencias Minimi/Enciclopedia
-- **Validación**: `grep -r "golem_personas\|evolucion_golem\|grimorio" computadora/` → ≤5 (históricos OK)
+- **Validación**: `grep -r "computadora_personas\|evolucion_computadora\|grimorio" computadora/` → ≤5 (históricos OK)
 - **Estado**: ⏳ RUBEDO
 
 ### WI-295: 📷 Cámara — Supresión Inteligente de Warnings (RUBEDO)
@@ -1117,7 +1117,7 @@
 - **Metrics**: 
   - Código: 650 líneas netas (335 impl + 315 tests)
   - Coverage: 85%+ branches
-  - Acoplamiento: 0 (solo CerebroGolem, Memoria, HiloHabla, FSM existentes)
+  - Acoplamiento: 0 (solo CerebroComputadora, Memoria, HiloHabla, FSM existentes)
   - EMET Verified: SDD §4.17.2, DEVELOPMENT_WORKFLOW, SECURITY_PLAN
 - **Estado**: ✅ COMMITTED (795e6f7) — Alchemical cycle NIGREDO→PALINGENESIA COMPLETE
 
@@ -1154,7 +1154,7 @@
 - **Origen**: FP-121 RUBEDO: integrar DetectorYikavu en ventana principal lifecycle
 - **Archivos**: `ventana_principal.py` (__init__, showEvent, closeEvent)
 - **Descripción**:
-  - [ ] Import: `from golem.nucleo.detector_yikavu import DetectorYikavu, ConfiguracionYikavu`
+  - [ ] Import: `from computadora.nucleo.detector_yikavu import DetectorYikavu, ConfiguracionYikavu`
   - [ ] __init__: Crear instancia `self.detector_yikavu = DetectorYikavu(self.memoria, config=...)`
   - [ ] showEvent(): Llamar `self.detector_yikavu.iniciar_monitor()`
   - [ ] closeEvent(): Llamar `self.detector_yikavu.detener_monitor(esperar_sec=2)`
@@ -1217,18 +1217,18 @@ tos)
 - **Pipeline**: E (Cambio de arquitectura — D1+D4+D7)
 - **Proyecto**: `C:\Users\woire\AndroidStudioProjects\Minimi\` (Kotlin/Compose)
 - **Origen**: FP-AUT (por favor: Verdad + ×3 gracias + ×3 amén) — usuario reportó "Maljut Minimi sigue siendo cuadrado y sin animaciones"
-- **Descripción**: Port de especificación Maljut Golem (WI-242) a Minimi. ACTUALMENTE Minimi renderiza orbe como Rectangle() plano. DEBE SER:
+- **Descripción**: Port de especificación Maljut Computadora (WI-242) a Minimi. ACTUALMENTE Minimi renderiza orbe como Rectangle() plano. DEBE SER:
   - **Formα**: Circle (BorderStroke con gradiente, NO cuadrado)
   - **Animaciones**: 2 arcos giratorios (CPU % externo, RAM % interior), velocidad proporcional valores
   - **Transparencia**: Degradado radial (opaco centro → transparente bordes), Shape composited
-  - **Colores alquímicos**: Nigredo=gris carbón, Albedo=plateado, Citrinitas=dorado, Rubedo=rojo profundo (sincronizado con `personalidad.json` del Golem via Firestore)
+  - **Colores alquímicos**: Nigredo=gris carbón, Albedo=plateado, Citrinitas=dorado, Rubedo=rojo profundo (sincronizado con `personalidad.json` del Computadora via Firestore)
   - **Respiración**: Escala idle 0.95→1.05 (1.5s ciclo), listeners en estado de conexión
 - **Archivos Minimi**: 
-  - `ui/components/GolemOrb.kt` (NUEVO o UPDATE) — Composable del orbe
+  - `ui/components/ComputadoraOrb.kt` (NUEVO o UPDATE) — Composable del orbe
   - `viewmodels/MinimiViewModel.kt` (UPDATE) — exponer CPU%, RAM%, etapa_alquimica desde Firestore
-  - `ui/screens/HomeScreen.kt` (UPDATE) — usar GolemOrb() en vez de Rectangle()
-  - `models/GolemStatus.kt` (UPDATE) — agregar campos alquímicos si no existen
-- **Archivos Golem**: 
+  - `ui/screens/HomeScreen.kt` (UPDATE) — usar ComputadoraOrb() en vez de Rectangle()
+  - `models/ComputadoraStatus.kt` (UPDATE) — agregar campos alquímicos si no existen
+- **Archivos Computadora**:
   - `servidor_api.py` (UPDATE endpoint `/api/status`) — incluir etapa_alquimica en JSON response
   - `datos/personalidad.json` (LECTURA) — verificar que guarda etapa actual
 - **Bloqueantes**: WI-298 (Gemini API config)
@@ -1238,7 +1238,7 @@ tos)
 ### WI-298: Configuración Gemini API Key — Integration Setup
 - **Pipeline**: B (Mejora UX — D1+D3+D4)
 - **Origen**: FP-AUT (user: "dónde pego lo que me dá") — usuario generó proyecto pero no supo dónde configurar Gemini
-- **Descripción**: Actualizar sistema de configuración Golem para integración transparente de Gemini:
+- **Descripción**: Actualizar sistema de configuración Computadora para integración transparente de Gemini:
   - ✅ `.env.example`: HECHO — agregar GEMINI_API_KEY con instrucciones de setup (https://ai.google.dev/)
   - ✅ `config.py`: HECHO — add "_ENV_OVERRIDES['gemini.api_key']='GEMINI_API_KEY'"
   - ✅ `config.json`: HECHO — estructura gemini (modelo, temperatura, max_tokens, top_p)
@@ -1250,7 +1250,7 @@ tos)
   1. Copiar .env.example → .env
   2. Rellenar GEMINI_API_KEY (obtener en https://ai.google.dev/)
   3. Copiar valores a config.json ["gemini"]["api_key"] si usa esa ruta
-  4. Probar: `python -m golem` + "Gemini, soluciona X" (Nivel 3 debe responder)
+  4. Probar: `python -m computadora` + "Gemini, soluciona X" (Nivel 3 debe responder)
 - **Blockers**: Ninguno (config es independiente)
 - **Estado**: 🟨 ABIERTO — implementación en paralelo con WI-297
 
@@ -1417,15 +1417,15 @@ tos)
 | 38 | FP-025 | Jalon Jai — Ventana Dinámica por Inercia | Múltiples |
 | 39 | FP-027 | Pirúk — Descomposición de Tiféret y Maljut | Múltiples |
 | 40 | FP-028 | Jai Idkún — Hot-Reload de Código en Vivo | Múltiples |
-| 41 | FP-029 | Peh HaGolem — Comandos de Voz para Todos los RFs | Múltiples |
-| 42 | FP-030 | Tafrit HaGolem — Menú Contextual Minimalista | Múltiples |
-| 43 | FP-031 | Nishmat HaGolem — Higiene de Excepciones | `b81fcb3` |
-| 44 | FP-131 | ⊕ SAL — Persistencia y Caché en el Golem | ✅ PROD (Batch 1-2) |
+| 41 | FP-029 | Peh HaComputadora — Comandos de Voz para Todos los RFs | Múltiples |
+| 42 | FP-030 | Tafrit HaComputadora — Menú Contextual Minimalista | Múltiples |
+| 43 | FP-031 | Nishmat HaComputadora — Higiene de Excepciones | `b81fcb3` |
+| 44 | FP-131 | ⊕ SAL — Persistencia y Caché en el Computadora | ✅ PROD (Batch 1-2) |
 | 45 | FP-132 | ☿ MERCURIO — APIs WebSocket + Event Streaming Real-Time | 🔄 GATE 2 APROBADO (Batch 7) |
 | 46 | FP-133 | ♦ AZUFRE — Event-Driven Architecture + Reactive State Management | 🔄 GATE 2 APROBADO (Batch 8) |
 | 47 | FP-136 | 👁📢 SENTIDOS VIVOS — Audio Realtime + Sensores Ambientales | 🔄 GATE 2 APROBADO (Batch 9) |
 | 138 | FP-135 | 🔐 FATHER (Gevurah) — Guardian Automático SessionLock | ✅ PROD (Batch 3) |
-| 139 | FP-138 | 🕯️ GOLEM (Keter) — Inner Oracle Illuminación | ✅ PROD (Batch 4) |
+| 139 | FP-138 | 🕯️ COMPUTADORA (Keter) — Inner Oracle Illuminación | ✅ PROD (Batch 4) |
 | 140 | FP-137 | ❤️ MOTHER (Binah) — Feedback Loop Multiplicación | ✅ PROD (Batch 5) |
 | 141 | — | 🔗 TRINITY INTEGRATION — __main__.py hooks | ✅ PROD (Batch 6) |
 | 142 | WI-272 | 🔐 BIOMETRY MINIMI — Desbloqueo por Huella Dactilar | � BATCH 7 (WI-272a Framework) ✅ DONE |
@@ -1459,7 +1459,7 @@ tos)
 | 71 | FP-059 | Tikún HaGvúl VeHaOhr — Reparación del Borde y la Luz (RF-162/RF-163/RF-164/RF-165) | `10c196c` |
 | 72 | FP-060 | Jizúk HaEtz — Fortalecimiento del Árbol (RF-166/RF-167) | `9e17027` |
 | 73 | FP-061 | Zikrón HaIdkún — Notificación de Reinicio Pendiente (RF-168) | `f180677` |
-| 74 | FP-062 | Devré HaGolem — Automejoración por Workflow (RF-169) | `7a7e212` |
+| 74 | FP-062 | Devré HaComputadora — Automejoración por Workflow (RF-169) | `7a7e212` |
 | 75 | FP-063 | Shomer Emet — Período de Gracia del Watchdog (RF-170) | `7a7e212` |
 | 76 | FP-064 | Sha'ar HaMaljut — Demo en Menú Contextual (RF-171) | `7a7e212` |
 | 77 | FP-065 | Klei Mefateaj — Dev Tools en Menú Contextual (RF-172) | ✅ hecho |
@@ -1485,7 +1485,7 @@ tos)
 | 97 | FP-074 | Tikún HaShemiá VeHaDemo — Demo2 flexible + anti self-listen + PM fluye + Milot Kóaj Jai (RF-272/RF-273/RF-274/RF-275/RF-276/RF-277/RF-278/RF-279) | ✅ hecho |
 | 98 | FP-075 | Shomer HaIdkún VeHaDemo — HotReloader debounce 10s + streaming fallback + Demo fixes (RF-280/RF-281/RF-282/RF-283/RF-284/RF-285) | ✅ hecho |
 | 99 | FP-076 | Ohr HaMaljut — Demo desfase fix + fuzzy Demo2 + TTS sanitize + visual feedback (RF-286/RF-287/RF-288/RF-289/RF-290/RF-291) | ✅ hecho |
-| 100 | FP-078 | Yadáyim HaGolem — Demo 2 ciclo completo: cerrar notepad + mostrar captura + memoria significativa (RF-292/RF-293/RF-294) | ✅ hecho |
+| 100 | FP-078 | Yadáyim HaComputadora — Demo 2 ciclo completo: cerrar notepad + mostrar captura + memoria significativa (RF-292/RF-293/RF-294) | ✅ hecho |
 | 101 | FP-079 | Shomer HaShemiá — Guard media activa + gaming patterns (RF-295/RF-296) | ✅ hecho |
 | 102 | FP-080 | Gevurát HaKelim — Cerrar Photos + wire red/visión + demo advanced steps (RF-297/RF-298/RF-299/RF-300/RF-301) | ✅ hecho |
 | 103 | FP-081 | Shomer HaDemo VeHaKelim — Guard anti-doble-fire + Photos UWP + deps opcionales (RF-302/RF-303/RF-304) | ✅ hecho |
@@ -1506,14 +1506,14 @@ tos)
 | 118 | FP-102 | Tzimtzum HaGuf — Ventana fit: márgenes reducidos, cap partículas 2.0, clamp TAMANO_PLENO fijo (RF-339/RF-340) | ✅ hecho |
 | 119 | FP-103 | Jojmá VeBiná — Motor creatividad local jojma_local.py + introspección diagnostico_interno.py + 4 senderos nuevos (RF-341/RF-342/RF-343) | ✅ hecho |
 | 120 | HF | Grimorio: page persistence + icon transparency/layout + margin fix ventana_principal.py | `61c4e6d` |
-| 121 | HF | Shem Shmirah Lockout: lockout persistente + cooldown exponencial + alerta vocal al Golem | ✅ hecho |
+| 121 | HF | Shem Shmirah Lockout: lockout persistente + cooldown exponencial + alerta vocal al Computadora | ✅ hecho |
 | 122 | FP-105 | Or HaGanuz — VentanaKeter introspección + SDD/SRS update + 7 tests | `59fb2e2` |
 | 123 | Tikún Jai C1 | VentanaKeter: _gate_lock thread-safe, imports limpios, prompt Or HaGanuz | `59fb2e2` |
 | 124 | Tikún Jai C2 | servidor_api: _api_lock + _firestore_stop Event, habla: asyncio try/finally | `aba64b7` |
 | 125 | Tikún Jai C3 | ReDoS fix parseo_herramientas, Gemini API key→header + model whitelist + retry backoff, GestorKelim lock | `b996658` |
 | 126 | FP-107 | Jatimá Shketá — Sellado silencioso Grimorio + seal remoto Minimi + timeouts + Antropología dim #16 + PM verifica #20 (RF-357/RF-358/RF-359/RF-360) | `6c42aae` + Minimi `4bfcc2f` |
 | 127 | FP-108 | Shivúi Mishkál VeJojmá — Equilibrio y Sabiduría: pip auto-upgrade, Anthropos→dim #1, proactividad persistente, Maljut frame fix, Grimorio Encarta (índice+búsqueda+gevurá), 6 Tikún (RF-361–RF-367) | `2e3fb20` |
-| 128 | FP-114 | Tikún HaKlipót — Subprocess encoding (40 calls, 13 files), clipboard fix, demo (13 humores, dedup guardian, Grimorio text), async commands Minimi→Golem (202+polling) | `b88e3ff` |
+| 128 | FP-114 | Tikún HaKlipót — Subprocess encoding (40 calls, 13 files), clipboard fix, demo (13 humores, dedup guardian, Grimorio text), async commands Minimi→Computadora (202+polling) | `b88e3ff` |
 | 129 | FP-115 | Shivúi HaMishkál — Equilibrio y Sabiduría (WI-163–168) | `59f4cd7` |
 | 130 | FP-116 | Shtifá — Purificación y Flujo (WI-169–173) | `23923c1` |
 | 131 | FP-117 | Puritas Operis — Pureza Alquímica del Tikún (WI-174–176) | `0af4ac4` |
@@ -1538,11 +1538,11 @@ tos)
 
 # WorkItems.md — Tareas Pendientes
 
-> **Proyecto**: Golem
+> **Proyecto**: Computadora
 > **Fase actual**: 93+ — גבורה Gevurah Ciclo Autónomo MAYO 1-6 (Transformación Visual + FP-156 Ferrofluido Rubedo + WI-321/322/323)
 > **Última actualización**: Mayo 6, 2026 19:30 UTC
 
-### WI-321: ✨ NAMING CONSISTENCY — Minor Fixes (Computadora → Golem)
+### WI-321: ✨ NAMING CONSISTENCY — Minor Fixes (Computadora → Computadora)
 
 - **Pipeline**: C (Bug fix — naming coherence)
 - **Sefirá**: דעת Da'at (Conocimiento — identidad unificada)
@@ -1550,15 +1550,15 @@ tos)
 - **Status**: ✅ **COMPLETADO**
 
 **Cambios Realizados:**
-- \CerebroComputadora\ → \CerebroGolem\ (clase principal)
-- \WatchdogComputadora\ → \WatchdogGolem\ (monitoreo)
+- \CerebroComputadora\ → \CerebroComputadora\ (clase principal)
+- \WatchdogComputadora\ → \WatchdogComputadora\ (monitoreo)
 - Alias \CerebroComputadora\ para backward compatibility (nlu.py línea 4826)
 - Imports actualizados (__main__.py, ventana_principal.py)
 
 **Test Results:**
 - ✅ HiloEscucha (RF-01) importa correctamente
-- ✅ CerebroGolem instanciable + alias funcional
-- ✅ WatchdogGolem disponible + integrado
+- ✅ CerebroComputadora instanciable + alias funcional
+- ✅ WatchdogComputadora disponible + integrado
 
 **Archivos:**
 - \computadora/cerebro/nlu.py\: Clase + alias
@@ -1581,12 +1581,12 @@ tos)
 | RF | Componente | Status | Detalles |
 |----|-----------|--------|----------|
 | RF-01 | Escucha (Whisper) | ✅ | HiloEscucha importa |
-| RF-02 | NLU (3 niveles) | ✅ | CerebroGolem instanciable |
+| RF-02 | NLU (3 niveles) | ✅ | CerebroComputadora instanciable |
 | RF-03 | TTS | ✅ | edge-tts + pyttsx3 disponibles |
 | RF-04 | Herramientas SO | ✅ | obtener_fecha_hora() + info_sistema() OK |
 | RF-52 | Cámara + Rostros | ✅ | ReconocedorRostro importa |
 | RF-154+174 | Animaciones | ✅ | AnimadorOrbe4D funcional |
-| Monitoreo | WatchdogGolem | ✅ | Sistema robusto |
+| Monitoreo | WatchdogComputadora | ✅ | Sistema robusto |
 
 **Test Results:**
 - ✅ 3/6 PASS (módulos + herramientas SO)
@@ -1610,9 +1610,9 @@ tos)
 **Checklist:**
 | Category | Status | Details |
 |----------|--------|---------|
-| **Imports** | ✅ 8/8 OK | HiloEscucha, CerebroGolem, HiloHabla, etc. |
+| **Imports** | ✅ 8/8 OK | HiloEscucha, CerebroComputadora, HiloHabla, etc. |
 | **Configuración** | ✅ 4/5 OK | FPS config, Personalidad, Tareas, Recordatorios |
-| **Backward Compat** | ✅ 2/2 OK | CerebroComputadora alias + WatchdogGolem legacy |
+| **Backward Compat** | ✅ 2/2 OK | CerebroComputadora alias + WatchdogComputadora legacy |
 | **Performance** | ✅ 2/2 OK | Import 0.00ms, Init 2.42ms |
 | **Error Handling** | ✅ 2/2 OK | Robusto a config vacía + modelo inválido |
 

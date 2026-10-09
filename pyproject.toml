@@ -1,14 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "golem"
+name = "computadora"
 version = "0.1.0"
-description = "Golem — Asistente personal de escritorio con IA para Windows 11"
+description = "Asistente personal de escritorio para Windows 11 con voz local e integraciones configurables"
 requires-python = ">=3.10"
 authors = [
     {name = "José Esaú Díaz Hernández"}
 ]
 
 [tool.setuptools.packages.find]
-include = ["golem*"]
+include = ["computadora*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

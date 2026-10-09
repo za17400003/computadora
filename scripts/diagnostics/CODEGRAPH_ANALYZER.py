@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CODEGRAPH ANALYZER — Mapeo inteligente de estructura del Golem
+CODEGRAPH ANALYZER — Mapeo inteligente de estructura del Computadora
 Reemplaza múltiples tool calls con análisis AST + dependency graph
 """
 
@@ -17,8 +17,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class GolemCodeGraph:
-    """Analiza estructura de código del proyecto Golem sin herramientas externas"""
+class ComputadoraCodeGraph:
+    """Analiza estructura de código del proyecto Computadora sin herramientas externas"""
     
     def __init__(self, project_root: str = "."):
         self.root = Path(project_root)
@@ -239,7 +239,7 @@ class GolemCodeGraph:
 
 
 if __name__ == "__main__":
-    graph = GolemCodeGraph()
+    graph = ComputadoraCodeGraph()
     graph.scan_project()
     
     # Búsquedas comunes
@@ -251,9 +251,9 @@ if __name__ == "__main__":
     for file, cls in escucha_locations:
         print(f"   -> {file}")
     
-    # Encontrar clase OrbeGolem
-    print("\n[2] Donde esta OrbeGolem?")
-    orbe_locations = graph.find_class("OrbeGolem")
+    # Encontrar clase OrbeComputadora
+    print("\n[2] Donde esta OrbeComputadora?")
+    orbe_locations = graph.find_class("OrbeComputadora")
     for file, cls in orbe_locations:
         print(f"   -> {file}")
     

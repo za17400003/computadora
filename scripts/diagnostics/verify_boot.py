@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verificación rápida pre-boot del sistema Golem."""
+"""Verificación rápida pre-boot del sistema Computadora."""
 
 import json
 import sys

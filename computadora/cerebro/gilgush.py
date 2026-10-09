@@ -193,7 +193,7 @@ class ProtocoloGilgush:
         return results
 
 
-def gilgush_golem(cerebro_computadora, raiz_proyecto: str) -> dict:
+def gilgush_computadora(cerebro_computadora, raiz_proyecto: str) -> dict:
     """Función de conveniencia para invocar Gilgush."""
     protocolo = ProtocoloGilgush(raiz_proyecto)
     return protocolo.ejecutar_gilgush_completo(cerebro_computadora)

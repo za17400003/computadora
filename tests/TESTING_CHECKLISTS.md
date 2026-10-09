@@ -1,6 +1,6 @@
 # TESTING_CHECKLISTS.md — Plan de Pruebas
 
-> **Proyecto**: Golem
+> **Proyecto**: Computadora
 > **Versión**: 1.4
 > **Fecha**: Abril 5, 2026
 
@@ -18,7 +18,7 @@ Orden del propietario
     ↓
 Copilot analiza + implementa cambio
     ↓
-Copilot ejecuta: python -m golem (o módulo específico)
+Copilot ejecuta: python -m computadora (o módulo específico)
     ↓
 Propietario prueba la funcionalidad
     ↓
@@ -30,9 +30,9 @@ Propietario prueba la funcionalidad
 
 | Nivel | Cuándo | Cómo |
 |-------|--------|------|
-| Módulo individual | Cada cambio en un módulo | `python -m golem --modulo <nombre>` |
-| Integración | Cuando se conectan 2+ módulos | `python -m golem --debug` |
-| Sistema completo | Al terminar una Fase | `python -m golem` + prueba completa |
+| Módulo individual | Cada cambio en un módulo | `python -m computadora --modulo <nombre>` |
+| Integración | Cuando se conectan 2+ módulos | `python -m computadora --debug` |
+| Sistema completo | Al terminar una Fase | `python -m computadora` + prueba completa |
 | Regresión | Después de refactors | Verificar que todo lo anterior sigue funcionando |
 
 ---
@@ -43,7 +43,7 @@ Propietario prueba la funcionalidad
 
 | # | Verificación | Estado | Fecha |
 |---|-------------|--------|-------|
-| T0-01 | `python -m golem` ejecuta sin errores | ✅ | Abr 2 |
+| T0-01 | `python -m computadora` ejecuta sin errores | ✅ | Abr 2 |
 | T0-02 | Ventana PyQt6 aparece (orbe circular frameless) | ✅ | Abr 2 |
 | T0-03 | Ventana se cierra limpiamente (sin procesos zombie) | ✅ | Abr 2 |
 | T0-04 | Logging funciona (loguru con shim local) | ✅ | Abr 2 |
@@ -59,7 +59,7 @@ Propietario prueba la funcionalidad
 | T1-01 | Whisper carga modelo sin error | ✅ | Abr 2 |
 | T1-02 | Captura audio del micrófono (numpy + scipy resample) | ✅ | Abr 2 |
 | T1-03 | Convierte voz a texto en español | ✅ | Abr 2 |
-| T1-04 | Wake word "Golem" detectado (regex + fuzzy + variantes) | ✅ | Abr 2 |
+| T1-04 | Wake word "Computadora" detectado (regex + fuzzy + variantes) | ✅ | Abr 2 |
 | T1-05 | Indicador visual de "escuchando" en GUI | ✅ | Abr 2 |
 | T1-06 | "Cancela" detiene la escucha | ✅ | Abr 2 |
 | T1-07 | No consume >2GB VRAM con modelo small | ✅ | Abr 2 |
@@ -326,8 +326,8 @@ Propietario prueba la funcionalidad
 | ID | Descripción | Estado | Notas |
 |----|-------------|--------|-------|
 | T24-01 | `_es_proceso_propio()` identifica PIDs de python.exe y ollama.exe | ✅ | Abr 5 — verificado en monitor_sistema.py |
-| T24-02 | `ram_sin_propios()` excluye RAM de Golem+Ollama del cálculo | ✅ | Abr 5 |
-| T24-03 | `hay_alerta()` NO dispara cuando Golem/Ollama causan >85% RAM | ✅ | Abr 5 |
+| T24-02 | `ram_sin_propios()` excluye RAM de Computadora+Ollama del cálculo | ✅ | Abr 5 |
+| T24-03 | `hay_alerta()` NO dispara cuando Computadora/Ollama causan >85% RAM | ✅ | Abr 5 |
 | T24-04 | Snapshot incluye campo `ram_propia_mb` con consumo propio | ✅ | Abr 5 — campo `cpu_pct`, `ram_pct`, etc. |
 | T24-05 | `BaselineSistema` persiste y carga desde `datos/baseline_sistema.json` | ✅ | Abr 5 |
 | T24-06 | `registrar_lectura()` acumula stats por perfil de actividad | ✅ | Abr 5 |
@@ -338,7 +338,7 @@ Propietario prueba la funcionalidad
 | T24-11 | Procesos conocidos se gestionan como `_PROCESOS_CONOCIDOS` frozenset | ✅ | Abr 5 — hardcoded con ~60 procesos; más seguro que archivo externo |
 | T24-12 | `autodiagnostico()` verifica Ollama, TTS, micrófono, memoria | ✅ | Abr 5 |
 | T24-13 | `reporte_neshamot()` genera string con estado de cada Sefirá | ✅ | Abr 5 |
-| T24-14 | `_check_salud_golem()` ejecuta cada 30 min en proactividad | ✅ | Abr 5 |
+| T24-14 | `_check_salud_computadora()` ejecuta cada 30 min en proactividad | ✅ | Abr 5 |
 | T24-15 | `_evaluar_contexto_conversacion()` detecta frustración por correcciones repetidas | ✅ | Abr 5 |
 | T24-16 | Bloque `[CONTEXTO DA'AT]` aparece en prompt cuando hay insights | ✅ | Abr 5 |
 | T24-17 | `_check_patron_repetido()` sugiere automatización tras 3+ repeticiones semanales | ✅ | Abr 5 |
@@ -363,7 +363,7 @@ Propietario prueba la funcionalidad
 
 | ID | Descripción | Estado | Notas |
 |----|-------------|--------|-------|
-| FP16-01 | `CerebroGolem` tiene 39+ regex patterns `_RE_*` | ✅ | Abr 5 — 39 patrones verificados |
+| FP16-01 | `CerebroComputadora` tiene 39+ regex patterns `_RE_*` | ✅ | Abr 5 — 39 patrones verificados |
 | FP16-02 | Routing Keter: palabra "piensa" escala a Nivel 3 | ✅ | Abr 5 — regex `_RE_PENSAR_PROFUNDO` |
 | FP16-03 | `_pensar_nivel1()` existe y procesa N1 | ✅ | Abr 5 |
 | FP16-04 | `_intentar_nivel2()` existe para Ollama | ✅ | Abr 5 |
@@ -449,7 +449,7 @@ Propietario prueba la funcionalidad
 
 **Ejecutada por**: Copilot (scripts automatizados en `tests/test_bloque*.py`)
 **Método**: Importaciones, llamadas a funciones, análisis de código, verificación de archivos
-**Golem corriendo**: Sí (background terminal, boot completo)
+**Computadora corriendo**: Sí (background terminal, boot completo)
 
 | Bloque | Fases | Tests | PASS | Discrepancias menores |
 |--------|-------|-------|------|-----------------------|
@@ -467,7 +467,7 @@ Propietario prueba la funcionalidad
 - `procesos_normales.json` se implementó como frozenset `_PROCESOS_CONOCIDOS` hardcoded (~60 procesos) — más seguro y simple que archivo externo
 - Los 3 fallos del Bloque 5 eran errores de nombres en el script de test, no bugs reales
 
-**Conclusión**: Golem está 100% funcional. Todos los subsistemas core, features recientes y coherencia diseño-implementación verificados OK.
+**Conclusión**: Computadora está 100% funcional. Todos los subsistemas core, features recientes y coherencia diseño-implementación verificados OK.
 
 ---
 
@@ -489,7 +489,7 @@ Propietario prueba la funcionalidad
 | FP20-06 | `HiloPensamiento.tzimtzum_solicitado` signal existe | ✅ | pyqtSignal(str) |
 | FP20-07 | `HiloPensamiento._on_bloqueo_seguridad` bridge existe | ✅ | método bridge |
 | FP20-08 | `HiloPensamiento._on_tzimtzum` bridge existe | ✅ | método bridge |
-| FP20-09 | `CerebroGolem` callbacks: `on_bloqueo_seguridad` + `on_tzimtzum` | ✅ | ambos presentes |
+| FP20-09 | `CerebroComputadora` callbacks: `on_bloqueo_seguridad` + `on_tzimtzum` | ✅ | ambos presentes |
 | FP20-10 | `Orquestador.set_callbacks` tiene `on_bloqueo_seguridad` + `on_tzimtzum` | ✅ | 14 params total |
 | FP20-11 | `_RE_TZIMTZUM` regex matchea 7/7 patterns correctamente | ✅ | Corregido `esc[oó]nd[eé]te` |
 | FP20-12 | `_RE_MOVIMIENTO` separado de Tzimtzum (sin 'hazte pequeño') | ✅ | separación correcta |
@@ -511,7 +511,7 @@ Propietario prueba la funcionalidad
 
 | ID | Descripción | Estado | Notas |
 |----|-------------|--------|-------|
-| BAT-01 | `iniciar_golem.bat` tiene 6 verificaciones (Python, venv, pip, reqs, Ollama, .env) | ✅ | rewrite completo |
+| BAT-01 | `iniciar_computadora.bat` tiene 6 verificaciones (Python, venv, pip, reqs, Ollama, .env) | ✅ | rewrite completo |
 | WF-01 | Regla #16 en DEVELOPMENT_WORKFLOW.md (§4.17.1 inmutable) | ✅ | NUNCA se modifica |
 | COH-01 | 4 módulos modificados importan sin error | ✅ | 4/4 OK |
 
@@ -557,7 +557,7 @@ Propietario prueba la funcionalidad
 
 | ID | Descripción | Estado | Notas |
 |----|-------------|--------|-------|
-| FP19-01 | Import golem.memoria.personas | ✅ | importable |
+| FP19-01 | Import computadora.memoria.personas | ✅ | importable |
 | FP19-02 | GestorPersonas class existe | ✅ | — |
 | FP19-03 | `obtener_gestor()` singleton existe | ✅ | callable |
 | FP19-04 | GestorPersonas tiene 6 métodos clave | ✅ | 6/6 found |
@@ -567,7 +567,7 @@ Propietario prueba la funcionalidad
 | FP19-08 | `_RE_MI_NOMBRE` matchea "mi nombre es Juan" | ✅ | — |
 | FP19-09 | tinydb en requirements.txt | ✅ | encontrado |
 | FP19-10 | tinydb importable en .venv | ✅ | v4.8.2 |
-| FP19-11 | golem.memoria.personas importa sin error | ✅ | — |
+| FP19-11 | computadora.memoria.personas importa sin error | ✅ | — |
 | FP19-12 | nlu.py importa y usa GestorPersonas | ✅ | — |
 
 **Tasa de éxito: 12/12 PASS (100%)**
@@ -598,7 +598,7 @@ Propietario prueba la funcionalidad
 
 | ID | Descripción | Estado | Notas |
 |----|-------------|--------|-------|
-| HF38-01 | drag_historial existe en OrbeGolem | ✅ | list type |
+| HF38-01 | drag_historial existe en OrbeComputadora | ✅ | list type |
 | HF38-02 | _DRAG_VENTANA_MS = 100 | ✅ | — |
 | HF38-03 | _DRAG_VELOCIDAD_UMBRAL = 150 | ✅ | px/s |
 | HF38-04 | _RE_TZIMTZUM admite "escóndete" | ✅ | regex match |
@@ -658,7 +658,7 @@ Propietario prueba la funcionalidad
 
 | # | Test | Estado | Notas |
 |---|------|--------|-------|
-| FP22-01 | _historial_lock existe en CerebroGolem | ✅ | WI-099 |
+| FP22-01 | _historial_lock existe en CerebroComputadora | ✅ | WI-099 |
 | FP22-02 | _truncar_historial_impl método existe | ✅ | WI-099 |
 | FP22-03 | EstadoMaljut es Enum con 13 estados | ✅ | WI-101 |
 | FP22-04 | DORMIDO→ESCUCHANDO transición válida | ✅ | WI-101 |
@@ -845,7 +845,7 @@ Propietario prueba la funcionalidad
 | FP37-07 | Preserva Unicode | ✅ | José + emoji 🔮 |
 | FP37-08 | No deja archivos temporales | ✅ | Solo archivo final |
 | FP37-09–31 | 23 módulos usan escribir_json_atomico | ✅ | Todos confirmados |
-| FP37-32 | 0 escrituras JSON no-atómicas en golem/ | ✅ | Grep limpio |
+| FP37-32 | 0 escrituras JSON no-atómicas en computadora/ | ✅ | Grep limpio |
 
 **Tasa de éxito: 32/32 PASS (100%)**
 
@@ -1060,7 +1060,7 @@ Verifica: _reinicio_pendiente init False, _archivos_reinicio init [], flag set e
 
 **Resultado acumulado total: 345 tests (337 previos + 8 FP-061)**
 
-### FASE 67 — Tikún #25: FP-062/063/064 Devré HaGolem + Shomer Emet + Sha'ar HaMaljut — RF-169/170/171
+### FASE 67 — Tikún #25: FP-062/063/064 Devré HaComputadora + Shomer Emet + Sha'ar HaMaljut — RF-169/170/171
 
 **Archivo**: `tests/test_tikun_025.py` | 18 tests (6 RF-170 watchdog + 3 RF-171 menú + 9 RF-169 automejora)
 Verifica: grace period init + _ultimo_ok futuro + check durante gracia retorna True sin chequeo real + check post-gracia ejecuta real + no RETRY en primer heartbeat + docstring _check_whisper; demo en menú source + separador + orden items; regex automejora 13 variantes + captura detalle + detectar proposal válida/NO-GO/texto libre + recitar prosa sin markdown + aprobación sin pendiente/rechazo/acepta.

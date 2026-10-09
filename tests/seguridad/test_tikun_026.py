@@ -22,7 +22,7 @@ from PyQt6.QtGui import QColor
 def test_ohr_estado_a_grupo_cobertura_completa():
     """Todos los 13 estados FSM mapean a un grupo visual."""
     from computadora.interfaz.ventana_principal import _ESTADO_A_GRUPO
-    from computadora.interfaz.fsm_golem import EstadoMaljut
+    from computadora.interfaz.fsm_computadora import EstadoMaljut
     for estado in EstadoMaljut:
         assert estado.value in _ESTADO_A_GRUPO, f"Estado {estado.value} sin grupo visual"
 

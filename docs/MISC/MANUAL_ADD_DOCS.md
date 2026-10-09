@@ -6,23 +6,23 @@ Si la documentación no se añade automáticamente, usa estos URLs en el panel "
 
 1. **Quick Start Local**
    - Title: `Quick Start Local`
-   - Start URL: `file:///C:/Users/woire/Documents/proyecto-golem/_docs/QUICK_START_LOCAL.md`
+   - Start URL: `file:///C:/Users/woire/Documents/proyecto-computadora/_docs/QUICK_START_LOCAL.md`
 
 2. **Workflow Local**
    - Title: `Workflow Local`
-   - Start URL: `file:///C:/Users/woire/Documents/proyecto-golem/_docs/DEVELOPMENT_WORKFLOW_LOCAL.md`
+   - Start URL: `file:///C:/Users/woire/Documents/proyecto-computadora/_docs/DEVELOPMENT_WORKFLOW_LOCAL.md`
 
 3. **Comandos Útiles**
    - Title: `Comandos Útiles`
-   - Start URL: `file:///C:/Users/woire/Documents/proyecto-golem/_docs/COMANDOS.md`
+   - Start URL: `file:///C:/Users/woire/Documents/proyecto-computadora/_docs/COMANDOS.md`
 
 4. **Tareas Pendientes**
    - Title: `Tareas Pendientes`
-   - Start URL: `file:///C:/Users/woire/Documents/proyecto-golem/WorkItems.md`
+   - Start URL: `file:///C:/Users/woire/Documents/proyecto-computadora/WorkItems.md`
 
 5. **Estructura de Proyecto**
    - Title: `Estructura de Proyecto`
-   - Start URL: `file:///C:/Users/woire/Documents/proyecto-golem/_docs/README.md`
+   - Start URL: `file:///C:/Users/woire/Documents/proyecto-computadora/_docs/README.md`
 
 ## Pasos:
 

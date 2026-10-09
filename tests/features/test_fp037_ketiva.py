@@ -21,13 +21,13 @@ def check(id, desc, fn):
 
 check("FP37-01", "io_seguro.py existe",
       lambda: (
-          os.path.isfile(os.path.join(os.path.dirname(__file__), '..', 'golem', 'utilidades', 'io_seguro.py')),
+          os.path.isfile(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'utilidades', 'io_seguro.py')),
           "Encontrado"
       ))
 
 check("FP37-02", "escribir_json_atomico importable",
       lambda: (
-          (lambda: (__import__('golem.utilidades.io_seguro', fromlist=['escribir_json_atomico']), True)[-1])(),
+          (lambda: (__import__('computadora.utilidades.io_seguro', fromlist=['escribir_json_atomico']), True)[-1])(),
           "Import OK"
       ))
 
@@ -105,29 +105,29 @@ check("FP37-08", "escribir_json_atomico no deja archivos temporales", _test_atom
 
 # Lista completa de módulos que deben usar escribir_json_atomico
 MODULOS_ATOMICOS = [
-    ("golem/interfaz/ventana_principal.py", "_guardar_evolucion"),
-    ("golem/habilidades/auto_update.py", "_guardar_log"),
-    ("golem/memoria/aprendizaje.py", "_guardar"),
-    ("golem/habilidades/sistema.py", "_guardar_recordatorios"),
-    ("golem/habilidades/copilot_bridge.py", "crear_solicitud"),
-    ("golem/habilidades/copilot_bridge.py", "completar_solicitud"),
-    ("golem/memoria/memoria.py", "_sample"),
-    ("golem/memoria/memoria.py", "_guardar_temporal"),
-    ("golem/cerebro/modelo_discovery.py", "_guardar_cache"),
-    ("golem/cerebro/copilot_api.py", "_guardar_tokens"),
-    ("golem/cerebro/nivel1_aprendido.py", "_guardar"),
-    ("golem/nucleo/actualizador.py", "_guardar_estado"),
-    ("golem/nucleo/ciclo_circadiano.py", "_guardar_perfil"),
-    ("golem/nucleo/proactividad.py", "_check_patron_repetido"),
-    ("golem/habilidades/agenda.py", "_guardar_json"),
-    ("golem/interfaz/vida_autonoma.py", "_guardar_heatmap"),
-    ("golem/voz/escucha.py", "_guardar_wake_variant"),
-    ("golem/voz/escucha.py", "_save_owner_profile"),
-    ("golem/voz/escucha.py", "_guardar_personas"),
-    ("golem/nucleo/meta_workflow.py", "_guardar_registro"),
-    ("golem/nucleo/meta_workflow.py", "emitir_auditoria"),
-    ("golem/cerebro/nlu.py", "_guardar_stats_uso"),
-    ("golem/habilidades/baseline_sistema.py", "_guardar"),
+    ("computadora/interfaz/ventana_principal.py", "_guardar_evolucion"),
+    ("computadora/habilidades/auto_update.py", "_guardar_log"),
+    ("computadora/memoria/aprendizaje.py", "_guardar"),
+    ("computadora/habilidades/sistema.py", "_guardar_recordatorios"),
+    ("computadora/habilidades/copilot_bridge.py", "crear_solicitud"),
+    ("computadora/habilidades/copilot_bridge.py", "completar_solicitud"),
+    ("computadora/memoria/memoria.py", "_sample"),
+    ("computadora/memoria/memoria.py", "_guardar_temporal"),
+    ("computadora/cerebro/modelo_discovery.py", "_guardar_cache"),
+    ("computadora/cerebro/copilot_api.py", "_guardar_tokens"),
+    ("computadora/cerebro/nivel1_aprendido.py", "_guardar"),
+    ("computadora/nucleo/actualizador.py", "_guardar_estado"),
+    ("computadora/nucleo/ciclo_circadiano.py", "_guardar_perfil"),
+    ("computadora/nucleo/proactividad.py", "_check_patron_repetido"),
+    ("computadora/habilidades/agenda.py", "_guardar_json"),
+    ("computadora/interfaz/vida_autonoma.py", "_guardar_heatmap"),
+    ("computadora/voz/escucha.py", "_guardar_wake_variant"),
+    ("computadora/voz/escucha.py", "_save_owner_profile"),
+    ("computadora/voz/escucha.py", "_guardar_personas"),
+    ("computadora/nucleo/meta_workflow.py", "_guardar_registro"),
+    ("computadora/nucleo/meta_workflow.py", "emitir_auditoria"),
+    ("computadora/cerebro/nlu.py", "_guardar_stats_uso"),
+    ("computadora/habilidades/baseline_sistema.py", "_guardar"),
 ]
 
 base = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -144,15 +144,15 @@ for i, (mod_path, fn_name) in enumerate(MODULOS_ATOMICOS):
     check(f"FP37-{9+i:02d}", f"{mod_path} ({fn_name}) usa escribir_json_atomico", _make_check())
 
 # ═══════════════════════════════════════════════
-# 3. NO QUEDAN ESCRITURAS NO-ATÓMICAS EN golem/
+# 3. NO QUEDAN ESCRITURAS NO-ATÓMICAS EN computadora/
 # ═══════════════════════════════════════════════
 
 def _buscar_writes_no_atomicos():
-    """Busca write_text(json.dumps y json.dump(..., f( en golem/ excluyendo io_seguro.py."""
+    """Busca write_text(json.dumps y json.dump(..., f( en computadora/ excluyendo io_seguro.py."""
     import re
     patron = re.compile(r'write_text\(json\.dumps|json\.dump\(.*,\s*f[,\)]')
     hallazgos = []
-    for root, dirs, files in os.walk(os.path.join(base, 'golem')):
+    for root, dirs, files in os.walk(os.path.join(base, 'computadora')):
         for fname in files:
             if not fname.endswith('.py'):
                 continue
@@ -168,7 +168,7 @@ def _buscar_writes_no_atomicos():
         return False, f"Encontradas {len(hallazgos)} escrituras no-atómicas: {', '.join(hallazgos)}"
     return True, "0 escrituras no-atómicas encontradas (excluyendo io_seguro.py)"
 
-check("FP37-32", "No quedan escrituras JSON no-atómicas en golem/", _buscar_writes_no_atomicos)
+check("FP37-32", "No quedan escrituras JSON no-atómicas en computadora/", _buscar_writes_no_atomicos)
 
 # ═══════════════════════════════════════════════
 # RESUMEN

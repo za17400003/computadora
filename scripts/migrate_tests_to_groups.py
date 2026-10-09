@@ -14,7 +14,7 @@ from pathlib import Path
 NAME_MAP = {
     # Core / system behavior
     'test_bereshit.py': 'core',
-    'test_fsm_golem.py': 'core',
+    'test_fsm_computadora.py': 'core',
     'test_gestor_procesos.py': 'core',
     'test_memoria.py': 'core',
     'test_operatividad_core_mayo3.py': 'core',

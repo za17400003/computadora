@@ -1,4 +1,4 @@
-"""FP-062/063/064 test_tikun_025.py — Devré HaGolem + Shomer Emet + Sha'ar HaMaljut.
+"""FP-062/063/064 test_tikun_025.py — Devré HaComputadora + Shomer Emet + Sha'ar HaMaljut.
 
 RF-169: Automejoración por workflow (Copilot → recitar → aprobar)
 RF-170: Watchdog grace period (falsos positivos al arranque)
@@ -141,7 +141,7 @@ def test_detectar_gate_proposal_valida():
     respuesta = (
         "PROPUESTA: Mejorar velocidad TTS\n"
         "DESCRIPCION: Optimizar el pipeline de habla para reducir latencia.\n"
-        "ARCHIVOS: golem/voz/habla.py\n"
+        "ARCHIVOS: computadora/voz/habla.py\n"
         "RIESGO: bajo\n"
         "VEREDICTO: GO"
     )
@@ -236,7 +236,7 @@ def test_procesar_aprobacion_acepta():
     cerebro._max_hist = 50
     cerebro._historial_lock = threading.Lock()
 
-    with patch("golem.habilidades.copilot_bridge.solicitar_a_copilot") as mock_sol:
+    with patch("computadora.habilidades.copilot_bridge.solicitar_a_copilot") as mock_sol:
         mock_sol.return_value = "Solicitud sol_test creada."
         resp = cerebro._procesar_aprobacion_automejora("dale")
 

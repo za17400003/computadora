@@ -14,7 +14,7 @@
 | #1 | Thread explosion MetatronOrquestador | Múltiples instancias spawn threads | Singleton + _health_thread_started flag | ✅ Prevención verificada |
 | #2 | Demo imports (BUG#2) | Refs a demos no existentes | N/A (no applicable) | ✅ Closed |
 | #3 | Ferrofluido particle clipping | Posiciones escapan viewport | np.clip(-250, 250) | ✅ Viewport bounds working |
-| #4 | Legacy test imports (48 golem refs) | 130+ tests con `from golem.*` | Bulk regex replacement → computadora | ✅ 48→0 refs, 130+ migrated |
+| #4 | Legacy test imports (48 computadora refs) | 130+ tests con `from computadora.*` | Bulk regex replacement → computadora | ✅ 48→0 refs, 130+ migrated |
 | #5 | proactividad.py thread crash | CicloCircadiano uninitialized | Try-except + null check + retry | ✅ Graceful degradation |
 
 ### Test Results Summary
@@ -79,7 +79,7 @@
 ## 🧪 VALIDATION CHECKLIST
 
 - [x] All 5 WI-314 bugs fixed and tested
-- [x] 130+ test files migrated (golem→computadora)
+- [x] 130+ test files migrated (computadora→computadora)
 - [x] Test suite reports 36/36 PASSING
 - [x] WI-308 module fully implemented (268 LOC)
 - [x] WI-308 boot integration complete

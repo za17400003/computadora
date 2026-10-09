@@ -243,8 +243,8 @@ def test_integracion_monitor_alerta_sugerencia():
 ```python
 import pytest
 from unittest.mock import MagicMock, patch
-from golem.nucleo.proactividad import MotorProactividad
-from golem.habilidades.monitor_sistema import MonitorSistema
+from computadora.nucleo.proactividad import MotorProactividad
+from computadora.habilidades.monitor_sistema import MonitorSistema
 
 # 4 tests enumerados arriba + fixtures
 

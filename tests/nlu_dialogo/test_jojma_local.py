@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/cerebro/jojma_local.py (WI-291)
+⊕ Sal — Tests para computadora/cerebro/jojma_local.py (WI-291)
 Verifica el motor de respuestas locales (sin LLM).
 """
 

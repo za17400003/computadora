@@ -17,7 +17,7 @@ Este archivo es la guía principal de rutas y referencias del repositorio. Use e
 ## Estructura básica del repositorio
 
 ```
-proyecto-golem/
+proyecto-computadora/
 ├── README.md
 ├── WORKFLOW_OPERACIONAL.md
 ├── SRS.md
@@ -26,7 +26,7 @@ proyecto-golem/
 ├── INDEX.md
 ├── iniciar_computadora.bat
 ├── computadora/             # Código fuente principal
-├── golem/                   # Código legacy / compatibilidad
+├── computadora/                   # Código legacy / compatibilidad
 ├── tests/                   # Pruebas
 ├── docs/                    # Documentación técnica y guías
 ├── scripts/                 # Scripts de utilidad y soporte
@@ -44,7 +44,7 @@ proyecto-golem/
 - `scripts/` — utilidades para diagnóstico y mantenimiento
 - `datos/` — información persistente del sistema
 - `.logs/` — archivos de registro
-- `golem/` — carpeta legacy, no es el paquete principal de arranque
+- `computadora/` — carpeta legacy, no es el paquete principal de arranque
 
 ---
 

@@ -137,8 +137,8 @@ from computadora.memoria.memoria import (
 with tempfile.TemporaryDirectory() as tmpdir:
     tmp_file = Path(tmpdir) / "consciencia_temporal.json"
     
-    with patch('golem.memoria.memoria._TEMPORAL_PATH', tmp_file), \
-         patch('golem.memoria.memoria._DATOS_DIR', Path(tmpdir)):
+    with patch('computadora.memoria.memoria._TEMPORAL_PATH', tmp_file), \
+         patch('computadora.memoria.memoria._DATOS_DIR', Path(tmpdir)):
         
         # Sin archivo, retorna defaults
         data = _leer_temporal()

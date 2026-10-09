@@ -22,7 +22,7 @@ print("\n== FP-019: GestorPersonas ==")
 
 check("FP19-01", "import computadora.memoria.personas", lambda: (
     True, "importable"
-) if __import__('golem.memoria.personas', fromlist=['GestorPersonas']) else (False, ""))
+) if __import__('computadora.memoria.personas', fromlist=['GestorPersonas']) else (False, ""))
 
 def _check_class_exists():
     from computadora.memoria.personas import GestorPersonas
@@ -54,7 +54,7 @@ check("FP19-05", "GestorPersonas.migrar_desde_json existe", _check_migrar)
 print("\n== FP-019: nlu.py regex persona ==")
 
 def _check_nlu_persona_regex():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     patterns = ['_RE_PRESENTAR_PERSONA', '_RE_MI_NOMBRE', '_RE_RELACION',
                 '_RE_RECUERDA_DATO', '_RE_OLVIDA_PERSONA']
@@ -103,16 +103,16 @@ print("\n== COHERENCIA ==")
 
 def _check_persona_imports():
     errores = []
-    for m in ['golem.memoria.personas']:
+    for m in ['computadora.memoria.personas']:
         try:
             __import__(m)
         except Exception as e:
             errores.append(f"{m}: {e}")
     return not errores, f"{'OK' if not errores else errores}"
-check("FP19-11", "golem.memoria.personas importa sin error", _check_persona_imports)
+check("FP19-11", "computadora.memoria.personas importa sin error", _check_persona_imports)
 
 def _check_nlu_persona_handler():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     has_presentar = 'presentar' in src.lower() or '_RE_PRESENTAR' in src
     has_persona_import = 'personas' in src or 'GestorPersonas' in src or 'obtener_gestor' in src

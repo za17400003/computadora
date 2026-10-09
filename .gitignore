@@ -30,6 +30,11 @@ desktop.ini
 # Temp
 *.tmp
 *.mp3
+.pytest_cache/
+.coverage
+htmlcov/
+.audit/
+.logs/
 
 # Dependencias locales de la herramienta MCP auxiliar
 lmstudio-mcp/node_modules/

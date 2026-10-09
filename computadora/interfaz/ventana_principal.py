@@ -65,7 +65,7 @@ from computadora.interfaz.tema_visual import ThemeFactory
 
 
 # FP-027: FSM extraída a módulo independiente
-from computadora.interfaz.fsm_golem import (
+from computadora.interfaz.fsm_computadora import (
     EstadoMaljut,
     TRANSICIONES_VALIDAS as _TRANSICIONES_VALIDAS,
     STR_A_ESTADO as _STR_A_ESTADO,
@@ -961,7 +961,7 @@ class OrbeComputadora(QWidget):
         from computadora.interfaz.watchdog import WatchdogComputadora
         self._watchdog = WatchdogComputadora(on_cambio_etapa=self._al_cambio_etapa_watchdog)
         self._watchdog.iniciar()
-        # WI-324: Establecer referencia watchdog en CerebroGolem para sincronización
+        # WI-324: Establecer referencia watchdog en CerebroComputadora para sincronización
         self.orquestador.cerebro.establecer_watchdog(self._watchdog)
         # FP-019: Dar al cerebro acceso al GestorPersonas
         self.orquestador.cerebro._gestor_personas = self.gestor_personas
@@ -3461,8 +3461,8 @@ class OrbeComputadora(QWidget):
                 tabla.setRowCount(len(procs))
                 for row, (name, pid, cpu, ram_mb, status) in enumerate(procs):
                     # Color: procesos propios en dorado, el resto gris
-                    is_golem = 'python' in name.lower() or 'ollama' in name.lower()
-                    color = "#e8c040" if is_golem else "#c0c0c0"
+                    is_computadora = 'python' in name.lower() or 'ollama' in name.lower()
+                    color = "#e8c040" if is_computadora else "#c0c0c0"
 
                     item_name = QTableWidgetItem(name)
                     item_name.setForeground(QColor(color))
@@ -4507,7 +4507,7 @@ class OrbeComputadora(QWidget):
                       orbe.hilo_habla.hablar("Por la mañana, entrego el reporte. El guardián nunca descansa.")),
              "habla"),
 
-            # ── ACT X (RF-241): KOAJ HAGOLEM — Demostración de Poder (info) ──
+            # ── ACT X (RF-241): KOAJ HACOMPUTADORA — Demostración de Poder (info) ──
             (lambda: (orbe._al_progreso_tarea("demostracion", "ejecutando", "busqueda"),
                       _set_paleta(EtapaAlquimica.RUBEDO),
                       orbe.hilo_habla.hablar("Ahora le mostraré lo que puedo hacer, señor. Mis herramientas en acción.")),
@@ -5441,11 +5441,11 @@ class OrbeComputadora(QWidget):
             return
 
         if paso.actor == "Computadora":
-            self._bereshit_paso_golem(paso)
+            self._bereshit_paso_computadora(paso)
         else:
             self._bereshit_paso_user(paso)
 
-    def _bereshit_paso_golem(self, paso):
+    def _bereshit_paso_computadora(self, paso):
         """Paso de la Computadora: habla, muestra mensaje, avanza."""
         mensaje = self._genesis.formatear_mensaje(paso)
         self.hilo_habla.hablar(mensaje)

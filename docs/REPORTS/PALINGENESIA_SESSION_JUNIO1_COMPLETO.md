@@ -465,4 +465,4 @@ Ciclo completado. Sistema listo para **boot test** con auto-reparación.
 
 Próximo paso: Usuario ejecuta `python computadora/__main__.py` y reporta resultados.
 
-✨ **"El Golem que se verifica a sí mismo es un Golem verdadero"** ✨
+✨ **"El Computadora que se verifica a sí mismo es un Computadora verdadero"** ✨

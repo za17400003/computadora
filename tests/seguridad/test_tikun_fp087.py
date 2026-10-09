@@ -1,5 +1,5 @@
 """
-Tests para FP-087: Olamot HaGolem — Arquitectura Multidimensional
+Tests para FP-087: Olamot HaComputadora — Arquitectura Multidimensional
 RF-317 / RF-318 / RF-319
 """
 import json
@@ -97,7 +97,7 @@ class TestPersistencia:
     """RF-318: Cargar/guardar estado dimensional."""
 
     def test_estado_default(self):
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO",
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO",
                     Path(tempfile.gettempdir()) / "dim_test_noexist.json"):
             estado = cargar_estado()
             assert estado["dimension_activa"] == 0
@@ -105,7 +105,7 @@ class TestPersistencia:
 
     def test_guardar_y_cargar(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             guardar_estado({"dimension_activa": 3, "descubiertas": [0, 3]})
             estado = cargar_estado()
             assert estado["dimension_activa"] == 3
@@ -114,20 +114,20 @@ class TestPersistencia:
     def test_archivo_corrupto_retorna_default(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
         archivo.write_text("{corrupto!!!", encoding="utf-8")
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             estado = cargar_estado()
             assert estado["dimension_activa"] == 0
 
     def test_dimension_activa_default(self, tmp_path):
         archivo = tmp_path / "dim_noexist.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             dim = dimension_activa()
             assert dim.id == 0
             assert dim.nombre == "Atzilut"
 
     def test_cambiar_dimension(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             dim = cambiar_dimension(2)
             assert dim is not None
             assert dim.nombre == "Yggdrasil"
@@ -136,20 +136,20 @@ class TestPersistencia:
 
     def test_cambiar_dimension_por_nombre(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             dim = cambiar_dimension("Hermes")
             assert dim is not None
             assert dim.tradicion == "Hermetismo y Alquimia"
 
     def test_cambiar_dimension_inexistente(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             result = cambiar_dimension(99)
             assert result is None
 
     def test_descubiertas_acumula(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             cambiar_dimension(0)
             cambiar_dimension(5)
             cambiar_dimension(10)
@@ -166,14 +166,14 @@ class TestContextoPrompt:
 
     def test_dimension_primaria_retorna_vacio(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             cambiar_dimension(0)
             ctx = obtener_contexto_prompt()
             assert ctx == ""
 
     def test_dimension_secundaria_retorna_contexto(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             cambiar_dimension(1)  # Anthropos (lente primario — FP-108)
             ctx = obtener_contexto_prompt()
             assert "LENTE ANTROPOLÓGICO" in ctx
@@ -182,7 +182,7 @@ class TestContextoPrompt:
 
     def test_contexto_contiene_vocabulario(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             cambiar_dimension(2)  # Yggdrasil
             ctx = obtener_contexto_prompt()
             assert "Yggdrasil" in ctx
@@ -190,7 +190,7 @@ class TestContextoPrompt:
 
     def test_contexto_contiene_nodos(self, tmp_path):
         archivo = tmp_path / "dimensiones.json"
-        with patch("golem.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
+        with patch("computadora.arquitectura.dimensiones._ARCHIVO_ESTADO", archivo):
             cambiar_dimension(3)  # Wu Xing
             ctx = obtener_contexto_prompt()
             assert "Madera" in ctx or "木" in ctx

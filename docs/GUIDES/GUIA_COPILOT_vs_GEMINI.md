@@ -1,7 +1,7 @@
 # 🔐 Guía Copilot Token vs Gemini API Key
 
 > **Usuario pregunta**: "¿Cómo obtengo COPILOT_TOKEN?" 
-> **Respuesta directa**: **NO LO OBTIENES — Golem lo obtiene automáticamente por ti.**
+> **Respuesta directa**: **NO LO OBTIENES — Computadora lo obtiene automáticamente por ti.**
 
 ---
 
@@ -24,20 +24,20 @@
 ### Escenario 1: Primera vez usando Copilot
 
 ```
-Tú escribes en Golem → "Copilot, ayúdame con X"
+Tú escribes en Computadora → "Copilot, ayúdame con X"
                     ↓
-Golem escala a Nivel 3 (Copilot) porque Nivel 1/2 no pueden
+Computadora escala a Nivel 3 (Copilot) porque Nivel 1/2 no pueden
                     ↓
 copilot_api.py inicia OAuth Device Flow
                     ↓
 Tu navegador se abre automáticamente con:
-  "Golem solicita permiso para acceder a tu GitHub"
+  "Computadora solicita permiso para acceder a tu GitHub"
                     ↓
 Tú ves un código de 8 caracteres (ej: ABCD-1234)
                     ↓
 Haces clic >> "Autorizar" >> GitHub confirma
                     ↓
-Golem recibe token y lo guarda en:
+Computadora recibe token y lo guarda en:
   datos/copilot_auth.json (CIFRADO)
                     ↓
 ✅ Listo — Copilot funciona desde ahora
@@ -61,17 +61,17 @@ GitHub envía token nuevo (sin intervención)
 
 ```
 ❌ NO: Copiar/pegar token manual en .env
-       (Golem lo ignora, además es inseguro)
+       (Computadora lo ignora, además es inseguro)
 
 ❌ NO: Dejar COPILOT_TOKEN vacío
        (Está bien — es NORMAL que esté vacío)
 
 ❌ NO: Generar token en VS Code y pegarlo aquí
-       (VS Code token ≠ Golem token OAuth)
+       (VS Code token ≠ Computadora token OAuth)
 
 ✅ SÍ: Dejar .env como está
-        Autorizar en navegador cuando Golem pida
-        Dejar que Golem guarde token automáticamente
+        Autorizar en navegador cuando Computadora pida
+        Dejar que Computadora guarde token automáticamente
 ```
 
 ---
@@ -88,7 +88,7 @@ Gemini NO tiene OAuth Device Flow de cliente → debes obtener API key tú mismo
 
 1. Ve a https://console.cloud.google.com/
 2. Haz clic en el icono de proyecto (arriba) → "New Project"
-3. Nombre: "Golem" (o lo que quieras)
+3. Nombre: "Computadora" (o lo que quieras)
 4. Haz clic "Create" → espera 30s
 5. Selecciona tu nuevo proyecto
 
@@ -97,7 +97,7 @@ Gemini NO tiene OAuth Device Flow de cliente → debes obtener API key tú mismo
 1. Ve a https://ai.google.dev/ (otra pestaña)
 2. Haz clic en **"Get API Key"** (esquina superior derecha)
 3. Se te ofrecerá:
-   - "Crear API key en proyecto existente" → selecciona tu "Golem"
+   - "Crear API key en proyecto existente" → selecciona tu "Computadora"
    - "Crear API key en nuevo proyecto" → crea uno automático(recomendado si no quieres configurar Google Cloud)
 4. Haz clic el que prefieras → Google te genera una **API key larga**
 
@@ -111,7 +111,7 @@ Google te mostrará algo como:
 
 **Cópiala completamente** (incluyendo `AIzaSy...` al inicio).
 
-#### Paso 4: Pegar en Golem
+#### Paso 4: Pegar en Computadora
 
 **Opción A: Vía `.env`** (RECOMENDADO)
 
@@ -138,7 +138,7 @@ GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>
 #### Paso 5: Verificar
 
 ```bash
-python -c "from golem.config import Configuracion; c = Configuracion(); print('✓ Gemini OK' if c.obtener('gemini.api_key') else '✗ KEY FALTANTE')"
+python -c "from computadora.config import Configuracion; c = Configuracion(); print('✓ Gemini OK' if c.obtener('gemini.api_key') else '✗ KEY FALTANTE')"
 ```
 
 Si ves `✓ Gemini OK` → **¡Éxito!**
@@ -149,7 +149,7 @@ Si ves `✓ Gemini OK` → **¡Éxito!**
 
 ```
 ¿Necesito Copilot?
-  ├─ Sí → Autoriza en navegador cuando Golem pida (primera vez)
+  ├─ Sí → Autoriza en navegador cuando Computadora pida (primera vez)
   │       Listo — ¡automático a partir de ahora!
   │
   └─ No → Nada que hacer, natural fallback a Gemini/Ollama
@@ -169,7 +169,7 @@ Si ves `✓ Gemini OK` → **¡Éxito!**
 |------|----------------|-----------|--------|
 | Copilot token | `datos/copilot_auth.json` | Cifrado localmente | Bajo (if BIOS segura) |
 | Gemini API key | `.env` (usuario guardó) | Texto CLARO | **MEDIO** (NO subir a git) |
-| Access token GitHub | Memoria RAM | Procesos solo de Golem | Bajo (volatil) |
+| Access token GitHub | Memoria RAM | Procesos solo de Computadora | Bajo (volatil) |
 
 **Recomendación**: 
 - `.env` está en `.gitignore` por defecto (no sube a GitHub)
@@ -180,7 +180,7 @@ Si ves `✓ Gemini OK` → **¡Éxito!**
 
 ## ❓ FAQ
 
-**P: ¿Golem necesita Copilot para funcionar?**  
+**P: ¿Computadora necesita Copilot para funcionar?**
 R: No. Ya tiene Nivel 2 (Ollama local) que es suficiente. Copilot es "escalación premium" para razonamiento avanzado.
 
 **P: ¿Es gratis Copilot?**  
@@ -190,13 +190,13 @@ R: Sí, tienes 5000 requests/mes de cortesía **si** autorizas GitHub. No hay co
 R: Gemini tiene free tier: 15 requests/min (suficiente para asistente personal). Después, pago por uso (~$0.075/1M tokens).
 
 **P: ¿Puedo usar AMBOS a la vez?**  
-R: No necesario. Golem intenta Nivel 2 (Ollama) primero. Si falla, escala a Nivel 3 (Copilot O Gemini, según config). Usa el que prefieras.
+R: No necesario. Computadora intenta Nivel 2 (Ollama) primero. Si falla, escala a Nivel 3 (Copilot O Gemini, según config). Usa el que prefieras.
 
 **P: ¿Dónde veo mi token guardado?**  
 R: `datos/copilot_auth.json` (Copilot) — cifrado, no legible a simple vista. Para Gemini: `.env` (si lo pusiste ahí).
 
 **P: ¿Se expiran los tokens?**  
-R: Copilot: automático (Golem lo maneja) | Gemini: sí, pero raro (>3 meses).
+R: Copilot: automático (Computadora lo maneja) | Gemini: sí, pero raro (>3 meses).
 
 ---
 
@@ -204,7 +204,7 @@ R: Copilot: automático (Golem lo maneja) | Gemini: sí, pero raro (>3 meses).
 
 ### "Copilot no abrió el navegador"
 ```bash
-# 1. Verifica que Golem está en terminal (no interfaz GUI bloqueada)
+# 1. Verifica que Computadora está en terminal (no interfaz GUI bloqueada)
 # 2. Mira logs: busca "OAuth" o "device code"
 # 3. Si dice "pending..." → abre manualmente en navegador el link que aparece
 ```
@@ -214,7 +214,7 @@ R: Copilot: automático (Golem lo maneja) | Gemini: sí, pero raro (>3 meses).
 # 1. Verifica que copiaste la COMPLETA (incluir "AIzaSy..." inicio)
 # 2. Verifica que NO hay espacios extras al pegarla
 # 3. Verifica que es de https://ai.google.dev/, no otro lugar
-# 4. Reinicia Golem: python -m golem
+# 4. Reinicia Computadora: python -m computadora
 ```
 
 ### "No entra navegador del OAuth"

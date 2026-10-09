@@ -74,7 +74,7 @@ SI WARNING: Proceder con alerta
 
 ```
 [ ] ✅ NIGREDO_AUDIT.py creado
-    → Ubicación: proyecto-golem/nigredo_audit.py
+    → Ubicación: proyecto-computadora/nigredo_audit.py
     → Función: audit_root_organization()
     → Función: audit_terminology()
     → Función: audit_duplication()

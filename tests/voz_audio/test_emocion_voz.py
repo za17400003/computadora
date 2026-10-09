@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/percepcion/emocion_voz.py (WI-291)
+⊕ Sal — Tests para computadora/percepcion/emocion_voz.py (WI-291)
 Verifica la detección de emoción por voz (heurísticas).
 """
 

@@ -19,7 +19,7 @@ class TestFP039_GevuraPermiso(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        cls.src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
     def test_no_usa_ultima_transcripcion_raw(self):
         """_ultima_transcripcion_raw eliminado del código de permiso."""
@@ -75,7 +75,7 @@ class TestFP039_FSMGuard(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        cls.src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
     def test_guard_en_al_fragmento_hablado(self):
         """cambiar_estado('procesando') tiene guard != procesando."""
@@ -93,12 +93,12 @@ class TestImports(unittest.TestCase):
     """Verificar que los módulos siguen importando sin error."""
 
     def test_import_ventana_principal_ast(self):
-        src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
         tree = ast.parse(src)
         self.assertIsInstance(tree, ast.Module)
 
     def test_import_escucha_ast(self):
-        src = (RAIZ / "golem" / "voz" / "escucha.py").read_text(encoding="utf-8")
+        src = (RAIZ / "computadora" / "voz" / "escucha.py").read_text(encoding="utf-8")
         tree = ast.parse(src)
         self.assertIsInstance(tree, ast.Module)
 
@@ -108,17 +108,17 @@ class TestRegresion(unittest.TestCase):
 
     def test_locks_fp036(self):
         for mod, lock in [
-            ("golem/habilidades/herramientas.py", "_gestor_permisos_lock"),
-            ("golem/cerebro/copilot_api.py", "_instancia_lock"),
+            ("computadora/habilidades/herramientas.py", "_gestor_permisos_lock"),
+            ("computadora/cerebro/copilot_api.py", "_instancia_lock"),
         ]:
             src = (RAIZ / mod).read_text(encoding="utf-8")
             self.assertIn(lock, src, f"Lock {lock} desapareció de {mod}")
 
     def test_locks_fp038(self):
         for mod, lock in [
-            ("golem/nucleo/eventos.py", "_bus_global_lock"),
-            ("golem/nucleo/ciclo_circadiano.py", "_ciclo_lock"),
-            ("golem/memoria/memoria.py", "_compressor_lock"),
+            ("computadora/nucleo/eventos.py", "_bus_global_lock"),
+            ("computadora/nucleo/ciclo_circadiano.py", "_ciclo_lock"),
+            ("computadora/memoria/memoria.py", "_compressor_lock"),
         ]:
             src = (RAIZ / mod).read_text(encoding="utf-8")
             self.assertIn(lock, src, f"Lock {lock} desapareció de {mod}")

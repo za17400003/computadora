@@ -10,14 +10,14 @@ Este documento captura la **decodificación tripla** (Literal, Moral, Profunda) 
 
 ### ¿Qué se hizo?
 
-**NIGREDO (Destrucción)**: Auditoría exhaustiva revelando 341 fragmentos de código Guardian scattered en 3+ archivos, 178 instancias "Grimorio" (debe ser "Enciclopedia"), 241 "Golem" (debe ser "Computadora").
+**NIGREDO (Destrucción)**: Auditoría exhaustiva revelando 341 fragmentos de código Guardian scattered en 3+ archivos, 178 instancias "Grimorio" (debe ser "Enciclopedia"), 241 "Computadora" (debe ser "Computadora").
 
 **ALBEDO (Purificación)**: Diseño de arquitectura POO centralizada con 7500+ palabras de plan detallado, mapeando NIGREDO → RUBEDO en 5 fases.
 
 **CITRINITAS (Investigación)**: Creación de 4 scripts de migración automatizada:
 - `MIGRAR_GRIMORIO_ENCICLOPEDIA.py` → 190 cambios
-- `MIGRAR_GOLEM_COMPUTADORA.py` → 191 cambios
-- `MIGRAR_GOLEM_COMPUTADORA_SECOND_PASS.py` → 10 cambios
+- `MIGRAR_COMPUTADORA_COMPUTADORA.py` → 191 cambios
+- `MIGRAR_COMPUTADORA_COMPUTADORA_SECOND_PASS.py` → 10 cambios
 - `MIGRAR_PATHS_ANTIGUOS.py` → 41 cambios
 - **Total: 432 cambios en ~70 archivos**
 
@@ -36,7 +36,7 @@ Este documento captura la **decodificación tripla** (Literal, Moral, Profunda) 
 
 3. Refactorizado **flujos_guardian.py**
    - Eliminadas 4 referencias a `_modo_guardian`
-   - Corregido tipo de argumento: `CerebroGolem` → `CerebroComputadora`
+   - Corregido tipo de argumento: `CerebroComputadora` → `CerebroComputadora`
    - Delegación a `guardian_manager` en `activar_guardian()`, `desactivar_guardian()`
 
 4. Reorganizado archivo project
@@ -60,7 +60,7 @@ Este documento captura la **decodificación tripla** (Literal, Moral, Profunda) 
 | Thread safety | Ad-hoc | `threading.RLock()` centralizado |
 | Feature flags | Disperso | Validado en una línea |
 | Tests | 0 | 20 ✅ |
-| Terminology | "Grimorio"/"Golem" | "Enciclopedia"/"Computadora" |
+| Terminology | "Grimorio"/"Computadora" | "Enciclopedia"/"Computadora" |
 
 ---
 
@@ -145,8 +145,8 @@ El Copilot (Creador) no puede estar presente siempre. Entonces **contrae su pres
 [RUBEDO-2] CITRINITAS: Scripts automatizados (432 cambios)
 
 - scripts/MIGRAR_GRIMORIO_ENCICLOPEDIA.py (190 cambios)
-- scripts/MIGRAR_GOLEM_COMPUTADORA.py (191 cambios)
-- scripts/MIGRAR_GOLEM_COMPUTADORA_SECOND_PASS.py (10 cambios)
+- scripts/MIGRAR_COMPUTADORA_COMPUTADORA.py (191 cambios)
+- scripts/MIGRAR_COMPUTADORA_COMPUTADORA_SECOND_PASS.py (10 cambios)
 - scripts/MIGRAR_PATHS_ANTIGUOS.py (41 cambios)
 - scripts/VERIFICAR_MIGRACION.py (validación)
 ```
@@ -177,7 +177,7 @@ El Copilot (Creador) no puede estar presente siempre. Entonces **contrae su pres
 [RUBEDO-5] Refactorizar flujos_guardian.py hacia delegación
 
 - flujos_guardian.py: Usar cerebro.guardian_manager.activo (4 refs)
-- flujos_guardian.py: Corregir CerebroGolem → CerebroComputadora
+- flujos_guardian.py: Corregir CerebroComputadora → CerebroComputadora
 - Mantener interface pública compatible (activar_guardian, desactivar_guardian)
 ```
 

@@ -13,7 +13,7 @@ class TestRF128_DemoRegex(unittest.TestCase):
     """RF-128: _RE_DEMO_ANIMACIONES acepta variantes de 'ejecuta tu demo'."""
 
     def _get_re(self):
-        return __import__('golem.cerebro.nlu', fromlist=['_RE_DEMO_ANIMACIONES'])._RE_DEMO_ANIMACIONES
+        return __import__('computadora.cerebro.nlu', fromlist=['_RE_DEMO_ANIMACIONES'])._RE_DEMO_ANIMACIONES
 
     def test_ejecuta_tu_demo(self):
         self.assertIsNotNone(self._get_re().search("ejecuta tu demo"))
@@ -43,14 +43,14 @@ class TestRF129_InerciaParticulas(unittest.TestCase):
     def test_mouseMoveEvent_no_sync_pos_anterior(self):
         """mouseMoveEvent no debe escribir _pos_anterior"""
         src = inspect.getsource(
-            __import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora.mouseMoveEvent
+            __import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora.mouseMoveEvent
         )
         self.assertNotIn('_pos_anterior_x = float', src)
         self.assertNotIn('_pos_anterior_y = float', src)
 
     def test_impulse_block_no_sync_pos_anterior(self):
         """Bloque de impulso no debe escribir _pos_anterior"""
-        src_file = inspect.getfile(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
+        src_file = inspect.getfile(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         # Find the impulse block (between "Impulso físico" and "self.update()")
@@ -62,7 +62,7 @@ class TestRF129_InerciaParticulas(unittest.TestCase):
 
     def test_animar_still_syncs_pos_anterior(self):
         """El timer (_animar) SÍ debe actualizar _pos_anterior"""
-        src_file = inspect.getfile(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
+        src_file = inspect.getfile(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         # Find the particle update section

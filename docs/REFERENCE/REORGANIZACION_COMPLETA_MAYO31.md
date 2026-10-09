@@ -24,7 +24,7 @@
 
 ### Raíz (Solo lo esencial)
 ```
-proyecto-golem/
+proyecto-computadora/
 ├── iniciar computadora.bat    ← Launcher único
 ├── INDEX.md                   ← Hub central (copia de docs/INDEX.md)
 ├── WorkItems.md               ← Tareas (copia de docs/MANAGEMENT/)
@@ -88,7 +88,7 @@ docs/
 │   ├── FACEREC_RECORD.json
 │   └── [...documentación de referencia]
 └── MISC/
-    ├── CONSTITUCION_FORMAL_GOLEM.md
+    ├── CONSTITUCION_FORMAL_COMPUTADORA.md
     ├── SISTEMA_AUTO_ORGANIZACION.md
     ├── ANALISIS_ALQUIMICO_*.md
     └── [...investigaciones y anotaciones]

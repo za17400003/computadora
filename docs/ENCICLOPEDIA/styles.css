@@ -1,6 +1,6 @@
 /* ══════════════════════════════════════════════════════════════
    ≡ MI LIBRO ENCANTADO — Grimoire CSS Theme
-   Proyecto Golem — José Esaú Díaz Hernández
+   Proyecto Computadora — José Esaú Díaz Hernández
    ══════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Sans+Hebrew:wght@400;700&family=Noto+Sans+Symbols+2&display=swap');
@@ -435,14 +435,14 @@ td:nth-child(2) {
   margin-bottom: 6px;
 }
 
-.entry-golem {
+.entry-computadora {
   color: var(--gold-dark);
   font-size: 0.92em;
   padding-top: 6px;
   border-top: 1px solid rgba(201,168,76,0.1);
 }
 
-.entry-golem::before {
+.entry-computadora::before {
   content: '\2699\FE0E ';
 }
 
@@ -957,7 +957,7 @@ td:nth-child(2) {
 .tria-header.salt .tria-symbol { color: var(--salt); }
 .tria-header.salt .tria-title { color: var(--salt); }
 
-/* ── Trifecta Footer — Golem(♦) + Grimorio(⊕) + Minimi(☿) ── */
+/* ── Trifecta Footer — Computadora(♦) + Grimorio(⊕) + Minimi(☿) ── */
 .tria-footer {
   display: flex;
   justify-content: center;
@@ -1179,7 +1179,7 @@ td:nth-child(2) {
 /* ══════════════════════════════════════════
    � GRIMORIO — LIBRO DE LOS 7 METALES
    Opus Magnum · Plomo → Oro
-   Proyecto Golem · Alta Magia + Alquimia
+   Proyecto Computadora · Alta Magia + Alquimia
    ══════════════════════════════════════════ */
 
 /* ── Canvas de partículas alquímicas ── */
@@ -1826,7 +1826,7 @@ body.grimoire-mode .incense-container { display: none; }
 .book-page .entry-origin { font-size: 0.88em; }
 .book-page .entry-meaning,
 .book-page .entry-esoteric,
-.book-page .entry-golem { font-size: 0.94em; line-height: 1.5; }
+.book-page .entry-computadora { font-size: 0.94em; line-height: 1.5; }
 
 /* ── Portada — diseño coherente con el interior ── */
 .codex-book.cover-mode .book-page .grimoire {

@@ -13,7 +13,7 @@ import threading
 from pathlib import Path
 from datetime import datetime
 
-# Agregar proyecto-golem al path
+# Agregar proyecto-computadora al path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from loguru import logger
@@ -129,18 +129,18 @@ class SRSAuditReport:
         results = {"status": "FAIL", "checks": {}}
         
         try:
-            # Import CerebroGolem para validar niveles
-            from computadora.cerebro.nlu import CerebroGolem
+            # Import CerebroComputadora para validar niveles
+            from computadora.cerebro.nlu import CerebroComputadora
             
-            # Check 1: CerebroGolem inicializable
+            # Check 1: CerebroComputadora inicializable
             try:
                 from computadora.config import Configuracion
                 config = Configuracion()
-                cerebro = CerebroGolem(config)
-                logger.info("✅ CerebroGolem inicializado")
+                cerebro = CerebroComputadora(config)
+                logger.info("✅ CerebroComputadora inicializado")
                 results["checks"]["cerebro_init"] = True
             except Exception as e:
-                logger.error(f"❌ Error inicializando CerebroGolem: {e}")
+                logger.error(f"❌ Error inicializando CerebroComputadora: {e}")
                 results["checks"]["cerebro_init"] = False
                 return results
             

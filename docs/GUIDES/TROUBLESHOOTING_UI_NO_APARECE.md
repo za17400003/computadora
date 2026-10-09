@@ -10,7 +10,7 @@ Ejecutas `Computadora.lnk` pero no ves interfaz gráfica.
 ### Paso 1: Ejecuta el debug script
 En tu terminal PowerShell:
 ```powershell
-cd C:\Users\woire\Documents\proyecto-golem
+cd C:\Users\woire\Documents\proyecto-computadora
 .\computadora_check.bat
 ```
 
@@ -116,7 +116,7 @@ Get-Process python | Where-Object {$_.ProcessName -eq "python"} | Format-Table N
 Si nada funciona, ejecuta esto y copia el output:
 
 ```powershell
-cd C:\Users\woire\Documents\proyecto-golem
+cd C:\Users\woire\Documents\proyecto-computadora
 
 # Mostrar versión Python
 .\\.venv\Scripts\python.exe --version

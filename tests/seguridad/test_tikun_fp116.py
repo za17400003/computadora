@@ -16,7 +16,7 @@ from pathlib import Path
 def test_no_monitor_intrusiones_tiempo_real():
     """_monitor_intrusiones_tiempo_real should be REMOVED (System B eliminated)."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     assert "def _monitor_intrusiones_tiempo_real" not in src
     # The comment explaining removal should exist
@@ -26,7 +26,7 @@ def test_no_monitor_intrusiones_tiempo_real():
 def test_boot_check_uses_offset_path():
     """Boot intrusion check persists offset to avoid re-speaking."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     assert "grimorio_intrusiones_offset" in src
 
@@ -34,7 +34,7 @@ def test_boot_check_uses_offset_path():
 def test_no_15s_intrusiones_timer():
     """The 15-second intrusions timer should not be started anymore."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     # Old pattern: _intrusiones_timer.start(15000) should be gone
     assert "_intrusiones_timer.start(15000)" not in src
@@ -44,7 +44,7 @@ def test_no_15s_intrusiones_timer():
 
 def test_shomer_backoff_variable_exists():
     """shomer_bayit has backoff mechanisms."""
-    mod = importlib.import_module("golem.seguridad.shomer_bayit")
+    mod = importlib.import_module("computadora.seguridad.shomer_bayit")
     assert hasattr(mod, "_registro_fallido_ts")
     assert hasattr(mod, "_REGISTRO_BACKOFF")
     assert mod._REGISTRO_BACKOFF == 300.0
@@ -52,7 +52,7 @@ def test_shomer_backoff_variable_exists():
 
 def test_es_red_hogar_backoff_prevents_spam():
     """es_red_hogar() should not retry within 5 min of a failed registration."""
-    mod = importlib.import_module("golem.seguridad.shomer_bayit")
+    mod = importlib.import_module("computadora.seguridad.shomer_bayit")
     # Simulate a failed registration just now
     mod._registro_fallido_ts = time.time()
     # Mock _cargar_huella_hogar to return None (no file)
@@ -69,7 +69,7 @@ def test_es_red_hogar_backoff_prevents_spam():
 def test_registrar_hogar_writes_sentinel_on_failure():
     """registrar_hogar writes incomplete sentinel when gateway not found."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.seguridad.shomer_bayit")
+        importlib.import_module("computadora.seguridad.shomer_bayit")
     )
     # The sentinel write with "incompleto" must be in registrar_hogar
     assert '"incompleto": True' in src or "'incompleto': True" in src or "incompleto" in src
@@ -77,7 +77,7 @@ def test_registrar_hogar_writes_sentinel_on_failure():
 
 def test_es_red_hogar_retries_after_backoff():
     """After backoff period, es_red_hogar retries registration."""
-    mod = importlib.import_module("golem.seguridad.shomer_bayit")
+    mod = importlib.import_module("computadora.seguridad.shomer_bayit")
     # Simulate failure 6 minutes ago (past backoff)
     mod._registro_fallido_ts = time.time() - 400
     huella_ok = {"gateway": "192.168.1.1", "ssid": "Home", "subnet": "255.255.255.0", "adaptador": "Wi-Fi"}

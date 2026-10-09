@@ -4,7 +4,7 @@
 
 Ejecuta verificaciones de coherencia en:
   1. Organización de archivos (raíz limpia)
-  2. Terminología (Enciclopedia vs Grimorio, Golem vs COMPUTADORA)
+  2. Terminología (Enciclopedia vs Grimorio, Computadora vs COMPUTADORA)
   3. Referencias (links internos válidos)
   4. Duplicación de código
   5. Archivos obsoletos
@@ -46,7 +46,7 @@ class NigresoAudit:
         
         self.allowed_root_dirs = {
             "computadora", "tests", "ENCICLOPEDIA", "_docs", "_archive",
-            ".management", ".github", "golem", "libro_encantado", "libro_encantado_archive"
+            ".management", ".github", "computadora", "libro_encantado", "libro_encantado_archive"
         }
         
         # Términos prohibidos en código vivo
@@ -193,7 +193,7 @@ class NigresoAudit:
             
             # Verificar que contenga mapeos clave
             required_mappings = [
-                "Golem.*COMPUTADORA",
+                "Computadora.*COMPUTADORA",
                 "Grimorio.*Enciclopedia",
                 "Palabra.*Mágica.*Comando",
             ]

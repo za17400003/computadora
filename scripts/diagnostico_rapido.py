@@ -4,7 +4,7 @@
 import sys
 import os
 
-os.chdir(r'c:\Users\woire\Documents\proyecto-golem')
+os.chdir(r'c:\Users\woire\Documents\proyecto-computadora')
 sys.path.insert(0, os.getcwd())
 
 print("="*60)

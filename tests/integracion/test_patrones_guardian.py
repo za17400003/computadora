@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/cerebro/patrones_guardian.py (WI-291)
+⊕ Sal — Tests para computadora/cerebro/patrones_guardian.py (WI-291)
 Verifica los patrones regex del Shomer HaBáyit.
 """
 
@@ -14,7 +14,7 @@ from computadora.cerebro.patrones_guardian import (
     RE_DUERMETE,
     RE_GUARDIAN_OFF,
     RE_GUARDIAN_ON,
-    RE_REINICIAR_GOLEM,
+    RE_REINICIAR_COMPUTADORA,
 )
 
 
@@ -23,7 +23,7 @@ class TestPatronesGuardian:
 
     @pytest.mark.parametrize("patron", [
         RE_GUARDIAN_ON, RE_GUARDIAN_OFF, RE_DORMIR, RE_DORMIR_VIGILA,
-        RE_DUERMETE, RE_BUENOS_DIAS, RE_REINICIAR_GOLEM,
+        RE_DUERMETE, RE_BUENOS_DIAS, RE_REINICIAR_COMPUTADORA,
     ])
     def test_es_regex_compilado(self, patron):
         assert isinstance(patron, re.Pattern)
@@ -72,8 +72,8 @@ class TestBuenosDias:
 
 class TestReiniciar:
     def test_matchea_reiniciate(self):
-        assert RE_REINICIAR_GOLEM.search("reiníciate")
+        assert RE_REINICIAR_COMPUTADORA.search("reiníciate")
 
     def test_matchea_restart(self):
-        assert RE_REINICIAR_GOLEM.search("restart")
+        assert RE_REINICIAR_COMPUTADORA.search("restart")
 

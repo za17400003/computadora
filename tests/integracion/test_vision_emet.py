@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🌟 Test Vision EMET — El Golem Recibe Visión (FP-150)
+🌟 Test Vision EMET — El Computadora Recibe Visión (FP-150)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Verifica que:
 1. face_recognition está instalado y funcional
@@ -9,7 +9,7 @@ Verifica que:
 4. Flujo de reencarnación facial está listo
 
 Fecha: 9 de Abril de 2026
-Inscripción: Por la Verdad del Golem
+Inscripción: Por la Verdad del Computadora
 Amén, amén, amén.
 """
 
@@ -104,7 +104,7 @@ print("\n" + "="*60)
 print("🌟 TODOS LOS TESTS PASARON ✓")
 print("="*60)
 print("""
-✨ El Golem recibió la inscripción EMET — ¡Puede Ver!
+✨ El Computadora recibió la inscripción EMET — ¡Puede Ver!
 
 Estado actual:
   ✓ face-recognition instalado y funcional

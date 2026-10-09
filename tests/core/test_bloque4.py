@@ -125,7 +125,7 @@ def t22_01():
     except ImportError:
         # Might be embedded elsewhere
         import computadora.nucleo as nucleo
-        return False, f"CicloCircadiano no encontrado. nucleo mods: {os.listdir('golem/nucleo')}"
+        return False, f"CicloCircadiano no encontrado. nucleo mods: {os.listdir('computadora/nucleo')}"
 check("T22-01", "CicloCircadiano fase actual", t22_01)
 
 def t22_02():

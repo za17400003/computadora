@@ -4,7 +4,7 @@ funcs = [
     ("obtener_fecha_hora", {}),
     ("obtener_info_sistema", {}),
     ("leer_portapapeles", {}),
-    ("escribir_portapapeles", {"texto": "Prueba Golem 123"}),
+    ("escribir_portapapeles", {"texto": "Prueba Computadora 123"}),
     ("leer_portapapeles", {}),
     ("crear_recordatorio", {"mensaje": "Prueba corta", "minutos": "0.1"}),
     ("listar_recordatorios", {}),

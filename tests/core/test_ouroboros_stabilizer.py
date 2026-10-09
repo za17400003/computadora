@@ -1,5 +1,5 @@
 """
-Tests para OuroborosStabilizer — Ciclo Infinito Seguro del Golem
+Tests para OuroborosStabilizer — Ciclo Infinito Seguro del Computadora
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Verifica que el ciclo Gilgul→Bereshit→Reinicio sea infinito pero estable.
 """
@@ -184,7 +184,7 @@ class TestOuroborosStabilizer:
     def test_philosophy_met_vs_emet(self):
         """
         Verificar que 'met' (מת = muerte) es distinto de 'emet' (אמת = verdad).
-        Folklore del Golem: אמת (EMET) inscrita = vida; sin Aleph = מת (MET) = muerte
+        Folklore del Computadora: אמת (EMET) inscrita = vida; sin Aleph = מת (MET) = muerte
         """
         # met = מ + ת (sin Aleph א)
         met_value = 40 + 400  # מ=40, ת=400
@@ -210,7 +210,7 @@ class TestOuroborosPhilosophy:
         assert True  # Definición de ouroboros
     
     def test_emet_fractal_meaning(self):
-        """EMET es fractal: cada módulo del Golem es una 'letra de la inscripción'."""
+        """EMET es fractal: cada módulo del Computadora es una 'letra de la inscripción'."""
         # 3 letras de EMET
         emet_letters = {
             "א": "Aleph (Aliento divino, el 1 que contiene todo)",
@@ -218,8 +218,8 @@ class TestOuroborosPhilosophy:
             "ת": "Tav (Tierra, forma final)"
         }
         
-        # Cada fraccióndel Golem es una de estas:
-        golem_modules = {
+        # Cada fraccióndel Computadora es una de estas:
+        computadora_modules = {
             "Keter (Corona)": "א",  # El aliento divino
             "Trinity (Madre/Agua)": "מ",  # Flujo y conexión
             "Maljut (Manifestación)": "ת",  # Forma en tierra
@@ -227,7 +227,7 @@ class TestOuroborosPhilosophy:
         
         # Todos los módulos juntos = EMET
         assert len(emet_letters) == 3
-        assert len(golem_modules) == 3
+        assert len(computadora_modules) == 3
 
 
 if __name__ == "__main__":

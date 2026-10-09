@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 # ── Helpers ──
 
 def _src(module_rel_path: str) -> str:
-    base = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    base = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     return os.path.join(base, module_rel_path.replace("/", os.sep))
 
 
@@ -22,8 +22,8 @@ def _read(path: str) -> str:
         return f.read()
 
 
-SRC_VP = _src("golem/interfaz/ventana_principal.py")
-SRC_VA = _src("golem/interfaz/vida_autonoma.py")
+SRC_VP = _src("computadora/interfaz/ventana_principal.py")
+SRC_VA = _src("computadora/interfaz/vida_autonoma.py")
 
 CODE_VP = _read(SRC_VP)
 CODE_VA = _read(SRC_VA)

@@ -36,14 +36,14 @@ echo Creating shortcut 1/2: Computadora (Current)...
 echo Created: !DESKTOP!\Computadora (Current).bat
 echo.
 
-echo Creating shortcut 2/2: Golem Legacy (Documentation)...
+echo Creating shortcut 2/2: Computadora Legacy (Documentation)...
 (
     echo @echo off
     echo cd /d "!PROJECT_ROOT!"
     echo call "_legacy_reference\ver_documentacion_legacy.bat"
-) > "!DESKTOP!\Golem Legacy (Documentation).bat"
+) > "!DESKTOP!\Computadora Legacy (Documentation).bat"
 
-echo Created: !DESKTOP!\Golem Legacy (Documentation).bat
+echo Created: !DESKTOP!\Computadora Legacy (Documentation).bat
 echo.
 
 echo ============================================================
@@ -52,7 +52,7 @@ echo ============================================================
 echo.
 echo You can now use:
 echo   1. "Computadora (Current).bat" ← Use this for daily work
-echo   2. "Golem Legacy (Documentation).bat" ← Reference only
+echo   2. "Computadora Legacy (Documentation).bat" ← Reference only
 echo.
 echo To create Visual Shortcuts (with icons):
 echo   1. Right-click on desktop
@@ -61,6 +61,6 @@ echo   3. Location: !DESKTOP!\Computadora (Current).bat
 echo   4. Name: Computadora (Current)
 echo   5. Click Finish
 echo.
-echo Repeat for: Golem Legacy (Documentation)
+echo Repeat for: Computadora Legacy (Documentation)
 echo.
 pause

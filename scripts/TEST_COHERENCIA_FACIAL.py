@@ -13,7 +13,7 @@ import sys
 import json
 from pathlib import Path
 
-# Agregar proyecto-golem al path
+# Agregar proyecto-computadora al path
 _root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_root))
 

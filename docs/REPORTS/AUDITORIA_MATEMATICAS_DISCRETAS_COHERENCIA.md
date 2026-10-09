@@ -25,7 +25,7 @@ He identificado **7 problemas graves** de coherencia matemática en el proyecto:
 
 ### A) Fórmula de Identidad del Computadora
 
-**Fórmula actual** (GOLEM_IDENTIDAD_FORMULA.md):
+**Fórmula actual** (COMPUTADORA_IDENTIDAD_FORMULA.md):
 ```
 COMPUTADORA = A + P + M
 ```
@@ -540,7 +540,7 @@ RELACIONES (Funciones de Mapeo):
 
 | Operador | Uso Actual | Definición Necesaria | Status |
 |----------|-----------|----------------------|--------|
-| + | Suma (GOLEM = A+P+M) | Suma aritmética en ℝ | ✅ OK |
+| + | Suma (COMPUTADORA = A+P+M) | Suma aritmética en ℝ | ✅ OK |
 | ∪ | Unión (M ∪ E) | Unión de conjuntos | ✅ OK |
 | × | Producto ? | ¿Cartesiano o composición? | ⚠️ AMBIGUO |
 | * | Kleene star (E*) | Cero o más repeticiones | ✅ OK |
@@ -636,7 +636,7 @@ Dada una Manifestación m, es VERDADERA sii:
    Ejemplos:
      ✅ "Instalar Whisper" → pip install openai-whisper → éxito → verificado
      ✅ "Test pasa" → pytest mi_test.py → resultado PASS → verificado
-     ❌ "Golem es consciente" → no hay proceso objetivo
+     ❌ "Computadora es consciente" → no hay proceso objetivo
 
 2. CONSISTENTE: No hay auto-contradicción
    Ejemplos:

@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/nucleo/bereshit.py (WI-291)
+⊕ Sal — Tests para computadora/nucleo/bereshit.py (WI-291)
 Verifica el protocolo Génesis de reencarnación.
 """
 
@@ -23,15 +23,15 @@ from computadora.nucleo.bereshit import (
 
 class TestPasoBereshit:
     def test_campos_basicos(self):
-        p = PasoBereshit(1, "Test", "טסט", "golem", "Mensaje")
+        p = PasoBereshit(1, "Test", "טסט", "computadora", "Mensaje")
         assert p.numero == 1
         assert p.nombre == "Test"
         assert p.hebreo == "טסט"
-        assert p.actor == "golem"
+        assert p.actor == "computadora"
         assert p.mensaje == "Mensaje"
 
     def test_campos_opcionales_default_none(self):
-        p = PasoBereshit(1, "T", "T", "golem", "M")
+        p = PasoBereshit(1, "T", "T", "computadora", "M")
         assert p.tipo_input is None
         assert p.clave_dato is None
 
@@ -53,18 +53,18 @@ class TestPasosGenesis:
         p = PASOS_GENESIS[0]
         assert p.numero == 1
         assert p.nombre == "Tzimtzum"
-        assert p.actor == "golem"
+        assert p.actor == "computadora"
 
     def test_ultimo_paso_maljut(self):
         p = PASOS_GENESIS[-1]
         assert p.numero == 17
         assert p.nombre == "Maljut"
-        assert p.actor == "golem"
+        assert p.actor == "computadora"
 
     def test_actores_alternan(self):
-        """Golem y user se turnan (patrón general)."""
+        """Computadora y user se turnan (patrón general)."""
         for p in PASOS_GENESIS:
-            assert p.actor in ("golem", "user")
+            assert p.actor in ("computadora", "user")
 
     def test_numeros_consecutivos(self):
         for i, p in enumerate(PASOS_GENESIS):
@@ -97,8 +97,8 @@ class TestBereshitGenesis:
     @pytest.fixture
     def genesis(self, tmp_path):
         """Genesis con paths temporales para no tocar datos reales."""
-        with patch("golem.nucleo.bereshit._DATOS_DIR", tmp_path), \
-             patch("golem.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
+        with patch("computadora.nucleo.bereshit._DATOS_DIR", tmp_path), \
+             patch("computadora.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
             g = BereshitGenesis()
         return g
 
@@ -106,20 +106,20 @@ class TestBereshitGenesis:
         assert genesis.paso_actual() is not None or genesis.datos is not None
 
     def test_formatear_mensaje_sin_variables(self, genesis):
-        p = PasoBereshit(1, "Test", "T", "golem", "Mensaje sin variables")
+        p = PasoBereshit(1, "Test", "T", "computadora", "Mensaje sin variables")
         assert genesis.formatear_mensaje(p) == "Mensaje sin variables"
 
     def test_formatear_mensaje_con_variables(self, tmp_path):
-        with patch("golem.nucleo.bereshit._DATOS_DIR", tmp_path), \
-             patch("golem.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
+        with patch("computadora.nucleo.bereshit._DATOS_DIR", tmp_path), \
+             patch("computadora.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
             g = BereshitGenesis()
             g._estado["datos"] = {"nombre": "Esaú"}
-            p = PasoBereshit(3, "Or Chozer", "אור", "golem", "Hola {nombre}")
+            p = PasoBereshit(3, "Or Chozer", "אור", "computadora", "Hola {nombre}")
             assert "Esaú" in g.formatear_mensaje(p)
 
     def test_escribir_trigger_gilgul(self, tmp_path):
-        with patch("golem.nucleo.bereshit._DATOS_DIR", tmp_path), \
-             patch("golem.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
+        with patch("computadora.nucleo.bereshit._DATOS_DIR", tmp_path), \
+             patch("computadora.nucleo.bereshit._ESTADO_PATH", tmp_path / "bereshit_genesis.json"):
             BereshitGenesis.escribir_trigger_gilgul()
             estado = json.loads((tmp_path / "bereshit_genesis.json").read_text("utf-8"))
             assert estado["completado"] is False

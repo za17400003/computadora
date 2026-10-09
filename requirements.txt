@@ -38,30 +38,21 @@ watchdog>=4.0
 # NoSQL embebido (perfiles de personas)
 tinydb>=4.8
 
-# RF-208: Kli HaHarjavá — importación lazy (opcionales)
+# Integraciones de red y visión opcionales
 scapy>=2.5
 opencv-python-headless>=4.9
-face_recognition>=1.3.0
 wakeonlan>=3.0
 
 # FP-071: Percepción Da'at — opcionales
 scipy>=1.10
 
-# 🔥 RUBEDO: Fuzzy Wake Word
-fuzzywuzzy>=0.18
-python-Levenshtein>=0.25
-
-# FP-099: Firebase — DESACTIVADO (Minimi proyecto colateral no iniciado)
-
-# 🔥 RUBEDO: Fuzzy Wake Word + Echo Filtering
+# Fuzzy wake-word matching
 fuzzywuzzy==0.18.0
 python-Levenshtein==0.21.1
-# firebase-admin>=7.0
 
-# RF-301: Reconocimiento facial — ACTIVO (requiere cmake + dlib)
-# ✅ INSTALADO ABRIL 9 2026 — Golem puede ver rostros
+# Reconocimiento facial (requiere CMake y dlib)
 dlib>=19.24
 cmake>=3.27
-face-recognition>=1.3  # Habilitado: dlib compilado ✅
+face-recognition>=1.3
 # fer>=22.5              # Facial Expression Recognition — opcional
 # deepface>=0.0.80       # alternativa a fer — opcional

@@ -19,7 +19,7 @@ import math
 
 def test_acciones_remotas_queue_exists():
     """servidor_api exposes _acciones_remotas list and lock."""
-    mod = importlib.import_module("golem.canales.servidor_api")
+    mod = importlib.import_module("computadora.canales.servidor_api")
     assert hasattr(mod, "_acciones_remotas")
     assert hasattr(mod, "_acciones_remotas_lock")
     assert isinstance(mod._acciones_remotas, list)
@@ -28,7 +28,7 @@ def test_acciones_remotas_queue_exists():
 
 def test_obtener_acciones_remotas_drains():
     """obtener_acciones_remotas() returns queued items and clears list."""
-    mod = importlib.import_module("golem.canales.servidor_api")
+    mod = importlib.import_module("computadora.canales.servidor_api")
     with mod._acciones_remotas_lock:
         mod._acciones_remotas.clear()
         mod._acciones_remotas.append("__DEMO_ANIMACIONES__")
@@ -41,7 +41,7 @@ def test_obtener_acciones_remotas_drains():
 
 def test_filtrar_sentinel_queues_action():
     """_filtrar_sentinel queues raw sentinel and returns filtered text."""
-    mod = importlib.import_module("golem.canales.servidor_api")
+    mod = importlib.import_module("computadora.canales.servidor_api")
     with mod._acciones_remotas_lock:
         mod._acciones_remotas.clear()
     sentinel_msgs = getattr(mod, "_SENTINEL_MSGS", {})
@@ -59,7 +59,7 @@ def test_filtrar_sentinel_queues_action():
 
 def test_rostro_module_importable():
     """rostro.py imports without error."""
-    mod = importlib.import_module("golem.percepcion.rostro")
+    mod = importlib.import_module("computadora.percepcion.rostro")
     assert hasattr(mod, "ReconocedorRostro")
 
 
@@ -67,7 +67,7 @@ def test_rostro_analizar_frame_copies_input():
     """analizar_frame should not modify the input array (copy semantics).
     WI-235: Uses cv2.cvtColor for guaranteed contiguous array instead of .copy()."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.percepcion.rostro")
+        importlib.import_module("computadora.percepcion.rostro")
     )
     # The cv2.cvtColor call must be present in the RGB conversion (ensures contiguous array)
     assert "cv2.cvtColor" in src
@@ -78,7 +78,7 @@ def test_rostro_analizar_frame_copies_input():
 def test_nlu_has_auto_gate_copilot():
     """NLU module has _auto_gate_copilot attribute for cascade."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.cerebro.nlu")
+        importlib.import_module("computadora.cerebro.nlu")
     )
     assert "_auto_gate_copilot" in src
 
@@ -86,7 +86,7 @@ def test_nlu_has_auto_gate_copilot():
 def test_nlu_cascade_tries_copilot_before_fallback():
     """When Ollama unavailable, NLU tries _pensar_con_copilot before _pensar_sin_llm."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.cerebro.nlu")
+        importlib.import_module("computadora.cerebro.nlu")
     )
     # In the Ollama-unavailable block, _pensar_con_copilot should appear
     # before _pensar_sin_llm
@@ -103,7 +103,7 @@ def test_nlu_cascade_tries_copilot_before_fallback():
 def test_vida_autonoma_cursor_prev_attrs():
     """VidaAutonoma stores 2-tick cursor history."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.vida_autonoma")
+        importlib.import_module("computadora.interfaz.vida_autonoma")
     )
     assert "_cursor_prev" in src
     assert "_cursor_prev2" in src
@@ -112,7 +112,7 @@ def test_vida_autonoma_cursor_prev_attrs():
 def test_vida_autonoma_estorba_has_dot_product():
     """_estorba() uses dot-product trajectory analysis."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.vida_autonoma")
+        importlib.import_module("computadora.interfaz.vida_autonoma")
     )
     # dot product / cos_angle logic present
     assert "cos_angle" in src or "dot" in src
@@ -121,7 +121,7 @@ def test_vida_autonoma_estorba_has_dot_product():
 def test_ventana_principal_no_auto_grow_on_enter():
     """enterEvent should not force _escala_objetivo."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     # The old pattern was: escala_objetivo = 1.05 in enterEvent
     # Now enterEvent should just pass or not set escala
@@ -145,7 +145,7 @@ def test_ventana_principal_no_auto_grow_on_enter():
 def test_context_menu_has_gevura_submenu():
     """Context menu includes Gevurá security submenu."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     assert "גבורה" in src or "Gevur" in src
     assert "VPN" in src
@@ -156,7 +156,7 @@ def test_context_menu_has_gevura_submenu():
 def test_intrusion_handler_captures_photo():
     """_al_intrusion_grimorio attempts camera capture."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     assert "intruso_" in src  # filename pattern
     assert "datos" in src and "intrusiones" in src  # output directory
@@ -166,7 +166,7 @@ def test_intrusion_handler_captures_photo():
 def test_intrusion_handler_speaks_photo_taken():
     """Vocal alert mentions photo if captured."""
     src = importlib.import_module("inspect").getsource(
-        importlib.import_module("golem.interfaz.ventana_principal")
+        importlib.import_module("computadora.interfaz.ventana_principal")
     )
     assert "fotografía del intruso" in src
 

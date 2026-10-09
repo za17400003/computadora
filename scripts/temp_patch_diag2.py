@@ -1,5 +1,5 @@
 from pathlib import Path
-path = Path(r"C:\Users\woire\Documents\proyecto-golem\computadora\voz\diagnostico_microfono.py")
+path = Path(r"C:\Users\woire\Documents\proyecto-computadora\computadora\voz\diagnostico_microfono.py")
 text = path.read_text(encoding="utf-8")
 old_line = '            modelo_whisper = whisper.load_model(\\"base\\", device=\\"cuda\\" if torch.cuda.is_available() else \\"cpu\\")\n'
 new_line = '            dispositivo = \\"cuda\\" if torch.cuda.is_available() else \\"cpu\\"\n            modelo_whisper = whisper.load_model(\\"base\\", device=dispositivo)\n'

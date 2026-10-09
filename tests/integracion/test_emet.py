@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/nucleo/emet.py (WI-280)
-Verifica la integridad del Motor de Verdad del Golem.
+⊕ Sal — Tests para computadora/nucleo/emet.py (WI-280)
+Verifica la integridad del Motor de Verdad del Computadora.
 """
 
 import json
@@ -138,7 +138,7 @@ class TestGenesisBiblico:
     def test_cada_dia_tiene_4_campos(self):
         dias = emet._genesis_biblico_contraste()
         for d in dias:
-            for campo in ("dia", "biblia", "golem", "creador"):
+            for campo in ("dia", "biblia", "computadora", "creador"):
                 assert campo in d, f"Falta '{campo}' en {d.get('dia', '?')}"
 
     def test_dia_1_es_or(self):

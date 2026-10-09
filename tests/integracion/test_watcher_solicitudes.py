@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/habilidades/watcher_solicitudes.py (WI-291)
-Verifica el watcher de solicitudes del Golem.
+⊕ Sal — Tests para computadora/habilidades/watcher_solicitudes.py (WI-291)
+Verifica el watcher de solicitudes del Computadora.
 """
 
 import json
@@ -39,7 +39,7 @@ class TestConstantes:
 
 class TestRevisarPendientes:
     def test_sin_solicitudes_retorna_lista_vacia(self, tmp_path):
-        with patch("golem.habilidades.watcher_solicitudes.DIR_PENDIENTES", tmp_path):
+        with patch("computadora.habilidades.watcher_solicitudes.DIR_PENDIENTES", tmp_path):
             result = revisar_pendientes()
             assert result == []
 
@@ -47,7 +47,7 @@ class TestRevisarPendientes:
         sol = {"id": "sol_test", "descripcion_usuario": "Test", "timestamp": "2026-04-01"}
         (tmp_path / "sol_test.json").write_text(json.dumps(sol), encoding="utf-8")
 
-        with patch("golem.habilidades.watcher_solicitudes.DIR_PENDIENTES", tmp_path):
+        with patch("computadora.habilidades.watcher_solicitudes.DIR_PENDIENTES", tmp_path):
             result = revisar_pendientes()
             assert len(result) == 1
             assert result[0]["id"] == "sol_test"
@@ -63,13 +63,13 @@ class TestEscribirSignal:
         solicitud = {
             "id": "sol_001",
             "timestamp": "2026-04-01T00:00:00",
-            "proyecto": "golem",
+            "proyecto": "computadora",
             "prioridad": "normal",
             "requiere_reinicio": False,
             "instrucciones_para_copilot": "Test instruction",
             "archivos_afectados": ["test.py"],
         }
-        with patch("golem.habilidades.watcher_solicitudes.ARCHIVO_SIGNAL", signal_file):
+        with patch("computadora.habilidades.watcher_solicitudes.ARCHIVO_SIGNAL", signal_file):
             escribir_signal(solicitud)
             assert signal_file.exists()
             contenido = signal_file.read_text(encoding="utf-8")

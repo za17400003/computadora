@@ -25,7 +25,7 @@ class TestUserEvent:
         """Test: UserEvent se crea correctamente."""
         evento = UserEvent(
             timestamp=1000.0,
-            platform="golem",
+            platform="computadora",
             accion="voz_query",
             contexto="inicio",
             emocion_detectada="alegría",
@@ -33,7 +33,7 @@ class TestUserEvent:
             confianza_usuario=0.8,
         )
         
-        assert evento.platform == "golem"
+        assert evento.platform == "computadora"
         assert evento.accion == "voz_query"
         assert evento.confianza_usuario == 0.8
 
@@ -59,7 +59,7 @@ class TestMotherFeedback:
         
         resultado = mother.capturar_evento(
             accion="voz_query",
-            platform="golem",
+            platform="computadora",
             contexto="inicio",
             confianza=0.9,
         )
@@ -75,14 +75,14 @@ class TestMotherFeedback:
         for i in range(3):
             mother.capturar_evento(
                 accion="autocompletado",
-                platform="golem",
+                platform="computadora",
                 contexto="búsqueda",
             )
         
         # Tercera captura debería detectar patrón
         resultado = mother.capturar_evento(
             accion="autocompletado",
-            platform="golem",
+            platform="computadora",
             contexto="búsqueda",
         )
         
@@ -97,13 +97,13 @@ class TestMotherFeedback:
         # Capturar eventos con emoción negativa
         mother.capturar_evento(
             accion="búsqueda_avanzada",
-            platform="golem",
+            platform="computadora",
             emocion="frustración",
         )
         
         resultado2 = mother.capturar_evento(
             accion="búsqueda_avanzada",
-            platform="golem",
+            platform="computadora",
             emocion="frustración",
         )
         
@@ -114,10 +114,10 @@ class TestMotherFeedback:
         """Test: Aumenta confianza cuando mismo patrón en ambas plataformas."""
         mother = MotherFeedback()
         
-        # Capturar acción en Golem
+        # Capturar acción en Computadora
         mother.capturar_evento(
             accion="timer_iniciado",
-            platform="golem",
+            platform="computadora",
             contexto="reloj",
         )
         
@@ -135,14 +135,14 @@ class TestMotherFeedback:
         """Test: Calcula estadísticas de sesión."""
         mother = MotherFeedback()
         
-        mother.capturar_evento("accion1", platform="golem")
+        mother.capturar_evento("accion1", platform="computadora")
         mother.capturar_evento("accion2", platform="minimi")
-        mother.capturar_evento("accion1", platform="golem")
+        mother.capturar_evento("accion1", platform="computadora")
         
         stats = mother.estadisticas_sesion()
         
         assert stats["total_eventos"] == 3
-        assert stats["eventos_golem"] == 2
+        assert stats["eventos_computadora"] == 2
         assert stats["eventos_minimi"] == 1
         assert stats["sincronia_bidireccional"] is True
     
@@ -154,7 +154,7 @@ class TestMotherFeedback:
         for i in range(5):
             mother.capturar_evento(
                 accion="meditacion",
-                platform="golem",
+                platform="computadora",
                 contexto="manana",
             )
         
@@ -171,7 +171,7 @@ class TestMotherFeedback:
         
         # Generar patrón repetido con insight
         for i in range(3):
-            mother.capturar_evento("accion_x", platform="golem")
+            mother.capturar_evento("accion_x", platform="computadora")
         
         # Callback debería haber sido invocado
         assert callback_mock.called or resultado.insight is not None
@@ -207,11 +207,11 @@ class TestBidirectionalSync:
             confianza_usuario=0.5,
         )
         
-        patrones_golem = {
+        patrones_computadora = {
             "voz@inicio": {"hits": 5},
         }
         
-        resultado = sync.sincronizar([evento], patrones_golem)
+        resultado = sync.sincronizar([evento], patrones_computadora)
         
         assert resultado["sincronizado"] is True
         assert resultado["patrones_enriquecidos"] == 1
@@ -267,7 +267,7 @@ def test_full_workflow_mother_feedback():
     # Acción 1: Usuario usa búsqueda (feliz)
     mother.capturar_evento(
         accion="busqueda",
-        platform="golem",
+        platform="computadora",
         contexto="inicio",
         emocion="alegría",
         confianza=0.8,
@@ -276,7 +276,7 @@ def test_full_workflow_mother_feedback():
     # Acción 2: Repite búsqueda (confundido)
     resultado2 = mother.capturar_evento(
         accion="busqueda",
-        platform="golem",
+        platform="computadora",
         contexto="init",  # contexto ligeramente diferente
         emocion="confusión",
         confianza=0.6,
@@ -305,9 +305,9 @@ def test_full_workflow_bidirectional_sync():
     madre = crear_mother_feedback()
     sync = crear_sync()
     
-    # Golem PC aprende patrón
+    # Computadora PC aprende patrón
     for i in range(5):
-        madre.capturar_evento("meditación", platform="golem", contexto="mañana")
+        madre.capturar_evento("meditación", platform="computadora", contexto="mañana")
     
     # Minimi Android captura evento similar
     eventos_minimi = [
@@ -322,8 +322,8 @@ def test_full_workflow_bidirectional_sync():
     ]
     
     # Sincronizar
-    patrones_golem = madre._patrones_detectados
-    resultado_sync = sync.sincronizar(eventos_minimi, patrones_golem)
+    patrones_computadora = madre._patrones_detectados
+    resultado_sync = sync.sincronizar(eventos_minimi, patrones_computadora)
     
     assert resultado_sync["sincronizado"] is True
     assert resultado_sync["patrones_enriquecidos"] > 0

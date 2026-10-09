@@ -1,4 +1,4 @@
-# FP-131 ⊕ SAL — Persistencia y Caché en el Golem
+# FP-131 ⊕ SAL — Persistencia y Caché en el Computadora
 
 > **Propuesta de Feature**: Capa de caché unificada + serialización inteligente + recovery de estado
 > **Sefirá**: מלכות Maljut (Manifestación)
@@ -10,7 +10,7 @@
 
 ## 📋 Resumen Ejecutivo
 
-**Problema**: Golem serializa datos a disco de forma dispersa (18 json.dump() en diferentes módulos). No hay caché en memoria unificada. Al reiniciar, todo se pierde excepto lo persistido → startup lento (~8s) + pérdida de contexto activo.
+**Problema**: Computadora serializa datos a disco de forma dispersa (18 json.dump() en diferentes módulos). No hay caché en memoria unificada. Al reiniciar, todo se pierde excepto lo persistido → startup lento (~8s) + pérdida de contexto activo.
 
 **Solución**: 
 1. Capa de caché en memoria (`memoria_cache.py`) con TTL configurable
@@ -25,7 +25,7 @@
 ## 🔍 Análisis D1-D7
 
 ### D1 — PRODUCTO
-- **User Story**: "Como usuario del Golem, quiero que recuerde mi último contexto cuando lo reinicio, sin perder continuidad de conversación"
+- **User Story**: "Como usuario del Computadora, quiero que recuerde mi último contexto cuando lo reinicio, sin perder continuidad de conversación"
 - **RICE**: 
   - Reach: 100 (afecta toda sesión)
   - Impact: 3/4 (mejora percepción de memoria)
@@ -37,7 +37,7 @@
 
 ### D2 — MERCADO
 - **Competidores**:
-  - ChatGPT: Resets context per session (sin caché) → Golem advantage
+  - ChatGPT: Resets context per session (sin caché) → Computadora advantage
   - Copilot: Persistent memory con cloud sync → expensive
   - Local LLMs (Ollama): Basic file-based cache
 - **Moat**: Caché local + abierto (user-auditable) vs proprietary cloud
@@ -55,9 +55,9 @@
 ### D4 — INGENIERÍA
 - **Factibilidad**: ✅ HIGH (pattern bien-conocido)
 - **Arquitectura**:
-  - `golem/memoria/cache.py` (new) — cache in-memory con LRU + TTL
-  - `golem/memoria/checkpoint.py` (new) — serializar caché a JSON snapshot
-  - `golem/nucleo/recovery.py` (modify) — restaurar snapshot en startup
+  - `computadora/memoria/cache.py` (new) — cache in-memory con LRU + TTL
+  - `computadora/memoria/checkpoint.py` (new) — serializar caché a JSON snapshot
+  - `computadora/nucleo/recovery.py` (modify) — restaurar snapshot en startup
   - Integración: `__main__.py` → restore cache ANTES de start sensores
 - **Riesgo**: Stale cache → solved by TTL + explicit invalidation
 - **Esfuerzo**: ~40 horas (design + impl + tests)
@@ -72,7 +72,7 @@
 - **Go/No-Go**: ✅ GO (positive ROI)
 
 ### D6 — MARKETING
-- **Messaging**: "Golem nunca olvida tu contexto — recupera conversaciones de días pasados"
+- **Messaging**: "Computadora nunca olvida tu contexto — recupera conversaciones de días pasados"
 - **Positioning**: Privacy-first memory (vs cloud-dependent competitors)
 - **ASO/Copy**: "Offline memory" keyword targeting
 - **Go/No-Go**: ✅ GO (strong differentiator)
@@ -89,11 +89,11 @@
 
 | # | Archivo | Tipo | Descripción |
 |---|---------|------|-------------|
-| 1 | `golem/memoria/cache.py` | NEW | LRUCache + TTL manager |
-| 2 | `golem/memoria/checkpoint.py` | NEW | Serializar caché → JSON snapshot |
-| 3 | `golem/nucleo/recovery.py` | MOD | Restore snapshot en startup |
-| 4 | `golem/__main__.py` | MOD | Call recovery.restore() en init |
-| 5 | `golem/memoria/__init__.py` | MOD | Export cache + checkpoint |
+| 1 | `computadora/memoria/cache.py` | NEW | LRUCache + TTL manager |
+| 2 | `computadora/memoria/checkpoint.py` | NEW | Serializar caché → JSON snapshot |
+| 3 | `computadora/nucleo/recovery.py` | MOD | Restore snapshot en startup |
+| 4 | `computadora/__main__.py` | MOD | Call recovery.restore() en init |
+| 5 | `computadora/memoria/__init__.py` | MOD | Export cache + checkpoint |
 | 6 | `tests/test_cache_fp131.py` | NEW | Unit + integration tests |
 
 ---

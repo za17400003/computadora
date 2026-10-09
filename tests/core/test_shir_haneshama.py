@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/expresion/shir_haneshama.py (WI-291)
-Verifica la expresión artística del Golem.
+⊕ Sal — Tests para computadora/expresion/shir_haneshama.py (WI-291)
+Verifica la expresión artística del Computadora.
 """
 
 import pytest

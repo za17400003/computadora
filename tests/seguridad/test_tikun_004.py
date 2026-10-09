@@ -19,7 +19,7 @@ class TestFP041_ShemiratGevura(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        cls.src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
     def test_gevura_esperando_init_false(self):
         """_gevura_esperando se inicializa como False en __init__."""
@@ -74,7 +74,7 @@ class TestFP041_AST(unittest.TestCase):
 
     def test_ventana_principal_parsea(self):
         """ventana_principal.py se parsea sin errores de sintaxis."""
-        src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
         try:
             ast.parse(src)
         except SyntaxError as e:
@@ -86,7 +86,7 @@ class TestFP041_RegressionLock(unittest.TestCase):
 
     def test_fp039_fsm_guard_procesando(self):
         """FP-039: guards FSM procesando→procesando siguen presentes."""
-        src = (RAIZ / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+        src = (RAIZ / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
         self.assertIn('if self._estado != "procesando":', src)
 
     def test_fp040_workflow_no_tiene_diagrama(self):

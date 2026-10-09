@@ -653,7 +653,7 @@ _RE_DEMO_ANIMACIONES = re.compile(
     re.IGNORECASE,
 )
 
-# RF-243 גבורת הגולם Gevurát HaGolem — Demo 2 (permisos)
+# RF-243 גבורת הגולם Gevurát HaComputadora — Demo 2 (permisos)
 _RE_DEMO_HERRAMIENTAS = re.compile(
     r"(?:demo\s*(?:2|dos|two)"
     r"|segunda\s+demo(?:straci[oó]n)?"
@@ -885,7 +885,7 @@ from computadora.cerebro.patrones_guardian import (
     RE_DORMIR_VIGILA as _RE_DORMIR_VIGILA,
     RE_DUERMETE as _RE_DUERMETE,
     RE_BUENOS_DIAS as _RE_BUENOS_DIAS,
-    RE_REINICIAR_COMPUTADORA as _RE_REINICIAR_GOLEM,
+    RE_REINICIAR_COMPUTADORA as _RE_REINICIAR_COMPUTADORA,
 )
 
 # ═══════════════════════════════════════════════
@@ -1124,7 +1124,7 @@ class CerebroComputadora:
         # ═════ NIVEL 5: Meta-aprendizaje — Patrón de Comunicación como Contexto ═════
         self._decodificaciones_contexto: list[dict] = []  # Historial de decodificaciones (últimas 20)
         
-        # 🌱 RENOVACIÓN OPERATIVA: Inyectar las 5 Leyes en CerebroGolem
+        # 🌱 RENOVACIÓN OPERATIVA: Inyectar las 5 Leyes en CerebroComputadora
         self._cinco_leyes = LascincoLeyes()
         self._renovacion = RenovacionOperativa()
         self._transmutacion = TransmutacionAlquimica()
@@ -1332,7 +1332,7 @@ class CerebroComputadora:
     def establecer_watchdog(self, watchdog: 'WatchdogComputadora'):
         """WI-324: Establece la referencia al watchdog para sincronización."""
         self._watchdog_ref = watchdog
-        logger.debug("WI-324: CerebroGolem sincronizado con WatchdogComputadora")
+        logger.debug("WI-324: CerebroComputadora sincronizado con WatchdogComputadora")
 
     def _detectar_degradacion_local(self) -> bool:
         """FP-044C: NLU detecta degradación por SÍ MISMA sin watchdog.
@@ -1457,7 +1457,7 @@ class CerebroComputadora:
         # 🌱 ACTIVAR RENOVACIÓN: Integrar leyes en este cerebro
         try:
             self._renovacion.renovar(self)
-            logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroGolem")
+            logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroComputadora")
         except Exception as e:
             logger.error(f"❌ Error en Renovación Operativa: {e}")
         
@@ -2026,7 +2026,7 @@ class CerebroComputadora:
                     self._hist_append("assistant", respuesta_keter)
                     return respuesta_keter
 
-            # FP-062 RF-169: Automejoración — דברי הגולם Devré HaGolem
+            # FP-062 RF-169: Automejoración — דברי הגולם Devré HaComputadora
             # El Computadora pide cambios en su propio código a Copilot siguiendo el workflow
             _m_automejora = _RE_AUTOMEJORA.match(texto.strip())
             if _m_automejora:
@@ -2051,8 +2051,8 @@ class CerebroComputadora:
             if re.search(r'(actualiz|verific).*(dependencia|paquete|ollama|whisper|python|pip|tts)', tlow):
                 self._notificar_nivel("nivel1")
                 try:
-                    from computadora.nucleo.actualizador import ActualizadorGolem
-                    _act = ActualizadorGolem()
+                    from computadora.nucleo.actualizador import ActualizadorComputadora
+                    _act = ActualizadorComputadora()
                     if re.search(r'actualiz', tlow):
                         self._hist_append("user", texto)
                         resp = "Verificando estado antes de actualizar...\n" + _act.verificar_todo()
@@ -2166,7 +2166,7 @@ class CerebroComputadora:
             # ═══════════════════════════════════════════════
             # RF-219: Smart restart
             # ═══════════════════════════════════════════════
-            if _RE_REINICIAR_GOLEM.search(tlow):
+            if _RE_REINICIAR_COMPUTADORA.search(tlow):
                 self._notificar_nivel("nivel1")
                 return self._confirmar_reinicio()
 
@@ -2503,7 +2503,7 @@ class CerebroComputadora:
             if _RE_ESTADO_FSM.search(tlow):
                 self._notificar_nivel("nivel1")
                 try:
-                    from computadora.interfaz.fsm_golem import EstadoMaljut
+                    from computadora.interfaz.fsm_computadora import EstadoMaljut
                     estado = getattr(self, '_estado_actual', None)
                     if estado and isinstance(estado, EstadoMaljut):
                         return f"Estoy en estado {estado.value}, señor."
@@ -2563,7 +2563,7 @@ class CerebroComputadora:
                 self._notificar_nivel("nivel1")
                 return "__DEMO_ANIMACIONES__"
 
-            # RF-243 גבורת הגולם Gevurát HaGolem — Demo 2
+            # RF-243 גבורת הגולם Gevurát HaComputadora — Demo 2
             if _RE_DEMO_HERRAMIENTAS.search(tlow):
                 self._notificar_nivel("nivel1")
                 return "__DEMO_HERRAMIENTAS__"
@@ -2902,7 +2902,7 @@ class CerebroComputadora:
                 return "__RESUMEN__"
 
             # ═══════════════════════════════════════════════════════════
-            # FP-029: פֶּה הַגּוֹלֵם Peh HaGolem — Comandos de voz para RFs
+            # FP-029: פֶּה הַגּוֹלֵם Peh HaComputadora — Comandos de voz para RFs
             # Regex flexibles AL FINAL de N1, después de Lemed y existentes
             # ═══════════════════════════════════════════════════════════
 
@@ -3908,7 +3908,7 @@ class CerebroComputadora:
         except Exception as e:
             logger.debug("Error inyectando patrón comunicación: %s", e)
 
-        # RF-319: Contexto dimensional (Olamot HaGolem)
+        # RF-319: Contexto dimensional (Olamot HaComputadora)
         try:
             from computadora.arquitectura.dimensiones import obtener_contexto_prompt
             ctx_dim = obtener_contexto_prompt()
@@ -5169,7 +5169,7 @@ class CerebroComputadora:
             return limpia
         return "Trabajé en ello pero no pude terminar. Dime qué falta."
 
-    # ── FP-062 RF-169: דברי הגולם Devré HaGolem — Automejoración por Workflow ──
+    # ── FP-062 RF-169: דברי הגולם Devré HaComputadora — Automejoración por Workflow ──
 
     def _flujo_automejora(self, texto_original: str, detalle: str) -> str | None:
         """Flujo completo de automejoración: pide a Copilot vía workflow, recita proposal, espera aprobación."""
@@ -5502,5 +5502,5 @@ class CerebroComputadora:
 
 
 # Legacy compatibility alias (now primary class name)
-# CerebroComputadora es el nombre actual (anteriormente CerebroGolem)
+# CerebroComputadora es el nombre actual (anteriormente CerebroComputadora)
 

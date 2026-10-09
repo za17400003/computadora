@@ -13,7 +13,7 @@ from unittest.mock import patch, MagicMock
 
 def test_shomer_bayit_importable():
     """shomer_bayit.py se importa sin error."""
-    mod = importlib.import_module("golem.seguridad.shomer_bayit")
+    mod = importlib.import_module("computadora.seguridad.shomer_bayit")
     assert hasattr(mod, "es_red_hogar")
     assert hasattr(mod, "obtener_huella_red_actual")
     assert hasattr(mod, "registrar_hogar")
@@ -87,15 +87,15 @@ def test_servidor_grimorio_usa_shomer_bayit():
 
 def test_ventana_principal_tiene_camara_dev():
     """ventana_principal.py contiene _mostrar_camara_dev."""
-    vp_path = Path(__file__).parent.parent / "golem" / "interfaz" / "ventana_principal.py"
+    vp_path = Path(__file__).resolve().parents[2] / "computadora" / "interfaz" / "ventana_principal.py"
     source = vp_path.read_text(encoding="utf-8")
     assert "_mostrar_camara_dev" in source
-    assert "Ojos del Golem" in source
+    assert "Ojos del Computadora" in source
 
 
 def test_ventana_principal_tiene_accion_camara():
     """ventana_principal.py tiene QAction para cámara en Dev Tools."""
-    vp_path = Path(__file__).parent.parent / "golem" / "interfaz" / "ventana_principal.py"
+    vp_path = Path(__file__).resolve().parents[2] / "computadora" / "interfaz" / "ventana_principal.py"
     source = vp_path.read_text(encoding="utf-8")
     assert "Cámara" in source
 
@@ -111,10 +111,10 @@ def test_workflow_tiene_tria_prima():
 
 
 def test_workflow_tiene_jerarquia():
-    """DEVELOPMENT_WORKFLOW.md define jerarquía Grimorio > Minimi > Golem."""
+    """DEVELOPMENT_WORKFLOW.md define jerarquía Grimorio > Minimi > Computadora."""
     wf_path = Path(__file__).parent.parent / "DEVELOPMENT_WORKFLOW.md"
     source = wf_path.read_text(encoding="utf-8")
-    assert "Grimorio > Minimi > Golem" in source
+    assert "Grimorio > Minimi > Computadora" in source
 
 
 def test_workflow_tiene_amen():

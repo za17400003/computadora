@@ -22,7 +22,7 @@ from typing import Any
 from loguru import logger
 
 _DATOS_DIR = Path(__file__).resolve().parents[2] / "datos"
-_GOLEM_DIR = Path(__file__).resolve().parents[1]
+_COMPUTADORA_DIR = Path(__file__).resolve().parents[1]
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -156,7 +156,7 @@ def _arquitectura() -> dict[str, Any]:
             "ventana_principal": "interfaz/ventana_principal.py — Tiféret: orbe Maljut",
             "ventana_keter": "interfaz/ventana_keter.py — ventana de configuración",
             "dibujante_orbe": "interfaz/dibujante_orbe.py — renderizado del orbe",
-            "fsm_golem": "interfaz/fsm_computadora.py — máquina de estados",
+            "fsm_computadora": "interfaz/fsm_computadora.py — máquina de estados",
             "vida_autonoma": "interfaz/vida_autonoma.py — vida autónoma del orbe",
             "watchdog": "interfaz/watchdog.py — monitor de salud Ollama",
         },
@@ -234,7 +234,7 @@ def _capacidades() -> dict[str, Any]:
         pass
 
     n_modulos = 0
-    for _, _, filenames in os.walk(_GOLEM_DIR):
+    for _, _, filenames in os.walk(_COMPUTADORA_DIR):
         for f in filenames:
             if f.endswith(".py") and not f.startswith("_"):
                 n_modulos += 1

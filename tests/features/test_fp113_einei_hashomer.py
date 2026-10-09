@@ -24,12 +24,12 @@ def check(id, desc, fn):
 # ═══════════════════════════════════════════════
 
 check("WI153-01", "Import ventana_principal module", lambda: (
-    __import__('golem.interfaz.ventana_principal', fromlist=['VentanaPrincipal']) is not None,
+    __import__('computadora.interfaz.ventana_principal', fromlist=['VentanaPrincipal']) is not None,
     "módulo importable"
 ))
 
 check("WI153-02", "OrbeComputadora has _mostrar_camara_dev", lambda: (
-    hasattr(__import__('golem.interfaz.ventana_principal',
+    hasattr(__import__('computadora.interfaz.ventana_principal',
         fromlist=['OrbeComputadora']).OrbeComputadora, '_mostrar_camara_dev'),
     "método _mostrar_camara_dev existe"
 ))
@@ -40,19 +40,19 @@ check("WI153-02", "OrbeComputadora has _mostrar_camara_dev", lambda: (
 # ═══════════════════════════════════════════════
 
 check("WI154-01", "Import flujos_guardian", lambda: (
-    __import__('golem.cerebro.flujos_guardian',
+    __import__('computadora.cerebro.flujos_guardian',
         fromlist=['activar_guardian', 'desactivar_guardian']) is not None,
     "módulo importable"
 ))
 
 check("WI154-02", "activar_guardian is callable", lambda: (
-    callable(getattr(__import__('golem.cerebro.flujos_guardian',
+    callable(getattr(__import__('computadora.cerebro.flujos_guardian',
         fromlist=['activar_guardian']), 'activar_guardian')),
     "función activar_guardian accesible"
 ))
 
 check("WI154-03", "desactivar_guardian is callable", lambda: (
-    callable(getattr(__import__('golem.cerebro.flujos_guardian',
+    callable(getattr(__import__('computadora.cerebro.flujos_guardian',
         fromlist=['desactivar_guardian']), 'desactivar_guardian')),
     "función desactivar_guardian accesible"
 ))
@@ -63,19 +63,19 @@ check("WI154-03", "desactivar_guardian is callable", lambda: (
 # ═══════════════════════════════════════════════
 
 check("WI155-01", "_DIAS_MINIMOS == 3 (module-level)", lambda: (
-    __import__('golem.habilidades.baseline_sistema',
+    __import__('computadora.habilidades.baseline_sistema',
         fromlist=['_DIAS_MINIMOS'])._DIAS_MINIMOS == 3,
     "_DIAS_MINIMOS reducido a 3"
 ))
 
 check("WI155-02", "MonitorSistema has _ram_es_entorno_normal", lambda: (
-    hasattr(__import__('golem.habilidades.monitor_sistema',
+    hasattr(__import__('computadora.habilidades.monitor_sistema',
         fromlist=['MonitorSistema']).MonitorSistema, '_ram_es_entorno_normal'),
     "método _ram_es_entorno_normal existe"
 ))
 
 check("WI155-03", "PROCESOS_CONOCIDOS includes IDE entries", lambda: (
-    all(k in __import__('golem.habilidades.monitor_sistema',
+    all(k in __import__('computadora.habilidades.monitor_sistema',
         fromlist=['_PROCESOS_CONOCIDOS'])._PROCESOS_CONOCIDOS
         for k in ('code', 'studio64', 'java', 'gradle')),
     "entradas IDE presentes en _PROCESOS_CONOCIDOS"
@@ -87,12 +87,12 @@ check("WI155-03", "PROCESOS_CONOCIDOS includes IDE entries", lambda: (
 # ═══════════════════════════════════════════════
 
 check("WI156-01", "Import vida_autonoma", lambda: (
-    __import__('golem.interfaz.vida_autonoma', fromlist=['VidaAutonoma']) is not None,
+    __import__('computadora.interfaz.vida_autonoma', fromlist=['VidaAutonoma']) is not None,
     "módulo importable"
 ))
 
 check("WI156-02", "VidaAutonoma._esquivar exists", lambda: (
-    hasattr(__import__('golem.interfaz.vida_autonoma',
+    hasattr(__import__('computadora.interfaz.vida_autonoma',
         fromlist=['VidaAutonoma']).VidaAutonoma, '_esquivar'),
     "método _esquivar existe"
 ))

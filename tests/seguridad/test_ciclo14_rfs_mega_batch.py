@@ -36,7 +36,7 @@ class TestRF70AutoDiagnostic(unittest.TestCase):
     def test_rf70_system_health(self):
         self.assertTrue(True)
 
-class TestRF94PehHaGolem(unittest.TestCase):
+class TestRF94PehHaComputadora(unittest.TestCase):
     """RF-94: Voice Commands for All RFs"""
     def test_rf94_voice_commands(self):
         self.assertTrue(True)

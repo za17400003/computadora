@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/habilidades/web.py (WI-291)
+⊕ Sal — Tests para computadora/habilidades/web.py (WI-291)
 Verifica la habilidad de búsqueda web.
 """
 

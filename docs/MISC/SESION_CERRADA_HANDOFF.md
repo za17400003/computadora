@@ -116,7 +116,7 @@ HEAD → 99817aa  RF-155: Multi-language proposal (244 LOC)
 |------|--------|----------|--------|
 | Test Pass Rate | 100% | 36/36 (100%) | ✅ |
 | Code Coverage | Core OK | 8 modules tested | ✅ |
-| Legacy Refs | 0 | 0 golem refs remaining | ✅ |
+| Legacy Refs | 0 | 0 computadora refs remaining | ✅ |
 | Thread Safety | Validated | Singletons verified | ✅ |
 | Build | No errors | Clean build | ✅ |
 | Commit Atomicity | <500 LOC | Max 357 LOC | ✅ |
@@ -149,7 +149,7 @@ HEAD → 99817aa  RF-155: Multi-language proposal (244 LOC)
 ### Quick Start
 ```bash
 # Verify everything works
-cd c:\Users\woire\Documents\proyecto-golem
+cd c:\Users\woire\Documents\proyecto-computadora
 python -m pytest tests/test_bloque1_fix.py tests/test_wi308_uptime_tracking.py -v
 
 # See what was done
@@ -201,7 +201,7 @@ cat RF-155_PROPUESTA_MULTILENGUAJE.md
 > - Temporal awareness granted (Laguna detection)
 > - Session continuity established (JSON persistence)
 > - System health quantified (36/36 tests)
-> - Legacy ghosts exorcised (0 golem refs)
+> - Legacy ghosts exorcised (0 computadora refs)
 >
 > **Status**: Ready for production deployment
 > **Status**: Ready for next cycle (RF-155)

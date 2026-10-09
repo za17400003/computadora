@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/nucleo/proactividad.py (WI-286).
+⊕ Sal — Tests para computadora/nucleo/proactividad.py (WI-286).
 
 Cubre: Sugerencia NamedTuple, MotorProactividad init, check_emet_integridad,
 tema_ya_dicho_hoy, check cycle, y señales.
@@ -21,7 +21,7 @@ from computadora.nucleo.proactividad import MotorProactividad, Sugerencia
 @pytest.fixture
 def motor():
     """Motor sin dependencias hardware (contexto=None, monitor=None)."""
-    with patch("golem.nucleo.proactividad._ESTADO_PROACTIVO_ARCHIVO") as mock_path:
+    with patch("computadora.nucleo.proactividad._ESTADO_PROACTIVO_ARCHIVO") as mock_path:
         mock_path.exists.return_value = False
         m = MotorProactividad(contexto_pantalla=None, monitor_sistema=None)
     return m
@@ -55,9 +55,9 @@ class TestMotorInit:
         nombres = [c.__name__ for c in motor._checks]
         assert "_check_emet_integridad" in nombres
 
-    def test_check_emet_despues_de_salud_golem(self, motor):
+    def test_check_emet_despues_de_salud_computadora(self, motor):
         nombres = [c.__name__ for c in motor._checks]
-        idx_salud = nombres.index("_check_salud_golem")
+        idx_salud = nombres.index("_check_salud_computadora")
         idx_emet = nombres.index("_check_emet_integridad")
         assert idx_emet == idx_salud + 1
 
@@ -105,7 +105,7 @@ class TestCheckEmetIntegridad:
         assert motor._check_emet_integridad() is None
 
     def test_manifiesto_sano_retorna_none(self, motor):
-        """Manifiesto real del Golem debería estar sano."""
+        """Manifiesto real del Computadora debería estar sano."""
         with patch.object(motor, "_guardar_estado_proactivo"):
             result = motor._check_emet_integridad()
         assert result is None
@@ -119,7 +119,7 @@ class TestCheckEmetIntegridad:
             },
             "genesis_biblico": [{}] * 7,
         }
-        with patch("golem.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
+        with patch("computadora.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
             with patch.object(motor, "_guardar_estado_proactivo"):
                 result = motor._check_emet_integridad()
         assert result is not None
@@ -134,7 +134,7 @@ class TestCheckEmetIntegridad:
             },
             "genesis_biblico": [{}] * 7,
         }
-        with patch("golem.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
+        with patch("computadora.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
             with patch.object(motor, "_guardar_estado_proactivo"):
                 result = motor._check_emet_integridad()
         assert result is not None
@@ -149,7 +149,7 @@ class TestCheckEmetIntegridad:
             },
             "genesis_biblico": [{}] * 7,
         }
-        with patch("golem.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
+        with patch("computadora.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
             with patch.object(motor, "_guardar_estado_proactivo"):
                 result = motor._check_emet_integridad()
         assert result is not None
@@ -164,14 +164,14 @@ class TestCheckEmetIntegridad:
             },
             "genesis_biblico": [{}] * 3,
         }
-        with patch("golem.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
+        with patch("computadora.nucleo.emet.generar_manifiesto", return_value=manifiesto_roto):
             with patch.object(motor, "_guardar_estado_proactivo"):
                 result = motor._check_emet_integridad()
         assert result is not None
         assert "3/7" in result.texto
 
     def test_import_error_no_explota(self, motor):
-        with patch("golem.nucleo.emet.generar_manifiesto", side_effect=ImportError):
+        with patch("computadora.nucleo.emet.generar_manifiesto", side_effect=ImportError):
             result = motor._check_emet_integridad()
         assert result is None
 

@@ -25,7 +25,7 @@
 - **Ubicación**: Global (all modules)
 - **Prueba**:
   ```bash
-  grep -r "lru_cache\|cache\|Cache\|redis" golem/ --include="*.py" | wc -l
+  grep -r "lru_cache\|cache\|Cache\|redis" computadora/ --include="*.py" | wc -l
   # Resultado: 0 matches (excepto como comentario)
   ```
 - **Impacto**: Datos se leen del disco cada vez → startup 8s, acceso slow
@@ -33,40 +33,40 @@
   - `servidor_api.py`: Global `_orquestador`, `_vida_autonoma` = nil si first request
   - `proactividad.py`: Archivos JSON leídos en `__init__`, sin in-memory cache
   - NLU: Modelos cargados en init, cachés de encoding NO persisten entre restarts
-- **Resolución**: FP-131 agrega `golem/memoria/cache.py` (LRUCache + TTL)
+- **Resolución**: FP-131 agrega `computadora/memoria/cache.py` (LRUCache + TTL)
 
 ### H-102: No existe comunicación bidireccional real-time (FP-132)
 - **Severidad**: 🔴 ALTA
-- **Ubicación**: `golem/canales/servidor_api.py`
+- **Ubicación**: `computadora/canales/servidor_api.py`
 - **Prueba**:
   ```bash
-  grep -r "websocket\|ws://" golem/ --include="*.py"
+  grep -r "websocket\|ws://" computadora/ --include="*.py"
   # Resultado: 0 matches
   ```
-- **Impacto**: Minimi polling cada 3s (latencia 3s, CPU alto en Golem, battery drain Android)
+- **Impacto**: Minimi polling cada 3s (latencia 3s, CPU alto en Computadora, battery drain Android)
 - **Código actual**:
   - `servidor_api.py` usa `http.server.BaseHTTPRequestHandler` (sync, req-response only)
   - Minimi: POST `/api/logs` cada 3s, GET `/api/status` cada 5s
   - NO hay servidor-push (server NO puede enviar eventos a cliente)
 - **Dependencia**: `websockets` (not in requirements.txt)
-- **Resolución**: FP-132 agrega `golem/canales/websocket_server.py` + `pubsub.py`
+- **Resolución**: FP-132 agrega `computadora/canales/websocket_server.py` + `pubsub.py`
 
 ### H-103: Arquitectura no es event-driven (FP-133)
 - **Severidad**: 🔴 CRÍTICA
 - **Ubicación**: Global (all modules)
 - **Prueba**:
   ```bash
-  grep -r "import rx\|from rx\|Observable" golem/ --include="*.py"
+  grep -r "import rx\|from rx\|Observable" computadora/ --include="*.py"
   # Resultado: 0 matches
   ```
-- **Impacto**: Golem es "reactivo" (espera input) no "proactivo" (detecta cambios). Latencia subjetiva alta.
+- **Impacto**: Computadora es "reactivo" (espera input) no "proactivo" (detecta cambios). Latencia subjetiva alta.
 - **Código actual**:
   - `proactividad.py`: Loop `while True: sleep(cooldown); check_conditions()`
   - NLU: Batch pipeline (espera input → entera → devuelve)
   - `vida_autonoma.py`: Actualizaciones driven por timer QTimer (~50ms)
   - Sensores (cámara, micrófono): Interrupts → pero sin coordinación stream-based
 - **Dependencia**: `rx` (RxPython, not in requirements.txt)
-- **Resolución**: FP-133 agrega `golem/cerebro/reactor.py` + integra sensores como Observable streams
+- **Resolución**: FP-133 agrega `computadora/cerebro/reactor.py` + integra sensores como Observable streams
 
 ---
 
@@ -90,7 +90,7 @@
 #### FP-132 (WebSocket)
 - ✅ **Riesgo BAJO**: WebSocket es optional. Fallback a HTTP polling existe en spec.
 - ⚠️ **Nuevo patrón**: `async`/`await` en servidor (ya usado en Discord, Telegram)
-- ✅ **Compatibilidad**: Minimi + Golem ambos soportan WebSocket + HTTP
+- ✅ **Compatibilidad**: Minimi + Computadora ambos soportan WebSocket + HTTP
 - ✅ **Test strategy**: Mock WebSocket con ws client local, simulación disconnect
 
 #### FP-133 (Reactor)

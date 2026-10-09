@@ -501,7 +501,7 @@ class TestRF37Autorreflexion(unittest.TestCase):
         """Initialize reflection system"""
         self.last_response = None
         self.datos_reales = {
-            'personalidad': {'nombre': 'Golem', 'edad_virtual': 2},
+            'personalidad': {'nombre': 'Computadora', 'edad_virtual': 2},
             'memoria': {'eventos_recordados': 50},
             'sistema': {'cpu_uso': 45, 'memoria_mb': 512},
         }

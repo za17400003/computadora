@@ -159,7 +159,7 @@ def test_srs_coherencia_rf_01_to_36():
     
     # RF-35: Estados expresivos
     try:
-        from computadora.interfaz.fsm_golem import EstadoMaljut
+        from computadora.interfaz.fsm_computadora import EstadoMaljut
         estados = [e.value for e in EstadoMaljut]
         assert "cortesia" in estados, "EstadoMaljut.CORTESIA debe existir"
         assert "descanso_guardian" in estados, "EstadoMaljut.DESCANSO_GUARDIAN debe existir"

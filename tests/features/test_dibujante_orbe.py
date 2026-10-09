@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/interfaz/dibujante_orbe.py (WI-291)
+⊕ Sal — Tests para computadora/interfaz/dibujante_orbe.py (WI-291)
 Verifica las constantes y estructuras del dibujante (sin QPainter activo).
 """
 

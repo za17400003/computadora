@@ -26,9 +26,9 @@ class TestRF370OllamaTimeoutAdaptive(unittest.TestCase):
         """Preparar test fixtures."""
         try:
             from computadora.interfaz.watchdog import (
-                WatchdogGolem, ServicioMonitoreado, EtapaWatchdog
+                WatchdogComputadora, ServicioMonitoreado, EtapaWatchdog
             )
-            self.WatchdogGolem = WatchdogGolem
+            self.WatchdogComputadora = WatchdogComputadora
             self.ServicioMonitoreado = ServicioMonitoreado
             self.EtapaWatchdog = EtapaWatchdog
         except ImportError:
@@ -36,7 +36,7 @@ class TestRF370OllamaTimeoutAdaptive(unittest.TestCase):
 
     def test_ollama_service_exists(self):
         """Test: Servicio Ollama está registrado en watchdog."""
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         self.assertIn("ollama", watch.servicios)
 
     def test_ollama_timeout_30_seconds(self):
@@ -67,7 +67,7 @@ class TestRF370OllamaTimeoutAdaptive(unittest.TestCase):
 
     def test_watchdog_ollama_initialization(self):
         """Test: Watchdog inicializa Ollama con thresholds correctos."""
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         ollama_svc = watch.servicios["ollama"]
         
         # Verificar que Ollama tiene los thresholds correctos

@@ -20,7 +20,7 @@ class TestRF121_Particulas(unittest.TestCase):
 
     def test_offset_clamp_exists(self):
         """A1: offset se clampea tras actualizar"""
-        src = inspect.getsource(__import__('golem.interfaz.ventana_principal', fromlist=['Particula']).Particula.actualizar)
+        src = inspect.getsource(__import__('computadora.interfaz.ventana_principal', fromlist=['Particula']).Particula.actualizar)
         self.assertIn('_lim', src)
         self.assertIn('max(-_lim', src)
 
@@ -35,12 +35,12 @@ class TestRF121_Particulas(unittest.TestCase):
 
     def test_particulas_clear_dormido(self):
         """A3: cambiar_estado a dormido limpia partículas"""
-        src = inspect.getsource(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora.cambiar_estado)
+        src = inspect.getsource(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora.cambiar_estado)
         self.assertIn('_particulas.clear()', src)
 
     def test_caricia_respeta_max(self):
         """A4: explosión caricia usa min() para respetar cap"""
-        src_file = inspect.getfile(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
+        src_file = inspect.getfile(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         # Buscar el pattern min(8, _max_particulas - len
@@ -48,21 +48,21 @@ class TestRF121_Particulas(unittest.TestCase):
 
     def test_brisa_respeta_max(self):
         """A4: brisa usa min() para respetar cap"""
-        src_file = inspect.getfile(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
+        src_file = inspect.getfile(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         self.assertIn('min(3, self._max_particulas - len(self._particulas))', code)
 
     def test_primaryscreen_null_check(self):
         """A2: primaryScreen tiene null-check"""
-        src_file = inspect.getfile(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
+        src_file = inspect.getfile(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']))
         with open(src_file, encoding='utf-8') as f:
             code = f.read()
         self.assertIn('if _scr is None', code)
 
     def test_drawstate_copy(self):
         """A5: _draw_state pasa copia de lista"""
-        src = inspect.getsource(__import__('golem.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora._draw_state)
+        src = inspect.getsource(__import__('computadora.interfaz.ventana_principal', fromlist=['OrbeComputadora']).OrbeComputadora._draw_state)
         self.assertIn('self._particulas[:]', src)
 
 
@@ -71,22 +71,22 @@ class TestRF122_NetzajJesedMaljut(unittest.TestCase):
 
     def test_compress_day_write_then_delete(self):
         """B1: compress_day solo borra raw si escritura exitosa"""
-        src = inspect.getsource(__import__('golem.memoria.memoria', fromlist=['compress_day']).compress_day)
+        src = inspect.getsource(__import__('computadora.memoria.memoria', fromlist=['compress_day']).compress_day)
         self.assertIn('_resumen_ok', src)
         self.assertIn('_muestra_ok', src)
         self.assertIn('if _resumen_ok or _muestra_ok', src)
 
     def test_proactividad_reusa_metaworkflow(self):
-        """B2: _check_salud_golem reutiliza instancia"""
+        """B2: _check_salud_computadora reutiliza instancia"""
         src = inspect.getsource(
-            __import__('golem.nucleo.proactividad', fromlist=['MotorProactividad']).MotorProactividad._check_salud_golem
+            __import__('computadora.nucleo.proactividad', fromlist=['MotorProactividad']).MotorProactividad._check_salud_computadora
         )
         self.assertIn('_meta_workflow_inst', src)
         self.assertNotIn('mw = MetaWorkflow()', src)
 
     def test_watchdog_modelo_dinamico(self):
         """B3: watchdog no hardcodea modelo — deep check eliminado, solo shallow api/tags"""
-        src = inspect.getsource(__import__('golem.interfaz.watchdog', fromlist=['_check_ollama'])._check_ollama)
+        src = inspect.getsource(__import__('computadora.interfaz.watchdog', fromlist=['_check_ollama'])._check_ollama)
         # Deep check eliminado: no debe haber api/generate ni modelo hardcodeado
         self.assertNotIn('api/generate', src)
         self.assertIn('api/tags', src)

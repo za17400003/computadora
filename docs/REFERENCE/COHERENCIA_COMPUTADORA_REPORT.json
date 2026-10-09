@@ -1,5 +1,5 @@
 {
-  "timestamp": "C:\\Users\\woire\\Documents\\proyecto-golem",
+  "timestamp": "C:\\Users\\woire\\Documents\\proyecto-computadora",
   "overall_status": "PASSED",
   "components_passed": 13,
   "components_warning": 0,
@@ -44,7 +44,7 @@
       "errors": [],
       "warnings": [],
       "info": [
-        "\u2705 Check 1: Existe nlu.py (CerebroGolem)",
+        "\u2705 Check 1: Existe nlu.py (CerebroComputadora)",
         "\u2705 Check 2: Existe las_cinco_leyes.py",
         "\u2705 Check 3: Existe gemini_api.py o copilot_api.py",
         "\u2705 Check 4: Nivel 1/2/3 diferenciados"
@@ -102,7 +102,7 @@
       "warnings": [],
       "info": [
         "\u2705 Check 1: Existe ventana_principal.py",
-        "\u2705 Check 2: Contiene OrbeGolem o visualizaci\u00f3n",
+        "\u2705 Check 2: Contiene OrbeComputadora o visualizaci\u00f3n",
         "\u2705 Check 3: Integra con voz/"
       ]
     },

@@ -18,18 +18,18 @@ class TestConversacionMediaGuard(unittest.TestCase):
 
     def test_media_guard_presente_en_escucha(self):
         """El bloque FP-045A debe existir en escucha.py."""
-        src = _leer_fuente("golem/voz/escucha.py")
+        src = _leer_fuente("computadora/voz/escucha.py")
         self.assertIn("FP-045A", src)
         self.assertIn("media_activa_en_conversacion", src)
 
     def test_guard_respeta_esperando_respuesta(self):
         """Si _esperando_respuesta es True, NO debe descartar (necesita la respuesta del usuario)."""
-        src = _leer_fuente("golem/voz/escucha.py")
+        src = _leer_fuente("computadora/voz/escucha.py")
         self.assertIn("not self._esperando_respuesta", src)
 
     def test_log_media_descartada(self):
         """Debe loguear con motivo 'media_descartada'."""
-        src = _leer_fuente("golem/voz/escucha.py")
+        src = _leer_fuente("computadora/voz/escucha.py")
         self.assertIn('"media_descartada"', src)
 
 
@@ -40,12 +40,12 @@ class TestInterrupcionMediaGuard(unittest.TestCase):
 
     def test_interrupcion_guard_presente(self):
         """El bloque FP-045B debe existir en escucha.py."""
-        src = _leer_fuente("golem/voz/escucha.py")
+        src = _leer_fuente("computadora/voz/escucha.py")
         self.assertIn("FP-045B", src)
 
     def test_media_activa_filtra_silenciosamente(self):
         """Cuando media activa, debe retornar sin emitir interrupcion_detectada."""
-        src = _leer_fuente("golem/voz/escucha.py")
+        src = _leer_fuente("computadora/voz/escucha.py")
         # Debe haber: if _media_activa: ... return (antes del ratio check)
         pattern = r"if _media_activa:\s*\n\s+logger\.debug.*Media activa durante TTS.*\n\s+return"
         self.assertRegex(src, pattern)
@@ -78,7 +78,7 @@ class TestAlucinacionWhisperFilter(unittest.TestCase):
 
     def test_español_puro_no_afectado(self):
         filtro = self._importar_filtro()
-        resultado = filtro("busca todo lo que encuentres sobre los golems")
+        resultado = filtro("busca todo lo que encuentres sobre los computadoras")
         self.assertEqual(resultado, "")
 
     def test_acentos_españoles_ok(self):
@@ -109,7 +109,7 @@ class TestPistasHerramientasExpandido(unittest.TestCase):
         self.assertIsNotNone(self._regex().search("busca algo interesante"))
 
     def test_dime_todo(self):
-        self.assertIsNotNone(self._regex().search("dime todo sobre los golems"))
+        self.assertIsNotNone(self._regex().search("dime todo sobre los computadoras"))
 
     def test_dime_sobre(self):
         self.assertIsNotNone(self._regex().search("dime sobre la IA"))
@@ -124,7 +124,7 @@ class TestPistasHerramientasExpandido(unittest.TestCase):
         self.assertIsNotNone(self._regex().search("averigua quién inventó el teléfono"))
 
     def test_encuentra_todo(self):
-        self.assertIsNotNone(self._regex().search("encuentra todo sobre los golems"))
+        self.assertIsNotNone(self._regex().search("encuentra todo sobre los computadoras"))
 
     def test_encuentra_informacion(self):
         self.assertIsNotNone(self._regex().search("encuentra información del tema"))

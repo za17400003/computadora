@@ -7,5 +7,5 @@ mcpServers:
     args:
       - -y
       - "@modelcontextprotocol/server-filesystem"
-      - "C:\\Users\\woire\\Documents\\proyecto-golem"
+      - "C:\\Users\\woire\\Documents\\proyecto-computadora"
     env: {}

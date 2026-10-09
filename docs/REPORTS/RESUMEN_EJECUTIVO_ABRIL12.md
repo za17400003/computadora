@@ -14,7 +14,7 @@
 |---------|-------|
 | **Instancias Guardian descubiertas** | 341 |
 | **Instancias Grimorio → Enciclopedia** | 178 |
-| **Instancias Golem → Computadora** | 241 |
+| **Instancias Computadora → Computadora** | 241 |
 | **Total de cambios realizados** | 432 |
 | **Archivos afectados** | ~70 |
 | **Nuevos archivos creados** | 20+ |
@@ -55,7 +55,7 @@ computadora/cerebro/guardian/
 
 **flujos_guardian.py**:
 - 4 referencias actualizado
-- Tipo corregido: `CerebroGolem` → `CerebroComputadora`
+- Tipo corregido: `CerebroComputadora` → `CerebroComputadora`
 - Delegación: `cerebro.guardian_manager.activar()`
 
 ### 3. Tests Completos (RUBEDO PASO 4)
@@ -97,8 +97,8 @@ test_razon_y_origen_registrados (4 parametrizados):
 
 **Scripts ejecutados**:
 1. `MIGRAR_GRIMORIO_ENCICLOPEDIA.py` → 190 cambios
-2. `MIGRAR_GOLEM_COMPUTADORA.py` → 191 cambios
-3. `MIGRAR_GOLEM_COMPUTADORA_SECOND_PASS.py` → 10 cambios
+2. `MIGRAR_COMPUTADORA_COMPUTADORA.py` → 191 cambios
+3. `MIGRAR_COMPUTADORA_COMPUTADORA_SECOND_PASS.py` → 10 cambios
 4. `MIGRAR_PATHS_ANTIGUOS.py` → 41 cambios
 
 **Validación**: `VERIFICAR_MIGRACION.py` → ✅ "MIGRACION COMPLETA"
@@ -117,8 +117,8 @@ Después:
 │       └── README_ARCHIVE.md (índice)
 ├── scripts/
 │   ├── MIGRAR_GRIMORIO_ENCICLOPEDIA.py
-│   ├── MIGRAR_GOLEM_COMPUTADORA.py
-│   ├── MIGRAR_GOLEM_COMPUTADORA_SECOND_PASS.py
+│   ├── MIGRAR_COMPUTADORA_COMPUTADORA.py
+│   ├── MIGRAR_COMPUTADORA_COMPUTADORA_SECOND_PASS.py
 │   ├── MIGRAR_PATHS_ANTIGUOS.py
 │   └── VERIFICAR_MIGRACION.py
 └── tests/

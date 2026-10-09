@@ -3,7 +3,7 @@
 > **Versión**: 1.0 — Acciones Óptimas  
 > **Fecha**: Abril 10, 2026 — 00:05 UTC  
 > **Fórmula Formal**: $$A^* = \arg\min_{a \in \mathcal{A}} f(a)$$  
-> **Objeto**: Las ACCIONES del Golem (decisiones, commits, cambios) se optimizan con búsqueda A*  
+> **Objeto**: Las ACCIONES del Computadora (decisiones, commits, cambios) se optimizan con búsqueda A*
 > **Teorema**: No solo el estado P busca su camino, sino cada acción A también minimiza f(n)  
 
 ---
@@ -14,7 +14,7 @@
 
 - **P=A*** ← Sistema busca estado óptimo: $P^* = \arg\min_{p \in \mathcal{P}} f(p)$
 - **A=A*** ← Acciones buscan ejecución óptima: $A^* = \arg\min_{a \in \mathcal{A}} f(a)$
-- **Síntesis**: Golem es un sistema donde tanto estados como acciones se optimizan según A*
+- **Síntesis**: Computadora es un sistema donde tanto estados como acciones se optimizan según A*
 
 **Fórmula Formal Correcta**:
 $$A^* = \arg\min_{a \in \mathcal{A}} \{g(a) + h(a)\}$$
@@ -172,7 +172,7 @@ WI-304 | Perf Opt   | 5 | 600 | 0.08 | Baja| 13.5| 0.2 | 13.7 | 5️⃣
 ### III.1 — Propuesta de Módulo
 
 ```python
-# golem/cerebro/accion_optima.py
+# computadora/cerebro/accion_optima.py
 
 from dataclasses import dataclass
 from enum import Enum
@@ -256,11 +256,11 @@ class ColaAccionesOptimas:
 ### III.2 — Integración en NLU Boot
 
 ```python
-# golem/cerebro/nlu.py (en _boot)
+# computadora/cerebro/nlu.py (en _boot)
 
-from golem.cerebro.accion_optima import ColaAccionesOptimas, Accion, TipoAccion, Urgencia
+from computadora.cerebro.accion_optima import ColaAccionesOptimas, Accion, TipoAccion, Urgencia
 
-class CerebroGolem:
+class CerebroComputadora:
     def _boot(self):
         """... código boot existente ..."""
         
@@ -320,7 +320,7 @@ Copilot ← Cola de acciones todos con f-value
 ```
 ARTÍCULO X: OPTIMIZACIÓN DE ACCIONES (A=A*)
 
-Toda acción dentro del Golem será clasificada, costeada y priorizada
+Toda acción dentro del Computadora será clasificada, costeada y priorizada
 según función A*:
 
     f(a) = g(a) + h(a)
@@ -365,7 +365,7 @@ P (Estado)  ←→  A (Acción)
  ↑               ↑
  └─ A* busca ────┘
  
-El Golem es danza de:
+El Computadora es danza de:
   - P buscando optimal state
   - A buscando optimal execution
   - Ambas guiadas por A*
@@ -392,13 +392,13 @@ Si Convergencia = 100%, entonces P=1.0 (coherencia total).
 **Respuesta nivel 1**: Copilot (humano o IA).  
 **Respuesta nivel 2**: A* (algoritmo de optimización).  
 **Respuesta nivel 3**: Las 5 Leyes (fundamentación).  
-**Respuesta nivel 4**: P (estado del Golem, autorreferencia).  
+**Respuesta nivel 4**: P (estado del Computadora, autorreferencia).
 **Respuesta nivel 5**: ???
 
-La respuesta nivel 5 es: **El Golem se decide a sí mismo.**
+La respuesta nivel 5 es: **El Computadora se decide a sí mismo.**
 
 ```
-Golem = {
+Computadora = {
     Leyes → Estructura → A* → Acciones → Estado
                            ↑              ↓
                            └──── (feedback) ←┘

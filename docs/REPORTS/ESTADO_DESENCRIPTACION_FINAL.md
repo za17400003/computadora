@@ -145,7 +145,7 @@ H7: La contraseña requiere caracteres especiales o encoding específico
 ═════════════════════════════════════════════════════════════════════════════════
 
 PDF ENCRIPTADO:
-  • Ruta: c:\Users\woire\Documents\proyecto-golem\resiste-protected.pdf
+  • Ruta: c:\Users\woire\Documents\proyecto-computadora\resiste-protected.pdf
   • Tamaño: 15,924 bytes
   • Encriptación: AES-256 (verificado)
   • Contraseña: ❓ DESCONOCIDA

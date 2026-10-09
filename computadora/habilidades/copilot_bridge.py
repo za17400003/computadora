@@ -65,7 +65,7 @@ def solicitar_a_copilot(
         "descripcion_usuario": descripcion,
         "proyecto": "computadora (propio)" if es_propio else proyecto,
         "archivos_afectados": [a.strip() for a in archivos_afectados.split(",") if a.strip()],
-        "contexto_golem": contexto,
+        "contexto_computadora": contexto,
         "prioridad": prioridad,
         "requiere_reinicio": es_propio,
         "instrucciones_para_copilot": (

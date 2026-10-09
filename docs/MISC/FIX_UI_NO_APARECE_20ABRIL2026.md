@@ -13,7 +13,7 @@ Hay un error silencioso en Python que cierra la ventana antes de que PyQt6 pueda
 ## ⚡ Solución Rápida — 3 Pasos
 
 ### Paso 1: Ejecuta el Debug Batch
-En tu PowerShell (en proyecto-golem):
+En tu PowerShell (en proyecto-computadora):
 ```powershell
 .\computadora_debug_report.bat
 ```
@@ -75,7 +75,7 @@ Si alguno falla, ve a TROUBLESHOOTING_UI_NO_APARECE.md
 Ejecuta esto y envía el output completo:
 
 ```powershell
-cd C:\Users\woire\Documents\proyecto-golem
+cd C:\Users\woire\Documents\proyecto-computadora
 
 Write-Host "=== SISTEMA INFO ==="
 python --version

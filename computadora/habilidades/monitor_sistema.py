@@ -24,7 +24,7 @@ except ImportError:
     _MATEMATICAS_DISPONIBLE = False
 
 # PID del proceso actual de Computadora
-_GOLEM_PID = os.getpid()
+_COMPUTADORA_PID = os.getpid()
 # Nombres de procesos propios (Computadora + Ollama)
 _PROCESOS_PROPIOS = frozenset({'python.exe', 'python3.exe', 'pythonw.exe', 'llm_server.exe', 'ollama.exe'})
 
@@ -229,7 +229,7 @@ class MonitorSistema:
             if 'lm_' in nombre or 'llm_' in nombre:
                 return True
             # Hijos del proceso Computadora actual
-            if proc.ppid() == _GOLEM_PID:
+            if proc.ppid() == _COMPUTADORA_PID:
                 return True
         except (psutil.NoSuchProcess, psutil.AccessDenied):
             pass

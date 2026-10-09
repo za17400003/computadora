@@ -67,8 +67,8 @@ def profile_boot():
         imports_start = time.monotonic()
         
         from computadora.utilidades.logs import configurar_logs
-        from computadora.cerebro.nlu import CerebroGolem
-        from computadora.interfaz.ventana_principal import OrbeGolem
+        from computadora.cerebro.nlu import CerebroComputadora
+        from computadora.interfaz.ventana_principal import OrbeComputadora
         
         imports_time = time.monotonic() - imports_start
         print(f"  Imports completados en {imports_time:.2f}s")
@@ -80,12 +80,12 @@ def profile_boot():
         logs_time = time.monotonic() - logs_start
         print(f"  Logs configurados en {logs_time:.2f}s")
         
-        # FASE 3: CerebroGolem
-        print("\n[PHASE 3] Inicializando CerebroGolem...")
+        # FASE 3: CerebroComputadora
+        print("\n[PHASE 3] Inicializando CerebroComputadora...")
         cerebro_start = time.monotonic()
-        cerebro = CerebroGolem(modelo="llama2:7b")
+        cerebro = CerebroComputadora(modelo="llama2:7b")
         cerebro_time = time.monotonic() - cerebro_start
-        print(f"  CerebroGolem listo en {cerebro_time:.2f}s")
+        print(f"  CerebroComputadora listo en {cerebro_time:.2f}s")
         
         # FASE 4: Análisis de threading
         print("\n[PHASE 4] Análisis de threads activos...")
@@ -128,11 +128,11 @@ def profile_interaction():
     print("="*80)
     
     try:
-        from computadora.cerebro.nlu import CerebroGolem
+        from computadora.cerebro.nlu import CerebroComputadora
         from computadora.utilidades.logs import configurar_logs
         
         configurar_logs()
-        cerebro = CerebroGolem(modelo="llama2:7b")
+        cerebro = CerebroComputadora(modelo="llama2:7b")
         
         test_inputs = [
             ("Hola", "Saludo simple"),

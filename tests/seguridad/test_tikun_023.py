@@ -9,7 +9,7 @@ import re
 import unittest
 
 RAIZ = os.path.join(os.path.dirname(__file__), os.pardir)
-GOLEM = os.path.join(RAIZ, "golem")
+COMPUTADORA = os.path.join(RAIZ, "computadora")
 
 
 def _leer(ruta_relativa: str) -> str:
@@ -27,7 +27,7 @@ class TestRF166_CierreLimpio(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = _leer("golem/interfaz/ventana_principal.py")
+        cls.src = _leer("computadora/interfaz/ventana_principal.py")
 
     def test_close_event_stops_timer(self):
         """closeEvent contiene .stop() para _timer."""
@@ -66,11 +66,11 @@ class TestRF166_CierreLimpio(unittest.TestCase):
 # ═══════════════════════════════════════════════
 
 class TestRF167_HigieneExcepciones(unittest.TestCase):
-    """Valida que NO quedan except Exception: silenciosos en golem/."""
+    """Valida que NO quedan except Exception: silenciosos en computadora/."""
 
     def _all_py_files(self):
-        """Yield all .py files under golem/ (excluding __init__)."""
-        for dirpath, _, filenames in os.walk(GOLEM):
+        """Yield all .py files under computadora/ (excluding __init__)."""
+        for dirpath, _, filenames in os.walk(COMPUTADORA):
             for f in filenames:
                 if f.endswith(".py") and f != "__init__.py":
                     yield os.path.join(dirpath, f)

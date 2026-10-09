@@ -37,7 +37,7 @@ Problema 1: No había verificación automática
   → Problemas se acumulaban silenciosamente
 
 Problema 2: Terminología contaminada
-  → Grimorio/Golem/COMPUTADORA mezclados sin regla
+  → Grimorio/Computadora/COMPUTADORA mezclados sin regla
 
 Problema 3: Estructura desorganizada
   → Archivos en raíz sin criterio

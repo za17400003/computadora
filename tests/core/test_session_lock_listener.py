@@ -11,9 +11,9 @@ import time
 
 
 class TestSessionLockListener:
-    """Tests para golem.utilidades.session_lock_listener"""
+    """Tests para computadora.utilidades.session_lock_listener"""
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_init(self, mock_user32):
         """Test: SessionLockListener inicializa correctamente."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -24,7 +24,7 @@ class TestSessionLockListener:
         assert listener.on_lock is not None
         assert listener.on_unlock is not None
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_custom_callbacks(self, mock_user32):
         """Test: Callbacks personalizados se deben asignar."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -36,7 +36,7 @@ class TestSessionLockListener:
         assert listener.on_lock == on_lock_mock
         assert listener.on_unlock == on_unlock_mock
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_start_stop(self, mock_user32):
         """Test: start() inicia listener, stop() lo detiene."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -58,7 +58,7 @@ class TestSessionLockListener:
         # Hook debería haberse removido o listener detenido
         assert listener._stop_event.is_set()
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_lock_detection_workerkw(self, mock_user32):
         """Test: Detecta lock screen cuando wnd_class=WorkerW."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -81,8 +81,8 @@ class TestSessionLockListener:
         )
         
         # Mock para GetWindowTextW y GetClassNameW
-        with patch('golem.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_get_text, \
-             patch('golem.utilidades.session_lock_listener._user32.GetClassNameW') as mock_get_class:
+        with patch('computadora.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_get_text, \
+             patch('computadora.utilidades.session_lock_listener._user32.GetClassNameW') as mock_get_class:
             
             # Mock retorna "WorkerW" como clase → debe ser lock screen
             def set_text_buffer(hwnd, buf, sz):
@@ -107,7 +107,7 @@ class TestSessionLockListener:
             # Mock debe inyectar WorkerW
             listener._win_event_hook(123, 3, 999, 0, 0, 1234, 0)
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_unlock_detection(self, mock_user32):
         """Test: Detecta desbloqueio cuando wnd_class != WorkerW."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -119,8 +119,8 @@ class TestSessionLockListener:
         listener._is_locked = True  # Simulamos estado bloqueado
         
         # Mock para simular ventana normal (explorer)
-        with patch('golem.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_get_text, \
-             patch('golem.utilidades.session_lock_listener._user32.GetClassNameW') as mock_get_class:
+        with patch('computadora.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_get_text, \
+             patch('computadora.utilidades.session_lock_listener._user32.GetClassNameW') as mock_get_class:
             
             def set_text_buffer(hwnd, buf, sz):
                 text = "Explorer"
@@ -142,7 +142,7 @@ class TestSessionLockListener:
             listener._is_locked = True
             listener._win_event_hook(123, 3, 999, 0, 0, 1234, 0)
     
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_double_start_idempotent(self, mock_user32):
         """Test: Llamar start() dos veces no crea dos listeners."""
         from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -163,7 +163,7 @@ class TestSessionLockListener:
         assert first_handle == second_handle
         listener.stop()
     
-    @patch('golem.utilidades.session_lock_listener.SessionLockListener')
+    @patch('computadora.utilidades.session_lock_listener.SessionLockListener')
     def test_global_singleton(self, mock_listener_class):
         """Test: iniciar_session_lock_listener mantiene singleton."""
         from computadora.utilidades.session_lock_listener import (
@@ -199,7 +199,7 @@ class TestSessionLockListenerIntegration:
         assert callable(obtener_session_lock_listener)
         assert callable(es_session_lock_bloqueada)
 
-    @patch('golem.utilidades.session_lock_listener._user32')
+    @patch('computadora.utilidades.session_lock_listener._user32')
     def test_es_session_lock_bloqueada_helper(self, mock_user32):
         """Test: es_session_lock_bloqueada() refleja el estado del listener global."""
         from computadora.utilidades.session_lock_listener import (
@@ -223,7 +223,7 @@ class TestSessionLockListenerIntegration:
     ("ConsoleWindowClass", "Command Prompt", False),  # Normal app
     ("Thread_RichEditPanel", "Editor", False),  # Normal app
 ])
-@patch('golem.utilidades.session_lock_listener._user32')
+@patch('computadora.utilidades.session_lock_listener._user32')
 def test_window_classification(mock_user32, wnd_class, title, should_lock):
     """Test: Clasificación correcta de ventanas lock vs normal."""
     from computadora.utilidades.session_lock_listener import SessionLockListener
@@ -231,8 +231,8 @@ def test_window_classification(mock_user32, wnd_class, title, should_lock):
     listener = SessionLockListener()
     
     # Simular detección
-    with patch('golem.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_text, \
-         patch('golem.utilidades.session_lock_listener._user32.GetClassNameW') as mock_class:
+    with patch('computadora.utilidades.session_lock_listener._user32.GetWindowTextW') as mock_text, \
+         patch('computadora.utilidades.session_lock_listener._user32.GetClassNameW') as mock_class:
         
         def set_text(hwnd, buf, sz):
             for i, c in enumerate(title[:sz-1]):

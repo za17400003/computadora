@@ -138,7 +138,7 @@ def verificar_edge_tts() -> Optional[str]:
     return None
 
 
-class ActualizadorGolem:
+class ActualizadorComputadora:
     """Motor de auto-actualización de Computadora.
     
     Verifica periódicamente las versiones de dependencias clave

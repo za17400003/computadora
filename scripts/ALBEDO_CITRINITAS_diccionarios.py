@@ -26,7 +26,7 @@ print("[1] GENERANDO DICCIONARIOS LOCALES\n")
 proyecto_palabras = [
     'resiste', 'verdad', 'verdadero', 'verdadera', 'vida', 'video',
     'vuelve', 'empezar', 'potencial', 'humanidad', 'libertad', 'libre',
-    'chaplin', 'chaperon', 'golem', 'computadora', 'escucha', 'emet',
+    'chaplin', 'chaperon', 'computadora', 'computadora', 'escucha', 'emet',
     'ouroboros', 'alquimia', 'gilgul', 'bereshit', 'palingenesia',
     'nigredo', 'albedo', 'citrinitas', 'rubedo', 'sefirot', 'árbol',
     'amen', 'por favor', 'gracias', 'prosigue', 'continúa', 'obra',

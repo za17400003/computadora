@@ -21,16 +21,16 @@ class TestRF247_AutoReinicio(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.src = _leer("golem/interfaz/ventana_principal.py")
+        cls.src = _leer("computadora/interfaz/ventana_principal.py")
 
     def test_import_subprocess(self):
         """subprocess está importado para el auto-reinicio."""
         self.assertIn("import subprocess", self.src)
 
     def test_on_requiere_reinicio_lanza_bat(self):
-        """_on_requiere_reinicio usa subprocess.Popen para lanzar iniciar_golem.bat."""
+        """_on_requiere_reinicio usa subprocess.Popen para lanzar iniciar_computadora.bat."""
         self.assertIn("subprocess.Popen", self.src)
-        self.assertIn("iniciar_golem.bat", self.src)
+        self.assertIn("iniciar_computadora.bat", self.src)
 
     def test_on_requiere_reinicio_quit(self):
         """_on_requiere_reinicio cierra la app con QApplication.quit()."""

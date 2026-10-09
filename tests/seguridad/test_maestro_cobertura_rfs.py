@@ -22,7 +22,7 @@ proyecto_root = Path(__file__).parent.parent
 sys.path.insert(0, str(proyecto_root))
 
 # Importar modelos para validación
-from computadora.interfaz.watchdog import WatchdogGolem, EtapaWatchdog
+from computadora.interfaz.watchdog import WatchdogComputadora, EtapaWatchdog
 from computadora.cerebro.nlu import CerebroComputadora
 from computadora.interfaz.ventana_principal import OrbeComputadora
 
@@ -80,11 +80,11 @@ class TestMaestroCoberturaBFS(unittest.TestCase):
     def test_jerarquia_coherencia_tier2(self):
         """Tier 2: Validar coherencia inter-módulo (Watchdog↔NLU↔Voice)."""
         # WI-324: Sincronización Watchdog↔NLU
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.cerebro.nlu import CerebroComputadora
         
         cerebro = CerebroComputadora()
-        watchdog = WatchdogGolem()
+        watchdog = WatchdogComputadora()
         
         # Establecer referencia
         cerebro.establecer_watchdog(watchdog)
@@ -98,7 +98,7 @@ class TestMaestroCoberturaBFS(unittest.TestCase):
         try:
             # Test instantiation de componentes clave
             cerebro = CerebroComputadora()
-            watchdog = WatchdogGolem()
+            watchdog = WatchdogComputadora()
             # (No instanciar OrbeComputadora porque requiere Qt)
             
             self.assertIsNotNone(cerebro)
@@ -124,11 +124,11 @@ class TestMaestroCoberturaBFS(unittest.TestCase):
 
     def test_rf54_resiliencia_ollama_improved(self):
         """RF-54: Resiliencia Ollama — Mejorado en WI-324."""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.cerebro.nlu import CerebroComputadora
         
         cerebro = CerebroComputadora()
-        watchdog = WatchdogGolem()
+        watchdog = WatchdogComputadora()
         cerebro.establecer_watchdog(watchdog)
         
         # Simular Ollama degradado
@@ -151,7 +151,7 @@ class TestMaestroCoberturaBFS(unittest.TestCase):
 
     def test_coherencia_estado_sistema_completo(self):
         """Auditoría: Estado del sistema completo tras todos los tests."""
-        watchdog = WatchdogGolem()
+        watchdog = WatchdogComputadora()
         cerebro = CerebroComputadora()
         
         # Estado esperado

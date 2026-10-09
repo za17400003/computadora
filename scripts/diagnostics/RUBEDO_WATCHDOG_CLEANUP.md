@@ -121,7 +121,7 @@ else:
 ### PRESERVACIÓN 5: WI-324 Íntegro
 
 **Métodos Mantenidos** (no tocados):
-- ✅ `establecer_watchdog()` — vinculación con WatchdogGolem
+- ✅ `establecer_watchdog()` — vinculación con WatchdogComputadora
 - ✅ `_check_ollama_degradacion()` — consulta watchdog en `_timeout_adaptativo()`
 - ✅ `liberar_modelos_ollama()` — limpieza VRAM cuando degradado
 - ✅ `_iniciar_reconexion_background()` — reconexión background tras error

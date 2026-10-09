@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/percepcion/emocion_rostro.py (WI-291)
+⊕ Sal — Tests para computadora/percepcion/emocion_rostro.py (WI-291)
 Verifica el analizador de emociones faciales.
 """
 

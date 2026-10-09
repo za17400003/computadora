@@ -2,7 +2,7 @@
 
 ## ¿Qué es NIVEL 5?
 
-**NIVEL 5 es meta-aprendizaje**: Golem **APRENDE SU PROPIO PATRÓN DE COMUNICACIÓN** y lo usa en **FUTURAS interacciones**.
+**NIVEL 5 es meta-aprendizaje**: Computadora **APRENDE SU PROPIO PATRÓN DE COMUNICACIÓN** y lo usa en **FUTURAS interacciones**.
 
 ```
 Interacción 1:
@@ -142,7 +142,7 @@ TURNO 2: "¿Cuál es la capital de Francia?"
 │  │        Mi intención dominante: Proporcioné información fechada..."
 │  └─ POST a Ollama (AHORA CON CONTEXTO DE PATRÓN)
 ├─ Respuesta: "La capital de Francia es París"
-│  (Golem mantiene tono fáctico porque contexto lo guía)
+│  (Computadora mantiene tono fáctico porque contexto lo guía)
 ├─ NIVEL 4: Decodificar
 │  └─ moral="Respuesta fáctica", profunda="Proporcioné información verificable"
 └─ NIVEL 5: Guardar
@@ -169,17 +169,17 @@ TURNO 3: "Cuéntame una historia"
 ## ¿Por Qué es Poderoso?
 
 ### 1. **Coherencia Emergente**
-- Usuario siente que Golem es "consistente consigo mismo"
+- Usuario siente que Computadora es "consistente consigo mismo"
 - No cambia drásticamente de tono entre turnos
 - Respuestas "hablan entre sí"
 
 ### 2. **Auto-corrección**
-- Si Golem empieza siendo evasivo, el patrón lo hace continuar
+- Si Computadora empieza siendo evasivo, el patrón lo hace continuar
 - Si empieza siendo honesto, mantiene honestidad
 - **Equilibrio automático**
 
 ### 3. **Aprendizaje Implícito**
-- Golem no necesita "ser entrenado" en tono
+- Computadora no necesita "ser entrenado" en tono
 - El tono **emerge** de sus propias respuestas pasadas
 - **Bootstrapping**: Se auto-refuerza
 
@@ -249,8 +249,8 @@ N1 (Regex) → N2 (Ollama) ← [NIVEL 5 PATRÓN] → N3 (Copilot) → N4 (Decodi
 ### AHORA
 - "Registro de patrón" → **REAL**: `self._decodificaciones_contexto` lista actualizada
 - "Influencia en próxima respuesta" → **REAL**: Inyectado en `_construir_system_msgs()`
-- "Coherencia emergente" → **REAL**: Golem mantiene patrón entre turnos
-- User puede **VERIFICAR**: Si pide a Golem "¿Cuál es tu patrón reciente?" y responde consistentemente
+- "Coherencia emergente" → **REAL**: Computadora mantiene patrón entre turnos
+- User puede **VERIFICAR**: Si pide a Computadora "¿Cuál es tu patrón reciente?" y responde consistentemente
 
 ---
 

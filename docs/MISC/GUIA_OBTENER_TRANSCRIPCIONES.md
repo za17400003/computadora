@@ -33,7 +33,7 @@ YouTube protege sus transcripciones. Los descargadores automáticos (yt-dlp, you
 ### Paso 5: Guarda en archivo
 1. Abre Notepad o VSCode
 2. Pega el contenido (Ctrl+V)
-3. Guarda en proyecto-golem con estos nombres:
+3. Guarda en proyecto-computadora con estos nombres:
    - `transcripcion_es.txt` (español - ORIGINAL)
    - `transcripcion_de.txt` (alemán)
    - `transcripcion_en.txt` (inglés)
@@ -43,7 +43,7 @@ YouTube protege sus transcripciones. Los descargadores automáticos (yt-dlp, you
 ### Paso 6: Busca la contraseña
 Ejecuta en terminal:
 ```powershell
-cd c:\Users\woire\Documents\proyecto-golem
+cd c:\Users\woire\Documents\proyecto-computadora
 python scripts/ANALIZAR_Y_DESENCRIPTAR.py
 ```
 
@@ -91,7 +91,7 @@ El script:
 
 ### P: El script no encuentra los archivos
 **R:**
-- Verifica que los archivos estén en la raíz: `c:\Users\woire\Documents\proyecto-golem\`
+- Verifica que los archivos estén en la raíz: `c:\Users\woire\Documents\proyecto-computadora\`
 - NO en carpeta `scripts/`
 - Revisa nombres exactos sin mayúsculas
 
@@ -127,7 +127,7 @@ Get-Content transcripcion_es.txt -Head 5
 ## 🎯 Objetivo Final
 
 1. ✅ Obtener 5 transcripciones manualmente
-2. ✅ Guardarlas con nombres correctos en proyecto-golem/
+2. ✅ Guardarlas con nombres correctos en proyecto-computadora/
 3. ✅ Ejecutar ANALIZAR_Y_DESENCRIPTAR.py
 4. ✅ Script encuentra contraseña automáticamente
 5. ✅ Abre PDF y ve qué hay dentro

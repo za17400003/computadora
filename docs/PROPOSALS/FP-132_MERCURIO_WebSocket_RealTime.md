@@ -15,7 +15,7 @@
 **Solución**:
 1. WebSocket endpoint en `servidor_api.py`
 2. Server-Sent Events (SSE) para eventos unidireccionales (logs, alerts)
-3. Pub/Sub model: Golem emite eventos, Minimi suscribe (topicos)
+3. Pub/Sub model: Computadora emite eventos, Minimi suscribe (topicos)
 4. Fallback a polling si WebSocket cae (graceful degradation)
 
 **Valor**: 
@@ -29,9 +29,9 @@
 ## 🔍 Análisis D1-D7
 
 ### D1 — PRODUCTO
-- **User Story**: "Como usuario de Minimi, quiero ver los logs del Golem EN DIRECTO sin demoras de polling"
+- **User Story**: "Como usuario de Minimi, quiero ver los logs del Computadora EN DIRECTO sin demoras de polling"
 - **RICE**:
-  - Reach: 80 (afecta Minimi + Golem relay)
+  - Reach: 80 (afecta Minimi + Computadora relay)
   - Impact: 3/4 (drástica mejora latencia)
   - Confidence: 95%
   - Effort: 8 weeks
@@ -59,10 +59,10 @@
 ### D4 — INGENIERÍA
 - **Factibilidad**: ✅ HIGH (standard tech: aiohttp, websockets)
 - **Arquitectura**:
-  - `golem/canales/websocket_server.py` (new) — WebSocket endpoint
-  - `golem/canales/pubsub.py` (new) — Topic-based pub/sub
-  - `golem/canales/servidor_api.py` (modify) — Add WebSocket route
-  - Android: Go-compatible WebSocket client (`GolemClient.kt` modify)
+  - `computadora/canales/websocket_server.py` (new) — WebSocket endpoint
+  - `computadora/canales/pubsub.py` (new) — Topic-based pub/sub
+  - `computadora/canales/servidor_api.py` (modify) — Add WebSocket route
+  - Android: Go-compatible WebSocket client (`ComputadoraClient.kt` modify)
   - Fallback logic: if WebSocket down → automatic resume polling
 - **Riesgo**: Connection instability → mitigated by heartbeat + auto-reconnect
 - **Esfuerzo**: ~60 horas (backend + client + tests)
@@ -77,7 +77,7 @@
 - **Go/No-Go**: ✅ GO (strong positive ROI)
 
 ### D6 — MARKETING
-- **Messaging**: "Golem Relay is instant — see logs LIVE on Minimi"
+- **Messaging**: "Computadora Relay is instant — see logs LIVE on Minimi"
 - **Positioning**: "Real-time assistant sync" (only local AI with this)
 - **Demo**: Side-by-side polling (3s lag) vs WebSocket (50ms) video
 - **Go/No-Go**: ✅ GO (strong differentiator for power users)
@@ -94,11 +94,11 @@
 
 | # | Archivo | Tipo | Descripción |
 |---|---------|------|-------------|
-| 1 | `golem/canales/websocket_server.py` | NEW | WebSocket server + handlers |
-| 2 | `golem/canales/pubsub.py` | NEW | Pub/Sub manager (topics) |
-| 3 | `golem/canales/servidor_api.py` | MOD | Integrate WebSocket route |
-| 4 | `golem/utilidades/heartbeat.py` | NEW | Connection heartbeat + keepalive |
-| 5 | `Minimi/GolemClient.kt` | MOD | WebSocket client + fallback logic |
+| 1 | `computadora/canales/websocket_server.py` | NEW | WebSocket server + handlers |
+| 2 | `computadora/canales/pubsub.py` | NEW | Pub/Sub manager (topics) |
+| 3 | `computadora/canales/servidor_api.py` | MOD | Integrate WebSocket route |
+| 4 | `computadora/utilidades/heartbeat.py` | NEW | Connection heartbeat + keepalive |
+| 5 | `Minimi/ComputadoraClient.kt` | MOD | WebSocket client + fallback logic |
 | 6 | `Minimi/MinimiViewModel.kt` | MOD | Use WebSocket streams |
 | 7 | `tests/test_websocket_fp132.py` | NEW | WebSocket + pub/sub unit tests |
 

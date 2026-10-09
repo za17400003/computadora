@@ -106,7 +106,7 @@ logger.debug(f"║ Resultado: {(str(resultado)[:200] if resultado else 'vacío')
 **Salida ejemplo**:
 ```
 INFO:  ║ ⚡ EJECUTANDO HERRAMIENTA: buscar_en_codigo
-DEBUG: ║ ⚡ Argumentos: {"patron": "def pensar", "ruta": "/home/golem"}
+DEBUG: ║ ⚡ Argumentos: {"patron": "def pensar", "ruta": "/home/computadora"}
 INFO:  ║ ✅ Herramienta buscar_en_codigo completada en 0.43s
 DEBUG: ║ 📊 Respuesta de buscar_en_codigo: "Encontrados 3 matches en: nlu.py..."
 ```
@@ -172,7 +172,7 @@ Computadora: "[Respuesta de Copilot]"
 
 1. **Abre los logs** (Level: INFO)
    ```bash
-   tail -f logs/golem.log | grep "║"
+   tail -f logs/computadora.log | grep "║"
    ```
 
 2. **Haz una pregunta compleja**:

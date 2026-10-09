@@ -27,11 +27,11 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
     def setUp(self):
         """Preparar test fixtures."""
         from computadora.interfaz.watchdog import (
-            WatchdogGolem, ServicioMonitoreado, EtapaWatchdog, EstadoCircuit
+            WatchdogComputadora, ServicioMonitoreado, EtapaWatchdog, EstadoCircuit
         )
         from computadora.cerebro.nlu import CerebroComputadora
         
-        self.WatchdogGolem = WatchdogGolem
+        self.WatchdogComputadora = WatchdogComputadora
         self.ServicioMonitoreado = ServicioMonitoreado
         self.EtapaWatchdog = EtapaWatchdog
         self.EstadoCircuit = EstadoCircuit
@@ -39,7 +39,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
 
     def test_watchdog_ollama_degradacion_detectada(self):
         """Test: Watchdog detecta degradación de Ollama tras 120s sin respuesta."""
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Obtener servicio Ollama
         ollama_svc = watch.servicios["ollama"]
@@ -58,7 +58,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
 
     def test_watchdog_libera_recursos_en_degradacion(self):
         """Test: Watchdog llama liberar_recursos_ollama cuando detecta DEGRADE."""
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Mock del callback
         callback_llamado = []
@@ -80,9 +80,9 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
         # El test es básico porque liberar_recursos_ollama requiere que CerebroComputadora exista
 
     def test_cerebro_recibe_referencia_watchdog(self):
-        """Test: CerebroComputadora acepta referencia a WatchdogGolem."""
+        """Test: CerebroComputadora acepta referencia a WatchdogComputadora."""
         cerebro = self.CerebroComputadora()
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Establecer referencia
         cerebro.establecer_watchdog(watch)
@@ -93,7 +93,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
     def test_timeout_adaptativo_fail_fast_cuando_degradado(self):
         """Test: _timeout_adaptativo retorna 10s cuando Ollama está degradado."""
         cerebro = self.CerebroComputadora()
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Establecer referencia
         cerebro.establecer_watchdog(watch)
@@ -112,7 +112,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
     def test_timeout_normal_sin_degradacion(self):
         """Test: _timeout_adaptativo retorna valor normal cuando Ollama OK."""
         cerebro = self.CerebroComputadora()
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Establecer referencia
         cerebro.establecer_watchdog(watch)
@@ -149,7 +149,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
     def test_check_ollama_degradacion(self):
         """Test: _check_ollama_degradacion retorna True cuando está degradado."""
         cerebro = self.CerebroComputadora()
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         cerebro.establecer_watchdog(watch)
         
@@ -166,7 +166,7 @@ class TestWI324WatchdogNluSync(unittest.TestCase):
 
     def test_ollama_esta_caido_detection(self):
         """Test: ollama_esta_caido detecta cuando Ollama no está disponible."""
-        watch = self.WatchdogGolem()
+        watch = self.WatchdogComputadora()
         
         # Inicialmente OK
         self.assertFalse(watch.ollama_esta_caido())

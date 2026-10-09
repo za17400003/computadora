@@ -96,7 +96,7 @@ class TestPersonasLoguru(unittest.TestCase):
     """B3: personas.py usa loguru en lugar de logging."""
 
     def test_no_import_logging(self):
-        src = (ROOT / "golem" / "memoria" / "personas.py").read_text(encoding="utf-8")
+        src = (ROOT / "computadora" / "memoria" / "personas.py").read_text(encoding="utf-8")
         self.assertNotIn("import logging", src)
         self.assertIn("from loguru import logger", src)
 
@@ -138,7 +138,7 @@ class TestLemedQualityGate(unittest.TestCase):
         # Crear instancia con mock de config
         mock_config = MagicMock()
         mock_config.obtener = MagicMock(return_value=None)
-        with patch('golem.cerebro.nlu.memoria'):
+        with patch('computadora.cerebro.nlu.memoria'):
             try:
                 cerebro = CerebroComputadora.__new__(CerebroComputadora)
                 cerebro._es_promocionable = CerebroComputadora._es_promocionable.__get__(cerebro)

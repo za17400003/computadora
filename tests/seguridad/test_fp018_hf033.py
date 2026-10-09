@@ -23,7 +23,7 @@ print("\n== FP-018: modelo_discovery.py ==")
 
 check("FP18-01", "Import modelo_discovery", lambda: (
     True, "importable"
-) if __import__('golem.cerebro.modelo_discovery', fromlist=['descubrir_modelos']) else (False, ""))
+) if __import__('computadora.cerebro.modelo_discovery', fromlist=['descubrir_modelos']) else (False, ""))
 
 def _check_constants():
     from computadora.cerebro import modelo_discovery as md
@@ -121,7 +121,7 @@ check("FP18-10", "_validar_regex: acepta válido, bloquea peligrosos", _check_va
 print("\n== FP-018: nlu.py routing ==")
 
 def _check_re_piensa():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     has_profundo = '_RE_PIENSA_PROFUNDO' in src or '_RE_PENSAR_PROFUNDO' in src
     has_piensa = '_RE_PIENSA' in src or '_RE_PENSAR' in src
@@ -148,8 +148,8 @@ print("\n== COHERENCIA ==")
 
 def _check_imports():
     errores = []
-    for m in ['golem.cerebro.modelo_discovery', 'golem.cerebro.copilot_api',
-              'golem.cerebro.nivel1_aprendido', 'golem.cerebro.nlu']:
+    for m in ['computadora.cerebro.modelo_discovery', 'computadora.cerebro.copilot_api',
+              'computadora.cerebro.nivel1_aprendido', 'computadora.cerebro.nlu']:
         try:
             __import__(m)
         except Exception as e:

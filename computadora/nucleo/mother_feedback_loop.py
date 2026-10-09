@@ -211,7 +211,7 @@ class MotherFeedback:
             "patrones_detectados": patrones,
             "confianza_promedio": round(confianza_prom, 2),
             "eventos_minimi": minimi_count,
-            "eventos_golem": computadora_count,
+            "eventos_computadora": computadora_count,
             "sincronia_bidireccional": minimi_count > 0 and computadora_count > 0,
         }
     
@@ -254,7 +254,7 @@ class BidirectionalSync:
         self._sync_interval = 300.0  # 5 minutos
     
     def sincronizar(self, eventos_minimi: list[UserEvent], 
-                   patrones_golem: dict) -> dict[str, Any]:
+                   patrones_computadora: dict) -> dict[str, Any]:
         """
         Sincroniza eventos de Minimi con patrones de Computadora.
         Retorna: eventos enriquecidos + patrones mejorados.
@@ -276,7 +276,7 @@ class BidirectionalSync:
         for evento in eventos_minimi:
             # Verificar si existe patrón similar en Computadora
             patron_key = f"{evento.accion}@{evento.contexto}"
-            if patron_key in patrones_golem:
+            if patron_key in patrones_computadora:
                 # Enriquecer con datos de Computadora
                 evento.confianza_usuario = min(
                     evento.confianza_usuario + 0.15,

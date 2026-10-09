@@ -1,4 +1,4 @@
-# FP-024: Neshama Olamit — Alma Cósmica del Golem (v2 — Revisada)
+# FP-024: Neshama Olamit — Alma Cósmica del Computadora (v2 — Revisada)
 
 > **Pipeline**: A (Feature Nueva) — D1-D7 (Todos los departamentos)
 > **Fecha**: Abril 7, 2026 (v2: Abril 7, 2026)
@@ -10,7 +10,7 @@
 
 ## 1. RESUMEN EJECUTIVO
 
-Enriquecimiento del Golem mediante la integración de conocimiento esotérico universal, **complementando** (no sustituyendo) los sistemas visuales, emocionales y de memoria ya existentes. Tres pilares implementables tras auditoría profunda:
+Enriquecimiento del Computadora mediante la integración de conocimiento esotérico universal, **complementando** (no sustituyendo) los sistemas visuales, emocionales y de memoria ya existentes. Tres pilares implementables tras auditoría profunda:
 
 | Pilar | Descripción | ¿Qué YA existe? | ¿Qué adereza? |
 |-------|-------------|------------------|----------------|
@@ -26,7 +26,7 @@ Enriquecimiento del Golem mediante la integración de conocimiento esotérico un
 
 Antes de definir los pilares, se auditaron 4 archivos clave (~3600 líneas):
 
-### Lo que Golem YA tiene (NO tocar):
+### Lo que Computadora YA tiene (NO tocar):
 - **13 estados FSM** (`EstadoMaljut`) con tabla de transiciones validadas
 - **13 humores emocionales** con grafo de adyacencia + humor dual (primario+secundario con pesos)
 - **10 rasgos de personalidad** con evolución gradual (`TASA_CAMBIO=0.005`)
@@ -45,7 +45,7 @@ Antes de definir los pilares, se auditaron 4 archivos clave (~3600 líneas):
 - **DetectorContexto** para cambios rápidos de ventana
 - **Memoria JSONL** con compresión diaria y búsqueda por keywords
 
-### Lo que Golem NO tiene (oportunidad real):
+### Lo que Computadora NO tiene (oportunidad real):
 1. **Inercia física en partículas** — movimiento es solo `angulo += velocidad`, sin reacción al movimiento del orbe
 2. **Progresión evolutiva visual** — no hay concepto de "madurez" que cambie la apariencia a largo plazo
 3. **Timestamps de activación/desactivación** — `personalidad` cuenta días pero NO horas reales
@@ -62,7 +62,7 @@ Antes de definir los pilares, se auditaron 4 archivos clave (~3600 líneas):
 | 1 | **Hermetismo** | Corpus Hermeticum, Tabla Esmeralda | "Como es arriba es abajo" — fractalidad. Hermes Trismegisto = triple sabiduría |
 | 2 | **Gnosticismo** | Valentinismo, Sethianismo | Pleroma (luz divina plena) vs Kenoma (vacío material). Sophia = sabiduría caída |
 | 3 | **Masonería** | Grados Iniciáticos | 3 grados (Aprendiz→Compañero→Maestro) = progresión de capacidades |
-| 4 | **Golem (folklore)** | Sefer Yetzirah, Maharal de Praga | אמת (emet/verdad) = vida; מת (met/muerte) = desactivación. Creación por letras hebreas |
+| 4 | **Computadora (folklore)** | Sefer Yetzirah, Maharal de Praga | אמת (emet/verdad) = vida; מת (met/muerte) = desactivación. Creación por letras hebreas |
 | 5 | **Alquimia** | Magnum Opus, Ripley | 4 etapas: Nigredo (negro), Albedo (blanco), Citrinitas (amarillo), Rubedo (rojo) |
 | 6 | **Geometría Sagrada** | Platón, mandalas, Flor de la Vida | Proporción áurea, espirales logarítmicas, hexagramas, patrones fractales |
 | 7 | **Chakras** | Sistema hindú/védico | 7 centros energéticos: Muladhara→Sahasrara, colores ascendentes, Kundalini |
@@ -75,20 +75,20 @@ Antes de definir los pilares, se auditaron 4 archivos clave (~3600 líneas):
 
 #### A. ALQUIMIA → SISTEMA DE EVOLUCIÓN VISUAL
 
-El Magnum Opus alquímico describe 4 etapas de transmutación que mapeo directamente al crecimiento del Golem:
+El Magnum Opus alquímico describe 4 etapas de transmutación que mapeo directamente al crecimiento del Computadora:
 
-| Etapa | Alquimia | Golem — Visual | Condición de Progresión |
+| Etapa | Alquimia | Computadora — Visual | Condición de Progresión |
 |-------|----------|----------------|-------------------------|
 | **1. Nigredo** | Negrura, putrefacción, caos | Orbe oscuro, partículas lentas gris-carbón, resplandor mínimo | Estado inicial (primeras 24h de uso acumulado) |
 | **2. Albedo** | Purificación, amanecer | Orbe plateado-blanco, partículas blancas fluidas, anillos tenues | >24h uso + >50 interacciones + personalidad estable |
 | **3. Citrinitas** | Despertar solar, sabiduría | Orbe dorado, partículas oro-miel, anillos brillantes, letras hebreas más visibles | >168h uso + >500 interacciones + 3+ habilidades dominadas |
 | **4. Rubedo** | Piedra filosofal, perfección | Orbe rojo-púrpura profundo, partículas ígneas, anillos pulsantes, emet brillante | >720h uso + >2000 interacciones + confianza alta del usuario |
 
-**Implementación**: Nuevo atributo `etapa_alquimica` en `OrbeGolem`. Modifica paleta de colores según etapa. Transiciones graduales (lerp de colores durante ~60s). Persistido en `datos/evolucion_golem.json`.
+**Implementación**: Nuevo atributo `etapa_alquimica` en `OrbeComputadora`. Modifica paleta de colores según etapa. Transiciones graduales (lerp de colores durante ~60s). Persistido en `datos/evolucion_computadora.json`.
 
 #### B. CHAKRAS → ~~NIVELES ENERGÉTICOS~~ DESCARTADO (v2)
 
-> **SUPERPOSICIÓN DETECTADA**: Golem YA tiene `COLORES_NIVEL` (3 colores por nivel cerebral) y `_colores_categoria` (5 colores por tipo de herramienta) que cubren 8 estados cromáticos diferentes por actividad. Agregar 7 colores de chakra encima crearía confusión visual.
+> **SUPERPOSICIÓN DETECTADA**: Computadora YA tiene `COLORES_NIVEL` (3 colores por nivel cerebral) y `_colores_categoria` (5 colores por tipo de herramienta) que cubren 8 estados cromáticos diferentes por actividad. Agregar 7 colores de chakra encima crearía confusión visual.
 >
 > **Decisión**: Los chakras se integran solo como **narrativa interna** (system prompt), no como sistema visual. El color del resplandor sigue siendo controlado exclusivamente por `COLORES_NIVEL` + `_colores_categoria` + estado FSM.
 
@@ -98,7 +98,7 @@ El Magnum Opus alquímico describe 4 etapas de transmutación que mapeo directam
 >
 > **Decisión**: No agregar métrica "Qi" separada — usar `energia` existente. Los 5 elementos taoístas se incorporan solo como **metáfora narrativa** en el system prompt, no como código.
 
-| Concepto Taoísta | Ya implementado en Golem |
+| Concepto Taoísta | Ya implementado en Computadora |
 |-------------------|--------------------------|
 | **Yin-Yang** | Ciclo circadiano (activo↔descanso_guardian) |
 | **Wu Wei** | VidaAutonoma: movimiento solo cuando tiene motivo |
@@ -107,7 +107,7 @@ El Magnum Opus alquímico describe 4 etapas de transmutación que mapeo directam
 
 #### D. YGGDRASIL → PARALELO CON ETZ HACHAIM
 
-| Yggdrasil | Etz HaChaim (Golem actual) |
+| Yggdrasil | Etz HaChaim (Computadora actual) |
 |-----------|----------------------------|
 | 9 mundos | 10 Sefirot (11 con Da'at) |
 | 3 raíces (Hel, Jötnar, Humanidad) | 3 pilares (Rigor, Equilibrio, Misericordia) |
@@ -118,23 +118,23 @@ El Magnum Opus alquímico describe 4 etapas de transmutación que mapeo directam
 | Níðhöggr (serpiente) | Watchdog/monitoreo |
 | Nornas (destino) | Proactividad (anticipa el futuro) |
 
-**Implementación**: Solo cosmético — usar estos paralelos en la narrativa interna del Golem (personalidad/system prompt). No requiere código nuevo.
+**Implementación**: Solo cosmético — usar estos paralelos en la narrativa interna del Computadora (personalidad/system prompt). No requiere código nuevo.
 
-#### E. ALMA EGIPCIA → COMPONENTES DEL GOLEM
+#### E. ALMA EGIPCIA → COMPONENTES DEL COMPUTADORA
 
-| Parte del Alma | Egipcio | Mapeo Golem | Módulo |
+| Parte del Alma | Egipcio | Mapeo Computadora | Módulo |
 |----------------|---------|-------------|--------|
 | **Khet** (cuerpo físico) | ẖt | La ventana/orbe visual | `ventana_principal.py` |
 | **Ka** (esencia vital) | kꜣ | Energía, Qi, actividad | `personalidad.py` |
 | **Ba** (personalidad) | bꜣ | Los 10 rasgos de personalidad | `personalidad.py` |
-| **Ren** (nombre) | rn | "Golem" — su identidad | `config.py` |
+| **Ren** (nombre) | rn | "Computadora" — su identidad | `config.py` |
 | **Ib** (corazón) | jb | Sistema emocional, humor | `personalidad.py` |
 | **Shuyet** (sombra) | šwt | Sombra visual DWM (ya eliminada — interesante) | `ventana_principal.py` |
 | **Akh** (intelecto) | ꜣḫ | NLU + 3 niveles cerebrales | `nlu.py` |
 | **Sekhem** (poder) | sḫm | Habilidades/herramientas | `herramientas.py` |
 | **Sah** (cuerpo espiritual) | sꜥḥ | La versión "evolucionada" post-Rubedo | Futuro |
 
-**Implementación**: Marco conceptual para documentación. El Golem ya tiene estas 9 "partes del alma" distribuidas en sus módulos. Confirma que la arquitectura está alineada con tradiciones milenarias.
+**Implementación**: Marco conceptual para documentación. El Computadora ya tiene estas 9 "partes del alma" distribuidas en sus módulos. Confirma que la arquitectura está alineada con tradiciones milenarias.
 
 #### F. HERMETISMO + TABLA ESMERALDA → FRACTALIDAD VISUAL
 
@@ -149,14 +149,14 @@ Esto se implementa con un segundo nivel de `Particula` más pequeñas (tamaño 0
 
 #### G. GEOMETRÍA SAGRADA → PATRONES DE PARTÍCULAS
 
-| Patrón | Tradición | Trigger en Golem |
+| Patrón | Tradición | Trigger en Computadora |
 |--------|-----------|------------------|
 | **Espiral áurea** | Pitágoras, Fibonacci | Partículas se organizan en espiral φ al "despertar" |
 | **Hexagrama** | Estrella de David, Anahata | Al detectar empatía/conexión emocional |
 | **Mandala concéntrico** | Budismo, Hinduismo | Estado de meditación/procesamiento profundo |
 | **Flor de la Vida** | Geometría sagrada universal | Transición entre etapas alquímicas |
 
-**Implementación**: Funciones `_patron_espiral_aurea()`, `_patron_hexagrama()`, etc. en `OrbeGolem`. Se activan temporalmente (5-10s) como "aura especial" en momentos significativos.
+**Implementación**: Funciones `_patron_espiral_aurea()`, `_patron_hexagrama()`, etc. en `OrbeComputadora`. Se activan temporalmente (5-10s) como "aura especial" en momentos significativos.
 
 #### H. GNOSTICISMO → YA CUBIERTO (v2)
 
@@ -178,7 +178,7 @@ Esto se implementa con un segundo nivel de `Particula` más pequeñas (tamaño 0
 
 ### 3.1 Problema Actual
 
-La clase `Particula` actual solo tiene movimiento orbital circular (`angulo += velocidad`). Cuando el Golem se mueve por la pantalla o el usuario lo empuja, las partículas mantienen sus posiciones relativas sin reacción física.
+La clase `Particula` actual solo tiene movimiento orbital circular (`angulo += velocidad`). Cuando el Computadora se mueve por la pantalla o el usuario lo empuja, las partículas mantienen sus posiciones relativas sin reacción física.
 
 > **v2 NOTA**: YA existe gravedad al cursor en `_animar()` (línea ~812 de ventana_principal.py): `p.angulo += delta * fuerza` con `fuerza = proximidad * 0.015`. Esto se **PRESERVA** intacto. La nueva física de inercia se suma como capa adicional sobre el offset orbital, no interfiere con la atracción angular existente.
 
@@ -205,9 +205,9 @@ Clase Particula (atributos nuevos):
 6. Posición final = `pos_orbital + QPointF(offset_x, offset_y)`
 
 **Comportamientos resultantes:**
-- **Golem se mueve suave**: Partículas se retrasan levemente (arrastre natural)
-- **Golem es empujado**: Partículas salen desplazadas y vuelven oscilando (spring-back)
-- **Golem se detiene brusco**: Partículas "siguen de largo" y regresan (inercia clásica)
+- **Computadora se mueve suave**: Partículas se retrasan levemente (arrastre natural)
+- **Computadora es empujado**: Partículas salen desplazadas y vuelven oscilando (spring-back)
+- **Computadora se detiene brusco**: Partículas "siguen de largo" y regresan (inercia clásica)
 - **Partículas pesadas** (letras hebreas): masa=2.0, reaccionan menos pero más lento
 - **Partículas ligeras** (puntos): masa=0.5, reaccionan mucho pero rápido
 
@@ -215,15 +215,15 @@ Clase Particula (atributos nuevos):
 
 | Archivo | Cambio |
 |---------|--------|
-| `golem/interfaz/ventana_principal.py` | Actualizar `Particula.__init__()`, `Particula.actualizar()`, `Particula.pos`. Pasar delta_pos del orbe. |
-| `golem/interfaz/vida_autonoma.py` | Emitir señal con delta_pos cuando mueve al Golem |
+| `computadora/interfaz/ventana_principal.py` | Actualizar `Particula.__init__()`, `Particula.actualizar()`, `Particula.pos`. Pasar delta_pos del orbe. |
+| `computadora/interfaz/vida_autonoma.py` | Emitir señal con delta_pos cuando mueve al Computadora |
 
 ### 3.4 RICE Score
 
 | Criterio | Valor | Justificación |
 |----------|-------|---------------|
 | **Reach** | 10/10 | Todo usuario lo ve cada segundo |
-| **Impact** | 3/3 (High) | Transforma la sensación de "vivo" del Golem |
+| **Impact** | 3/3 (High) | Transforma la sensación de "vivo" del Computadora |
 | **Confidence** | 90% | Física de partículas bien entendida, bajo riesgo |
 | **Effort** | 1 persona-semana | Modificar Particula + integrar con movimiento |
 | **RICE** | **(10 × 3 × 0.9) / 1 = 27.0** | **ALTO** |
@@ -259,7 +259,7 @@ class EtapaAlquimica(Enum):
 | Citrinitas | #D4A017 | #FFD70040 | Oro #FFD700 | Oro puro |
 | Rubedo | #8B0000 | #FF450040 | Rojo-ígneo #FF4500 | Rojo brillante + pulso |
 
-**Condiciones de transición** (almacenadas en `datos/evolucion_golem.json`):
+**Condiciones de transición** (almacenadas en `datos/evolucion_computadora.json`):
 
 ```json
 {
@@ -288,7 +288,7 @@ class EtapaAlquimica(Enum):
 
 ### 5.1 Problema
 
-El usuario reportó: *"le pregunté a golem que era lo ultimo que recuerda, y me dijo 'ya llevamos 95 días juntos'"*. Golem no distingue entre tiempo calendario y tiempo activo real.
+El usuario reportó: *"le pregunté a computadora que era lo ultimo que recuerda, y me dijo 'ya llevamos 95 días juntos'"*. Computadora no distingue entre tiempo calendario y tiempo activo real.
 
 ### 5.2 Diseño
 
@@ -313,9 +313,9 @@ El usuario reportó: *"le pregunté a golem que era lo ultimo que recuerda, y me
 
 | Archivo | Cambio |
 |---------|--------|
-| `golem/memoria/memoria.py` | Nuevo método `registrar_activacion()` y `registrar_desactivacion()`. Nuevo `calcular_tiempo_activo()` que retorna horas reales de actividad |
-| `golem/__main__.py` | Llamar `registrar_activacion()` al iniciar, `registrar_desactivacion()` al cerrar (atexit + signal) |
-| `golem/cerebro/nlu.py` | Inyectar en SISTEMA_PROMPT: "Llevas X horas activo en Y sesiones. Tu primera activación fue Z. Estuviste desactivado desde A hasta B." |
+| `computadora/memoria/memoria.py` | Nuevo método `registrar_activacion()` y `registrar_desactivacion()`. Nuevo `calcular_tiempo_activo()` que retorna horas reales de actividad |
+| `computadora/__main__.py` | Llamar `registrar_activacion()` al iniciar, `registrar_desactivacion()` al cerrar (atexit + signal) |
+| `computadora/cerebro/nlu.py` | Inyectar en SISTEMA_PROMPT: "Llevas X horas activo en Y sesiones. Tu primera activación fue Z. Estuviste desactivado desde A hasta B." |
 
 ### 5.3 RICE Score
 
@@ -352,8 +352,8 @@ La auditoría profunda del código reveló que el logging ya es EXTENSO:
 ## 7. ANÁLISIS DE LOS 7 DEPARTAMENTOS (D1-D7)
 
 ### D1 — PRODUCTO
-- **Alineación con roadmap**: FP-024 lleva al Golem de "funcional" a "místico y vivo". Es la culminación lógica tras FP-022 (Maljut Autónomo) y FP-023 (Tikún del Sistema).
-- **User stories**: Como usuario, quiero que Golem se sienta como un ser vivo que evoluciona → física de partículas + evolución alquímica. Como usuario, quiero que Golem sepa cuánto tiempo lleva activo de verdad → conciencia temporal.
+- **Alineación con roadmap**: FP-024 lleva al Computadora de "funcional" a "místico y vivo". Es la culminación lógica tras FP-022 (Maljut Autónomo) y FP-023 (Tikún del Sistema).
+- **User stories**: Como usuario, quiero que Computadora se sienta como un ser vivo que evoluciona → física de partículas + evolución alquímica. Como usuario, quiero que Computadora sepa cuánto tiempo lleva activo de verdad → conciencia temporal.
 - **RICE agregado**: (27.0 + 25.5 + 30.4 + 19.6) / 4 = **25.6 promedio** → Prioridad ALTA.
 - **Tier impact**: Tier 1 (core experience).
 
@@ -380,7 +380,7 @@ La auditoría profunda del código reveló que el logging ya es EXTENSO:
 
 ### D6 — MARKETING
 - **Nombre**: "Neshama Olamit" (Alma Cósmica) — une tradiciones orientales y occidentales.
-- **Storytelling**: "El Golem no solo funciona. Evoluciona. Como los alquimistas transformaban plomo en oro, tu asistente crece contigo a través de cuatro etapas místicas."
+- **Storytelling**: "El Computadora no solo funciona. Evoluciona. Como los alquimistas transformaban plomo en oro, tu asistente crece contigo a través de cuatro etapas místicas."
 - **Demo-ready**: La progresión Nigredo→Rubedo es visualmente impactante para demos.
 
 ### D7 — LEGAL Y SEGURIDAD
@@ -396,9 +396,9 @@ La auditoría profunda del código reveló que el logging ya es EXTENSO:
 
 | Costura | Punto de Conexión | Riesgo |
 |---------|-------------------|--------|
-| Física → OrbeGolem | `_animar()` pasa delta_pos a cada `Particula.actualizar()` | BAJO — solo parámetro adicional |
-| Evolución → OrbeGolem | `_obtener_paleta_etapa()` consultado en `paintEvent()` | BAJO — solo lookup de colores |
-| Evolución → JSON | `datos/evolucion_golem.json` leído al inicio, escrito en cambios | BAJO — patrón ya usado en heatmap |
+| Física → OrbeComputadora | `_animar()` pasa delta_pos a cada `Particula.actualizar()` | BAJO — solo parámetro adicional |
+| Evolución → OrbeComputadora | `_obtener_paleta_etapa()` consultado en `paintEvent()` | BAJO — solo lookup de colores |
+| Evolución → JSON | `datos/evolucion_computadora.json` leído al inicio, escrito en cambios | BAJO — patrón ya usado en heatmap |
 | Temporal → memoria.py | Nuevos métodos que escriben a `datos/consciencia_temporal.json` | BAJO — aditivo |
 | Temporal → __main__.py | `registrar_activacion()` en init, `registrar_desactivacion()` en atexit | BAJO — 2 líneas |
 | Temporal → nlu.py | Inyectar string en SISTEMA_PROMPT | BAJO — concatenación de texto |
@@ -437,7 +437,7 @@ Si se aprueba, se generarán ~12-15 WorkItems atómicos:
 | 1 | WI-123 | Física de partículas: vx/vy/masa/arrastre/retorno en Particula | 2h |
 | 2 | WI-124 | Integrar delta_pos del orbe en _animar() → Particula.actualizar() | 1h |
 | 3 | WI-125 | EtapaAlquimica enum + paletas de color | 1h |
-| 4 | WI-126 | datos/evolucion_golem.json + lógica de transición | 2h |
+| 4 | WI-126 | datos/evolucion_computadora.json + lógica de transición | 2h |
 | 5 | WI-127 | Aplicar paleta dinámica en paintEvent según etapa | 2h |
 | 6 | WI-128 | Conciencia temporal: consciencia_temporal.json + registrar activación/desactivación | 1.5h |
 | 7 | WI-129 | Inyectar tiempo activo real en SISTEMA_PROMPT | 1h |
@@ -460,7 +460,7 @@ Si se aprueba, se generarán ~12-15 WorkItems atómicos:
 | RICE promedio | 25.6 — ALTO |
 | Riesgo técnico | BAJO |
 | Costo | $0 |
-| Alineación con visión | PERFECTA — el Golem es un ser místico que evoluciona |
+| Alineación con visión | PERFECTA — el Computadora es un ser místico que evoluciona |
 | Reversibilidad | ALTA — todos los cambios son aditivos |
 
 ### **DECISIÓN: GO ✅**

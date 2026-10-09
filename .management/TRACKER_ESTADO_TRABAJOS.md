@@ -92,7 +92,7 @@ GATE 2 STATUS: ✅ APROBADO
 CICLO DE VIDA ACTUAL:
 
 NIGREDO      ✅ COMPLETADO (2026-04-10)
-├─ Hallazgo: H-214 "Golem no descansa, crece sin límite"
+├─ Hallazgo: H-214 "Computadora no descansa, crece sin límite"
 ├─ Síntomas: CPU 100%, buffer encolado, degradación
 └─ Causa: Daemons sin TTL, sin reset periódico
 

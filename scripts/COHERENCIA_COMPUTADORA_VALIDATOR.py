@@ -5,7 +5,7 @@
 Audita coherencia de cada uno de los 15 componentes de computadora/:
   1. arquitectura/ — Mapeos Sefiróticos
   2. canales/ — Comunicación inter-procesos
-  3. cerebro/ — Lógica de IA (CerebroGolem, NLU, leyes)
+  3. cerebro/ — Lógica de IA (CerebroComputadora, NLU, leyes)
   4. expresion/ — Salida visual/audio
   5. fundacion/ — Axiomas + Fases Alquímicas
   6. habilidades/ — Utilidades ejecutables
@@ -64,7 +64,7 @@ class CoherenciaComputadoraValidator:
         "cerebro": {
             "sefira": "Kéter (כתר — Corona)",
             "checks": [
-                "Existe nlu.py (CerebroGolem)",
+                "Existe nlu.py (CerebroComputadora)",
                 "Existe las_cinco_leyes.py",
                 "Existe gemini_api.py o copilot_api.py",
                 "Nivel 1/2/3 diferenciados",
@@ -98,7 +98,7 @@ class CoherenciaComputadoraValidator:
             "sefira": "Maljut (מלכות — Reino)",
             "checks": [
                 "Existe ventana_principal.py",
-                "Contiene OrbeGolem o visualización",
+                "Contiene OrbeComputadora o visualización",
                 "Integra con voz/",
             ]
         },

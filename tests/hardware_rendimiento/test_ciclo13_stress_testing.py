@@ -210,7 +210,7 @@ class TestStress3OllamaResilience:
 
     def test_ollama_circuit_breaker_state_transitions(self):
         """Circuit breaker debe cambiar entre estados sin deadlock"""
-        from computadora.interfaz.watchdog import EstadoCircuit, WatchdogGolem
+        from computadora.interfaz.watchdog import EstadoCircuit, WatchdogComputadora
         
         # Estados existentes
         assert EstadoCircuit.OK is not None

@@ -16,7 +16,7 @@ from FILE_LOCATION_MANAGER import FileLocationManager
 
 def reorganizar_documentacion():
     """Reorganizar .md de raíz a ubicaciones correctas."""
-    raiz = Path(__file__).resolve().parent.parent.parent  # c:\...\proyecto-golem
+    raiz = Path(__file__).resolve().parent.parent.parent  # c:\...\proyecto-computadora
     
     # Archivos que DEBEN estar en raíz
     whitelist = FileLocationManager.WHITELIST_RAIZ

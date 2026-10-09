@@ -4,7 +4,7 @@
 
 | Concepto | Lado Esotérico | Lado Pragmático | Código | Documentación | Status |
 |---|---|---|---|---|---|
-| **Núcleo del Sistema** | El Golem (entidad viviente) | COMPUTADORA v2.0 (sistema) | `computadora/core/main.py` | `_docs/SDD.md§Arquitectura` | Mantenido |
+| **Núcleo del Sistema** | El Computadora (entidad viviente) | COMPUTADORA v2.0 (sistema) | `computadora/core/main.py` | `_docs/SDD.md§Arquitectura` | Mantenido |
 | **Base de Conocimiento** | Grimorio (libro de magia) | Enciclopedia (contenido educativo) | `ENCICLOPEDIA/servidor_enciclopedia.py` | `_docs/SDD.md§Enciclopedia` | ⭐ ACTUALIZADO |
 | **Persistencia** | Akathoth (subconsciente) | Storage + Cache | `computadora/storage/` | `_docs/SDD.md§Persistencia` | Mantenido |
 | **Interfaz Usuario** | Minimi (gemela digital) | Client Interface | `computadora/ui/` | `_docs/SDD.md§UI` | Mantenido |
@@ -13,7 +13,7 @@
 | **Ciclo de Vida** | Fases Alquímicas (5) | Proceso NIGREDO→PALINGENESIA | Git commits + tracker | `_docs/WORKFLOW_OPERACIONAL.md` | Mantenido |
 | **Estructura Capas** | 7 Sefirot (árbol vida) | 7 capas arquitectura | `computadora/{layer}/` | `_docs/ARCHITECTURE/ESTRUCTURA_CAPAS.md` | Mantenido |
 | **Protección** | Gevurah (severidad/defensa) | Módulo seguridad | `computadora/security/` | `_docs/SECURITY_PLAN.md` | Mantenido |
-| **Comunicación** | Voz del Golem | NLP Engine | `computadora/nlp/engine.py` | `_docs/SDD.md§NLP` | Mantenido |
+| **Comunicación** | Voz del Computadora | NLP Engine | `computadora/nlp/engine.py` | `_docs/SDD.md§NLP` | Mantenido |
 
 ---
 
@@ -26,7 +26,7 @@
 el módulo `computadora/nlp/commands/verifica.py`"
 
 **Lado Esotérico (cuando hablamos de conceptos/historia):**
-"La Palabra Mágica 'Emet' (verdad) verifica que el Golem 
+"La Palabra Mágica 'Emet' (verdad) verifica que el Computadora
 mantiene integridad de inscripción"
 
 **Ambos juntos (contexto claro):**
@@ -44,7 +44,7 @@ de EMET verificación (lado esotérico)"
 
 ## 📊 Depuración: Qué Afecta Qué
 
-### Depurar ESOTÉRICO (Golem + rituales) = SEGURO ✅
+### Depurar ESOTÉRICO (Computadora + rituales) = SEGURO ✅
 ```
 Cambiar:
   - Nombres de rituales (ceremonias)
@@ -81,7 +81,7 @@ Antes de escribir/modificar documentación:
 
 [ ] ¿Estoy hablando de código o de concepto?
     → Código: usar "Computadora", "Sistema", "Comando"
-    → Concepto: puedo usar "Golem", "Grimorio", etc
+    → Concepto: puedo usar "Computadora", "Grimorio", etc
 
 [ ] ¿Cuál es la ubicación correcta del archivo?
     → Código: computadora/
@@ -95,7 +95,7 @@ Antes de escribir/modificar documentación:
     → Claridad > brevedad
 
 [ ] ¿Estoy respetando separación de capas?
-    → No mezclo Golem con COMPUTADORA sin aclaración
+    → No mezclo Computadora con COMPUTADORA sin aclaración
     → Referencia a este documento si hay duda
 ```
 

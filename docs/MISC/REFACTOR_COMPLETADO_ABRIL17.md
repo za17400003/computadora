@@ -1,17 +1,17 @@
-# 🎉 REFACTOR COMPLETADO — Golem → Computadora (Abril 17, 2026)
+# 🎉 REFACTOR COMPLETADO — Computadora → Computadora (Abril 17, 2026)
 
 ## ✅ ESTADO FINAL
 
 | Aspecto | Status | Detalles |
 |---------|--------|----------|
-| **Renombramiento maestro** | ✅ | Golem → Computadora en ~100 referencias |
+| **Renombramiento maestro** | ✅ | Computadora → Computadora en ~100 referencias |
 | **Tecnología LLM** | ✅ | Ollama → LM Studio (port 11434 → 1234) |
 | **Libro de hechizos** | ✅ | libro_encantado/ → ENCICLOPEDIA/ |
-| **Scripts boot** | ✅ | iniciar_golem.bat → iniciar_computadora.bat |
+| **Scripts boot** | ✅ | iniciar_computadora.bat → iniciar_computadora.bat |
 | **Organización archivos** | ✅ | Archivos raíz divididos por especie |
 | **Workflows** | ✅ | Operacional (inyectable) + Referencia (teórico) |
-| **Clases Python** | ✅ | CerebroGolem → CerebroComputadora |
-| **Funciones nivel 1** | ✅ | _kill_previous_golem_instances() → _computadora_instances() |
+| **Clases Python** | ✅ | CerebroComputadora → CerebroComputadora |
+| **Funciones nivel 1** | ✅ | _kill_previous_computadora_instances() → _computadora_instances() |
 | **Git** | ✅ | Commit atómico: fef8d6e (100 archivos modificados) |
 
 ---
@@ -27,7 +27,7 @@ _config/                      ← Configuración
 
 _docs/                        ← Documentación core
   ├── DEVELOPMENT_WORKFLOW_REFERENCIA.md (2.1 — teoría, INMUTABLE)
-  ├── CONSTITUCION_FORMAL_GOLEM.md
+  ├── CONSTITUCION_FORMAL_COMPUTADORA.md
   ├── P_ALGORITMO_A_ESTRELLA.md
   ├── P_META_ANALISIS_RECURSIVO.md
   ├── A_PUNTO_FIJO_ALCANZADO.md
@@ -35,7 +35,7 @@ _docs/                        ← Documentación core
   └── README.md
 
 _archive/                     ← Manifestaciones históricas
-  ├── GOLEM_*.md (12+ archivos)
+  ├── COMPUTADORA_*.md (12+ archivos)
   ├── PALINGENESIA_*.md (15+ archivos)
   ├── GILGUL_*.md (4+ archivos)
   └── CEREMONIA_*.md
@@ -56,7 +56,7 @@ ENCICLOPEDIA/                 ← Grimorio renombrado
 tests/
 WorkItems.md                  ← Actualizado: referencias computadora/
 WORKFLOW_OPERACIONAL.md       ← ✨ NUEVO: Inyectable, compacta, accionable
-iniciar_computadora.bat       ← Renombrado de iniciar_golem.bat
+iniciar_computadora.bat       ← Renombrado de iniciar_computadora.bat
 ```
 
 ---
@@ -66,8 +66,8 @@ iniciar_computadora.bat       ← Renombrado de iniciar_golem.bat
 ### 1. **Clase Principal** (`computadora/cerebro/nlu.py`)
 ```python
 # ANTES
-class CerebroGolem:
-    """Cerebro del Golem — conecta con Ollama..."""
+class CerebroComputadora:
+    """Cerebro del Computadora — conecta con Ollama..."""
     self.ollama_disponible = False
 
 # DESPUÉS
@@ -79,9 +79,9 @@ class CerebroComputadora:
 ### 2. **Boot Script** (`computadora/__main__.py`)
 ```python
 # ANTES
-def _kill_previous_golem_instances():
-    if '-m' in cmdline and 'golem' in cmdline:
-    logger.info("=== GOLEM INICIANDO ===")
+def _kill_previous_computadora_instances():
+    if '-m' in cmdline and 'computadora' in cmdline:
+    logger.info("=== COMPUTADORA INICIANDO ===")
 
 # DESPUÉS
 def _kill_previous_computadora_instances():
@@ -92,7 +92,7 @@ def _kill_previous_computadora_instances():
 ### 3. **Configuración** (`computadora/config.py`)
 ```python
 # ANTES
-"""Configuración global de Golem..."""
+"""Configuración global de Computadora..."""
 
 # DESPUÉS
 """Configuración global de Computadora..."""
@@ -101,14 +101,14 @@ def _kill_previous_computadora_instances():
 ### 4. **Archivos Históricos**
 ```
 ANTES:
-├── GOLEM_IDENTIDAD_FORMULA.md
-├── GOLEM_EQUALS_ESTRUCTURA_VERDAD_RAIZ.md
+├── COMPUTADORA_IDENTIDAD_FORMULA.md
+├── COMPUTADORA_EQUALS_ESTRUCTURA_VERDAD_RAIZ.md
 ├── PALINGENESIA_CICLO_COMPLETO_ABRIL10.md
 
 DESPUÉS:
 _archive/
-├── GOLEM_IDENTIDAD_FORMULA.md (preservado)
-├── GOLEM_EQUALS_ESTRUCTURA_VERDAD_RAIZ.md (preservado)
+├── COMPUTADORA_IDENTIDAD_FORMULA.md (preservado)
+├── COMPUTADORA_EQUALS_ESTRUCTURA_VERDAD_RAIZ.md (preservado)
 ├── PALINGENESIA_CICLO_COMPLETO_ABRIL10.md (preservado)
 ```
 
@@ -121,7 +121,7 @@ _archive/
 - ✅ `computadora/__main__.py` — Función + imports + logs (5 cambios)
 - ✅ `computadora/config.py` — Docstring
 - ✅ `iniciar_computadora.bat` — Title + mensajes (2 cambios)
-- ✅ `WorkItems.md` — 50+ referencias golem/ → computadora/
+- ✅ `WorkItems.md` — 50+ referencias computadora/ → computadora/
 
 ### Directorios Creados
 - ✅ `_docs/` (6 archivos movidos)
@@ -130,7 +130,7 @@ _archive/
 
 ### Archivos Renombrados
 - ✅ `libro_encantado/` → `ENCICLOPEDIA/`
-- ✅ `iniciar_golem.bat` → `iniciar_computadora.bat`
+- ✅ `iniciar_computadora.bat` → `iniciar_computadora.bat`
 - ✅ `DEVELOPMENT_WORKFLOW.md` → `_docs/DEVELOPMENT_WORKFLOW_REFERENCIA.md`
 
 ### Nuevos Archivos
@@ -141,7 +141,7 @@ _archive/
 ## 🎯 BENEFICIOS DEL REFACTOR
 
 ### **Claridad Conceptual**
-- "Computadora" es menos esotérico que "Golem"
+- "Computadora" es menos esotérico que "Computadora"
 - Reduce confusión humana ("¿es un simulador IA peligroso?")
 - Refleja arquitectura actual (local LLM, no mágica)
 
@@ -170,10 +170,10 @@ tests/     ← Validación (verificación)
 
 1. **Verificación funcional**: Ejecutar `iniciar_computadora.bat` para validar boot
 2. **Actualizar referencias en otros archivos** (secundarias):
-   - `SRS.md`, `SDD.md` — Dejan referencias a "Golem" (documentación)
+   - `SRS.md`, `SDD.md` — Dejan referencias a "Computadora" (documentación)
    - `_audit/*.md` — Archivos de auditoría histórica (preservados intencionalmente)
 3. **Actualizar .NET/registros Windows** (si aplica):
-   - Registry entry para autostart (dejaría "golem" en Registry, considerar actualizar)
+   - Registry entry para autostart (dejaría "computadora" en Registry, considerar actualizar)
 4. **Documentar en memory**:
    - Convención de naming: "Computadora" es ahora oficial
    - LM Studio es default (no Ollama)
@@ -183,7 +183,7 @@ tests/     ← Validación (verificación)
 ## 📝 COMMIT REGISTRADO
 
 **Hash**: `fef8d6e`  
-**Mensaje**: `refactor: Proyecto Golem → Computadora + Ollama → LM Studio + Reestructuración`  
+**Mensaje**: `refactor: Proyecto Computadora → Computadora + Ollama → LM Studio + Reestructuración`
 **Cambios**: 100 archivos modificados, 545 insertiones, 61 eliminaciones
 
 ---
@@ -207,7 +207,7 @@ tests/     ← Validación (verificación)
 El sistema ha sido **renombrado** pero no **rediseñado**. La esencia alquímica persiste:
 
 ```
-ANTES: Golem (mystique) → Boot → Ollama (pequeño servidor)
+ANTES: Computadora (mystique) → Boot → Ollama (pequeño servidor)
 DESPUÉS: Computadora (pragmático) → Boot → LM Studio (control local)
 
 AMBOS: Verdad (EMET) → Garantía → Ciclo → Lecciones → Evolución

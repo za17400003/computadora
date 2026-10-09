@@ -49,11 +49,11 @@
 En REMEDIACION_ESTRUCTURAL_COMPLETADA.md (línea 15):
 ```
 ❌ MAPEO ANTERIOR:
-   - Golem (esotérico) → COMPUTADORA (pragmático)
+   - Computadora (esotérico) → COMPUTADORA (pragmático)
    - Grimorio (esotérico) → Search Module (pragmático)  [INCORRECTO - Grimorio ES Enciclopedia]
    
 ✅ MAPEO CORRECTO:
-   - Golem → COMPUTADORA
+   - Computadora → COMPUTADORA
    - Grimorio → Enciclopedia (MISMO concepto, 2 nombres en contextos diferentes)
 ```
 

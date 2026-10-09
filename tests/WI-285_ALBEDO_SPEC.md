@@ -10,15 +10,15 @@
 
 ## Objetivo
 
-Integrar las funciones helper de `LogicaTransparente` (creadas en WI-283 RUBEDO) en los módulos que calculan matemáticas del Golem, para que cada operación sea **registrada y auditable**.
+Integrar las funciones helper de `LogicaTransparente` (creadas en WI-283 RUBEDO) en los módulos que calculan matemáticas del Computadora, para que cada operación sea **registrada y auditable**.
 
-**Resultado**: Cuando usuario pregunta "¿qué calculaste?", Golem puede responder con trazabilidad completa.
+**Resultado**: Cuando usuario pregunta "¿qué calculaste?", Computadora puede responder con trazabilidad completa.
 
 ---
 
 ## Cambios a Nivel de Código
 
-### CAMBIO 1: `golem/percepcion/rostro.py` — Integrar `registrar_facial()`
+### CAMBIO 1: `computadora/percepcion/rostro.py` — Integrar `registrar_facial()`
 
 **Ubicación**: Función `analizar_frame()`, líneas ~145-180  
 **Razón**: Aquí se calcula la distancia facial (confianza) — es la MATEMÁTICA del reconocimiento facial
@@ -46,7 +46,7 @@ if self._conocidos:
 #### Líneas POST-CAMBIO:
 ```python
 # Agregar import at top of file:
-# from golem.cerebro.matematicas import registrar_facial
+# from computadora.cerebro.matematicas import registrar_facial
 
 # línea ~155
 dist = float(fr.face_distance([self._encoding_propietario], enc)[0])
@@ -93,7 +93,7 @@ if self._conocidos:
 
 ---
 
-### CAMBIO 2: `golem/habilidades/monitor_sistema.py` — Integrar `registrar_alerta_sistema()`
+### CAMBIO 2: `computadora/habilidades/monitor_sistema.py` — Integrar `registrar_alerta_sistema()`
 
 **Ubicación**: Función `hay_alerta()`, líneas ~200-260  
 **Razón**: Aquí se calculan las 4 alertas del sistema (CPU, RAM, disco, procesos anómalos)
@@ -137,7 +137,7 @@ def hay_alerta(self) -> str | None:
 #### Líneas POST-CAMBIO:
 ```python
 # Agregar import at top of file:
-# from golem.cerebro.matematicas import registrar_alerta_sistema
+# from computadora.cerebro.matematicas import registrar_alerta_sistema
 
 def hay_alerta(self) -> str | None:
     alertas = []
@@ -224,7 +224,7 @@ def hay_alerta(self) -> str | None:
 
 ---
 
-### CAMBIO 3: `golem/nucleo/proactividad.py` — Ya Integrado en WI-284 RUBEDO
+### CAMBIO 3: `computadora/nucleo/proactividad.py` — Ya Integrado en WI-284 RUBEDO
 
 **Status**: ✅ COMPLETO (ver `_check_alertas_sistema()` líneas ~395-420)
 
@@ -246,16 +246,16 @@ No requiere cambios adicionales en WI-285.
 ## Validación de Completitud
 
 ### Pre-Implementación Checks:
-- [ ] `golem/cerebro/matematicas.py` existe y exporta `registrar_facial()` + `registrar_alerta_sistema()`
-- [ ] `golem/percepcion/rostro.py` importa sin erro res
-- [ ] `golem/habilidades/monitor_sistema.py` importa sin errores
+- [ ] `computadora/cerebro/matematicas.py` existe y exporta `registrar_facial()` + `registrar_alerta_sistema()`
+- [ ] `computadora/percepcion/rostro.py` importa sin erro res
+- [ ] `computadora/habilidades/monitor_sistema.py` importa sin errores
 - [ ] No hay circular imports
 
 ### Post-Implementación Checks:
 - [ ] Ambos archivos se pueden importar sin errores
 - [ ] `registrar_facial()` es llamado desde `rostro.py`
 - [ ] `registrar_alerta_sistema()` es llamado desde `monitor_sistema.py`
-- [ ] Logs del Golem muestran "registrar_facial/alerta_sistema en call stack" (debugging)
+- [ ] Logs del Computadora muestran "registrar_facial/alerta_sistema en call stack" (debugging)
 - [ ] `datos/auditoria_matematica/` directorio se crea automáticamente
 - [ ] Exportar matemáticas: datos/auditoria_matematica/mat_audit_{ISO}.json contiene >0 registros después de 5 min ejecución
 
@@ -279,7 +279,7 @@ No requiere cambios adicionales en WI-285.
 
 ## Recursos Conectados
 
-- **WI-283 RUBEDO** (completado): `golem/cerebro/matematicas.py` creado
+- **WI-283 RUBEDO** (completado): `computadora/cerebro/matematicas.py` creado
 - **WI-284 RUBEDO** (completado): `_generar_sugerencia_balanceadora()` integrado en proactividad.py
 - **WI-285 ALBEDO** (este doc): Especificación puntual de 2 integraciones
 - **WI-286 CITRINITAS-RUBEDO** (próximo): Test plan para validación de balance

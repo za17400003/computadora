@@ -231,7 +231,7 @@ def transicion(self, nuevo_estado):
 #### **Opción 1** ✅ RECOMENDADA (Fix Directo)
 **Agregar guard en `transicion()`**
 
-**Ubicación probable**: `golem/nucleo/guardian.py` o `computadora/nucleo/orquestador.py`
+**Ubicación probable**: `computadora/nucleo/guardian.py` o `computadora/nucleo/orquestador.py`
 
 ```python
 # Buscar:
@@ -261,7 +261,7 @@ class Guardian:
 
 ```bash
 # Buscar llamadas a transicion():
-grep -rn "\.transicion\|transicion(" computadora/ golem/ | grep -i "inactivo"
+grep -rn "\.transicion\|transicion(" computadora/ computadora/ | grep -i "inactivo"
 
 # Ejemplo output:
 # orquestador.py:2156: guardian.transicion("inactivo")
@@ -475,7 +475,7 @@ def _simple_extractive_summary(text, max_length=200):
 ollama pull llama2:7b &
 
 # 2. Mientras descarga, arreglar Guardian (2 min)
-# Editar: golem/nucleo/guardian.py
+# Editar: computadora/nucleo/guardian.py
 # Agregar: if nuevo_estado == self.estado: return
 
 # 3. Agregar mock para summarization (2 min)

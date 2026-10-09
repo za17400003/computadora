@@ -1,11 +1,11 @@
 """
-⊕ Sal — Tests para golem/interfaz/fsm_golem.py (WI-291)
+⊕ Sal — Tests para computadora/interfaz/fsm_computadora.py (WI-291)
 Verifica la FSM formal del Maljut.
 """
 
 import pytest
 
-from computadora.interfaz.fsm_golem import EstadoMaljut, TRANSICIONES_VALIDAS
+from computadora.interfaz.fsm_computadora import EstadoMaljut, TRANSICIONES_VALIDAS
 
 
 # ═══════════════════════════════════════════════════════════════

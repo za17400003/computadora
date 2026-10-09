@@ -4,7 +4,8 @@ Verifica: dead code eliminado, silent excepts con logging, singletons con Lock,
 BLOQUE 2 eliminado, OWASP documentado.
 """
 import sys, os, inspect, re, ast, threading
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.insert(0, ROOT)
 
 resultados = []
 def check(id, desc, fn):
@@ -19,7 +20,7 @@ def check(id, desc, fn):
 # ═══════════════════════════════════════════════
 # 1. DEAD CODE ELIMINADO (herramientas.py)
 # ═══════════════════════════════════════════════
-herr_path = os.path.join(os.path.dirname(__file__), '..', 'golem', 'habilidades', 'herramientas.py')
+herr_path = os.path.join(ROOT, 'computadora', 'habilidades', 'herramientas.py')
 with open(herr_path, encoding='utf-8') as f:
     herr_src = f.read()
 
@@ -75,7 +76,7 @@ check("FP36-08", "ejecutar_comando_sistema() sigue existiendo",
 # ═══════════════════════════════════════════════
 # 2. SILENT EXCEPTS → LOGGING (habla.py)
 # ═══════════════════════════════════════════════
-habla_path = os.path.join(os.path.dirname(__file__), '..', 'golem', 'voz', 'habla.py')
+habla_path = os.path.join(ROOT, 'computadora', 'voz', 'habla.py')
 with open(habla_path, encoding='utf-8') as f:
     habla_src = f.read()
 
@@ -112,7 +113,7 @@ check("FP36-11", "habla.py: logger.debug en audio adaptativo",
 # ═══════════════════════════════════════════════
 # 3. SILENT EXCEPTS → LOGGING (__main__.py)
 # ═══════════════════════════════════════════════
-main_path = os.path.join(os.path.dirname(__file__), '..', 'golem', '__main__.py')
+main_path = os.path.join(ROOT, 'computadora', '__main__.py')
 with open(main_path, encoding='utf-8') as f:
     main_src = f.read()
 
@@ -145,7 +146,7 @@ check("FP36-15", "herramientas.py: double-checked locking pattern",
       ))
 
 # monitor_sistema.py
-monitor_path = os.path.join(os.path.dirname(__file__), '..', 'golem', 'habilidades', 'monitor_sistema.py')
+monitor_path = os.path.join(ROOT, 'computadora', 'habilidades', 'monitor_sistema.py')
 with open(monitor_path, encoding='utf-8') as f:
     monitor_src = f.read()
 
@@ -156,7 +157,7 @@ check("FP36-16", "monitor_sistema.py: _monitor_global_lock existe",
       ))
 
 # copilot_api.py
-copilot_path = os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'copilot_api.py')
+copilot_path = os.path.join(ROOT, 'computadora', 'cerebro', 'copilot_api.py')
 with open(copilot_path, encoding='utf-8') as f:
     copilot_src = f.read()
 
@@ -167,7 +168,7 @@ check("FP36-17", "copilot_api.py: _instancia_lock existe",
       ))
 
 # sistema.py
-sistema_path = os.path.join(os.path.dirname(__file__), '..', 'golem', 'habilidades', 'sistema.py')
+sistema_path = os.path.join(ROOT, 'computadora', 'habilidades', 'sistema.py')
 with open(sistema_path, encoding='utf-8') as f:
     sistema_src = f.read()
 
@@ -216,13 +217,13 @@ check("FP36-22", "sistema.py: OWASP A03:2021 documentado en shell=True",
 # ═══════════════════════════════════════════════
 check("FP36-23", "herramientas.py importa sin error",
       lambda: (
-          __import__('golem.habilidades.herramientas') is not None,
+          __import__('computadora.habilidades.herramientas') is not None,
           "Import OK"
       ))
 
 check("FP36-24", "comando_seguro.py importa sin error",
       lambda: (
-          __import__('golem.habilidades.comando_seguro') is not None,
+          __import__('computadora.habilidades.comando_seguro') is not None,
           "Import OK"
       ))
 

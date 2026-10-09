@@ -10,9 +10,10 @@ import re
 import unittest
 from pathlib import Path
 
-ESCUCHA_SRC = (Path(__file__).resolve().parent.parent / "golem" / "voz" / "escucha.py").read_text(encoding="utf-8")
-HOTRELOAD_SRC = (Path(__file__).resolve().parent.parent / "golem" / "nucleo" / "hot_reload.py").read_text(encoding="utf-8")
-VENTANA_SRC = (Path(__file__).resolve().parent.parent / "golem" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
+ROOT = Path(__file__).resolve().parents[2]
+ESCUCHA_SRC = (ROOT / "computadora" / "voz" / "escucha.py").read_text(encoding="utf-8")
+HOTRELOAD_SRC = (ROOT / "computadora" / "nucleo" / "hot_reload.py").read_text(encoding="utf-8")
+VENTANA_SRC = (ROOT / "computadora" / "interfaz" / "ventana_principal.py").read_text(encoding="utf-8")
 
 
 # ═══════════════════════════════════════════════

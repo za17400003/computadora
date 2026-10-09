@@ -30,7 +30,7 @@ Si falta uno → `ollama pull nombre-modelo`
 
 ## Paso 3: Abre VS Code + Continue
 
-1. Abre carpeta: `C:\Users\woire\Documents\proyecto-golem`
+1. Abre carpeta: `C:\Users\woire\Documents\proyecto-computadora`
 2. Haz Ctrl+I (o ⌘+I en Mac) → abre Continue Chat
 3. Deberías ver: **"Ollama Chat"** arriba (modelo seleccionado)
 

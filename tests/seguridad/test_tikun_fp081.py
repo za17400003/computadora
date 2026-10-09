@@ -2,7 +2,7 @@
 Tests para FP-081 (Shomer HaDemo VeHaKelim).
 RF-302: Guard anti-doble-fire en _demo_ejecutar_paso.
 RF-303: Mapeo UWP Photos en cerrar_aplicacion.
-RF-304: Dependencias opcionales en requirements.txt e iniciar_golem.bat.
+RF-304: Dependencias opcionales en requirements.txt e iniciar_computadora.bat.
 """
 
 import inspect
@@ -24,7 +24,7 @@ class TestRF302GuardAntiDobleFire:
 
     @pytest.fixture(autouse=True)
     def _load_source(self):
-        src_file = ROOT / "golem" / "interfaz" / "ventana_principal.py"
+        src_file = ROOT / "computadora" / "interfaz" / "ventana_principal.py"
         self._full_src = src_file.read_text(encoding="utf-8")
 
     def test_guard_flag_check_exists(self):
@@ -76,7 +76,7 @@ class TestRF303UWPPhotosMapping:
 # ═══════════════════════════════════════════
 
 class TestRF304DependenciasOpcionales:
-    """Verifica que requirements.txt e iniciar_golem.bat mencionan face-recognition."""
+    """Verifica que requirements.txt e iniciar_computadora.bat mencionan face-recognition."""
 
     def test_requirements_mentions_face_recognition(self):
         reqs = (ROOT / "requirements.txt").read_text(encoding="utf-8")
@@ -87,7 +87,7 @@ class TestRF304DependenciasOpcionales:
         assert "dlib" in reqs, "requirements.txt no menciona dlib"
 
     def test_bat_mentions_face_recognition(self):
-        bat = (ROOT / "iniciar_golem.bat").read_text(encoding="utf-8")
+        bat = (ROOT / "iniciar_computadora.bat").read_text(encoding="utf-8")
         assert "face_recognition" in bat or "face-recognition" in bat, \
-            "iniciar_golem.bat no verifica face-recognition"
+            "iniciar_computadora.bat no verifica face-recognition"
 

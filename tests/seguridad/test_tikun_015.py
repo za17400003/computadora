@@ -58,7 +58,7 @@ class TestRF140_HallucinationRepetitiva:
 
     def test_texto_legitimo_no_descartado(self):
         """Frases normales en español no deben ser descartadas."""
-        assert _es_hallucination_repetitiva("Golem busca el archivo de configuración") == ""
+        assert _es_hallucination_repetitiva("Computadora busca el archivo de configuración") == ""
         assert _es_hallucination_repetitiva("Necesito que abras el navegador y busques algo") == ""
         assert _es_hallucination_repetitiva("¿Cuánto tiempo falta para la reunión?") == ""
 

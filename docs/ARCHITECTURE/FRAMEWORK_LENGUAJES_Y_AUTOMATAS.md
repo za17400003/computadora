@@ -1,6 +1,6 @@
 # 📐 FRAMEWORK TEÓRICO: TEORÍA DE LENGUAJES Y AUTÓMATAS
 
-**Proyecto**: COMPUTADORA (Antes Golem)  
+**Proyecto**: COMPUTADORA (Antes Computadora)
 **Versión**: 2.0 — Coherencia Formal  
 **Fecha**: Abril 17, 2026  
 **Autor**: GitHub Copilot (Arq. CTO)

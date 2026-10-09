@@ -22,7 +22,7 @@ El Orbe (interfaz visual) y las Demostraciones están desalineadas de la arquite
 | **Demo 1 (Completa)** | Contiene Demo 2+3 pero con repeticiones | Lenguaje duplicado | MEDIA |
 | **Demo 2 (Maljuth)** | Modo Guardián + Herramientas sin sincronización | ¿Muestra ambos o uno? | ALTA |
 | **Demo 3 (Permisos)** | No claro cuándo es "demostración" vs "proof of work" | Narrativa confusa | MEDIA |
-| **Narrativa General** | "soy golem" en contexto de COMPUTADORA | Identidad rota | CRÍTICA |
+| **Narrativa General** | "soy computadora" en contexto de COMPUTADORA | Identidad rota | CRÍTICA |
 | **Partículas** | "Aceleradas" en narración pero visualización estática | Incoherencia perceptual | ALTA |
 | **Sensibilidad Orbe** | No responde a mouse en modos "aburrido"/"apagado" | Interactividad rota | MEDIA |
 | **Acariciamiento** | Sin animación de feedback táctil | UX incompleta | BAJA |
@@ -87,7 +87,7 @@ Nuevo modelo:
 ### Problema Narrativo Actual
 ```
 Demo "Completa": 
-  "Ahora le diré todo lo que sé de mí: soy GOLEM..."
+  "Ahora le diré todo lo que sé de mí: soy COMPUTADORA..."
   ❌ IDENTIDAD ROTA (debería ser COMPUTADORA)
 
 Demo Maljuth + Herramientas:

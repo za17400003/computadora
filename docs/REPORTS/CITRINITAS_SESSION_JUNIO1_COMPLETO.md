@@ -131,7 +131,7 @@ Usuario recibe: RESPUESTA INTELIGENTE + CÓDIGO DE EJEMPLO
 
 ```bash
 # Terminal 1 - PowerShell
-cd c:\Users\woire\Documents\proyecto-golem
+cd c:\Users\woire\Documents\proyecto-computadora
 ollama pull llama2:7b
 # ← Esto corre en background
 # Monitorea esta terminal
@@ -147,10 +147,10 @@ ollama pull llama2:7b
 
 #### **FASE 1B: Guardian fix (5 minutos)**
 
-**Abrir** `golem/nucleo/guardian.py` (búsqueda rápida):
+**Abrir** `computadora/nucleo/guardian.py` (búsqueda rápida):
 ```bash
 # Terminal 2 - PowerShell
-code golem/nucleo/guardian.py
+code computadora/nucleo/guardian.py
 ```
 
 **Encontrar la función `transicion()`** (ctrl+f: "def transicion"):
@@ -196,7 +196,7 @@ def _simple_extractive_summary(text, max_length=200):
 # SI YA EXISTE pero intenta algo complicado, reemplazar con arriba
 ```
 
-**Ubicación recomendada**: Al final del archivo o justo antes de `class MemoriaGolem`
+**Ubicación recomendada**: Al final del archivo o justo antes de `class MemoriaComputadora`
 
 **Guardar** (Ctrl+S)
 

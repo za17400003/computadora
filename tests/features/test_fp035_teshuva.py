@@ -75,7 +75,7 @@ check("FP35-08", "OllamaGuard usa threading.Lock internamente", lambda: (
 # ─── Integración: nlu.py usa `with ollama_guard:` ───
 
 def _test_nlu_usa_ollama_guard():
-    src = open(os.path.join(CWD, "golem", "cerebro", "nlu.py"), encoding="utf-8").read()
+    src = open(os.path.join(CWD, "computadora", "cerebro", "nlu.py"), encoding="utf-8").read()
     count = src.count("with ollama_guard:")
     return count >= 2, f"{count} usos de 'with ollama_guard:'"
 
@@ -105,7 +105,7 @@ check("FP35-11", "test_fp021_phase1.py: sys.exit guardado", lambda:
 # ═══════════════════════════════════════════════
 
 def _test_emb_antes_de_checks():
-    src = open(os.path.join(CWD, "golem", "voz", "escucha.py"), encoding="utf-8").read()
+    src = open(os.path.join(CWD, "computadora", "voz", "escucha.py"), encoding="utf-8").read()
     pos_emb = src.find("emb = self._extraer_embedding")
     # Buscar los checks de wake word que usan emb
     pos_nombre = src.find("# nombre completo")
@@ -126,7 +126,7 @@ check("FP35-12", "escucha.py: emb se extrae ANTES de wake word checks", _test_em
 # ═══════════════════════════════════════════════
 
 def _test_no_on_permiso_copilot():
-    src = open(os.path.join(CWD, "golem", "cerebro", "nlu.py"), encoding="utf-8").read()
+    src = open(os.path.join(CWD, "computadora", "cerebro", "nlu.py"), encoding="utf-8").read()
     # on_permiso_copilot NO debe existir como atributo usado
     # Excluir comentarios y la propia definición
     uses = [l.strip() for l in src.splitlines()
@@ -136,7 +136,7 @@ def _test_no_on_permiso_copilot():
 check("FP35-13", "nlu.py: NO usa on_permiso_copilot (bug original)", _test_no_on_permiso_copilot)
 
 def _test_solicitar_permiso_existe():
-    src = open(os.path.join(CWD, "golem", "cerebro", "nlu.py"), encoding="utf-8").read()
+    src = open(os.path.join(CWD, "computadora", "cerebro", "nlu.py"), encoding="utf-8").read()
     count = src.count("self.solicitar_permiso_copilot")
     return count >= 3, f"{count} usos de self.solicitar_permiso_copilot"
 

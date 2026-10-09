@@ -125,7 +125,7 @@ test("RF-19", "GestorPermisos existe", inspect.isclass(GestorPermisos))
 # RF-20: Etz HaChaim — arquitectura
 test("RF-20", "Sefirot en nlu.py (SISTEMA_PROMPT)", "Sefir" in _nlu.SISTEMA_PROMPT or "sefir" in _nlu.SISTEMA_PROMPT.lower())
 
-# RF-20b: Baymax en SISTEMA_PROMPT (Híbrido Golem-JARVIS-Daimonion-Baymax)
+# RF-20b: Baymax en SISTEMA_PROMPT (Híbrido Computadora-JARVIS-Daimonion-Baymax)
 test("RF-20b", "Baymax en SISTEMA_PROMPT", "Baymax" in _nlu.SISTEMA_PROMPT)
 
 # RF-21a: Streaming TTS
@@ -187,7 +187,7 @@ test("RF-33", "CerebroComputadora tiene _modo_guardian", True)  # atributo de in
 test("RF-34", "CerebroComputadora tiene _hay_terceros", True)  # atributo de instancia
 
 # RF-35: Estados expresivos
-from computadora.interfaz.fsm_golem import EstadoMaljut
+from computadora.interfaz.fsm_computadora import EstadoMaljut
 estados = [e.value for e in EstadoMaljut]
 test("RF-35", "EstadoMaljut tiene CORTESIA", "cortesia" in estados)
 test("RF-35", "EstadoMaljut tiene ALERTA_EXTRANO", "alerta_extrano" in estados)

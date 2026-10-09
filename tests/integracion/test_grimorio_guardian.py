@@ -1,5 +1,5 @@
 """
-⊕ Sal — Tests para golem/canales/grimorio_guardian.py (WI-291)
+⊕ Sal — Tests para computadora/canales/grimorio_guardian.py (WI-291)
 Verifica el GrimorioGuardian.
 """
 

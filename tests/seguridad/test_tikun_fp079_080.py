@@ -89,7 +89,7 @@ class TestRF299_300_301DemoSource:
     @pytest.fixture(autouse=True)
     def _load_source(self):
         from pathlib import Path
-        src = Path(__file__).resolve().parent.parent / "golem" / "interfaz" / "ventana_principal.py"
+        src = Path(__file__).resolve().parents[2] / "computadora" / "interfaz" / "ventana_principal.py"
         self.source = src.read_text(encoding="utf-8")
 
     def test_demo_escanear_red_definido(self):

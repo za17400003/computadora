@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/habilidades/copilot_bridge.py (WI-291)
-Verifica el puente Golem → Copilot/IDE.
+⊕ Sal — Tests para computadora/habilidades/copilot_bridge.py (WI-291)
+Verifica el puente Computadora → Copilot/IDE.
 """
 
 import json
@@ -35,8 +35,8 @@ class TestDirectorios:
 
 class TestSolicitarACopilot:
     def test_crea_solicitud_y_retorna_confirmacion(self, tmp_path):
-        with patch("golem.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
-            result = solicitar_a_copilot("Agregar tests", proyecto="golem")
+        with patch("computadora.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
+            result = solicitar_a_copilot("Agregar tests", proyecto="computadora")
             assert "Solicitud" in result
             assert "creada" in result.lower() or "sol_" in result
 
@@ -46,17 +46,17 @@ class TestSolicitarACopilot:
 
             data = json.loads(archivos[0].read_text("utf-8"))
             assert data["estado"] == "pendiente"
-            assert "golem" in data["proyecto"].lower()
+            assert "computadora" in data["proyecto"].lower()
 
     def test_proyecto_propio(self, tmp_path):
-        with patch("golem.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
-            result = solicitar_a_copilot("Fix bug", proyecto="golem")
+        with patch("computadora.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
+            result = solicitar_a_copilot("Fix bug", proyecto="computadora")
             archivos = list(tmp_path.glob("sol_*.json"))
             data = json.loads(archivos[0].read_text("utf-8"))
             assert data["requiere_reinicio"] is True
 
     def test_proyecto_externo(self, tmp_path):
-        with patch("golem.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
+        with patch("computadora.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
             solicitar_a_copilot("Fix bug", proyecto="otro_proyecto")
             archivos = list(tmp_path.glob("sol_*.json"))
             data = json.loads(archivos[0].read_text("utf-8"))
@@ -69,8 +69,8 @@ class TestSolicitarACopilot:
 
 class TestVerificarRespuesta:
     def test_sin_pendientes(self, tmp_path):
-        with patch("golem.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path), \
-             patch("golem.habilidades.copilot_bridge.DIR_COMPLETADAS", tmp_path / "comp"):
+        with patch("computadora.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path), \
+             patch("computadora.habilidades.copilot_bridge.DIR_COMPLETADAS", tmp_path / "comp"):
             (tmp_path / "comp").mkdir()
             result = verificar_respuesta()
             assert "no hay" in result.lower() or "no encontré" in result.lower()
@@ -81,8 +81,8 @@ class TestVerificarRespuesta:
         sol = {"estado": "completada", "resultado": "Hecho"}
         (comp_dir / "sol_test.json").write_text(json.dumps(sol), encoding="utf-8")
 
-        with patch("golem.habilidades.copilot_bridge.DIR_COMPLETADAS", comp_dir), \
-             patch("golem.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
+        with patch("computadora.habilidades.copilot_bridge.DIR_COMPLETADAS", comp_dir), \
+             patch("computadora.habilidades.copilot_bridge.DIR_PENDIENTES", tmp_path):
             result = verificar_respuesta("sol_test")
             assert "completada" in result.lower()
 

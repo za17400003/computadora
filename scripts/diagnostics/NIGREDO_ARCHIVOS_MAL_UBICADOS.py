@@ -23,7 +23,7 @@ WHITELIST_RAIZ = {
 WHITELIST_DIRS = {
     '.git', '.github', '.gitignore',
     'computadora', 'datos', 'docs', 'scripts', 'tests', 'memories',
-    '_config', 'golem', 'loguru', 'lmstudio-mcp'  # Pueden ser legacy/especiales
+    '_config', 'computadora', 'loguru', 'lmstudio-mcp'  # Pueden ser legacy/especiales
 }
 
 # Clasificación: archivo → destino

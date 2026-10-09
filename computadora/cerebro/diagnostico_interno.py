@@ -60,7 +60,7 @@ _MODULO_SEFIRA = {
     "memoria": "Netzaj", "personalidad": "Netzaj", "perfil_linguistico": "Netzaj",
     "escucha": "Hod", "habla": "Hod", "servidor_api": "Hod",
     "orquestador": "Yesod", "herramientas": "Yesod", "eventos": "Yesod",
-    "ventana_principal": "Maljut", "vida_autonoma": "Maljut", "fsm_golem": "Maljut",
+    "ventana_principal": "Maljut", "vida_autonoma": "Maljut", "fsm_computadora": "Maljut",
     "ciclo_circadiano": "Da'at", "perceptor": "Da'at",
 }
 

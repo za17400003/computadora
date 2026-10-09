@@ -14,7 +14,7 @@ import pytest
 # Demo 0 Emet — Source code validation
 # ═══════════════════════════════════════════════════════════════
 
-_VP_SOURCE = Path(__file__).resolve().parents[1] / "golem" / "interfaz" / "ventana_principal.py"
+_VP_SOURCE = Path(__file__).resolve().parents[1] / "computadora" / "interfaz" / "ventana_principal.py"
 
 
 class TestDemo0EmetSource:

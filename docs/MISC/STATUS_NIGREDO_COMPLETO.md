@@ -120,7 +120,7 @@ Detectados:
 ### Opción 1: Manual (Verificar coherencia)
 
 ```bash
-cd proyecto-golem
+cd proyecto-computadora
 python scripts/nigredo_audit.py
 ```
 

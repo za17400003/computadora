@@ -142,10 +142,10 @@ python scripts/nigredo_audit.py --mapa
 
 | Concepto Esotérico | Concepto Pragmático | Implementación | Validación |
 |-------------------|-------------------|----------------|------------|
-| Golem | COMPUTADORA | `ventana_principal.py` | ✅ Nombres consistentes |
+| Computadora | COMPUTADORA | `ventana_principal.py` | ✅ Nombres consistentes |
 | Grimorio | Enciclopedia | `servidor_enciclopedia.py` | ✅ Terminología actualizada |
 | Palabra Mágica | Comando | `nlu.py` handlers | ✅ PM → acción |
 | Conflictos Resueltos | Senderos de Resolución | `docs/SRS.md` §4 | ✅ 8 conflictos documentados |
 
 ---</content>
-<parameter name="filePath">c:\Users\woire\Documents\proyecto-golem\_docs\ARCHITECTURE\MAPEO_ESOTERICO_PRAGMATICO.md
+<parameter name="filePath">c:\Users\woire\Documents\proyecto-computadora\_docs\ARCHITECTURE\MAPEO_ESOTERICO_PRAGMATICO.md

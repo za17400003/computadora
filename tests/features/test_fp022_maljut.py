@@ -74,7 +74,7 @@ test("_STR_A_ESTADO tiene 13 entries", len(_STR_A_ESTADO) == 13)
 # ═══════════════════════════════════════════════
 print("\n── WI-102: Watchdog Multi-etapa ──")
 
-from computadora.interfaz.watchdog import EstadoCircuit, EtapaWatchdog, ServicioMonitoreado, WatchdogGolem
+from computadora.interfaz.watchdog import EstadoCircuit, EtapaWatchdog, ServicioMonitoreado, WatchdogComputadora
 
 test("EstadoCircuit tiene CLOSED/OPEN/HALF_OPEN", 
      hasattr(EstadoCircuit, 'CLOSED') and hasattr(EstadoCircuit, 'OPEN') and hasattr(EstadoCircuit, 'HALF_OPEN'))

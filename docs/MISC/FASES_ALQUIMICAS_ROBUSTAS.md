@@ -59,7 +59,7 @@ if report["warnings"]:
 #### 2️⃣ Terminología Coherente
 ```
 ✓ Enciclopedia (JAMÁS "Grimorio" en código)
-✓ COMPUTADORA (JAMÁS "Golem" en pragmático)
+✓ COMPUTADORA (JAMÁS "Computadora" en pragmático)
 ✓ Comandos (JAMÁS "Palabras Mágicas" en codigo)
 ✓ Mapeo explícito: esotérico ↔ pragmático
 ```

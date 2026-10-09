@@ -10,7 +10,7 @@
 
 **Log**:
 ```
-✅ Renovación Operativa: 5 Leyes inyectadas en CerebroGolem
+✅ Renovación Operativa: 5 Leyes inyectadas en CerebroComputadora
 ```
 
 **Qué REALMENTE sucede** (computadora/cerebro/nlu.py:1302):
@@ -89,7 +89,7 @@ grep -n "_en_estructura\|_anti_colateral_mode\|_reglas_activas" computadora/cere
 | `📍 Nivel 4: Inyectando comunicación...` | renovacion.py | "3 capas decodificación" | Se asigna `_decodificar_mensaje` pero NUNCA se llama en nlu.py | 🔴 FALSO POSITIVO |
 | `✨ RENOVACIÓN COMPLETADA ✨` | renovacion.py | "Renovación exitosa" | Se marcó `_renovado=True` pero 70% de lo inyectado no opera | 🔴 FALSO POSITIVO |
 | `Flujo de Pensamiento ╔══...╝` | 1440-1591 | "Debugging visual" | Es decorativo (arte en logs), NO crítico | 🟡 ORNAMENTAL |
-| `WI-324: Ollama degradado → timeout corto` | 1209 | "Degradation detected" | Chequea flag de WatchdogGolem | ✅ REAL (si watchdog activo) |
+| `WI-324: Ollama degradado → timeout corto` | 1209 | "Degradation detected" | Chequea flag de WatchdogComputadora | ✅ REAL (si watchdog activo) |
 | `Tria Prima: ♦ Triple Amén — meta-análisis invocado` | 1768 | "Meta-análisis invocado" | Solo log, sin ejecución real de meta-análisis profundo | 🔴 FALSO POSITIVO |
 | `Da'at: Ruteo explícito a Keter` | 1793 | "Keter invocado" | Es control flow, pero log es decorativo | 🟡 SEMI-REAL |
 | `Da'at: Ruteo explícito a Tiféret` | 1818 | "Tiféret invocado" | Similar a Keter | 🟡 SEMI-REAL |
@@ -126,7 +126,7 @@ def renovar(self, cerebro_computadora) -> dict:
 ```python
 try:
     self._renovacion.renovar(self)
-    logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroGolem")
+    logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroComputadora")
     # ↑ Log asume éxito, pero "inyectadas" es engañoso
     # Los métodos están SÍ asignados, pero mayormente sin usar
 except Exception as e:
@@ -188,7 +188,7 @@ if self._renovado:
 **Cambio propuesto**:
 ```python
 # ANTES
-logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroGolem")
+logger.info("✅ Renovación Operativa: 5 Leyes inyectadas en CerebroComputadora")
 
 # DESPUÉS
 logger.debug("Renovación Operativa completada (métodos asignados, _verificar_verdad active)")

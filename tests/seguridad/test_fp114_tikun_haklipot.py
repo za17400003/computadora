@@ -64,9 +64,9 @@ check("WI157-05", "escribir_portapapeles has encoding='utf-8'", lambda: (
 
 def _count_unprotected_subprocess_calls():
     """Scan all .py files for text=True without encoding='utf-8'."""
-    golem_dir = os.path.join(os.path.dirname(__file__), '..', 'golem')
+    computadora_dir = os.path.join(os.path.dirname(__file__), '..', 'computadora')
     unprotected = []
-    for root, dirs, files in os.walk(golem_dir):
+    for root, dirs, files in os.walk(computadora_dir):
         for f in files:
             if not f.endswith('.py'):
                 continue
@@ -95,7 +95,7 @@ check("WI158-01", "No unprotected subprocess text=True calls", lambda: (
 # ═══════════════════════════════════════════════
 
 def _demo_source():
-    with open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'interfaz', 'ventana_principal.py'),
+    with open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'interfaz', 'ventana_principal.py'),
               encoding='utf-8') as f:
         return f.read()
 
@@ -135,22 +135,22 @@ check("WI159-04", "Demo Grimorio exclusive text present", lambda: (
 # ═══════════════════════════════════════════════
 
 check("WI160-01", "servidor_api has _command_results dict", lambda: (
-    hasattr(__import__('golem.canales.servidor_api', fromlist=['_command_results']), '_command_results'),
+    hasattr(__import__('computadora.canales.servidor_api', fromlist=['_command_results']), '_command_results'),
     "global dict exists"
 ))
 
 check("WI160-02", "servidor_api has _command_results_lock", lambda: (
-    hasattr(__import__('golem.canales.servidor_api', fromlist=['_command_results_lock']), '_command_results_lock'),
+    hasattr(__import__('computadora.canales.servidor_api', fromlist=['_command_results_lock']), '_command_results_lock'),
     "threading lock exists"
 ))
 
 check("WI160-03", "servidor_api _COMMAND_TTL is 300", lambda: (
-    getattr(__import__('golem.canales.servidor_api', fromlist=['_COMMAND_TTL']), '_COMMAND_TTL') == 300,
+    getattr(__import__('computadora.canales.servidor_api', fromlist=['_COMMAND_TTL']), '_COMMAND_TTL') == 300,
     "TTL is 5 minutes"
 ))
 
 def _servidor_source():
-    with open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'canales', 'servidor_api.py'),
+    with open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'canales', 'servidor_api.py'),
               encoding='utf-8') as f:
         return f.read()
 

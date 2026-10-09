@@ -31,7 +31,7 @@ class TestRF142_Hysteresis:
 
     def test_proceso_no_corriendo(self):
         """Un proceso inventado no debe estar corriendo."""
-        assert not _proceso_sigue_corriendo("zzzfakeprocess_golemtest.exe")
+        assert not _proceso_sigue_corriendo("zzzfakeprocess_computadoratest.exe")
 
     def test_hysteresis_en_tick(self):
         """_tick() debe contener lógica de hysteresis con _proceso_sigue_corriendo."""

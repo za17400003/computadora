@@ -30,7 +30,7 @@ def _valida_a_si_misma() -> bool:
 ```python
 # En _pensar_con_herramientas (línea ~4170)
 if not self._valida_a_si_misma():
-    logger.error("CerebroGolem no está validado")
+    logger.error("CerebroComputadora no está validado")
     return "Sistema no listo. Reintentando..."
 ```
 

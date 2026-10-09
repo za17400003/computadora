@@ -6,7 +6,7 @@ CITRINITAS: Script de Verificación post-Migración
 
 Propósito: Verificar que no quedan instancias residuales de:
   - "Grimorio" / "grimorio" (debería ser "Enciclopedia" / "enciclopedia")
-  - "Golem" / "golem" (debería ser "Computadora" / "computadora")
+  - "Computadora" / "computadora" (debería ser "Computadora" / "computadora")
 
 Ejecución:
   python scripts/VERIFICAR_MIGRACION.py
@@ -60,28 +60,28 @@ def verificar():
         "grimorio": "nombres de variables/funciones",
     }
     
-    patrones_golem = {
-        "Golem": "texto descriptivo, comentarios",
-        "golem": "variables, imports",
+    patrones_computadora = {
+        "Computadora": "texto descriptivo, comentarios",
+        "computadora": "variables, imports",
     }
     
     archivos = filtrar_archivos_python()
     
     residuos_grimorio = {}
-    residuos_golem = {}
+    residuos_computadora = {}
     
     for archivo in archivos:
         try:
             contenido = archivo.read_text(encoding="utf-8")
             
             matches_grimorio = buscar_patrones(contenido, patrones_grimorio)
-            matches_golem = buscar_patrones(contenido, patrones_golem)
+            matches_computadora = buscar_patrones(contenido, patrones_computadora)
             
             if matches_grimorio:
                 residuos_grimorio[archivo] = matches_grimorio
             
-            if matches_golem:
-                residuos_golem[archivo] = matches_golem
+            if matches_computadora:
+                residuos_computadora[archivo] = matches_computadora
         
         except Exception as e:
             logger.error(f"Error leyendo {archivo}: {e}")
@@ -99,19 +99,19 @@ def verificar():
     else:
         logger.info("✅ Grimorio → Enciclopedia: COMPLETADO")
     
-    if residuos_golem:
-        logger.error("❌ RESIDUOS ENCONTRADOS: Golem/golem")
-        for archivo, matches in residuos_golem.items():
+    if residuos_computadora:
+        logger.error("❌ RESIDUOS ENCONTRADOS: Computadora/computadora")
+        for archivo, matches in residuos_computadora.items():
             rel_path = archivo.relative_to(archivo.parent.parent.parent)
             logger.error(f"\n  {rel_path}:")
             for patrón, líneas in matches.items():
                 logger.error(f"    '{patrón}' en líneas: {líneas[:5]}{'...' if len(líneas) > 5 else ''}")
     else:
-        logger.info("✅ Golem → Computadora: COMPLETADO")
+        logger.info("✅ Computadora → Computadora: COMPLETADO")
     
     logger.info("\n" + "=" * 60)
     
-    if residuos_grimorio or residuos_golem:
+    if residuos_grimorio or residuos_computadora:
         logger.error("\n❌ MIGRACION INCOMPLETA — Residuos detectados")
         return False
     

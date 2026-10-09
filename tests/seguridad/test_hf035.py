@@ -22,7 +22,7 @@ def check(id, desc, fn):
 print("\n== HF-035: nlu.py tool_code suppression ==")
 
 def _check_emitir_backtick():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'cerebro', 'nlu.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'cerebro', 'nlu.py'),
                encoding='utf-8').read()
     # Buscar la función _emitir_fragmento y verificar que tiene check de ```
     fn_start = src.find('def _emitir_fragmento')
@@ -41,7 +41,7 @@ check("HF35-01", "_emitir_fragmento suprime bloques ``` (tool_code)", _check_emi
 print("\n== HF-035: escucha.py _ESPAÑOL_CORTAS_VALIDAS ==")
 
 def _check_cortas_validas():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'voz', 'escucha.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'voz', 'escucha.py'),
                encoding='utf-8').read()
     has_var = '_ESPAÑOL_CORTAS_VALIDAS' in src
     if not has_var:
@@ -58,14 +58,14 @@ check("HF35-02", "_ESPAÑOL_CORTAS_VALIDAS tiene palabras nuevas (5+ de 7)", _ch
 print("\n== HF-035: escucha.py false positive logic ==")
 
 def _check_falsos_positivos_en():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'voz', 'escucha.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'voz', 'escucha.py'),
                encoding='utf-8').read()
     has_fp_en = '_FALSOS_POSITIVOS_EN' in src
     return has_fp_en, f"_FALSOS_POSITIVOS_EN={'encontrado' if has_fp_en else 'NO'}"
 check("HF35-03", "_FALSOS_POSITIVOS_EN existe en escucha.py", _check_falsos_positivos_en)
 
 def _check_no_ascii_heuristic():
-    src = open(os.path.join(os.path.dirname(__file__), '..', 'golem', 'voz', 'escucha.py'),
+    src = open(os.path.join(os.path.dirname(__file__), '..', 'computadora', 'voz', 'escucha.py'),
                encoding='utf-8').read()
     # HF-035 eliminó la heurística ASCII: w.isascii() and not re.search(accents)
     # Ahora usa strict lookup: w in _FALSOS_POSITIVOS_EN
@@ -89,7 +89,7 @@ print("\n== COHERENCIA ==")
 
 def _check_imports():
     errores = []
-    for m in ['golem.cerebro.nlu', 'golem.voz.escucha']:
+    for m in ['computadora.cerebro.nlu', 'computadora.voz.escucha']:
         try:
             __import__(m)
         except Exception as e:

@@ -105,7 +105,7 @@ def test_rf275_guard_300ms_in_detection():
 
 def test_rf276_bereshit_pre_threshold():
     """Bereshit debe llamar subir_umbral antes de hablar."""
-    path = os.path.join(os.path.dirname(__file__), "..", "golem", "interfaz", "ventana_principal.py")
+    path = os.path.join(os.path.dirname(__file__), "..", "computadora", "interfaz", "ventana_principal.py")
     src = open(path, encoding="utf-8").read()
     # Buscar en la zona de Bereshit completado: subir_umbral antes de hablar(bereshit_mensaje)
     idx_subir = src.find("# RF-276: Subir umbral ANTES")

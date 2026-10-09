@@ -75,7 +75,7 @@ class TestMediaActiva:
 # ========================================================
 
 class TestCorreccionesWhisper:
-    """Verifica que golden ya no se corrige a golem."""
+    """Verifica que golden ya no se corrige a computadora."""
 
     def test_golden_not_corrected(self):
         from computadora.voz.escucha import _CORRECCIONES_WHISPER
@@ -83,7 +83,7 @@ class TestCorreccionesWhisper:
 
     def test_gordon_still_corrected(self):
         from computadora.voz.escucha import _CORRECCIONES_WHISPER
-        assert _CORRECCIONES_WHISPER.get("gordon") == "golem"
+        assert _CORRECCIONES_WHISPER.get("gordon") == "computadora"
 
     def test_ahmed_still_corrected(self):
         from computadora.voz.escucha import _CORRECCIONES_WHISPER
@@ -99,13 +99,13 @@ class TestMinimizarInterceptor:
 
     def test_minimizar_in_al_recibir_respuesta(self):
         from pathlib import Path
-        src = Path(__file__).resolve().parent.parent / "golem" / "interfaz" / "ventana_principal.py"
+        src = Path(__file__).resolve().parents[2] / "computadora" / "interfaz" / "ventana_principal.py"
         code = src.read_text(encoding="utf-8")
         assert '"__MINIMIZAR__"' in code, "__MINIMIZAR__ no encontrado en ventana_principal.py"
 
     def test_minimizar_calls_showMinimized(self):
         from pathlib import Path
-        src = Path(__file__).resolve().parent.parent / "golem" / "interfaz" / "ventana_principal.py"
+        src = Path(__file__).resolve().parents[2] / "computadora" / "interfaz" / "ventana_principal.py"
         code = src.read_text(encoding="utf-8")
         idx_min = code.index('"__MINIMIZAR__"')
         assert "showMinimized" in code[idx_min:idx_min + 200]
@@ -175,7 +175,7 @@ class TestSanitizePrint:
                     "copilot.modelo": "gpt-4",
                     "ollama.modelo": "gemma3:4b",
                     "ollama.url": "http://localhost:11434",
-                    "personalidad.nombre": "Golem",
+                    "personalidad.nombre": "Computadora",
                     "personalidad.titulo_amo": "señor",
                 }
                 return defaults.get(k, default)

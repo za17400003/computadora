@@ -294,7 +294,7 @@ class TestGestorNiveles:
         gestor = GestorNiveles()
         estado = gestor.obtener_estado_sistema()
         
-        assert "ESTADO GOLEM" in estado
+        assert "ESTADO COMPUTADORA" in estado
         assert "Nivel 0" in estado
         assert "Nivel 1" in estado
         assert "Nivel 4" in estado

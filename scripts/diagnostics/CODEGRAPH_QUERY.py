@@ -174,7 +174,7 @@ if __name__ == "__main__":
         query = CodeGraphQuery()
         print("[CODEGRAPH QUERY] Quick Search Tool")
         print("Ejemplos:")
-        query.print_class_location("OrbeGolem")
+        query.print_class_location("OrbeComputadora")
         print()
         query.print_function_location("_animar")
         print()

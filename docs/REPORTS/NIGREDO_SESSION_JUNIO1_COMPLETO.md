@@ -120,7 +120,7 @@ if guardian.estado == "inactivo":
     guardian.transicion("inactivo")  # ❌ A → A NO permitido
 ```
 
-**Ubicación probable**: `golem/nucleo/guardian.py` o `computadora/nucleo/orquestador.py`
+**Ubicación probable**: `computadora/nucleo/guardian.py` o `computadora/nucleo/orquestador.py`
 
 **Patrón en logs**:
 - Aparece 3 veces
@@ -141,7 +141,7 @@ if guardian.estado == "inactivo":
 
 ### Solución Requerida
 
-1. **Encontrar línea que intenta**: `grep -n "transicion.*inactivo" computadora/ golem/ -r`
+1. **Encontrar línea que intenta**: `grep -n "transicion.*inactivo" computadora/ computadora/ -r`
 2. **Lógica correcta**: 
    ```python
    if guardian.estado != "inactivo":  # Solo transicionar si cambio real

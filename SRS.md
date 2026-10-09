@@ -63,7 +63,7 @@ Computadora ofrece:
 - Hardware objetivo general: CPU moderna, 16 GB RAM, GPU discreta o integrada para aceleración opcional (con fallback automático a CPU).
 - Requisitos de software: Python 3.10+, dependencias listadas en `requirements.txt`.
 - El sistema debe funcionar totalmente localmente siempre que sea posible.
-- Paquete de código principal: `computadora/` (ver SDD.md para la estructura real de subpaquetes). `golem/` existe únicamente como shim de compatibilidad de una línea que redirige `__path__` a `computadora/` por motivos de retrocompatibilidad de imports — no es el paquete activo.
+- Paquete de código principal: `computadora/` (ver SDD.md para la estructura real de subpaquetes). `computadora/` existe únicamente como shim de compatibilidad de una línea que redirige `__path__` a `computadora/` por motivos de retrocompatibilidad de imports — no es el paquete activo.
 
 ## 5. REQUISITOS FUNCIONALES
 

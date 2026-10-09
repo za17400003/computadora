@@ -131,7 +131,7 @@ git commit -m "FP-044B: Audio robusto + Watchdog limpio
 ## Estado Final
 
 ✅ **FP-044B Completada**:
-- Golem escucha robustamente incluso con ruido ambiental
+- Computadora escucha robustamente incluso con ruido ambiental
 - Watchdog monitorea solo servicios críticos (TTS, mic, Whisper)
 - Logs limpios, sin ruido de Ollama
 - Sistema listo para producción

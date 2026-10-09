@@ -39,11 +39,11 @@ def _config_vacia():
 
 def _orq():
     orq = MagicMock()
-    orq.procesar = MagicMock(return_value="Respuesta del Golem")
+    orq.procesar = MagicMock(return_value="Respuesta del Computadora")
     return orq
 
 
-def _update(user_id=12345, text="hola golem", first_name="Owner"):
+def _update(user_id=12345, text="hola computadora", first_name="Owner"):
     u = MagicMock()
     u.effective_user.id = user_id
     u.effective_user.first_name = first_name
@@ -98,8 +98,8 @@ class TestTelegramBrainHandlers:
             bot._manejar_mensaje(update, MagicMock())
         )
 
-        orq.procesar.assert_called_once_with("hola golem")
-        update.message.reply_text.assert_awaited_once_with("Respuesta del Golem")
+        orq.procesar.assert_called_once_with("hola computadora")
+        update.message.reply_text.assert_awaited_once_with("Respuesta del Computadora")
 
     def test_mensaje_no_owner_ignorado(self):
         orq = _orq()

@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-"""Fix all 'golem' imports to 'computadora' in the computadora/ package."""
+"""Fix all 'computadora' imports to 'computadora' in the computadora/ package."""
 
 import os
 
 replacements = [
-    ("from golem.", "from computadora."),
-    ("import golem.", "import computadora."),
-    ('__nombre__ = "Golem"', '__nombre__ = "Computadora"'),
-    ('__nombre__ = "golem"', '__nombre__ = "Computadora"'),
+    ("from computadora.", "from computadora."),
+    ("import computadora.", "import computadora."),
+    ('__nombre__ = "Computadora"', '__nombre__ = "Computadora"'),
+    ('__nombre__ = "computadora"', '__nombre__ = "Computadora"'),
 ]
 
 pyfiles = []

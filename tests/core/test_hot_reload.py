@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/nucleo/hot_reload.py (WI-291)
-Verifica el sistema de hot-reload del Golem.
+⊕ Sal — Tests para computadora/nucleo/hot_reload.py (WI-291)
+Verifica el sistema de hot-reload del Computadora.
 """
 
 from pathlib import Path
@@ -28,9 +28,9 @@ class TestCapas:
                       "memoria", "nucleo", "expresion", "utilidades"):
             assert capa in CAPAS
 
-    def test_valores_son_paths_golem(self):
+    def test_valores_son_paths_computadora(self):
         for capa, prefijo in CAPAS.items():
-            assert prefijo.startswith("golem/")
+            assert prefijo.startswith("computadora/")
 
 
 class TestCapasReinicioManual:
@@ -48,15 +48,15 @@ class TestCapasReinicioManual:
 
 class TestClasificarCapa:
     def test_clasifica_cerebro(self):
-        ruta = Path("C:/proyecto/golem/cerebro/nlu.py")
+        ruta = Path("C:/proyecto/computadora/cerebro/nlu.py")
         assert clasificar_capa(ruta) == "cerebro"
 
     def test_clasifica_voz(self):
-        ruta = Path("C:/proyecto/golem/voz/escucha.py")
+        ruta = Path("C:/proyecto/computadora/voz/escucha.py")
         assert clasificar_capa(ruta) == "voz"
 
     def test_clasifica_nucleo(self):
-        ruta = Path("C:/proyecto/golem/nucleo/emet.py")
+        ruta = Path("C:/proyecto/computadora/nucleo/emet.py")
         assert clasificar_capa(ruta) == "nucleo"
 
     def test_ruta_desconocida_retorna_none(self):
@@ -71,16 +71,16 @@ class TestClasificarCapa:
 class TestRutaAModulo:
     def test_convierte_ruta_a_modulo(self):
         raiz = Path("C:/proyecto")
-        ruta = Path("C:/proyecto/golem/cerebro/nlu.py")
-        assert ruta_a_modulo(ruta, raiz) == "golem.cerebro.nlu"
+        ruta = Path("C:/proyecto/computadora/cerebro/nlu.py")
+        assert ruta_a_modulo(ruta, raiz) == "computadora.cerebro.nlu"
 
     def test_init_se_omite(self):
         raiz = Path("C:/proyecto")
-        ruta = Path("C:/proyecto/golem/cerebro/__init__.py")
-        assert ruta_a_modulo(ruta, raiz) == "golem.cerebro"
+        ruta = Path("C:/proyecto/computadora/cerebro/__init__.py")
+        assert ruta_a_modulo(ruta, raiz) == "computadora.cerebro"
 
     def test_ruta_fuera_retorna_none(self):
         raiz = Path("C:/proyecto")
-        ruta = Path("D:/otro/golem.py")
+        ruta = Path("D:/otro/computadora.py")
         assert ruta_a_modulo(ruta, raiz) is None
 

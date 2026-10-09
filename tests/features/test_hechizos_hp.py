@@ -1,6 +1,6 @@
 """
-⊕ Sal — Tests para golem/cerebro/hechizos_hp.py (WI-291)
-Verifica el catálogo de hechizos Harry Potter del Golem.
+⊕ Sal — Tests para computadora/cerebro/hechizos_hp.py (WI-291)
+Verifica el catálogo de hechizos Harry Potter del Computadora.
 """
 
 import re

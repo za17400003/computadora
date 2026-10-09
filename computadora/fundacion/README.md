@@ -1,11 +1,11 @@
-# § FUNDACIÓN DEL GOLEM
+# § FUNDACIÓN DEL COMPUTADORA
 
-Módulo que contiene los **5 Axiomas Primordiales (III.7-III.11)** que gobiernan la estructura y funcionamiento del Golem.
+Módulo que contiene los **5 Axiomas Primordiales (III.7-III.11)** que gobiernan la estructura y funcionamiento del Computadora.
 
 ## Estructura
 
 ```
-golem/fundacion/
+computadora/fundacion/
 ├── __init__.py           # Exposición de axiomas al sistema
 ├── axiomas.py            # Formalización de 5 leyes primordiales
 └── README.md            # Este archivo
@@ -18,7 +18,7 @@ $$M \cup E^* = \{E\}$$
 
 **Principio**: Toda Manifestación (M) que pasa por cero o más Ejecuciones (E*) debe reducirse a un miembro del conjunto {E}.
 
-**Garantía**: Todo cambio válido en Golem es VIVO (VERDE) o RECHAZADO (ROJO). No existe punto medio.
+**Garantía**: Todo cambio válido en Computadora es VIVO (VERDE) o RECHAZADO (ROJO). No existe punto medio.
 
 **Implementación**: `VerificadorReduccionEjecucion`
 
@@ -62,7 +62,7 @@ $$M \cup E^+ = (M \cup E) \times (M \cup E)$$
 
 **Principio**: La composición es asociativa para N ciclos.
 
-**Garantía**: El Golem puede crecer indefinidamente sin pérdida de garantías.
+**Garantía**: El Computadora puede crecer indefinidamente sin pérdida de garantías.
 
 **Implementación**: `VerificadorComposicionEscalable`
 
@@ -73,7 +73,7 @@ $$M \cup E^+ = (M \cup E) \times (M \cup E)$$
 ### Importar axiomas
 
 ```python
-from golem.fundacion import (
+from computadora.fundacion import (
     FaseAlquimica,
     Manifestacion,
     Ejecucion,

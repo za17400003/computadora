@@ -91,7 +91,7 @@
 - `dibujante_orbe.py` — Orb 3D rendering
 - `animador_orbe_4d.py` — 4D animations
 - `watchdog.py` — Performance monitoring
-- `fsm_golem.py` — State machine
+- `fsm_computadora.py` — State machine
 - `ventana_keter.py` — Admin panel
 - `orbe_opengl.py` — OpenGL engine
 
@@ -223,7 +223,7 @@ Overall:            🟡 MEDIUM   ██████░░░░ 52%
 | `red.py` | ~250 | 🔴 CRÍTICO | Sin diagnósticos de red |
 | `control_remoto.py` | ~200 | 🔴 CRÍTICO | Escalación de permisos no probada |
 | `metatron.py` | ~500 | 🔴 CRÍTICO | Validación geométrica no probada |
-| `interfaz/fsm_golem.py` | ~400 | 🟠 ALTO | Crashes en transiciones de estado |
+| `interfaz/fsm_computadora.py` | ~400 | 🟠 ALTO | Crashes en transiciones de estado |
 
 ---
 
@@ -282,7 +282,7 @@ Overall:            🟡 MEDIUM   ██████░░░░ 52%
 
 ### 🟠 ALTOS (P1 — Beta Only)
 
-5. **GUI State Transitions** (`interfaz/fsm_golem.py`)
+5. **GUI State Transitions** (`interfaz/fsm_computadora.py`)
    - Coverage: ~5% (visual only)
    - Impact: Crashes under high load
    - Action: Create `tests/test_gui_state_machine.py` (~250 LOC)

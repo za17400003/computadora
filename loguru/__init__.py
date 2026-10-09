@@ -1,5 +1,5 @@
 """
-Minimal local shim for `loguru` used by Golem when the real
+Minimal local shim for `loguru` used by Computadora when the real
 `loguru` package is not installed. This allows the application to run
 and print logs using Python's standard `logging` as a fallback.
 

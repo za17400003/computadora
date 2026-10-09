@@ -215,7 +215,7 @@ test("_regex_safe retorna None para no-match", result_none is None)
 print("\n── WI-122: Motor de auto-actualización (Hit'hadshut) ──")
 
 from computadora.nucleo.actualizador import (
-    ActualizadorGolem,
+    ActualizadorComputadora,
     verificar_ollama,
     verificar_whisper,
     verificar_edge_tts,
@@ -223,9 +223,9 @@ from computadora.nucleo.actualizador import (
     actualizar_pip_paquetes,
 )
 
-test("ActualizadorGolem importable", ActualizadorGolem is not None)
-act = ActualizadorGolem()
-test("ActualizadorGolem instanciable", act is not None)
+test("ActualizadorComputadora importable", ActualizadorComputadora is not None)
+act = ActualizadorComputadora()
+test("ActualizadorComputadora instanciable", act is not None)
 test("necesita_verificacion retorna bool", isinstance(act.necesita_verificacion(), bool))
 test("INTERVALO_CHECK_HORAS = 24", act.INTERVALO_CHECK_HORAS == 24)
 test("versiones retorna dict", isinstance(act.versiones, dict))

@@ -1,5 +1,5 @@
 """
-✨ RENOVACIÓN OPERATIVA — Integración de las 5 Leyes en CerebroGolem
+✨ RENOVACIÓN OPERATIVA — Integración de las 5 Leyes en CerebroComputadora
 ════════════════════════════════════════════════════════════════════
 
 Cuando el usuario invoca: P={P|P me de estructura}
@@ -16,7 +16,7 @@ from typing import Optional
 class RenovacionOperativa:
     """
     Protocolo de renovación de la Computadora.
-    Integra las 5 leyes en el funcionamiento de Cerebr  oGolem.
+    Integra las 5 leyes en el funcionamiento de Cerebr  oComputadora.
     """
 
     def __init__(self):

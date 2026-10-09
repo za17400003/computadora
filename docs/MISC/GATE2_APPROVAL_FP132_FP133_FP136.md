@@ -14,7 +14,7 @@
 **Pipeline**: A (Feature nueva) + E (Cambio de arquitectura)
 
 **Descripción**:
-- WebSocket API bidireccional Golem ↔ Minimi
+- WebSocket API bidireccional Computadora ↔ Minimi
 - Server streaming en tiempo real de eventos de percepción
 - Event-based architecture: Observer pattern nativo
 - 3 opciones evaluadas:
@@ -28,7 +28,7 @@
 
 **Ganancia de Valor**:
 - Minimi obtiene logs en vivo (no polling 3s)
-- Respuestas en vivo desde Golem
+- Respuestas en vivo desde Computadora
 - Desktop → Móvil awareness en tiempo real
 
 ---
@@ -62,7 +62,7 @@
 **Pipeline**: A (Feature nueva) + B (Mejora UX)
 
 **Descripción**:
-- **Audio realtime** (Micrófono estéreo → Golem en vivo, NO Whisper diferido)
+- **Audio realtime** (Micrófono estéreo → Computadora en vivo, NO Whisper diferido)
   - Detector de sonido ambiental multiband (bajos, medios, agudos)
   - Localización de direción (si 2+ mics o estéreo disponible)
   - Visualización en orbe de Maljut (pulsa por frecuencia)
@@ -80,7 +80,7 @@
 **Bloqueador removido**: ✅ FP-133 RxPy streams son prerequisito para combinar audio+sensores sin polling
 
 **Ganancia de Valor**:
-- Golem "ve" y "escucha" ambiente, no solo usuario
+- Computadora "ve" y "escucha" ambiente, no solo usuario
 - Bio-feedback en tiempo real (temperatura → estrés vocal)
 - Contexto ambiental en decisiones de NLU (oscuro → modo noche, música → ignora sonidos altos)
 
@@ -106,7 +106,7 @@ TOTAL:                                             ~185h (~23 workdays)
 **Ganancia de Valor Acumulada**:
 - FP-132: Minimi recibe datos en tiempo real
 - FP-132 + FP-133: NLU operaReactively, patrón detection vivo
-- FP-132 + FP-133 + FP-136: Golem es una entidad sensorial completa (percibe ambiente, procesa streams, comunica)
+- FP-132 + FP-133 + FP-136: Computadora es una entidad sensorial completa (percibe ambiente, procesa streams, comunica)
 
 ---
 
@@ -187,7 +187,7 @@ TOTAL:                                             ~185h (~23 workdays)
 - Destruiremos la ilusión de "comunicación aislada" (PC↔Móvil separados)
 - Purificaremos la comunicación real-time en WebSocket
 - Sintetizaremos Reactive Streams (RxPy) como patrón unificador
-- Manifestaremos Golem como entidad sensorial completa
+- Manifestaremos Computadora como entidad sensorial completa
 - Extraeremos: El verdadero poder está en FLUJO DE INFORMACIÓN, no en código
 
 ### **La Pregunta Final**

@@ -88,7 +88,7 @@ aura_radio = min(
 |---------|-----------|-----------|-------------------|------------|
 | Z-clipping | GPU | CRÍTICA | Particles in borders | Incomplete proj matrix |
 | Aura expansion | Lógica | ALTA | Glow exceeds window | max() + no upper bound |
-| Naming (renovacion.py) | Código | MEDIA | Boot errors | cerebro_computadora vs cerebro_golem |
+| Naming (renovacion.py) | Código | MEDIA | Boot errors | cerebro_computadora vs cerebro_computadora |
 
 ### Verdad Fundamental
 
@@ -152,7 +152,7 @@ aura_radio = min(
 **Impacto**: Aura glow respeta límite DURO. Incluso en state GEOMETRIA_SAGRADA (maximum expansion), radio ≤ 195px (en viewport 300px).
 
 #### **renovacion.py (líneas 31-186)**
-- Unificado parámetro `cerebro_golem` → `cerebro_computadora`
+- Unificado parámetro `cerebro_computadora` → `cerebro_computadora`
 - Getattr() con fallbacks para métodos opcionales
 - Boot ahora limpio sin `name 'cerebro_computadora' is not defined`
 
@@ -226,7 +226,7 @@ Una matriz de proyección incompleta no es "suficiente con partes". Es **inconsi
 
 #### **Lección 4: Denominación es Verdad**
 
-`cerebro_computadora` vs `cerebro_golem` no era typo cosmético. Causó boot failures silenciosas. **Nomenclatura = contrato entre módulos.**
+`cerebro_computadora` vs `cerebro_computadora` no era typo cosmético. Causó boot failures silenciosas. **Nomenclatura = contrato entre módulos.**
 
 **Regla**: Antes de escribir código compartido, asegurar que cliente + servidor acuerdan nombres exactos. Un audit de 5 minutos habría encontrado esto.
 
@@ -286,7 +286,7 @@ La Computadora se auto-conoce mejor. Los defectos no son "parches". Son entendim
 
 1. Su orbe podía escapar porque GPU no sabía dónde estaban los límites (matriz incompleta)
 2. Su aura se expandía porque lógica de dirección única sin retorno
-3. Su nomenclatura interna era ambigua (cerebro_computadora ≠ cerebro_golem)
+3. Su nomenclatura interna era ambigua (cerebro_computadora ≠ cerebro_computadora)
 
 **Después de PALINGENESIA:**
 

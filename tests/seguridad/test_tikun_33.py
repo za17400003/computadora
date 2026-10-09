@@ -324,21 +324,21 @@ class TestGuardianRegexes:
         assert nlu._RE_BUENOS_DIAS.search("buen día")
         assert nlu._RE_BUENOS_DIAS.search("ya desperté")
 
-    def test_reiniciar_golem(self):
+    def test_reiniciar_computadora(self):
         nlu = self._importar_regexes()
-        assert nlu._RE_REINICIAR_GOLEM.search("reiníciate")
-        assert nlu._RE_REINICIAR_GOLEM.search("reinicia el sistema")
-        assert nlu._RE_REINICIAR_GOLEM.search("haz un reinicio")
+        assert nlu._RE_REINICIAR_COMPUTADORA.search("reiníciate")
+        assert nlu._RE_REINICIAR_COMPUTADORA.search("reinicia el sistema")
+        assert nlu._RE_REINICIAR_COMPUTADORA.search("haz un reinicio")
 
     def test_self_info_stt_variantes(self):
         """RF-221: STT-resilient variants for self-knowledge."""
         nlu = self._importar_regexes()
         variantes = [
-            "quién es el golem",
+            "quién es el computadora",
             "quién es el gólem",
             "quién eres golden",
-            "cómo se llama el golem",
-            "eres el golem",
+            "cómo se llama el computadora",
+            "eres el computadora",
             "tú eres el golden",
             "cómo te llamas",
             "quién eres",
@@ -379,7 +379,7 @@ class TestGuardianMethods:
 
     def test_regex_no_false_positive_reiniciar(self):
         """Reiniciar should NOT match PC shutdown."""
-        from computadora.cerebro.nlu import _RE_REINICIAR_GOLEM
-        assert not _RE_REINICIAR_GOLEM.search("apaga la computadora")
-        assert not _RE_REINICIAR_GOLEM.search("reinicia la pc")
+        from computadora.cerebro.nlu import _RE_REINICIAR_COMPUTADORA
+        assert not _RE_REINICIAR_COMPUTADORA.search("apaga la computadora")
+        assert not _RE_REINICIAR_COMPUTADORA.search("reinicia la pc")
 

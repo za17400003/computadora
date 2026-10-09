@@ -29,7 +29,7 @@ computadora_background.bat   (Launcher no-blocking para desktop)
 ```
 C:\Users\woire\Desktop\Computadora.lnk
   ├─ Target: computadora_background.bat
-  ├─ WorkDir: C:\Users\woire\Documents\proyecto-golem
+  ├─ WorkDir: C:\Users\woire\Documents\proyecto-computadora
   └─ Mode: Normal window (1)
 ```
 
@@ -51,12 +51,12 @@ C:\Users\woire\Desktop\Computadora.lnk
 
 ### **Opción B: Terminal Manual**
 ```powershell
-C:\Users\woire\Documents\proyecto-golem> .\computadora_background.bat
+C:\Users\woire\Documents\proyecto-computadora> .\computadora_background.bat
 ```
 
 ### **Opción C: Desde PowerShell (Background)**
 ```powershell
-& "C:\Users\woire\Documents\proyecto-golem\computadora_background.bat"
+& "C:\Users\woire\Documents\proyecto-computadora\computadora_background.bat"
 ```
 
 ---

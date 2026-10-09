@@ -85,7 +85,7 @@
 ## 📁 ESTRUCTURA (Todo lo que necesitas saber)
 
 ```
-proyecto-golem/
+proyecto-computadora/
 ├── computadora/          ← Código principal
 │   ├── cerebro/          ← NLU, modelos, reasoning
 │   ├── interfaz/         ← PyQt6 GUI

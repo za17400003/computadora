@@ -12,7 +12,7 @@ class TestRF310CerrarPhotosYLimpiar:
     """Verifica que _demo_captura_y_mostrar cierra Photos y borra screenshot."""
 
     def _source(self):
-        src_file = ROOT / "golem" / "interfaz" / "ventana_principal.py"
+        src_file = ROOT / "computadora" / "interfaz" / "ventana_principal.py"
         return src_file.read_text(encoding="utf-8")
 
     def test_multiple_process_names(self):

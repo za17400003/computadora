@@ -141,7 +141,7 @@ print()
 print("SOLUCIONES:")
 print("  1. Verificar en Minimi: Settings → Grimorio → Contraseña")
 print("  2. Escribir exactamente: emet (minúsculas, sin espacios)")
-print("  3. Si falla: Abrir Golem directamente en PC")
+print("  3. Si falla: Abrir Computadora directamente en PC")
 print("  4. Implementar biometría (WI-272) para desbloqueo automático")
 print()
 

@@ -54,7 +54,7 @@ class TestPerfilLinguistico:
         assert _RE_PERFIL_LINGUISTICO.search(frase)
 
     @pytest.mark.parametrize("frase", [
-        "hola golem",
+        "hola computadora",
         "qué hora es",
         "abre youtube",
     ])

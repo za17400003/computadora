@@ -5,9 +5,9 @@ import re
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parent.parent
-_VP = _ROOT / "golem" / "interfaz" / "ventana_principal.py"
-_VA = _ROOT / "golem" / "interfaz" / "vida_autonoma.py"
-_BAT = _ROOT / "iniciar_golem.bat"
+_VP = _ROOT / "computadora" / "interfaz" / "ventana_principal.py"
+_VA = _ROOT / "computadora" / "interfaz" / "vida_autonoma.py"
+_BAT = _ROOT / "iniciar_computadora.bat"
 _SRS = _ROOT / "SRS.md"
 _WORKFLOW = _ROOT / "DEVELOPMENT_WORKFLOW.md"
 
@@ -60,7 +60,7 @@ def test_rf308_no_notopmost_in_wake_word():
 # ── FP-083: Auto-install face-recognition ──
 
 def test_rf309_bat_auto_install():
-    """RF-309: iniciar_golem.bat auto-instala face-recognition."""
+    """RF-309: iniciar_computadora.bat auto-instala face-recognition."""
     bat = _BAT.read_text(encoding="utf-8")
     assert "pip install cmake dlib face-recognition" in bat, "RF-309: Falta pip install auto"
     assert "Instalando automaticamente" in bat, "RF-309: Falta mensaje de auto-instalación"
@@ -119,7 +119,7 @@ def test_rf315_titulo_interlocutor():
     from computadora.memoria.personas import GestorPersonas
     assert hasattr(GestorPersonas, "obtener_titulo"), "RF-315: Falta método obtener_titulo en GestorPersonas"
     # RF-316: inyección dinámica en nlu.py
-    nlu_src = Path(__file__).resolve().parent.parent / "golem" / "cerebro" / "nlu.py"
+    nlu_src = Path(__file__).resolve().parents[2] / "computadora" / "cerebro" / "nlu.py"
     src = nlu_src.read_text(encoding="utf-8")
     assert "TITULO_INTERLOCUTOR" in src, "RF-316: Falta inyección de título en _construir_system_msgs"
 

@@ -19,18 +19,18 @@ def check(id, desc, fn):
 # ─── Import tests ───
 
 check("FP34-01", "Import comando_seguro", lambda: (
-    __import__('golem.habilidades.comando_seguro') is not None,
+    __import__('computadora.habilidades.comando_seguro') is not None,
     "módulo importable"
 ))
 
 check("FP34-02", "Import ejecutar_comando_seguro", lambda: (
-    callable(getattr(__import__('golem.habilidades.comando_seguro',
+    callable(getattr(__import__('computadora.habilidades.comando_seguro',
         fromlist=['ejecutar_comando_seguro']), 'ejecutar_comando_seguro')),
     "función callable"
 ))
 
 check("FP34-03", "Import ejecutar_comando_sistema_seguro", lambda: (
-    callable(getattr(__import__('golem.habilidades.comando_seguro',
+    callable(getattr(__import__('computadora.habilidades.comando_seguro',
         fromlist=['ejecutar_comando_sistema_seguro']), 'ejecutar_comando_sistema_seguro')),
     "función callable"
 ))
@@ -168,14 +168,14 @@ check("FP34-24", "Comando peligroso bloqueado en sistema", _test_sistema_peligro
 
 check("FP34-25", "herramientas.ejecutar_comando delega a comando_seguro", lambda: (
     "ejecutar_comando_seguro" in
-        open(os.path.join(CWD, "golem", "habilidades", "herramientas.py"),
+        open(os.path.join(CWD, "computadora", "habilidades", "herramientas.py"),
              encoding="utf-8").read(),
     "import presente en herramientas.py"
 ))
 
 check("FP34-26", "herramientas.ejecutar_comando_sistema delega a comando_seguro", lambda: (
     "ejecutar_comando_sistema_seguro" in
-        open(os.path.join(CWD, "golem", "habilidades", "herramientas.py"),
+        open(os.path.join(CWD, "computadora", "habilidades", "herramientas.py"),
              encoding="utf-8").read(),
     "import presente en herramientas.py"
 ))
@@ -183,7 +183,7 @@ check("FP34-26", "herramientas.ejecutar_comando_sistema delega a comando_seguro"
 # ─── shell=False verification ───
 
 def _test_no_shell_true():
-    with open(os.path.join(CWD, "golem", "habilidades", "comando_seguro.py"),
+    with open(os.path.join(CWD, "computadora", "habilidades", "comando_seguro.py"),
               encoding="utf-8") as f:
         src = f.read()
     # Buscar shell=True como keyword argument real (no en comentarios ni docstrings)

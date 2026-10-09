@@ -32,5 +32,5 @@ except Exception as e:
     traceback.print_exc()
     sys.exit(1)
 
-print("\n✅ TODO OK — iniciar_golem.bat debería funcionar")
+print("\n✅ TODO OK — iniciar_computadora.bat debería funcionar")
 

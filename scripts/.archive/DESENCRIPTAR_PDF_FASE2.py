@@ -100,7 +100,7 @@ CANDIDATOS_FASE2 = [
     "Virtud",
     "virtud",
     
-    # Del proyecto Golem
+    # Del proyecto Computadora
     "Verdad Recursiva",
     "verdad recursiva",
     "Verdad y Transmutación",

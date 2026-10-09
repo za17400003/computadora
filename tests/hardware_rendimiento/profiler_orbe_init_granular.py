@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Profiler GRANULAR de OrbeGolem.__init__ — Identifica EXACTAMENTE dónde se bloquea.
+Profiler GRANULAR de OrbeComputadora.__init__ — Identifica EXACTAMENTE dónde se bloquea.
 
 Ejecuta línea-por-línea mediante monkeypatch, midiendo cada sección crítica.
 """
@@ -35,7 +35,7 @@ class GranularProfiler:
     def report(self):
         """Genera reporte de tiempos."""
         print("\n" + "="*70)
-        print("PROFILER GRANULAR — OrbeGolem.__init__")
+        print("PROFILER GRANULAR — OrbeComputadora.__init__")
         print("="*70)
         for i, (label, elapsed) in enumerate(self.checkpoints):
             if i > 0:
@@ -45,7 +45,7 @@ class GranularProfiler:
                 print(f"[{elapsed:7.1f}ms | Δ----ms] {label}")
         print("="*70)
         total = self.checkpoints[-1][1] if self.checkpoints else 0
-        print(f"\n⏱️  TOTAL OrbeGolem.__init__: {total:.1f}ms\n")
+        print(f"\n⏱️  TOTAL OrbeComputadora.__init__: {total:.1f}ms\n")
 
 profiler = GranularProfiler()
 
@@ -185,22 +185,22 @@ def monkeypatch_vida_autonoma():
     
     VidaAutonoma.__init__ = wrapped_init
 
-# Monkeypatch WatchdogGolem
+# Monkeypatch WatchdogComputadora
 original_watchdog_init = None
 
 def monkeypatch_watchdog():
-    """Instrument WatchdogGolem.__init__."""
+    """Instrument WatchdogComputadora.__init__."""
     global original_watchdog_init
     
-    from computadora.interfaz.watchdog import WatchdogGolem
-    original_watchdog_init = WatchdogGolem.__init__
+    from computadora.interfaz.watchdog import WatchdogComputadora
+    original_watchdog_init = WatchdogComputadora.__init__
     
     def wrapped_init(self, on_cambio_etapa=None):
-        profiler.mark("    → WatchdogGolem.__init__() INICIO")
+        profiler.mark("    → WatchdogComputadora.__init__() INICIO")
         original_watchdog_init(self, on_cambio_etapa)
-        profiler.mark("    ← WatchdogGolem.__init__() FIN")
+        profiler.mark("    ← WatchdogComputadora.__init__() FIN")
     
-    WatchdogGolem.__init__ = wrapped_init
+    WatchdogComputadora.__init__ = wrapped_init
 
 # Monkeypatch GestorPersonas
 original_gestor_init = None
@@ -223,10 +223,10 @@ def monkeypatch_gestor_personas():
 # MAIN TEST
 # ═══════════════════════════════════════════
 
-def test_orbegolem_init():
-    """Carga y perfila OrbeGolem.__init__ línea por línea."""
+def test_orbecomputadora_init():
+    """Carga y perfila OrbeComputadora.__init__ línea por línea."""
     
-    print("\n[PROFILER] GRANULAR: OrbeGolem.__init__\n")
+    print("\n[PROFILER] GRANULAR: OrbeComputadora.__init__\n")
     
     # Aplicar monkeypatches
     monkeypatch_orquestador()
@@ -244,14 +244,14 @@ def test_orbegolem_init():
     config = Configuracion()
     profiler.mark("Config cargada")
     
-    # Crear CerebroGolem (ya hecho en __main__)
-    from computadora.cerebro.nlu import CerebroGolem
-    profiler.mark("→ CerebroGolem.__init__() INICIO")
-    cerebro = CerebroGolem(modelo="gemma3:4b")
-    profiler.mark("← CerebroGolem.__init__() FIN")
+    # Crear CerebroComputadora (ya hecho en __main__)
+    from computadora.cerebro.nlu import CerebroComputadora
+    profiler.mark("→ CerebroComputadora.__init__() INICIO")
+    cerebro = CerebroComputadora(modelo="gemma3:4b")
+    profiler.mark("← CerebroComputadora.__init__() FIN")
     
-    # Ahora prueba OrbeGolem (esto es lo que queremos perfilar)
-    profiler.mark("\n→ INICIANDO OrbeGolem.__init__()")
+    # Ahora prueba OrbeComputadora (esto es lo que queremos perfilar)
+    profiler.mark("\n→ INICIANDO OrbeComputadora.__init__()")
     
     try:
         from PyQt6.QtWidgets import QApplication
@@ -259,19 +259,19 @@ def test_orbegolem_init():
         if app is None:
             app = QApplication([])
         
-        from computadora.interfaz.ventana_principal import OrbeGolem
-        profiler.mark("  OrbeGolem imported")
+        from computadora.interfaz.ventana_principal import OrbeComputadora
+        profiler.mark("  OrbeComputadora imported")
         
-        profiler.mark("  → OrbeGolem() constructor INICIO")
-        orbe = OrbeGolem(config, cerebro=cerebro)
-        profiler.mark("  ← OrbeGolem() constructor FIN")
+        profiler.mark("  → OrbeComputadora() constructor INICIO")
+        orbe = OrbeComputadora(config, cerebro=cerebro)
+        profiler.mark("  ← OrbeComputadora() constructor FIN")
         
     except Exception as e:
         profiler.mark(f"ERROR: {e}")
         logger.exception("Error en test")
     
-    profiler.mark("← FIN OrbeGolem.__init__()")
+    profiler.mark("← FIN OrbeComputadora.__init__()")
     profiler.report()
 
 if __name__ == "__main__":
-    test_orbegolem_init()
+    test_orbecomputadora_init()

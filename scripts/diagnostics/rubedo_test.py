@@ -33,12 +33,12 @@ except Exception as e:
 # TEST 2: NLU Brain
 print("\n2️⃣ TEST: NLU Brain (Comprensión IA)")
 try:
-    from computadora.cerebro.nlu import CerebroGolem
-    print("   ✅ Módulo CerebroGolem importado")
+    from computadora.cerebro.nlu import CerebroComputadora
+    print("   ✅ Módulo CerebroComputadora importado")
     # Intentar crear instancia de NLU
     config = {"modelo": "test"}
-    cerebro = CerebroGolem(config, cerebro=None)
-    print(f"   ✅ CerebroGolem instanciado")
+    cerebro = CerebroComputadora(config, cerebro=None)
+    print(f"   ✅ CerebroComputadora instanciado")
     print(f"   ✅ Nivel 1 (Regex): {'✅' if cerebro._nivel1_disponible else '❌'}")
     print(f"   ✅ Nivel 2 (Ollama): {'✅' if cerebro._nivel2_disponible else '⏳ (requiere Ollama)'}")
     print(f"   ✅ Nivel 3 (Copilot): {'✅' if cerebro._nivel3_disponible else '⏳ (requiere auth)'}")
@@ -108,9 +108,9 @@ except Exception as e:
 # TEST 7: UI - Maljut
 print("\n7️⃣ TEST: UI - Maljut (Interfaz visual)")
 try:
-    from computadora.interfaz.ventana_principal import OrbeGolem
-    print("   ✅ Módulo OrbeGolem importado")
-    print("   ✅ OrbeGolem es la manifestación visual en PyQt6")
+    from computadora.interfaz.ventana_principal import OrbeComputadora
+    print("   ✅ Módulo OrbeComputadora importado")
+    print("   ✅ OrbeComputadora es la manifestación visual en PyQt6")
     print("   ℹ️  No se instancia aquí (requiere pantalla)")
 except Exception as e:
     print(f"   ❌ Error: {e}")
@@ -143,9 +143,9 @@ except Exception as e:
 # TEST 10: NLU - Prueba conversacional simple
 print("\n🔟 TEST: NLU Simple (Nivel 1 - Regex)")
 try:
-    from computadora.cerebro.nlu import CerebroGolem
+    from computadora.cerebro.nlu import CerebroComputadora
     config = {"modelo": "test"}
-    cerebro = CerebroGolem(config, cerebro=None)
+    cerebro = CerebroComputadora(config, cerebro=None)
     
     # Test simple: "¿qué hora es?"
     pruebas = [

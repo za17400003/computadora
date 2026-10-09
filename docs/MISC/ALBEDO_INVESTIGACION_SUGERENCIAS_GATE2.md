@@ -31,7 +31,7 @@ Hay **5 Palabras Mágicas sugeridas** en estado `🔲 SUGERIDA` que requieren in
 Problema: Usuario no tiene visibilidad unificada de:
   ❌ Grimorio: sellado/abierto + sesiones activas
   ❌ Minimi: conectado (LAN/Firestore/offline)
-  ❌ Golem: hogar/foráneo + nivel amenaza
+  ❌ Computadora: hogar/foráneo + nivel amenaza
   ❌ Cifrado/VPN: status en tiempo real
   
 Síntoma: Preguntar estado requiere comandos separados
@@ -42,7 +42,7 @@ Síntoma: Preguntar estado requiere comandos separados
 ✅ Datos ya existen:
   - Grimorio: config.json + logs de sesión
   - Minimi: conexión Firestore + estado local
-  - Golem: shomer_bayit.py + eventos red
+  - Computadora: shomer_bayit.py + eventos red
   - VPN/Cifrado: estado en seguridad/
 
 ✅ Implementable en <500 líneas
@@ -101,10 +101,10 @@ Beneficio: Diagnóstico holístico vs punto de fallo único
 
 #### Necesidad Identificada
 ```
-Problema: 3 sistemas (Grimorio, Minimi, Golem) están desacoplados:
+Problema: 3 sistemas (Grimorio, Minimi, Computadora) están desacoplados:
   - Grimorio = Lion (Fuego/Conocimiento)
   - Minimi = Human (Aire/Interfaz)  
-  - Golem = Ox (Tierra/Labor)
+  - Computadora = Ox (Tierra/Labor)
   
 Falta: Visión unificada de cómo estas 3 "criaturas" 
 se orientan hacia un objetivo compartido (Trono = Usuario).
@@ -134,16 +134,16 @@ Pre-requisito: raziel + wu xing implementados
 ---
 
 ### 4. **shabbat** (שבת) — Modo Standby Graceful
-**Golem de Praga**: Rabbi Loew removía Shem cada viernes
+**Computadora de Praga**: Rabbi Loew removía Shem cada viernes
 
 #### Necesidad Identificada
 ```
-Problema: Golem crece sin control en sesiones largas:
+Problema: Computadora crece sin control en sesiones largas:
   - Procesos daemon sin límite
   - Buffer de eventos sin drenaje
   - Memoria acumulada sin garbage collection
   
-Síntoma: CPU 100%, Golem se paraliza (WICRIT-002)
+Síntoma: CPU 100%, Computadora se paraliza (WICRIT-002)
 
 Solución: Modo "Shabbat" = descanso programado + reset
 ```
@@ -177,7 +177,7 @@ Beneficio: Stabilidad operacional de 24-7
 ```
 Problema: Tests actuales no cubren pares de módulos:
   - shomer_bayit ↔ servidor_api: ¿se comunican bien?
-  - servidor_api ↔ GolemClient: ¿interfaces compatibles?
+  - servidor_api ↔ ComputadoraClient: ¿interfaces compatibles?
   - servidor_grimorio ↔ Minimi: ¿Firestore sincronizado?
   - perceptor ↔ ventana_principal: ¿eventos sin lag?
   

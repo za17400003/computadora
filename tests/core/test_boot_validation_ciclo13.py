@@ -94,10 +94,10 @@ class TestPhase2Initialization:
     """Verificar que clases principales inicialicen"""
 
     def test_watchdogcomputadora_init(self):
-        """WatchdogGolem debe inicializar"""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        """WatchdogComputadora debe inicializar"""
+        from computadora.interfaz.watchdog import WatchdogComputadora
         
-        watchdog = WatchdogGolem()
+        watchdog = WatchdogComputadora()
         assert watchdog is not None
         assert hasattr(watchdog, 'estado')
 
@@ -289,14 +289,14 @@ class TestPhase6Integration:
 
     def test_boot_sequence_complete(self):
         """Boot secuencia: todos los módulos inicializan"""
-        from computadora.interfaz.watchdog import WatchdogGolem
+        from computadora.interfaz.watchdog import WatchdogComputadora
         from computadora.cerebro.renovacion import RenovacionOperativa
         from computadora.nucleo.meta_workflow import MetaWorkflow
         from computadora.nucleo.orquestador import Orquestador
         from computadora.nucleo.herramientas import HerramientasOpenClaw
         
         # Cada uno debe inicializar sin exception
-        w = WatchdogGolem()
+        w = WatchdogComputadora()
         r = RenovacionOperativa()
         m = MetaWorkflow()
         o = Orquestador()

@@ -104,7 +104,7 @@ def cmd_raziel():
     {
       "enciclopedia": {"estado": "abierto|sellado", "sesiones": 3},
       "minimi": {"conexion": "LAN|Firestore|offline"},
-      "golem": {"modo": "hogar|foraneo", "amenaza": "normal|elevated"},
+      "computadora": {"modo": "hogar|foraneo", "amenaza": "normal|elevated"},
       "cifrado": {"estado": "active|inactive"},
       "vpn": {"conectado": true|false},
       "sigilo": "protegido|vulnerable"
@@ -158,7 +158,7 @@ def cmd_shabbat():
     3. Desactivar escucha y percepción
     4. Entrar en modo bajo consumo
     
-    Reactivación: "Golem, despierta" → restaurar snapshot
+    Reactivación: "Computadora, despierta" → restaurar snapshot
     """
 ```
 
