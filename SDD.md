@@ -2190,7 +2190,7 @@ FP-044 tiene 5 partes: (A) Detección de media activa para suprimir falsos posit
 | Componente | Cambio | Sefirá |
 |------------|--------|--------|
 | `windows.py` | `hay_media_activa()` detecta YouTube/Netflix/Spotify/etc en título o proceso | מלכות Maljut |
-| `escucha.py` | Consulta `hay_media_activa()`, suprime fuzzy+correcciones cuando media activa. Threshold 0.6→0.72. Elimina `golden→computadora`. Flag `_librosa_warned` | הוד Hod |
+| `escucha.py` | Consulta `hay_media_activa()`, suprime fuzzy+correcciones cuando media activa. Threshold 0.6→0.72. Normaliza solo wake words soportados. Flag `_librosa_warned` | הוד Hod |
 | `ventana_principal.py` | Pasa `_contexto_pantalla` a `HiloEscucha`. Interceptor `__MINIMIZAR__` → `showMinimized()` | מלכות Maljut |
 | `nlu.py` | `_RE_DEMO_MALJUT` expandido con variantes Whisper. `_limpiar_para_voz` extrae texto de `print()/echo()/console.log()` | תפארת Tiféret |
 
@@ -2747,16 +2747,8 @@ _CATEGORIA_TOOL = {
 | Identificador | Regex/Detección | Comportamiento |
 |---|---|---|
 | **Nombre** "Computadora" | `_WAKE_WORD_RE` (variantes fonéticas) + fuzzy SequenceMatcher | Wake word estándar — activación normal |
-| **Apodo** "Gol" | `_RE_APODO` — `\b(?:gol|col|go)\b` en contexto vocativo | Wake word informal. Requiere patrón vocativo: inicio/fin de frase, con cortesía, o con "oye/necesito/busca" |
 | **Apellido** "Emet" | `_RE_APELLIDO` — `\b[eé]met\b` | Wake word formal — activa igual que nombre |
-| **Nombre completo** "Computadora Emet" | `_RE_NOMBRE_COMPLETO` — `g[oó]l[eé]m\s+[eé]met` | Detección de regaño — el propietario está molesto. Emite `[regano]<texto>` para que NLU ajuste tono a sumiso/preocupado |
-| **Cortesía + Apodo** | `_RE_CORTESIA_APODO` integrado | "hola gol", "buenos días gol" → activa cortesía Y wake word simultáneamente |
-
-**Heurística anti-falso-positivo para "gol"**: La palabra es muy corta (3 chars), así que se exige contexto vocativo:
-- Posición: inicio o fin de fragmento
-- Acompañante: saludo, "oye", "necesito", "busca", signo de interrogación
-- Exclusión: NO activa si es parte de palabra larga ("goles", "golpe", "color")
-- Frontera `\b` obligatoria para evitar substrings
+| **Nombre completo** "Computadora Emet" | `_RE_NOMBRE_COMPLETO` — `computadora\s+[eé]met` | Detección de regaño — el propietario está molesto. Emite `[regano]<texto>` para que NLU ajuste tono a sumiso/preocupado |
 
 #### 4.20.3 Clasificación de Hablante (`escucha.py`)
 - 3 niveles por similitud coseno: amo (≥0.68), conocido (0.40-0.68), extraño (<0.40)

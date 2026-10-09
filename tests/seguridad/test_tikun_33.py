@@ -334,12 +334,11 @@ class TestGuardianRegexes:
         """RF-221: STT-resilient variants for self-knowledge."""
         nlu = self._importar_regexes()
         variantes = [
-            "quién es el computadora",
-            "quién es el gólem",
-            "quién eres golden",
-            "cómo se llama el computadora",
-            "eres el computadora",
-            "tú eres el golden",
+            "quién es la computadora",
+            "quién eres compu",
+            "cómo se llama la computadora",
+            "eres la computadora",
+            "tú eres compu",
             "cómo te llamas",
             "quién eres",
         ]

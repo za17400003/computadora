@@ -479,11 +479,10 @@ _RE_SELF_INFO = re.compile(
     r"|(?:qui[eé]n\s+eres(?:\s+t[uú])?)"
     r"|(?:c[oó]mo\s+te\s+llamas)"
     r"|(?:qu[eé]\s+(?:puedes|sabes)\s+hacer)"
-    # RF-221: Variantes STT-resilientes (computadora/gólem/golden/golen/goleen)
-    r"|(?:(?:qui[eé]n|que|qu[eé])\s+(?:es|eres)\s+(?:el\s+)?(?:g[oó]lem|golden|golen|goleen))"
-    r"|(?:c[oó]mo\s+(?:te\s+llamas|se\s+llama\s+(?:el\s+)?(?:g[oó]lem|golden|golen)))"
-    r"|(?:eres\s+(?:el\s+)?(?:g[oó]lem|golden|golen))"
-    r"|(?:t[uú]\s+eres\s+(?:el\s+)?(?:g[oó]lem|golden|golen))",
+    r"|(?:(?:qui[eé]n|que|qu[eé])\s+(?:es|eres)\s+(?:la\s+)?(?:computadora|compu))"
+    r"|(?:c[oó]mo\s+se\s+llama\s+(?:la\s+)?(?:computadora|compu))"
+    r"|(?:eres\s+(?:la\s+)?(?:computadora|compu))"
+    r"|(?:t[uú]\s+eres\s+(?:la\s+)?(?:computadora|compu))",
     re.IGNORECASE,
 )
 
@@ -5499,8 +5498,3 @@ class CerebroComputadora:
             "Puedo abrir aplicaciones, decirle la hora, consultar su sistema y ejecutar "
             "comandos básicos mientras tanto. Seguiré intentando reconectar."
         )
-
-
-# Legacy compatibility alias (now primary class name)
-# CerebroComputadora es el nombre actual (anteriormente CerebroComputadora)
-

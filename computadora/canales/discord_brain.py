@@ -25,8 +25,6 @@ class DiscordBrain:
 
     # Prefijo para comandos (evita responder a todo)
     PREFIJO = "computadora "
-    # Alias legacy de compatibilidad
-    PREFIJO_LEGADO = "computadora "
     # Canal restringido (opcional, None = responde en cualquier canal)
     CANAL_NOMBRE = None
 
@@ -93,8 +91,6 @@ class DiscordBrain:
             mencion = f"<@{self.client.user.id}>"
             if texto.lower().startswith(self.PREFIJO):
                 comando = texto[len(self.PREFIJO):].strip()
-            elif texto.lower().startswith(self.PREFIJO_LEGADO):
-                comando = texto[len(self.PREFIJO_LEGADO):].strip()
             elif texto.startswith(mencion):
                 comando = texto[len(mencion):].strip()
             elif es_owner:

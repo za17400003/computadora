@@ -208,9 +208,6 @@ def test_srs_wake_word_system():
     # Debe tener nombre completo (regaño)
     assert hasattr(_esc, '_RE_NOMBRE_COMPLETO'), "Nombre completo regex debe existir"
     
-    # Debe tener apodo
-    assert hasattr(_esc, '_RE_APODO'), "Apodo regex debe existir"
-    
     # Debe tener cortesía sin wake word
     assert hasattr(_esc, '_RE_CORTESIA'), "Cortesia regex debe existir"
 
@@ -219,7 +216,7 @@ def test_srs_rf264_sefirot_mapping():
     """Verificar que RF-264 (Sefirot mapping) está documentado."""
     # SRS.md debe tener la tabla RF-264
     import os
-    srs_path = os.path.join(os.path.dirname(__file__), "..", "docs", "SRS.md")
+    srs_path = os.path.join(os.path.dirname(__file__), "..", "..", "SRS.md")
     with open(srs_path, 'r', encoding='utf-8') as f:
         content = f.read()
         assert "RF-264" in content, "RF-264 debe estar en SRS.md"

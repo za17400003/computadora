@@ -3001,158 +3001,22 @@ class OrbeComputadora(QWidget):
     # ── FP-109 RF-369: 📷 Cámara — Ojos de Computadora ──
 
     def _mostrar_camara_dev(self):
-        """FP-113 WI-153: Abre la herramienta moderna de Dev Tools para la cámara.
-        Si falla la herramienta moderna, recae al modo legacy para compatibilidad."""
+        """Abre la herramienta actual de cámara (Ojos del Computadora)."""
         try:
             from computadora.interfaz.camera_dev_tool import abrir_camera_dev_tool
             abrir_camera_dev_tool(ventana_principal=self)
-            return
-        except Exception as e:
-            logger.error(f"Error abriendo CameraDevTool moderno: {e}")
-            logger.debug("Fallback legacy al visor de cámara antiguo", exc_info=True)
-
-        try:
-            import cv2
-        except ImportError:
-            dlg = QDialog(self)
-            dlg.setWindowTitle("📷 Cámara — No disponible")
-            dlg.setFixedSize(300, 100)
-            dlg.setStyleSheet("background: #0a0a0f; color: #c8a030;")
-            layout = QVBoxLayout(dlg)
-            layout.addWidget(QLabel("opencv-python no instalado"))
-            dlg.show()
-            return
-
-        # Obtener o crear KliCamara compartida via GestorKelim
-        from computadora.nucleo.kli import GestorKelim
-        from computadora.habilidades.vision import KliCamara
-        gestor = GestorKelim.instancia()
-        if "camara_local" not in {k["id"] for k in gestor.listar()}:
-            cam = KliCamara()
-            gestor.registrar(cam)
-        if not any(k["id"] == "camara_local" and k["estado"] == "CONECTADO"
-                   for k in gestor.listar()):
-            if not gestor.conectar("camara_local"):
-                dlg = QDialog(self)
-                dlg.setWindowTitle("📷 Cámara — Sin dispositivo")
-                dlg.setFixedSize(300, 100)
-                dlg.setStyleSheet("background: #0a0a0f; color: #c8a030;")
-                layout = QVBoxLayout(dlg)
-                layout.addWidget(QLabel("No se detectó cámara conectada"))
-                dlg.show()
-                return
-
-        # Obtener reconocedor facial desde orquestador (fix: era _orquestador, correcto: orquestador)
-        reconocedor = None
-        orq = getattr(self, 'orquestador', None)
-        if orq:
-            perceptor = getattr(orq, 'perceptor', None)
-            if perceptor:
-                reconocedor = getattr(perceptor, '_reconocedor_rostro', None)
-
-        # Crear diálogo de video en vivo
-        dlg = QDialog(self)
-        dlg.setWindowTitle("📷 Cámara de Computadora [EN VIVO]")
-        dlg.setStyleSheet(
-            "QDialog { background: #0a0a0f; color: #c8a030; font-family: 'Consolas'; }"
-            "QLabel { font-size: 11px; }"
-        )
-        layout = QVBoxLayout(dlg)
-
-        img_label = QLabel("Iniciando cámara...")
-        img_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        img_label.setMinimumSize(640, 480)
-        layout.addWidget(img_label)
-
-        info_label = QLabel("Resultado: —")
-        info_label.setStyleSheet("color: #40e040; font-size: 12px; padding: 4px;")
-        layout.addWidget(info_label)
-
-        res_label = QLabel("")
-        res_label.setStyleSheet("color: #888; font-size: 10px;")
-        layout.addWidget(res_label)
-
-        # Estado compartido para el timer de refresco
-        from PyQt6.QtGui import QImage, QPixmap
-        _dev_cam_state = {"ultimo_rostro": {"resultado": "—"}, "frame_count": 0, "error_count": 0}
-
-        def _capturar_frame():
-            try:
-                # Leer frame desde KliCamara compartida
-                kli_list = gestor.listar()
-                cam_info = next((k for k in kli_list if k["id"] == "camara_local"), None)
-                if not cam_info or cam_info["estado"] != "CONECTADO":
-                    info_label.setText("Cámara desconectada")
-                    return
-                # Acceder al dispositivo directamente para obtener frame BGR
-                dispositivo = gestor._kelim.get("camara_local")
-                if not dispositivo or dispositivo._cap is None:
-                    return
-                ret, frame_bgr = dispositivo._cap.read()
-                if not ret or frame_bgr is None:
-                    return
-
-                _dev_cam_state["frame_count"] += 1
-
-                # Face recognition cada 5 frames (~500ms) para no saturar CPU
-                resultado_rostro = _dev_cam_state["ultimo_rostro"]
-                if reconocedor and _dev_cam_state["frame_count"] % 5 == 0:
-                    reconocedor._ultimo_check = 0.0
-                    resultado_rostro = reconocedor.analizar_frame(frame_bgr.copy())  # WI-164
-                    if resultado_rostro.get("resultado") != "cooldown":
-                        _dev_cam_state["ultimo_rostro"] = resultado_rostro
-
-                # Dibujar rectángulos con locations del resultado de analizar_frame
-                face_locs = resultado_rostro.get("locations", _dev_cam_state.get("face_locs", []))
-                if face_locs:
-                    _dev_cam_state["face_locs"] = face_locs
-                for (top, right, bottom, left) in _dev_cam_state.get("face_locs", []):
-                        color = (0, 255, 0) if resultado_rostro.get("resultado") == "propietario" else (0, 165, 255)
-                        cv2.rectangle(frame_bgr, (left, top), (right, bottom), color, 2)
-                        label = resultado_rostro.get("resultado", "?")
-                        if label == "propietario":
-                            label = "PROPIETARIO ✓"
-                        elif label == "conocido":
-                            label = resultado_rostro.get("nombre", "conocido")
-                        cv2.putText(frame_bgr, label, (left, top - 10),
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
-
-                # Convertir a QPixmap
-                h, w, ch = frame_bgr.shape
-                rgb_frame = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
-                qimg = QImage(rgb_frame.data, w, h, ch * w, QImage.Format.Format_RGB888)
-                pixmap = QPixmap.fromImage(qimg.copy())  # .copy() para evitar dangling pointer
-                max_w, max_h = 640, 480
-                if pixmap.width() > max_w or pixmap.height() > max_h:
-                    pixmap = pixmap.scaled(max_w, max_h, Qt.AspectRatioMode.KeepAspectRatio)
-                img_label.setPixmap(pixmap)
-
-                # Actualizar info
-                r = resultado_rostro
-                info_text = f"Resultado: {r.get('resultado', '—')}"
-                if 'distancia' in r:
-                    info_text += f"  |  Distancia: {r['distancia']:.3f}"
-                if r.get("nombre"):
-                    info_text += f"  |  Nombre: {r['nombre']}"
-                info_label.setText(info_text)
-                fr_ok = r.get("resultado") != "no_disponible"
-                res_label.setText(f"Resolución: {w}×{h}  |  face_recognition: {'✓' if fr_ok else '✗'}  |  Frame #{_dev_cam_state['frame_count']}")
-            except Exception as e:
-                _dev_cam_state["error_count"] += 1
-                if _dev_cam_state["error_count"] <= 3 or _dev_cam_state["error_count"] % 50 == 0:
-                    logger.debug("Error en frame dev cam (#%d): %s", _dev_cam_state["error_count"], e)
-
-        timer_cam = QTimer(dlg)
-        timer_cam.timeout.connect(_capturar_frame)
-        timer_cam.start(500)  # 2 FPS con debounce agresivo (era 100ms/10FPS = overhead)
-        _capturar_frame()  # primer frame inmediato
-
-        dlg.show()
+        except Exception:
+            logger.exception("No se pudo abrir la herramienta de cámara")
+            QMessageBox.warning(
+                self,
+                "Cámara no disponible",
+                "No se pudo abrir la herramienta de cámara.",
+            )
 
     def _mostrar_feature_flags_dev(self):
-        """🚩 Panel de Feature Flags — Activar/Desactivar subsistemas en tiempo real."""
+        """Panel para activar o pausar subsistemas durante desarrollo."""
         from computadora.nucleo.feature_flags import FeatureFlags
-        
+
         dlg = QDialog(self)
         dlg.setWindowTitle("🚩 Feature Flags — Control de Subsistemas")
         dlg.setFixedSize(500, 550)
@@ -3169,7 +3033,7 @@ class OrbeComputadora(QWidget):
             "border-radius: 4px; padding: 5px 10px; font-size: 10px; }"
             "QPushButton:hover { background: #2a2a35; color: #e8c040; }"
         )
-        
+
         layout = QVBoxLayout(dlg)
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)

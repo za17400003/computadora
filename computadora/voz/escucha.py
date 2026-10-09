@@ -184,37 +184,21 @@ def _ensure_whisper_loaded(config):
         _WHISPER_MODELO = None
         return None
 
-# Variantes fonéticas que Whisper puede producir para "COMPUTADORA" o legacy "Computadora"
+# Variantes fonéticas que Whisper puede producir para el nombre del asistente.
 _WAKE_WORD_RE = re.compile(
     r"\b(?:computadora|compu|computador)\b",
     re.IGNORECASE,
 )
 
-# שמות Shemot — Nombre completo "COMPUTADORA Emet" / legacy "Computadora Emet" (= regaño del propietario)
+# Nombre completo "Computadora Emet" (= regaño del propietario).
 _RE_NOMBRE_COMPLETO = re.compile(
-    r"\b(?:computadora|g[oó]l[eé][mn])\s+(?:[eé]met|embed|emmet|amet|emed|ahmed)\b",
+    r"\bcomputadora\s+(?:[eé]met|embed|emmet|amet|emed|ahmed)\b",
     re.IGNORECASE,
 )
 
 # Apellido "Emet" como wake word formal (+ variantes Whisper base)
 _RE_APELLIDO = re.compile(
     r"\b(?:[eé]met|embed|emmet|amet|emed|ahmed)\b", re.IGNORECASE,
-)
-
-# Apodo "Gol" / "Col" / "Go" — solo acepta en contexto vocativo
-# Frontera \b obligatoria para no matchear "goles", "golpe", "color"
-_RE_APODO = re.compile(r"\b(?:gol|col|go)\b", re.IGNORECASE)
-
-# Patrones vocativos que validan al apodo como wake word
-_RE_VOCATIVO_APODO = re.compile(
-    r"(?:"
-    # Cortesía + apodo al final: "hola gol", "buenos días gol"
-    r"(?:hola|buenos?\s+d[ií]as?|buenas?\s+tardes?|buenas?\s+noches?|oye|hey|eh)\s+(?:gol|col|go)\b"
-    r"|"
-    # Apodo al inicio + orden/pregunta: "gol necesito", "gol busca", "col ayúdame"
-    r"\b(?:gol|col|go)[,\s]+\S"
-    r")",
-    re.IGNORECASE,
 )
 
 # דעת Da'at — Cortesía sin wake word (saludos, despedidas, estado)
@@ -257,18 +241,6 @@ _COMPRESSION_RATIO_UMBRAL = 0.5
 _CORRECCIONES_WHISPER = {
     # Wake word variants
     "ahmed": "emet",
-    "gordon": "computadora",
-    "gorden": "computadora",
-    "golen": "computadora",
-    "goleen": "computadora",
-    "gölem": "computadora",
-    "conlem": "computadora",
-    "colem": "computadora",
-    "gonem": "computadora",
-    "colom": "computadora",
-    "conlém": "computadora",
-    "conlen": "computadora",
-    "golén": "computadora",
     "emmet": "emet",
     "emed": "emet",
     "amet": "emet",
@@ -1756,7 +1728,6 @@ class HiloEscucha(QThread):
 
             tiene_wake = False
             es_regano = False   # Nombre completo "COMPUTADORA Emet" / "Computadora Emet" = propietario molesto
-            es_apodo = False    # "Gol"/"Col" en contexto vocativo
 
             # FP-035.3: Extraer embedding ANTES de los checks de wake word
             # (los checks de nombre completo y apellido necesitan 'emb' para verificar propietario)
@@ -1808,13 +1779,6 @@ class HiloEscucha(QThread):
                     logger.info(f"Apellido 'Emet' detectado (propietario verificado): '{texto}'")
                 else:
                     logger.debug(f"Apellido 'Emet' detectado pero hablante NO es propietario — ignorando")
-
-            # 4. Apodo "Gol"/"Col"/"Go" — solo en contexto vocativo
-            if not tiene_wake and _RE_APODO.search(texto):
-                if _RE_VOCATIVO_APODO.search(texto):
-                    tiene_wake = True
-                    es_apodo = True
-                    logger.info(f"Apodo detectado en contexto vocativo: '{texto}'")
 
             # FP-035.3: emb ya extraído ANTES de checks de wake word (arriba)
 
@@ -1940,8 +1904,6 @@ class HiloEscucha(QThread):
                     texto_limpio = _RE_NOMBRE_COMPLETO.sub("", texto_limpio)
                 texto_limpio = _WAKE_WORD_RE.sub("", texto_limpio)
                 texto_limpio = _RE_APELLIDO.sub("", texto_limpio)
-                if es_apodo:
-                    texto_limpio = _RE_APODO.sub("", texto_limpio, count=1)
                 # Limpiar puntuación huérfana tras eliminar wake word
                 texto_limpio = re.sub(r'\s*,\s*,', ',', texto_limpio)  # ", ," → ","
                 texto_limpio = re.sub(r'\s{2,}', ' ', texto_limpio)    # espacios dobles
@@ -2030,14 +1992,6 @@ class HiloEscucha(QThread):
                     _log_audio(texto, "cortesia")
                     self.texto_detectado.emit(f"[cortesia]{texto}")
                     return
-                # Cortesía con apodo: "hola gol", "buenos días gol"
-                if _RE_VOCATIVO_APODO.search(texto) and _RE_APODO.search(texto):
-                    texto_sin_apodo = _RE_APODO.sub("", texto, count=1).strip(" ,.:;¿¡")
-                    if _RE_CORTESIA.match(texto_sin_apodo):
-                        logger.info(f"Cortesía+apodo detectada: '{texto}'")
-                        _log_audio(texto, "cortesia_apodo")
-                        self.texto_detectado.emit(f"[cortesia]{texto_sin_apodo}")
-                        return
             else:
                 logger.debug(f"Descanso guardian: cortesía ignorada sin wake word: '{texto}'")
                 if _RE_CORTESIA.match(texto):

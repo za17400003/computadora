@@ -889,7 +889,7 @@ Verifica: _RE_DEMO_MALJUT regex (8 tests: variantes positivas + falsos positivos
 ### FASE 49 — Tikún #7: FP-044 Shomer Kol + Tikún Maljut Demo + Sanitizer Ollama (RF-109/RF-110/RF-111/RF-112)
 
 **Archivo**: `tests/test_tikun_007.py` | **30/30 PASS (100%)**
-Verifica: ContextoPantalla.hay_media_activa (10 tests: YouTube/Netflix/Spotify/VLC/Twitch/Disney+/HBO + negativos VSCode/Explorer/empty), correcciones Whisper sin golden (3 tests), __MINIMIZAR__ interceptor presente + showMinimized (2 tests), _RE_DEMO_MALJUT variantes Whisper (8 tests: mal juzg/malhod/mal ajudo/malhut/mal jud + originales + negativo), sanitizador print/echo/console.log (5 tests), flag _librosa_warned (2 tests).
+Verifica: ContextoPantalla.hay_media_activa (10 tests: YouTube/Netflix/Spotify/VLC/Twitch/Disney+/HBO + negativos VSCode/Explorer/empty), wake words soportados (2 tests), __MINIMIZAR__ interceptor presente + showMinimized (2 tests), _RE_DEMO_MALJUT variantes Whisper (8 tests: mal juzg/malhod/mal ajudo/malhut/mal jud + originales + negativo), sanitizador print/echo/console.log (5 tests), flag _librosa_warned (2 tests).
 
 **Resultado acumulado total: 545/545 PASS (515 anteriores + 30 FP-044)**
 

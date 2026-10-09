@@ -71,19 +71,17 @@ class TestMediaActiva:
 
 
 # ========================================================
-# RF-109: Correcciones Whisper sin "golden"
+# RF-109: Correcciones Whisper para wake words actuales
 # ========================================================
 
 class TestCorreccionesWhisper:
-    """Verifica que golden ya no se corrige a computadora."""
+    """Verifica la normalización de wake words soportados."""
 
-    def test_golden_not_corrected(self):
-        from computadora.voz.escucha import _CORRECCIONES_WHISPER
-        assert "golden" not in _CORRECCIONES_WHISPER
-
-    def test_gordon_still_corrected(self):
-        from computadora.voz.escucha import _CORRECCIONES_WHISPER
-        assert _CORRECCIONES_WHISPER.get("gordon") == "computadora"
+    def test_current_wake_words_are_detected(self):
+        from computadora.voz.escucha import _WAKE_WORD_RE
+        assert _WAKE_WORD_RE.search("computadora")
+        assert _WAKE_WORD_RE.search("compu")
+        assert _WAKE_WORD_RE.search("computador")
 
     def test_ahmed_still_corrected(self):
         from computadora.voz.escucha import _CORRECCIONES_WHISPER
